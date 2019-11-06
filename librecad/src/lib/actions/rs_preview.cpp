@@ -44,7 +44,7 @@ RS_Preview::RS_Preview(RS_EntityContainer* parent)
 
 /**
  * Adds an entity to this preview and removes any attributes / layer
- * connectsions before that.
+ * connections before that.
  */
 void RS_Preview::addEntity(RS_Entity* entity) {
 	if (!entity || entity->isUndone()) {
@@ -173,5 +173,18 @@ void RS_Preview::addStretchablesFrom(RS_EntityContainer& container,
             addEntity(clone);
             // clone might be nullptr after this point
         }
+    }
+}
+
+void RS_Preview::draw(RS_Painter* painter, RS_GraphicView* view,
+                              double& patternOffset) {
+
+    if (!(painter && view)) {
+        return;
+    }
+
+    foreach (auto e, entities)
+    {
+        e->draw(painter, view, patternOffset);
     }
 }

@@ -2,6 +2,7 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2018 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
 **
@@ -53,6 +54,21 @@ int RS_Undo::countRedoCycles() {
 
 
 /**
+ * @return true, when current undo cycle has at least one undoable
+ */
+bool RS_Undo::hasUndoable()
+{
+    if (nullptr != currentCycle
+        && 0 < currentCycle->size()) {
+        return true;
+    }
+
+    return false;
+}
+
+
+
+/**
  * Adds an Undo Cycle at the current position in the list.
  * All Cycles after the new one are removed and the Undoabels
  * on them deleted.
@@ -72,41 +88,68 @@ void RS_Undo::addUndoCycle(std::shared_ptr<RS_UndoCycle> const& i) {
  * Starts a new cycle for one undo step. Every undoable that is
  * added after calling this method goes into this cycle.
  */
-void RS_Undo::startUndoCycle() {
-	RS_DEBUG->print("RS_Undo::startUndoCycle");
-    // definitely delete Undo Cycles and all Undoables in them
-	//   that cannot be redone now:
-	while (int(undoList.size()) > undoPointer+1) {
-		auto& l = undoList.back();
-		//remove the undoable in the current cyle
-        for(auto u: l->getUndoables()){
-			// Remove the pointer from _all_ other cycles:
-			for(auto& cycle: undoList)
-				if (&cycle != &l)
-					cycle->removeUndoable(u);
+void RS_Undo::startUndoCycle()
+{
+    if (1 < ++refCount) {
+        // only the first fresh top call starts a new cycle
+        return;
+    }
 
-			// Delete the Undoable for good:
-			// TODO, why u could be nullptr, issue #
-			if (u && u->isUndone()) {
-				removeUndoable(u);
-			}
-		}
-		undoList.pop_back();
-	}
+    size_t  removePointer {static_cast<size_t>(undoPointer + 1)};
+    // if there are undo cycles behind undoPointer
+    // remove obsolete entities and undoCycles
+    if (undoList.size() > removePointer) {
+        // collect remaining undoables
+        std::list<RS_Undoable*> keep;
+        for (auto it = undoList.begin(); it != undoList.begin() + removePointer; ++it) {
+            for (auto u: (*it)->getUndoables()){
+                keep.push_back( u);
+            }
+        }
+        keep.unique();
 
+        // collect obsolete undoables
+        std::list<RS_Undoable*> obsolete;
+        for (auto it = undoList.begin() + removePointer; it != undoList.end(); ++it) {
+            for (auto u: (*it)->getUndoables()){
+                obsolete.push_back( u);
+            }
+        }
+        // unique() only works correct on sorted list!
+        obsolete.sort();
+        obsolete.unique();
+
+        // delete obsolte undoables which are not in keep list
+        for (auto it = obsolete.begin(); it != obsolete.end(); ++it) {
+            if (keep.end() == std::find( keep.begin(), keep.end(), *it)) {
+                removeUndoable( *it);
+            }
+        }
+
+        // clean up obsolete undoCycles
+        while (undoList.size() > removePointer) {
+            undoList.pop_back();
+        }
+    }
+
+    // alloc new undoCycle
     currentCycle = std::make_shared<RS_UndoCycle>();
 }
-
 
 
 /**
  * Adds an undoable to the current undo cycle.
  */
 void RS_Undo::addUndoable(RS_Undoable* u) {
-	RS_DEBUG->print("RS_Undo::%s(): begin", __func__);
+    RS_DEBUG->print("RS_Undo::%s(): begin", __func__);
 
-	currentCycle->addUndoable(u);
-	RS_DEBUG->print("RS_Undo::%s(): end", __func__);
+    if( nullptr == currentCycle) {
+        RS_DEBUG->print( RS_Debug::D_CRITICAL, "RS_Undo::%s(): invalid currentCycle, possibly missing startUndoCycle()", __func__);
+        return;
+    }
+
+    currentCycle->addUndoable(u);
+    RS_DEBUG->print("RS_Undo::%s(): end", __func__);
 }
 
 
@@ -114,10 +157,27 @@ void RS_Undo::addUndoable(RS_Undoable* u) {
 /**
  * Ends the current undo cycle.
  */
-void RS_Undo::endUndoCycle() {
-    addUndoCycle(currentCycle);
-	setGUIButtons();
-	currentCycle = std::make_shared<RS_UndoCycle>();
+void RS_Undo::endUndoCycle() 
+{
+    if (0 < refCount) {
+        // compensate nested calls of start-/endUndoCycle()
+        if( 0 < --refCount) {
+            // not the final nested call, nothing to do yet
+            return;
+        }
+    }
+    else {
+        RS_DEBUG->print( RS_Debug::D_WARNING, "Warning: RS_Undo::endUndoCycle() called without previous startUndoCycle()  %d", refCount);
+        return;
+    }
+
+    if (hasUndoable()) {
+        // only keep the undoCycle, when it contains undoables
+        addUndoCycle(currentCycle);
+    }
+
+    setGUIButtons();
+    currentCycle = nullptr; // invalidate currentCycle for next startUndoCycle()
 }
 
 

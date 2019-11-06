@@ -18,9 +18,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QCheckBox>
-#if QT_VERSION >= 0x040400
 #include <QFormLayout>
-#endif
 #include <QPushButton>
 #include <QFileDialog>
 #include <QSettings>
@@ -256,7 +254,7 @@ void picPunto::processFilePic(QFile* file)
                     pd->x = data.at(i).split(',').at(0);
                     pd->y = data.at(i).split(',').at(1);
                     dataList.append(pd);
-                    if ( i < data.size()-1 and data.at(i+1) != "to") {
+                    if ( i < data.size()-1 && data.at(i+1) != "to") {
                         QMessageBox::critical ( this, "picPunto", QString(tr("format error in %1")).arg(line) );
                         return;
                     }
@@ -280,7 +278,7 @@ void picPunto::processFilePic(QFile* file)
                     QString posy = data.at(7).split(',').at(1);
                     drawBox(posx.remove(0,1), posy.remove(posy.size()-1,1), data.at(9), data.at(11));
                 } else {
-                    if ( cmd.startsWith("\"\\s") and data.size() > 3 ) { // "\s5\fRAbstell fl?che\fP" at 8.132,7.456 ljust
+                    if ( cmd.startsWith("\"\\s") && data.size() > 3 ) { // "\s5\fRAbstell fl?che\fP" at 8.132,7.456 ljust
                         QString txt = line.split("\"", skip).at(1);
                         QStringList rline = line.split("\"", skip).at(2).split(" ",skip);
                         txt.remove ( txt.size()-3, 3);
@@ -323,7 +321,3 @@ void picPunto::writeSettings()
     settings.setValue("lastfile", fileedit->text());
     settings.setValue("lastscale", scaleedit->text());
  }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(picfile, PicFile);
-#endif

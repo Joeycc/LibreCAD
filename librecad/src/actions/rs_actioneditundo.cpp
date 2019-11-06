@@ -52,30 +52,28 @@ void RS_ActionEditUndo::init(int status) {
 
 
 
-void RS_ActionEditUndo::trigger() {
-    if (undo) {
-        if(!document->undo()) {
-			if (RS_DIALOGFACTORY) {
-                RS_DIALOGFACTORY->commandMessage(tr("Nothing to undo!"));
-            }
-        }
-    } else {
-        if(!document->redo()) {
-			if (RS_DIALOGFACTORY) {
-                RS_DIALOGFACTORY->commandMessage(tr("Nothing to redo!"));
-            }
-        }
+void RS_ActionEditUndo::trigger()
+{
+    if (!graphic)
+    {
+        qWarning("undo: graphic is null");
+        return;
     }
 
-    if (graphic) {
-        graphic->addBlockNotification();
-    }
+	if (undo) {
+		if(!document->undo())
+			RS_DIALOGFACTORY->commandMessage(tr("Nothing to undo!"));
+	} else {
+		if(!document->redo())
+			RS_DIALOGFACTORY->commandMessage(tr("Nothing to redo!"));
+	}
+
+    graphic->addBlockNotification();
+    graphic->setModified(true);
     document->updateInserts();
-
     graphicView->redraw(RS2::RedrawDrawing);
-
-
     finish(false);
-    RS_DIALOGFACTORY->updateSelectionWidget(container->countSelected(),container->totalSelectedLength());
+    RS_DIALOGFACTORY->updateSelectionWidget(container->countSelected(),
+                                            container->totalSelectedLength());
 }
 // EOF

@@ -48,15 +48,15 @@ private:
 public:
     RS_ActionDrawLineTangent2(RS_EntityContainer& container,
                               RS_GraphicView& graphicView);
-	~RS_ActionDrawLineTangent2();
+	~RS_ActionDrawLineTangent2() override;
 
-    virtual void trigger();
-    virtual void mouseMoveEvent(QMouseEvent* e);
-    virtual void mouseReleaseEvent(QMouseEvent* e);
-    virtual void updateMouseButtonHints();
-    virtual void finish(bool updateTB);
+	void trigger() override;
+	void mouseMoveEvent(QMouseEvent* e) override;
+	void mouseReleaseEvent(QMouseEvent* e) override;
+	void updateMouseButtonHints() override;
+	void finish(bool updateTB) override;
 
-    virtual void updateMouseCursor();
+	void updateMouseCursor() override;
 
 private:
 	void clearHighlighted();
@@ -68,6 +68,9 @@ private:
     /** 2nd chosen entity */
     RS_Entity* circle2;
     bool valid;
+
+    //list of entity types supported by current action
+    const std::initializer_list<RS2::EntityType> circleType {RS2::EntityArc, RS2::EntityCircle, RS2::EntityEllipse};
 };
 
 #endif

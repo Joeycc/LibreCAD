@@ -2,6 +2,36 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ro_RO">
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
@@ -295,16 +325,12 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished">&amp;Polilinie</translation>
     </message>
     <message>
-        <source>Draw polylines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Add node</source>
         <translation type="unfinished">&amp;Adaugare nod</translation>
     </message>
     <message>
         <source>Add polyline&apos;s node</source>
-        <translation type="unfinished">Adaugare nod pe polilinie</translation>
+        <translation type="obsolete">Adaugare nod pe polilinie</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
@@ -312,7 +338,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Append polyline&apos;s node</source>
-        <translation type="unfinished">Adauga un nod la polilinie</translation>
+        <translation type="obsolete">Adauga un nod la polilinie</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
@@ -320,7 +346,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete polyline&apos;s node</source>
-        <translation type="unfinished">Stergerea nodului poliliniei</translation>
+        <translation type="obsolete">Stergerea nodului poliliniei</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
@@ -328,7 +354,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation type="unfinished">Stergere intre doua noduri</translation>
+        <translation type="obsolete">Stergere intre doua noduri</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
@@ -336,7 +362,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Trim polyline&apos;s segments</source>
-        <translation type="unfinished">Taierea segmentelor poliliniei</translation>
+        <translation type="obsolete">Taierea segmentelor poliliniei</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
@@ -344,7 +370,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Equidistant Polylines</source>
-        <translation type="unfinished">Creare Polilinii Echidistante</translation>
+        <translation type="obsolete">Creare Polilinii Echidistante</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
@@ -352,7 +378,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Polyline from Existing Segments</source>
-        <translation type="unfinished">Creare polilinie din segmentele existente</translation>
+        <translation type="obsolete">Creare polilinie din segmentele existente</translation>
     </message>
     <message>
         <source>&amp;MText</source>
@@ -436,7 +462,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation type="unfinished">Deplasare si r&amp;otire</translation>
+        <translation type="obsolete">Deplasare si r&amp;otire</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
@@ -452,7 +478,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation type="unfinished">&amp;Taiere doua entitati</translation>
+        <translation type="obsolete">&amp;Taiere doua entitati</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
@@ -460,7 +486,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Offset</source>
-        <translation type="unfinished">&amp;Distanta</translation>
+        <translation type="obsolete">&amp;Distanta</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -620,7 +646,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation type="unfinished">&amp;Preferinte</translation>
+        <translation type="obsolete">&amp;Preferinte</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -664,7 +690,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation type="unfinished">Regenerarea Cotarii Entitatilor</translation>
+        <translation type="obsolete">Regenerarea Cotarii Entitatilor</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -739,18 +765,6 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+Meta+F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Grid</source>
         <translation type="unfinished">&amp;Grila</translation>
     </message>
@@ -804,6 +818,35 @@ distance between points=%2 is larger than diameter=%3</source>
         <source>Reload Style Sheet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
@@ -813,9 +856,21 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
 </context>
 <context>
-    <name>LC_CustomToolbar</name>
+    <name>LC_DeviceOptions</name>
     <message>
-        <source>Add or Remove Action</source>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">Mouse</translation>
+    </message>
+    <message>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -854,6 +909,30 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Style Sheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation type="unfinished">Bara de stare</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -980,11 +1059,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>&amp;Desen</translation>
+        <translation type="obsolete">&amp;Desen</translation>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>&amp;Cotare</translation>
+        <translation type="obsolete">&amp;Cotare</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
@@ -992,7 +1071,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>&amp;Salt la</translation>
+        <translation type="obsolete">&amp;Salt la</translation>
     </message>
     <message>
         <source>&amp;Info</source>
@@ -1000,11 +1079,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>&amp;Strat</translation>
+        <translation type="obsolete">&amp;Strat</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp;Bloc</translation>
+        <translation type="obsolete">&amp;Bloc</translation>
     </message>
     <message>
         <source>About</source>
@@ -1048,7 +1127,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">Deschiderea unui fisier recent...</translation>
+        <translation>Deschiderea unui fisier recent...</translation>
     </message>
     <message>
         <source>Loaded document: </source>
@@ -1068,7 +1147,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>About...</source>
-        <translation>Despre...</translation>
+        <translation type="obsolete">Despre...</translation>
     </message>
     <message>
         <source>File</source>
@@ -1184,7 +1263,7 @@ Va rog verificati permisiunile.</translation>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>&amp;Manual</translation>
+        <translation type="obsolete">&amp;Manual</translation>
     </message>
     <message>
         <source>&amp;CAM</source>
@@ -1196,7 +1275,7 @@ Va rog verificati permisiunile.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nedefinit</translation>
+        <translation type="obsolete">Nedefinit</translation>
     </message>
     <message>
         <source>Version: %1 %2</source>
@@ -1204,7 +1283,7 @@ Va rog verificati permisiunile.</translation>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>Module : %1</translation>
+        <translation type="obsolete">Module : %1</translation>
     </message>
     <message>
         <source>&amp;About %1</source>
@@ -1230,7 +1309,7 @@ Acum puteti sa va salvati lucrul.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>&amp;Fereastra</translation>
+        <translation type="obsolete">&amp;Fereastra</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -1280,7 +1359,7 @@ Autosalvare dezactivata.</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Ajutor</translation>
+        <translation type="obsolete">Ajutor</translation>
     </message>
     <message>
         <source>Bugger, I couldn&apos;t find the helpfiles on the filesystem.</source>
@@ -1304,15 +1383,15 @@ Autosalvare dezactivata.</translation>
     </message>
     <message>
         <source>Program Icons Supplied by</source>
-        <translation>Pictograme furnizate de</translation>
+        <translation type="obsolete">Pictograme furnizate de</translation>
     </message>
     <message>
         <source>Splash and Logo supplied by</source>
-        <translation>Imaginea de intampinare si logo de</translation>
+        <translation type="obsolete">Imaginea de intampinare si logo de</translation>
     </message>
     <message>
         <source>Main Website : </source>
-        <translation>Site Web :</translation>
+        <translation type="obsolete">Site Web :</translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -1320,7 +1399,7 @@ Autosalvare dezactivata.</translation>
     </message>
     <message>
         <source>SCM Revision: %1</source>
-        <translation>Revizuire: %1</translation>
+        <translation type="obsolete">Revizuire: %1</translation>
     </message>
     <message>
         <source>Please donate to LibreCAD to help maintain the sourcecode and it&apos;s website.</source>
@@ -1344,7 +1423,7 @@ Autosalvare dezactivata.</translation>
     </message>
     <message>
         <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
-        <translation>Donatii pentru LibreCAD pentru a ajuta la mentinerea codului sursa si a site-ului web.</translation>
+        <translation type="obsolete">Donatii pentru LibreCAD pentru a ajuta la mentinerea codului sursa si a site-ului web.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
@@ -1391,15 +1470,7 @@ Autosalvare dezactivata.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Help files not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1429,15 +1500,7 @@ Please check its existence and permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The help files were not found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1477,14 +1540,6 @@ Please check its existence and permissions.</source>
         <translation type="unfinished">Polilinie</translation>
     </message>
     <message>
-        <source>&amp;Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dimension</source>
         <translation type="unfinished">Dimensiune</translation>
     </message>
@@ -1497,19 +1552,99 @@ Please check its existence and permissions.</source>
         <translation type="unfinished">Info</translation>
     </message>
     <message>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Online (Wiki)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Dockwidgets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dock Areas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copiere</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2909,10 +3044,6 @@ p, li { white-space: pre-wrap; }
         <translation>Istoric comenzi si valori iesire</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Copy</source>
         <translation type="obsolete">&amp;Copiere</translation>
     </message>
@@ -2920,6 +3051,10 @@ p, li { white-space: pre-wrap; }
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
     </message>
 </context>
 <context>
@@ -3390,7 +3525,7 @@ p, li { white-space: pre-wrap; }
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Bine ati venit la QCad&lt;/b&gt;
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Bine ati venit la QCad&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Alegeti unitatea pe care doriti sa o folositi pentru noile desene si limba preferata.&lt;br&gt;
@@ -3415,6 +3550,14 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     <message>
         <source>Enter</source>
         <translation type="obsolete">Continuare</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3547,7 +3690,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation type="unfinished">&amp;Spatierea liniilor:</translation>
+        <translation type="obsolete">&amp;Spatierea liniilor:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -4135,6 +4278,10 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Line spacing:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4790,7 +4937,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>Scripturi:</translation>
+        <translation type="obsolete">Scripturi:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -4850,7 +4997,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>Numar de entitati p&amp;revizualizate:</translation>
+        <translation type="obsolete">Numar de entitati p&amp;revizualizate:</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -4898,11 +5045,11 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>Marime tip litera</translation>
+        <translation type="obsolete">Marime tip litera</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>Bara de stare:</translation>
+        <translation type="obsolete">Bara de stare:</translation>
     </message>
     <message>
         <source>5</source>
@@ -5006,7 +5153,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>Spatiere minima a grilei (px):</translation>
+        <translation type="obsolete">Spatiere minima a grilei (px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -5073,80 +5220,16 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Splash Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display Splash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Graphic Colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Aquamarine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Azure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DeepSkyBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DodgerBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Gray</source>
-        <translation type="unfinished">Gri</translation>
-    </message>
-    <message>
-        <source>HoneyDew</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lavender</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>LightGrey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Navy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PaleGreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pink</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Salmon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Silver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Violet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wheat</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Gri</translation>
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished">Alb</translation>
+        <translation type="obsolete">Alb</translation>
     </message>
     <message>
         <source>Snap indicator:</source>
@@ -5158,27 +5241,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Crosshair</source>
-        <translation type="unfinished">Cursor fir de par</translation>
-    </message>
-    <message>
-        <source>Spiderweb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GUI Colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Layer/ Block Selection:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Toolbar:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Cursor fir de par</translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
@@ -5209,14 +5272,6 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Isometric</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Snap indicator lines</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5226,15 +5281,11 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Cerc</translation>
+        <translation type="obsolete">Cerc</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">Punct</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Punct</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
@@ -5242,6 +5293,58 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Start in tab mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6281,15 +6384,23 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Aligned</source>
-        <translation type="unfinished">Aliniat</translation>
+        <translation type="obsolete">Aliniat</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Mijloc</translation>
+        <translation type="obsolete">Mijloc</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished">&amp;Mijloc</translation>
     </message>
 </context>
 <context>
@@ -6471,7 +6582,7 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>Black</source>
-        <translation>Negru</translation>
+        <translation type="obsolete">Negru</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -6587,6 +6698,10 @@ Puteti modifica ulterior acesti parametri din fereastra de dialog Optiuni QCad.<
     </message>
     <message>
         <source>set same size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7493,6 +7608,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Lock relative zero position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9280,6 +9399,185 @@ Continue?</source>
     </message>
     <message>
         <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Cerc</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Editare</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipsa</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Fisier</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Dimensiune</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Info</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Linie</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">Modificare</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished">Optiuni</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilinie</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Selectie</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Salt</translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Afisare</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -11498,7 +11796,7 @@ Continue?</source>
     </message>
     <message>
         <source>Area: %1</source>
-        <translation>Suprafata: %1</translation>
+        <translation type="obsolete">Suprafata: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -11531,6 +11829,10 @@ Continue?</source>
     <message>
         <source>Closing Point: %1/%2</source>
         <translation>Punct de inchidere: %1/%2</translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12664,7 +12966,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deletinging point is invalid.</source>
-        <translation>Punctul de sters nu este valid.</translation>
+        <translation type="obsolete">Punctul de sters nu este valid.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
@@ -12672,7 +12974,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deleteinging point is not on entity.</source>
-        <translation>Punctul de sters nu se afla pe entitate.</translation>
+        <translation type="obsolete">Punctul de sters nu se afla pe entitate.</translation>
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
@@ -14223,6 +14525,13 @@ Continue?</source>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
@@ -14865,6 +15174,41 @@ Continue?</source>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
         <translation type="unfinished">Lungimea introdusa este folosita ca lungime totala dupa taiere, in locul cresterii lungimii</translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

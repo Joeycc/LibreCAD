@@ -744,7 +744,7 @@ bool dxfRW::writeLWPolyline(DRW_LWPolyline *ent){
         if (ent->thickness != 0)
             writer->writeDouble(39, ent->thickness);
         for (int i = 0;  i< ent->vertexnum; i++){
-            DRW_Vertex2D *v = ent->vertlist.at(i);
+			auto& v = ent->vertlist.at(i);
             writer->writeDouble(10, v->x);
             writer->writeDouble(20, v->y);
             if (v->stawidth != 0)
@@ -805,7 +805,7 @@ bool dxfRW::writePolyline(DRW_Polyline *ent) {
 
     int vertexnum = ent->vertlist.size();
     for (int i = 0;  i< vertexnum; i++){
-        DRW_Vertex *v = ent->vertlist.at(i);
+		auto& v = ent->vertlist.at(i);
         writer->writeString(0, "VERTEX");
         writeEntity(ent);
         if (version > DRW::AC1009)
@@ -875,8 +875,7 @@ bool dxfRW::writeSpline(DRW_Spline *ent){
         for (int i = 0;  i< ent->nknots; i++){
             writer->writeDouble(40, ent->knotslist.at(i));
         }
-        for (int i = 0;  i< ent->ncontrol; i++){
-            DRW_Coord *crd = ent->controllist.at(i);
+		for (auto const& crd: ent->controllist) {
             writer->writeDouble(10, crd->x);
             writer->writeDouble(20, crd->y);
             writer->writeDouble(30, crd->z);
@@ -905,7 +904,7 @@ bool dxfRW::writeHatch(DRW_Hatch *ent){
         writer->writeInt16(91, ent->loopsnum);
         //write paths data
         for (int i = 0;  i< ent->loopsnum; i++){
-            DRW_HatchLoop *loop = ent->looplist.at(i);
+			auto const& loop = ent->looplist.at(i);
             writer->writeInt16(92, loop->type);
             if ( (loop->type & 2) == 2){
                 //RLZ: polyline boundary writeme
@@ -917,7 +916,7 @@ bool dxfRW::writeHatch(DRW_Hatch *ent){
                     switch ( (loop->objlist.at(j))->eType) {
                     case DRW::LINE: {
                         writer->writeInt16(72, 1);
-                        DRW_Line* l = (DRW_Line*)loop->objlist.at(j);
+						DRW_Line* l = (DRW_Line*)loop->objlist.at(j).get();
                         writer->writeDouble(10, l->basePoint.x);
                         writer->writeDouble(20, l->basePoint.y);
                         writer->writeDouble(11, l->secPoint.x);
@@ -925,7 +924,7 @@ bool dxfRW::writeHatch(DRW_Hatch *ent){
                         break; }
                     case DRW::ARC: {
                         writer->writeInt16(72, 2);
-                        DRW_Arc* a = (DRW_Arc*)loop->objlist.at(j);
+						DRW_Arc* a = (DRW_Arc*)loop->objlist.at(j).get();
                         writer->writeDouble(10, a->basePoint.x);
                         writer->writeDouble(20, a->basePoint.y);
                         writer->writeDouble(40, a->radious);
@@ -935,7 +934,7 @@ bool dxfRW::writeHatch(DRW_Hatch *ent){
                         break; }
                     case DRW::ELLIPSE: {
                         writer->writeInt16(72, 3);
-                        DRW_Ellipse* a = (DRW_Ellipse*)loop->objlist.at(j);
+						DRW_Ellipse* a = (DRW_Ellipse*)loop->objlist.at(j).get();
                         a->correctAxis();
                         writer->writeDouble(10, a->basePoint.x);
                         writer->writeDouble(20, a->basePoint.y);
@@ -990,8 +989,7 @@ bool dxfRW::writeLeader(DRW_Leader *ent){
         writer->writeDouble(41, ent->textwidth);
         writer->writeDouble(76, ent->vertnum);
         writer->writeDouble(76, ent->vertexlist.size());
-        for (unsigned int i=0; i<ent->vertexlist.size(); i++) {
-            DRW_Coord *vert = ent->vertexlist.at(i);
+		for (auto const& vert: ent->vertexlist) {
             writer->writeDouble(10, vert->x);
             writer->writeDouble(20, vert->y);
             writer->writeDouble(30, vert->z);
@@ -1760,6 +1758,8 @@ bool dxfRW::writeObjects() {
        imageDef.pop_back();
     }
 
+    iface->writeObjects();
+
     return true;
 }
 
@@ -1816,11 +1816,16 @@ bool dxfRW::processDxf() {
     bool more = true;
     std::string sectionstr;
 //    section = secUnknown;
+    reader->setIgnoreComments( false);
     while (reader->readRec(&code)) {
         DRW_DBG(code); DRW_DBG(" processDxf\n");
         if (code == 999) {
+            // when DXF was created by libdxfrw, first record is a comment with dxfrw version info
             header.addComment(reader->getString());
         } else if (code == 0) {
+            // ignore further comments, as libdxfrw doesn't support comments in sections
+            reader->setIgnoreComments( true);
+
             sectionstr = reader->getString();
             DRW_DBG(sectionstr); DRW_DBG(" processDxf\n");
             if (sectionstr == "EOF") {
@@ -1834,19 +1839,29 @@ bool dxfRW::processDxf() {
                 if (code == 2) {
                     sectionstr = reader->getString();
                     DRW_DBG(sectionstr); DRW_DBG("  processDxf\n");
-                //found section, process it
+                    //found section, process it
                     if (sectionstr == "HEADER") {
-                        processHeader();
+                        if (!processHeader()) {
+                            return false;
+                        }
                     } else if (sectionstr == "CLASSES") {
 //                        processClasses();
                     } else if (sectionstr == "TABLES") {
-                        processTables();
+                        if (!processTables()) {
+                            return false;
+                        }
                     } else if (sectionstr == "BLOCKS") {
-                        processBlocks();
+                        if (!processBlocks()) {
+                            return false;
+                        }
                     } else if (sectionstr == "ENTITIES") {
-                        processEntities(false);
+                        if (!processEntities(false)) {
+                            return false;
+                        }
                     } else if (sectionstr == "OBJECTS") {
-                        processObjects();
+                        if (!processObjects()) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -1872,7 +1887,14 @@ bool dxfRW::processHeader() {
                 iface->addHeader(&header);
                 return true;  //found ENDSEC terminate
             }
-        } else header.parseCode(code, reader);
+            else {
+                DRW_DBG("unexpected 0 code in header!\n");
+                return false;
+            }
+        }
+        else {
+            header.parseCode(code, reader);
+        }
     }
     return true;
 }
@@ -2512,22 +2534,21 @@ bool dxfRW::processPolyline() {
 bool dxfRW::processVertex(DRW_Polyline *pl) {
     DRW_DBG("dxfRW::processVertex");
     int code;
-    DRW_Vertex *v = new DRW_Vertex();
+	std::shared_ptr<DRW_Vertex> v = std::make_shared<DRW_Vertex>();
     while (reader->readRec(&code)) {
-        DRW_DBG(code); DRW_DBG("\n");
+		DRW_DBG(code); DRW_DBG("\n");
         switch (code) {
-        case 0: {
-            pl->appendVertex(v);
-            nextentity = reader->getString();
-            DRW_DBG(nextentity); DRW_DBG("\n");
-            if (nextentity == "SEQEND") {
-            return true;  //found SEQEND no more vertex, terminate
-            } else if (nextentity == "VERTEX"){
-                v = new DRW_Vertex(); //another vertex
-            }
-        }
+		case 0:
+			pl->appendVertex(v);
+			nextentity = reader->getString();
+			DRW_DBG(nextentity); DRW_DBG("\n");
+			if (nextentity == "SEQEND")
+				return true;  //found SEQEND no more vertex, terminate
+			else if (nextentity == "VERTEX")
+                v.reset(new DRW_Vertex); //another vertex
+
         default:
-            v->parseCode(code, reader);
+			v->parseCode(code, reader);
             break;
         }
     }
@@ -2735,6 +2756,8 @@ bool dxfRW::processObjects() {
             return true;  //found ENDSEC terminate
         } else if (nextentity == "IMAGEDEF") {
             processImageDef();
+        } else if (nextentity == "PLOTSETTINGS") {
+            processPlotSettings();
         } else {
             if (reader->readRec(&code)){
                 if (code == 0)
@@ -2765,6 +2788,38 @@ bool dxfRW::processImageDef() {
             break;
         }
     }
+    return true;
+}
+
+bool dxfRW::processPlotSettings() {
+    DRW_DBG("dxfRW::processPlotSettings");
+    int code;
+    DRW_PlotSettings ps;
+    while (reader->readRec(&code)) {
+        DRW_DBG(code); DRW_DBG("\n");
+        switch (code) {
+        case 0: {
+            nextentity = reader->getString();
+            DRW_DBG(nextentity); DRW_DBG("\n");
+            iface->addPlotSettings(&ps);
+            return true;  //found new entity or ENDSEC, terminate
+        }
+        default:
+            ps.parseCode(code, reader);
+            break;
+        }
+    }
+    return true;
+}
+
+bool dxfRW::writePlotSettings(DRW_PlotSettings *ent) {
+    writer->writeString(0, "PLOTSETTINGS");
+    writer->writeString(5, toHexStr(++entCount));
+    writer->writeUtf8String(6, ent->plotViewName);
+    writer->writeDouble(40, ent->marginLeft);
+    writer->writeDouble(41, ent->marginBottom);
+    writer->writeDouble(42, ent->marginRight);
+    writer->writeDouble(43, ent->marginTop);
     return true;
 }
 

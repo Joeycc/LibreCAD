@@ -40,11 +40,7 @@
 class RS_Vector {
 public:
 	RS_Vector()=default;
-#ifdef  RS_VECTOR2D
-    RS_Vector(double vx, double vy);
-#else
-    RS_Vector(double vx, double vy, double vz=0.0);
-#endif
+	RS_Vector(double vx, double vy, double vz=0.0);
     explicit RS_Vector(double angle);
     //RS_Vector(double v[]);
     explicit RS_Vector(bool valid);
@@ -56,11 +52,7 @@ public:
 	explicit operator bool() const;
 
 	void set(double angle); // set to unit vector by the direction of angle
-#ifdef  RS_VECTOR2D
-    void set(double vx, double vy);
-#else
     void set(double vx, double vy, double vz=0.0);
-#endif
     void setPolar(double radius, double angle);
 	//! \{
 	//! construct by cartesian, or polar coordinates
@@ -124,11 +116,12 @@ public:
 
     static RS_Vector minimum(const RS_Vector& v1, const RS_Vector& v2);
     static RS_Vector maximum(const RS_Vector& v1, const RS_Vector& v2);
-#ifndef RS_VECTOR2D
 //    crossP only defined for 3D
     static RS_Vector crossP(const RS_Vector& v1, const RS_Vector& v2);
-#endif
     static double dotP(const RS_Vector& v1, const RS_Vector& v2);
+    static double posInLine(const RS_Vector& start,
+                            const RS_Vector& end,
+                            const RS_Vector& pos);
 
     /** switch x,y for all vectors */
     RS_Vector flipXY(void) const;
@@ -143,9 +136,7 @@ public:
 public:
 	double x=0.;
 	double y=0.;
-#ifndef RS_VECTOR2D
 	double z=0.;
-#endif
 	bool valid=false;
 };
 

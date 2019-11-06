@@ -33,10 +33,6 @@
 #include "rs_block.h"
 #include "rs_blocklistlistener.h"
 
-#if QT_VERSION < 0x040400
-#include "emu_qt44.h"
-#endif
-
 /**
  * Constructor.
  * 
@@ -143,11 +139,8 @@ void RS_BlockList::remove(RS_Block* block) {
     RS_DEBUG->print("RS_BlockList::removeBlock()");
 
     // here the block is removed from the list but not deleted
-#if QT_VERSION < 0x040400
-    emu_qt44_removeOne(blocks, block);
-#else
     blocks.removeOne(block);
-#endif
+
 	for(auto l: blockListListeners){
 		l->blockRemoved(block);
 	}
@@ -212,7 +205,13 @@ void RS_BlockList::editBlock(RS_Block* block, const RS_Block& source) {
  * \p nullptr if no such block was found.
  */
 RS_Block* RS_BlockList::find(const QString& name) {
-    //RS_DEBUG->print("RS_BlockList::find");
+    try {
+        RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_BlockList::find(): %s", name.toLatin1().constData());
+    }
+    catch(...) {
+        RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_BlockList::find(): wrong name to find");
+        return nullptr;
+    }
 	// Todo : reduce this from O(N) to O(log(N)) complexity based on sorted list or hash
 	//DFS
 	std::vector<RS_BlockList const*> nodes;
@@ -222,17 +221,19 @@ RS_Block* RS_BlockList::find(const QString& name) {
 	while (nodes.size()) {
 		auto list = nodes.back();
 		nodes.pop_back();
-		for (RS_Block* b: *list) {
-			if (b->getName() == name)
-				return b;
-			auto node = b->getBlockList();
+        for (RS_Block* blk: *list) {
+            if (blk->getName() == name) {
+                RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_BlockList::find(): OK");
+                return blk;
+            }
+            auto node = blk->getBlockList();
 			if (!searched.count(node)) {
 				searched.insert(list);
-				nodes.push_back(b->getBlockList());
+                nodes.push_back(blk->getBlockList());
 			}
 		}
 	}
-
+    RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_BlockList::find(): bad");
 	return nullptr;
 }
 
@@ -302,7 +303,9 @@ void RS_BlockList::toggle(RS_Block* block) {
 void RS_BlockList::freezeAll(bool freeze) {
 
     for (int l=0; l<count(); l++) {
-        at(l)->freeze(freeze);
+        if (at(l)->isVisibleInBlockList()) {
+            at(l)->freeze(freeze);
+        }
     }
     // TODO LordOfBikes: when block attributes are saved, activate this
     //setModified(true);
@@ -346,11 +349,7 @@ void RS_BlockList::addListener(RS_BlockListListener* listener) {
  * removes a BlockListListener from the list of listeners. 
  */
 void RS_BlockList::removeListener(RS_BlockListListener* listener) {
-#if QT_VERSION < 0x040400
-    emu_qt44_removeOne(blockListListeners, listener);
-#else
     blockListListeners.removeOne(listener);
-#endif
 }
 
 int RS_BlockList::count() const{
@@ -392,15 +391,28 @@ RS_Block* RS_BlockList::getActive() {
 }
 
 /**
- * Sets the layer lists modified status to 'm'.
+ * Sets the block list modified status to 'm'.
  */
 void RS_BlockList::setModified(bool m) {
 	modified = m;
+
+	// Update each block modified status,
+	// but only when the status is set to false.
+	if (m == false) {
+		for (auto b: blocks) {
+			b->setModifiedFlag(false);
+		}
+	}
+
+	// Notify listeneres
+	for (auto l: blockListListeners) {
+		l->blockListModified(m);
+	}
 }
 
 /**
- * @retval true The layer list has been modified.
- * @retval false The layer list has not been modified.
+ * @retval true The block list has been modified.
+ * @retval false The block list has not been modified.
  */
 bool RS_BlockList::isModified() const {
 	return modified;

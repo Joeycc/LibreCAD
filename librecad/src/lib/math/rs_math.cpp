@@ -78,6 +78,14 @@ RS_Vector RS_Math::pow(RS_Vector vp, double y) {
 }
 
 /**
+ * Save equal function for real types
+ */
+bool RS_Math::equal(const double d1, const double d2)
+{
+    return fabs(d1 - d2) < RS_TOLERANCE;
+}
+
+/**
  * Converts radians to degrees.
  */
 double RS_Math::rad2deg(double a) {
@@ -140,12 +148,22 @@ bool RS_Math::isAngleBetween(double a,
 }
 
 /**
- * Corrects the given angle to the range of 0-2*Pi.
+ * Corrects the given angle to the range of 0 to +PI*2.0.
  */
 double RS_Math::correctAngle(double a) {
-    return M_PI + remainder(a - M_PI, m_piX2);
+    return fmod(M_PI + remainder(a - M_PI, m_piX2), m_piX2);
 }
 
+/**
+ * Corrects the given angle to the range of -PI to +PI.
+ */
+double RS_Math::correctAngle2(double a) {
+    return remainder(a, m_piX2);
+}
+
+/**
+ * Returns the given angle as an Unsigned Angle in the range of 0 to +PI.
+ */
 double RS_Math::correctAngleU(double a) {
     return fabs(remainder(a, m_piX2));
 }
@@ -223,7 +241,7 @@ bool RS_Math::isSameDirection(double dir1, double dir2, double tol) {
 
 /**
  * Evaluates a mathematical expression and returns the result.
- * If an error occured, the given default value 'def' will be returned.
+ * If an error occurred, the given default value 'def' will be returned.
  */
 double RS_Math::eval(const QString& expr, double def) {
 
@@ -242,7 +260,7 @@ double RS_Math::eval(const QString& expr, double def) {
 
 /**
  * Evaluates a mathematical expression and returns the result.
- * If an error occured, ok will be set to false (if ok isn't NULL).
+ * If an error occurred, ok will be set to false (if ok isn't NULL).
  */
 double RS_Math::eval(const QString& expr, bool* ok) {
     bool okTmp(false);
@@ -254,14 +272,18 @@ double RS_Math::eval(const QString& expr, bool* ok) {
     double ret(0.);
     try{
         mu::Parser p;
-        p.DefineConst("pi",M_PI);
+        p.DefineConst(_T("pi"),M_PI);
+#ifdef _UNICODE
+        p.SetExpr(expr.toStdWString());
+#else
         p.SetExpr(expr.toStdString());
+#endif
         ret=p.Eval();
         *ok=true;
     }
     catch (mu::Parser::exception_type &e)
     {
-        std::cout << e.GetMsg() << std::endl;
+        mu::console() << e.GetMsg() << std::endl;
         *ok=false;
     }
     return ret;
@@ -408,48 +430,48 @@ void RS_Math::test() {
 //Equation solvers
 
 // quadratic, cubic, and quartic equation solver
-// @ ce[] contains coefficent of the cubic equation:
+// @ ce[] contains coefficient of the cubic equation:
 // @ returns a vector contains real roots
 //
 // solvers assume arguments are valid, and there's no attempt to verify validity of the argument pointers
 //
 // @author Dongxu Li <dongxuli2011@gmail.com>
-
 std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 //quadratic solver for
 // x^2 + ce[0] x + ce[1] =0
 {
     std::vector<double> ans(0,0.);
 	if (ce.size() != 2) return ans;
-	long double const b = -0.5L * ce[0];
-	long double const c = ce[1];
+	using LDouble = long double;
+	LDouble const b = -0.5L * ce[0];
+	LDouble const c = ce[1];
 	// x^2 -2 b x + c=0
 	// (x - b)^2 = b^2 - c
 	// b^2 >= fabs(c)
 	// x = b \pm b sqrt(1. - c/(b^2))
-	auto const b2= b * b;
-	auto const discriminant= b2 - c;
-    long double const fc = std::abs(c);
+	LDouble const b2= b * b;
+	LDouble const discriminant= b2 - c;
+	LDouble const fc = std::abs(c);
 
 	//TODO, fine tune to tolerance level
-	static long double const TOL = 1e-24L;
+	LDouble const TOL = 1e-24L;
 
-	if (discriminant < -TOL*std::max(b2, fc))
+	if (discriminant < 0.L)
 		//negative discriminant, no real root
 		return ans;
 
 	//find the radical
-	long double r;
+	LDouble r;
 
 	// given |p| >= |q|
 	// sqrt(p^2 \pm q^2) = p sqrt(1 \pm q^2/p^2)
 	if (b2 >= fc)
-		r = b * sqrt(1.L - c/b2);
+		r = std::abs(b) * std::sqrt(1.L - c/b2);
 	else
 		// c is negative, because b2 - c is non-negative
-		r = sqrt(fc) * sqrt(1.L + b2/fc);
+		r = std::sqrt(fc) * std::sqrt(1.L + b2/fc);
 
-    if (r >= TOL*std::abs(b)) {
+	if (r >= TOL*std::abs(b)) {
 		//two roots
 		if (b >= 0.L)
 			//since both (b,r)>=0, avoid (b - r) loss of significance
@@ -465,6 +487,7 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 		ans.push_back(b);
 	return ans;
 }
+
 
 std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 //cubic equation solver

@@ -32,34 +32,64 @@
     </message>
 </context>
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation>Nastavit</translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished"></translation>
+        <translation>Body splajny</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Hladina:</translation>
+        <translation>Hladina:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">Geometrie</translation>
+        <translation>Geometrie</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzavřená</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Body splajny</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Řídicí body</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Body na splajně</translation>
     </message>
 </context>
 <context>
@@ -334,16 +364,12 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Draw polylines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Add node</source>
         <translation type="unfinished">&amp;Vložit uzel</translation>
     </message>
     <message>
         <source>Add polyline&apos;s node</source>
-        <translation type="unfinished">Vložit uzel křivky</translation>
+        <translation type="obsolete">Vložit uzel křivky</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
@@ -351,7 +377,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Append polyline&apos;s node</source>
-        <translation type="unfinished">Přidat uzel křivky</translation>
+        <translation type="obsolete">Přidat uzel křivky</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
@@ -359,7 +385,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Delete polyline&apos;s node</source>
-        <translation type="unfinished">Smazat uzel křivky</translation>
+        <translation type="obsolete">Smazat uzel křivky</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
@@ -367,7 +393,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation type="unfinished">Smazat mezi dvěma uzly</translation>
+        <translation type="obsolete">Smazat mezi dvěma uzly</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
@@ -375,7 +401,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Trim polyline&apos;s segments</source>
-        <translation type="unfinished">Zkrátit segmenty křivky</translation>
+        <translation type="obsolete">Zkrátit segmenty křivky</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
@@ -383,7 +409,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Create Equidistant Polylines</source>
-        <translation type="unfinished">Vytvořit ekvidistantu křivky</translation>
+        <translation type="obsolete">Vytvořit ekvidistantu křivky</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
@@ -391,7 +417,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Create Polyline from Existing Segments</source>
-        <translation type="unfinished">Vytvořit křivku ze stávajících segmentů</translation>
+        <translation type="obsolete">Vytvořit křivku ze stávajících segmentů</translation>
     </message>
     <message>
         <source>&amp;MText</source>
@@ -474,10 +500,6 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>M&amp;ove and Rotate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Rotate T&amp;wo</source>
         <translation type="unfinished"></translation>
     </message>
@@ -490,16 +512,12 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Trim Two</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Lengthen</source>
         <translation type="unfinished">Prodlo&amp;užit</translation>
     </message>
     <message>
         <source>&amp;Offset</source>
-        <translation type="unfinished">&amp;Ekvidistanta</translation>
+        <translation type="obsolete">&amp;Ekvidistanta</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -671,7 +689,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation type="unfinished">&amp;Nastavení</translation>
+        <translation type="obsolete">&amp;Nastavení</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -715,7 +733,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation type="unfinished">Překreslit kóty</translation>
+        <translation type="obsolete">Překreslit kóty</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -790,18 +808,6 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+Meta+F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Grid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -855,6 +861,35 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
         <source>Reload Style Sheet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
@@ -864,9 +899,21 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
 </context>
 <context>
-    <name>LC_CustomToolbar</name>
+    <name>LC_DeviceOptions</name>
     <message>
-        <source>Add or Remove Action</source>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">Myš</translation>
+    </message>
+    <message>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -905,6 +952,30 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Style Sheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation type="unfinished">Stavový řádek</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1031,11 +1102,11 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>&amp;Kreslit</translation>
+        <translation type="obsolete">&amp;Kreslit</translation>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>Kó&amp;ta</translation>
+        <translation type="obsolete">Kó&amp;ta</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
@@ -1043,7 +1114,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>&amp;Uchopení</translation>
+        <translation type="obsolete">&amp;Uchopení</translation>
     </message>
     <message>
         <source>&amp;Info</source>
@@ -1051,11 +1122,11 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>&amp;Hladina</translation>
+        <translation type="obsolete">&amp;Hladina</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp;Blok</translation>
+        <translation type="obsolete">&amp;Blok</translation>
     </message>
     <message>
         <source>About</source>
@@ -1107,7 +1178,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">Otevírá se nedávno použitý soubor...</translation>
+        <translation>Otevírá se nedávno použitý soubor...</translation>
     </message>
     <message>
         <source>Loaded document: </source>
@@ -1127,7 +1198,7 @@ Vzdálenost mezi body=%2 je větší než průměr=%3</translation>
     </message>
     <message>
         <source>About...</source>
-        <translation>O programu...</translation>
+        <translation type="obsolete">O programu...</translation>
     </message>
     <message>
         <source>Version: </source>
@@ -1233,7 +1304,7 @@ Datum: %1</translation>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>&amp;Manuál</translation>
+        <translation type="obsolete">&amp;Manuál</translation>
     </message>
     <message>
         <source>Launch the online manual</source>
@@ -1269,7 +1340,7 @@ Zkontrolujte prosím přístupová práva.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nic</translation>
+        <translation type="obsolete">Nic</translation>
     </message>
     <message>
         <source>Version: %1 %2</source>
@@ -1277,7 +1348,7 @@ Zkontrolujte prosím přístupová práva.</translation>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>Moduly: %1</translation>
+        <translation type="obsolete">Moduly: %1</translation>
     </message>
     <message>
         <source>&amp;About %1</source>
@@ -1303,7 +1374,7 @@ Nyní můžete uložit svou práci.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
+        <translation type="obsolete">&amp;Okno</translation>
     </message>
     <message>
         <source>Running script &apos;%1&apos;</source>
@@ -1341,7 +1412,7 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Nápověda</translation>
+        <translation type="obsolete">Nápověda</translation>
     </message>
     <message>
         <source>Bugger, I couldn&apos;t find the helpfiles on the filesystem.</source>
@@ -1361,15 +1432,15 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>Program Icons Supplied by</source>
-        <translation>Ikony v programu poskytl</translation>
+        <translation type="obsolete">Ikony v programu poskytl</translation>
     </message>
     <message>
         <source>Splash and Logo supplied by</source>
-        <translation>Obrázek při spuštění a logo poskytl</translation>
+        <translation type="obsolete">Obrázek při spuštění a logo poskytl</translation>
     </message>
     <message>
         <source>Main Website : </source>
-        <translation>Hlavní webová stránka: </translation>
+        <translation type="obsolete">Hlavní webová stránka: </translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -1377,7 +1448,7 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>SCM Revision: %1</source>
-        <translation>Revize SCM: %1</translation>
+        <translation type="obsolete">Revize SCM: %1</translation>
     </message>
     <message>
         <source>&amp;%1 %2</source>
@@ -1397,7 +1468,7 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
-        <translation>Zvažte prosím finanční podporu projektu LibreCAD, pomůžete tím vytvářet zdrojový kód a spravovat webovou stránku.</translation>
+        <translation type="obsolete">Zvažte prosím finanční podporu projektu LibreCAD, pomůžete tím vytvářet zdrojový kód a spravovat webovou stránku.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
@@ -1453,7 +1524,7 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation>Kompilátor: Microsoft Visual C++&lt;br&gt;</translation>
+        <translation type="obsolete">Kompilátor: Microsoft Visual C++&lt;br&gt;</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
@@ -1461,7 +1532,7 @@ Automatické ukládání bylo vypnuto.</translation>
     </message>
     <message>
         <source>Help files not found</source>
-        <translation>Soubory nápovědy nenalezeny</translation>
+        <translation type="obsolete">Soubory nápovědy nenalezeny</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -1494,15 +1565,7 @@ Please check its existence and permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The help files were not found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1542,14 +1605,6 @@ Please check its existence and permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dimension</source>
         <translation type="unfinished">Kóta</translation>
     </message>
@@ -1562,19 +1617,99 @@ Please check its existence and permissions.</source>
         <translation type="unfinished">Informace</translation>
     </message>
     <message>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Online (Wiki)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Dockwidgets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dock Areas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopírovat</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4273,7 +4408,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;zadejte souřadnice nebo příkazy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;zadejte souřadnice nebo příkazy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -4287,6 +4422,10 @@ p, li { white-space: pre-wrap; }
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation>odejít</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
     </message>
 </context>
 <context>
@@ -4781,7 +4920,7 @@ p, li { white-space: pre-wrap; }
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Vítejte v programu QCAD&lt;/b&gt;
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Vítejte v programu QCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Vyberte prosím jednotky, které si přejete používat pro nové výkresy, a upřednostňovaný jazyk.&lt;br&gt;
@@ -4806,6 +4945,14 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     <message>
         <source>Enter</source>
         <translation type="obsolete">Enter</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4938,7 +5085,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation>Řá&amp;dkování:</translation>
+        <translation type="obsolete">Řá&amp;dkování:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -5527,6 +5674,10 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>Průměr (⌀)</translation>
+    </message>
+    <message>
+        <source>&amp;Line spacing:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6201,7 +6352,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>Skripty:</translation>
+        <translation type="obsolete">Skripty:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -6265,7 +6416,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>Počet prvků v &amp;náhledu:</translation>
+        <translation type="obsolete">Počet prvků v &amp;náhledu:</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -6313,11 +6464,11 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished">Bílá</translation>
+        <translation type="obsolete">Bílá</translation>
     </message>
     <message>
         <source>Gray</source>
-        <translation type="unfinished">Šedá</translation>
+        <translation type="obsolete">Šedá</translation>
     </message>
     <message>
         <source>Darkgray</source>
@@ -6329,11 +6480,11 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>Velikost písma</translation>
+        <translation type="obsolete">Velikost písma</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>Stavový řádek:</translation>
+        <translation type="obsolete">Stavový řádek:</translation>
     </message>
     <message>
         <source>5</source>
@@ -6437,7 +6588,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>Minimální rozestup mřížky (px):</translation>
+        <translation type="obsolete">Minimální rozestup mřížky (px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -6513,70 +6664,14 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Splash Window</source>
-        <translation>Spouštěcí okno</translation>
+        <translation type="obsolete">Spouštěcí okno</translation>
     </message>
     <message>
         <source>Display Splash</source>
-        <translation>Zobrazit spouštěcí okno</translation>
+        <translation type="obsolete">Zobrazit spouštěcí okno</translation>
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Aquamarine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Azure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DeepSkyBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DodgerBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>HoneyDew</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lavender</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>LightGrey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Navy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PaleGreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pink</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Salmon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Silver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Violet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wheat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6589,27 +6684,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Crosshair</source>
-        <translation type="unfinished">Nitkový kříž</translation>
-    </message>
-    <message>
-        <source>Spiderweb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GUI Colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Layer/ Block Selection:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Toolbar:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Nitkový kříž</translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
@@ -6640,14 +6715,6 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Isometric</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Snap indicator lines</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6657,15 +6724,11 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Kružnice</translation>
+        <translation type="obsolete">Kružnice</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">Bod</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Bod</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
@@ -6673,6 +6736,58 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Start in tab mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7700,15 +7815,23 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Zarovnat</translation>
+        <translation type="obsolete">Zarovnat</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Uprostřed</translation>
+        <translation type="obsolete">Uprostřed</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>Průměr (⌀)</translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished">Polovin&amp;a</translation>
     </message>
 </context>
 <context>
@@ -7898,7 +8021,7 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     </message>
     <message>
         <source>Black</source>
-        <translation>Černá</translation>
+        <translation type="obsolete">Černá</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -8015,6 +8138,10 @@ Toto nastavení můžete později změnit v dialogu Nastavení programu.</transl
     <message>
         <source>set same size</source>
         <translation>nastavit stejnou velikost</translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8930,6 +9057,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Lock relative zero position</source>
         <translation>Zamknout pozici relativního počátku</translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10712,6 +10843,185 @@ Continue?</source>
     </message>
     <message>
         <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Blok</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Kružnice</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Úpravy</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipsa</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Soubor</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Kóta</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Informace</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Úsečka</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">Modifikace</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished">Vlastnosti</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Vybrat</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Zobrazit</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished">vyp</translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12970,7 +13280,7 @@ Continue?</source>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Area: %1</source>
-        <translation>Obsah: %1</translation>
+        <translation type="obsolete">Obsah: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -12999,6 +13309,10 @@ Continue?</source>
     <message>
         <source>Closing Point: %1/%2</source>
         <translation>Uzavírající bod: %1/%2</translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14199,7 +14513,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deletinging point is invalid.</source>
-        <translation>Bod pro smazání je neplatný.</translation>
+        <translation type="obsolete">Bod pro smazání je neplatný.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
@@ -14207,7 +14521,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deleteinging point is not on entity.</source>
-        <translation>Bod pro smazání neleží na prvku.</translation>
+        <translation type="obsolete">Bod pro smazání neleží na prvku.</translation>
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
@@ -15926,6 +16240,13 @@ Continue?</source>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
@@ -16568,6 +16889,41 @@ Continue?</source>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
         <translation type="unfinished">Zadaná délka značí celkovou délku po zkrácení místo přírůstku délky</translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
-**
+** Copyright (C) 2015, 2016 ravas (github.com/r-a-v-a-s)
 **
 ** This file may be distributed and/or modified under the terms of the
 ** GNU General Public License version 2 as published by the Free Software 
@@ -50,7 +50,10 @@ QG_DlgOptionsGeneral::QG_DlgOptionsGeneral(QWidget* parent, bool modal, Qt::Wind
     setupUi(this);
     tabWidget->setCurrentIndex(current_tab);
     init();
-
+    connect(variablefile_button, &QToolButton::clicked,
+            this, &QG_DlgOptionsGeneral::setVariableFile);
+    connect(fonts_button, &QToolButton::clicked,
+            this, &QG_DlgOptionsGeneral::setFontsFolder);
 }
 
 /*
@@ -71,11 +74,8 @@ void QG_DlgOptionsGeneral::languageChange()
     retranslateUi(this);
 }
 
-void QG_DlgOptionsGeneral::init() {
-#ifdef QC_PREDEFINED_LOCALE
-    bgLanguage->hide();
-    Widget9Layout->addMultiCellWidget( bgGraphicView, 0, 2, 0, 0 ); //use empty space as well
-#endif
+void QG_DlgOptionsGeneral::init()
+{
     // Fill combobox with languages:
     QStringList languageList = RS_SYSTEM->getLanguageList();
     languageList.sort();
@@ -97,9 +97,7 @@ void QG_DlgOptionsGeneral::init() {
 
     // set current language:
     QString def_lang = "en";
-#ifdef QC_PREDEFINED_LOCALE
-    def_lang = QC_PREDEFINED_LOCALE;
-#endif
+
     QString lang = RS_SETTINGS->readEntry("/Language", def_lang);
     cbLanguage->setCurrentIndex( cbLanguage->findText(RS_SYSTEM->symbolToLanguage(lang)) );
 
@@ -141,8 +139,6 @@ void QG_DlgOptionsGeneral::init() {
     // preview:
 	initComboBox(cbMaxPreview, RS_SETTINGS->readEntry("/MaxPreview", "100"));
 
-    cbSplash->setChecked(RS_SETTINGS->readNumEntry("/ShowSplash",1)==1);
-
     RS_SETTINGS->endGroup();
 
     RS_SETTINGS->beginGroup("Colors");
@@ -154,7 +150,6 @@ void QG_DlgOptionsGeneral::init() {
     initComboBox(cbStartHandleColor, RS_SETTINGS->readEntry("/start_handle", Colors::start_handle));
     initComboBox(cbHandleColor, RS_SETTINGS->readEntry("/handle", Colors::handle));
     initComboBox(cbEndHandleColor, RS_SETTINGS->readEntry("/end_handle", Colors::end_handle));
-    initComboBox(cb_layerselection, RS_SETTINGS->readEntry("/layer_selection", Colors::layer_selection));
     initComboBox(cb_snap_color, RS_SETTINGS->readEntry("/snap_indicator", Colors::snap_indicator));
     RS_SETTINGS->endGroup();
 
@@ -163,10 +158,9 @@ void QG_DlgOptionsGeneral::init() {
     lePathTranslations->setText(RS_SETTINGS->readEntry("/Translations", ""));
     lePathHatch->setText(RS_SETTINGS->readEntry("/Patterns", ""));
     lePathFonts->setText(RS_SETTINGS->readEntry("/Fonts", ""));
-    lePathScripts->setText(RS_SETTINGS->readEntry("/Scripts", ""));
     lePathLibrary->setText(RS_SETTINGS->readEntry("/Library", "").trimmed());
     leTemplate->setText(RS_SETTINGS->readEntry("/Template", "").trimmed());
-    le_custom_toolbar->setText(RS_SETTINGS->readEntry("/CustomToolbar", "").trimmed());
+    variablefile_field->setText(RS_SETTINGS->readEntry("/VariableFile", "").trimmed());
     RS_SETTINGS->endGroup();
 
     // units:
@@ -178,20 +172,17 @@ void QG_DlgOptionsGeneral::init() {
     cbUnit->insertItem( 0, RS_Units::unitToString(RS2::None) );
 
     QString def_unit = "Millimeter";
-#ifdef QC_PREDEFINED_UNIT
-    def_unit = QC_PREDEFINED_UNIT;
-#endif
+
     RS_SETTINGS->beginGroup("/Defaults");
 //    cbUnit->setCurrentIndex( cbUnit->findText(QObject::tr( RS_SETTINGS->readEntry("/Unit", def_unit) )) );
     cbUnit->setCurrentIndex( cbUnit->findText(QObject::tr( RS_SETTINGS->readEntry("/Unit", def_unit).toUtf8().data() )) );
     // Auto save timer
     cbAutoSaveTime->setValue(RS_SETTINGS->readNumEntry("/AutoSaveTime", 5));
     cbAutoBackup->setChecked(RS_SETTINGS->readNumEntry("/AutoBackupDocument", 1));
-    tab_mode_check_box->setChecked(RS_SETTINGS->readNumEntry("/TabMode", 0));
-    maximize_checkbox->setChecked(RS_SETTINGS->readNumEntry("/Maximize", 0));
-    left_sidebar_checkbox->setChecked(RS_SETTINGS->readNumEntry("/EnableLeftSidebar", 1));
-    cad_toolbars_checkbox->setChecked(RS_SETTINGS->readNumEntry("/EnableCADToolbars", 1));
-    keycode_checkbox->setChecked(RS_SETTINGS->readNumEntry("/KeycodeMode", 0));
+    cbUseQtFileOpenDialog->setChecked(RS_SETTINGS->readNumEntry("/UseQtFileOpenDialog", 1));
+    cbWheelScrollInvertH->setChecked(RS_SETTINGS->readNumEntry("/WheelScrollInvertH", 0));
+    cbWheelScrollInvertV->setChecked(RS_SETTINGS->readNumEntry("/WheelScrollInvertV", 0));
+    cbInvertZoomDirection->setChecked(RS_SETTINGS->readNumEntry("/InvertZoomDirection", 0));
     RS_SETTINGS->endGroup();
 
 	//update entities to selected entities to the current active layer
@@ -200,6 +191,21 @@ void QG_DlgOptionsGeneral::init() {
 	cbToActiveLayer->setChecked(toActive==1);
 	RS_SETTINGS->writeEntry("/ModifyEntitiesToActiveLayer", cbToActiveLayer->isChecked()?1:0);
 	RS_SETTINGS->endGroup();
+
+	RS_SETTINGS->beginGroup("/CADPreferences");
+	cbAutoZoomDrawing->setChecked(RS_SETTINGS->readNumEntry("/AutoZoomDrawing"));
+	RS_SETTINGS->endGroup();
+
+    RS_SETTINGS->beginGroup("Startup");
+    cbSplash->setChecked(RS_SETTINGS->readNumEntry("/ShowSplash",1)==1);
+    tab_mode_check_box->setChecked(RS_SETTINGS->readNumEntry("/TabMode", 0));
+    maximize_checkbox->setChecked(RS_SETTINGS->readNumEntry("/Maximize", 0));
+    left_sidebar_checkbox->setChecked(RS_SETTINGS->readNumEntry("/EnableLeftSidebar", 1));
+    cad_toolbars_checkbox->setChecked(RS_SETTINGS->readNumEntry("/EnableCADToolbars", 1));
+    RS_SETTINGS->endGroup();
+
+	cbEvaluateOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/EvaluateCommandOnSpace", false));
+	cbToggleFreeSnapOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/ToggleFreeSnapOnSpace", false));
 
     restartNeeded = false;
 }
@@ -243,7 +249,6 @@ void QG_DlgOptionsGeneral::ok()
         RS_SETTINGS->writeEntry("/indicator_shape_state", indicator_shape_checkbox->isChecked());      
         RS_SETTINGS->writeEntry("/indicator_shape_type", indicator_shape_combobox->currentText());
         RS_SETTINGS->writeEntry("/cursor_hiding", cursor_hiding_checkbox->isChecked());
-        RS_SETTINGS->writeEntry("/ShowSplash", cbSplash->isChecked()?1:0);
         RS_SETTINGS->writeEntry("/Antialiasing", cb_antialiasing->isChecked()?1:0);
         RS_SETTINGS->writeEntry("/ScrollBars", scrollbars_check_box->isChecked()?1:0);
         RS_SETTINGS->endGroup();
@@ -257,7 +262,6 @@ void QG_DlgOptionsGeneral::ok()
         RS_SETTINGS->writeEntry("/start_handle", cbStartHandleColor->currentText());
         RS_SETTINGS->writeEntry("/handle", cbHandleColor->currentText());
         RS_SETTINGS->writeEntry("/end_handle", cbEndHandleColor->currentText());
-        RS_SETTINGS->writeEntry("/layer_selection", cb_layerselection->currentText());
         RS_SETTINGS->writeEntry("/snap_indicator", cb_snap_color->currentText());
         RS_SETTINGS->endGroup();
 
@@ -265,32 +269,44 @@ void QG_DlgOptionsGeneral::ok()
         RS_SETTINGS->writeEntry("/Translations", lePathTranslations->text());
         RS_SETTINGS->writeEntry("/Patterns", lePathHatch->text());
         RS_SETTINGS->writeEntry("/Fonts", lePathFonts->text());
-        RS_SETTINGS->writeEntry("/Scripts", lePathScripts->text());
         RS_SETTINGS->writeEntry("/Library", lePathLibrary->text());
         RS_SETTINGS->writeEntry("/Template", leTemplate->text());
-        RS_SETTINGS->writeEntry("/CustomToolbar", le_custom_toolbar->text());
+        RS_SETTINGS->writeEntry("/VariableFile", variablefile_field->text());
         RS_SETTINGS->endGroup();
 
         RS_SETTINGS->beginGroup("/Defaults");
         RS_SETTINGS->writeEntry("/Unit",
             RS_Units::unitToString( RS_Units::stringToUnit( cbUnit->currentText() ), false/*untr.*/) );
         RS_SETTINGS->writeEntry("/AutoSaveTime", cbAutoSaveTime->value() );
-        RS_SETTINGS->writeEntry("/AutoBackupDocument", cbAutoBackup->isChecked()?1:0);
-        RS_SETTINGS->writeEntry("/TabMode", tab_mode_check_box->isChecked()?1:0);
-        RS_SETTINGS->writeEntry("/Maximize", maximize_checkbox->isChecked()?1:0);
-        RS_SETTINGS->writeEntry("/EnableLeftSidebar", left_sidebar_checkbox->isChecked()?1:0);
-        RS_SETTINGS->writeEntry("/EnableCADToolbars", cad_toolbars_checkbox->isChecked()?1:0);
-        RS_SETTINGS->writeEntry("/KeycodeMode", keycode_checkbox->isChecked()?1:0);
+        RS_SETTINGS->writeEntry("/AutoBackupDocument", cbAutoBackup->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/UseQtFileOpenDialog", cbUseQtFileOpenDialog->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/WheelScrollInvertH", cbWheelScrollInvertH->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/WheelScrollInvertV", cbWheelScrollInvertV->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/InvertZoomDirection", cbInvertZoomDirection->isChecked() ? 1 : 0);
         RS_SETTINGS->endGroup();
 
         //update entities to selected entities to the current active layer
         RS_SETTINGS->beginGroup("/Modify");
         RS_SETTINGS->writeEntry("/ModifyEntitiesToActiveLayer", cbToActiveLayer->isChecked()?1:0);
         RS_SETTINGS->endGroup();
+
+		RS_SETTINGS->beginGroup("/CADPreferences");
+		RS_SETTINGS->writeEntry("/AutoZoomDrawing", cbAutoZoomDrawing->isChecked() ? 1 : 0);
+		RS_SETTINGS->endGroup();
+
+        RS_SETTINGS->beginGroup("Startup");
+        RS_SETTINGS->writeEntry("/ShowSplash", cbSplash->isChecked()?1:0);
+        RS_SETTINGS->writeEntry("/TabMode", tab_mode_check_box->isChecked()?1:0);
+        RS_SETTINGS->writeEntry("/Maximize", maximize_checkbox->isChecked()?1:0);
+        RS_SETTINGS->writeEntry("/EnableLeftSidebar", left_sidebar_checkbox->isChecked()?1:0);
+        RS_SETTINGS->writeEntry("/EnableCADToolbars", cad_toolbars_checkbox->isChecked()?1:0);
+        RS_SETTINGS->endGroup();
+
+		RS_SETTINGS->writeEntry("/Keyboard/EvaluateCommandOnSpace", cbEvaluateOnSpace->isChecked() ? 1 : 0);
+		RS_SETTINGS->writeEntry("/Keyboard/ToggleFreeSnapOnSpace", cbToggleFreeSnapOnSpace->isChecked() ? 1 : 0);
     }
-
-
-    if (restartNeeded==true) {
+	
+	if (restartNeeded==true) {
         QMessageBox::warning( this, tr("Preferences"),
                               tr("Please restart the application to apply all changes."),
                               QMessageBox::Ok,
@@ -360,33 +376,53 @@ void QG_DlgOptionsGeneral::on_pb_end_clicked()
     set_color(cbEndHandleColor, QColor(Colors::end_handle));
 }
 
-void QG_DlgOptionsGeneral::on_pb_layerselection_clicked()
-{
-    set_color(cb_layerselection, QColor(Colors::layer_selection));
-}
-
 void QG_DlgOptionsGeneral::on_pb_snap_color_clicked()
 {
     set_color(cb_snap_color, QColor(Colors::snap_indicator));
 }
 
-void QG_DlgOptionsGeneral::set_toolbar_file()
-{
-    QString path = QFileDialog::getOpenFileName(this);
-    if (!path.isEmpty())
-    {
-        le_custom_toolbar->setText(QDir::toNativeSeparators(path));
-    }
-}
-
 void QG_DlgOptionsGeneral::on_pb_clear_all_clicked()
 {
-    RS_SETTINGS->clear_all();
-    QMessageBox::information(this, "info", "You must restart LibreCAD to see the changes.");
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("Clear settings"),
+                                tr("This will also include custom menus and toolbars. Continue?"),
+                                QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+    {
+      RS_SETTINGS->clear_all();
+      QMessageBox::information(this, "info", "You must restart LibreCAD to see the changes.");
+    }
 }
 
 void QG_DlgOptionsGeneral::on_pb_clear_geometry_clicked()
 {
     RS_SETTINGS->clear_geometry();
     QMessageBox::information(this, "info", "You must restart LibreCAD to see the changes.");
+}
+
+void QG_DlgOptionsGeneral::setVariableFile()
+{
+    QString path = QFileDialog::getOpenFileName(this);
+    if (!path.isEmpty())
+    {
+        variablefile_field->setText(QDir::toNativeSeparators(path));
+    }
+}
+
+/*!
+ * \brief slot for the font folder selection icon
+ * \author ravas
+ * \date 2016-286
+ */
+void QG_DlgOptionsGeneral::setFontsFolder()
+{
+    QFileDialog dlg(this);
+    dlg.setFileMode(QFileDialog::Directory);
+    dlg.setOption(QFileDialog::ShowDirsOnly);
+
+    if (dlg.exec())
+    {
+        auto dir = dlg.selectedFiles()[0];
+        lePathFonts->setText(QDir::toNativeSeparators(dir));
+    }
 }

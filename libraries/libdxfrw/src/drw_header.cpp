@@ -20,6 +20,7 @@ DRW_Header::DRW_Header() {
     linetypeCtrl = layerCtrl = styleCtrl = dimstyleCtrl = appidCtrl = 0;
     blockCtrl = viewCtrl = ucsCtrl = vportCtrl = vpEntHeaderCtrl = 0;
     version = DRW::AC1021;
+    curr = NULL;
 }
 
 void DRW_Header::addComment(std::string c){
@@ -29,6 +30,13 @@ void DRW_Header::addComment(std::string c){
 }
 
 void DRW_Header::parseCode(int code, dxfReader *reader){
+    if (NULL == curr && 9 != code) {
+        DRW_DBG("invalid header code: ");
+        DRW_DBG(code);
+        DRW_DBG("\n");
+        return;
+    }
+
     switch (code) {
     case 9:
         curr = new DRW_Variant();
@@ -473,11 +481,11 @@ void DRW_Header::write(dxfWriter *writer, DRW::Version ver){
         writer->writeInt16(70, varInt);
     else
         writer->writeInt16(70, 0);
-        writer->writeString(9, "$DIMSAH");
-        if (getInt("$DIMSAH", &varInt))
-            writer->writeInt16(70, varInt);
-        else
-            writer->writeInt16(70, 0);
+    writer->writeString(9, "$DIMSAH");
+    if (getInt("$DIMSAH", &varInt))
+        writer->writeInt16(70, varInt);
+    else
+        writer->writeInt16(70, 0);
     writer->writeString(9, "$DIMBLK1");
     if (getStr("$DIMBLK1", &varStr))
         if (ver == DRW::AC1009)
@@ -1526,7 +1534,7 @@ void DRW_Header::write(dxfWriter *writer, DRW::Version ver){
         else
             writer->writeDouble(40, 50.0);
         writer->writeString(9, "$CAMERAHEIGHT");
-        if (getDouble("$CAMERAHEIGTH", &varDouble))
+        if (getDouble("$CAMERAHEIGHT", &varDouble))
             writer->writeDouble(40, varDouble);
         else
             writer->writeDouble(40, 0.0);
@@ -2400,8 +2408,9 @@ bool DRW_Header::parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer *hBbuf
     }
 
     //temporary code to show header end sentinel
-    duint64 sz= buf->size()-1;
-    if (version < DRW::AC1018) {//pre 2004
+//    duint64 sz= buf->size()-1;
+	duint64 sz;
+	if (version < DRW::AC1018) {//pre 2004
         sz= buf->size()-16;
         buf->setPosition(sz);
         DRW_DBG("\nseting position to: "); DRW_DBG(buf->getPosition());

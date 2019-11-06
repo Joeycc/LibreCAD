@@ -36,12 +36,6 @@
 #include "rs_preview.h"
 #include "rs_debug.h"
 
-namespace{
-auto circleType={RS2::EntityArc, RS2::EntityCircle,
-				 RS2::EntityEllipse, RS2::EntitySplinePoints
-				};
-}
-
 RS_ActionDrawLineTangent1::RS_ActionDrawLineTangent1(
 		RS_EntityContainer& container,
 		RS_GraphicView& graphicView)
@@ -182,20 +176,18 @@ void RS_ActionDrawLineTangent1::coordinateEvent(RS_CoordinateEvent* e) {
 }
 
 void RS_ActionDrawLineTangent1::updateMouseButtonHints() {
-	if (RS_DIALOGFACTORY) {
-		switch (getStatus()) {
-		case SetPoint:
-			RS_DIALOGFACTORY->updateMouseWidget(tr("Specify point"),
-												tr("Cancel"));
-			break;
-		case SetCircle:
-			RS_DIALOGFACTORY->updateMouseWidget(tr("Select circle, arc or ellipse"),
-												tr("Back"));
-			break;
-		default:
-			RS_DIALOGFACTORY->updateMouseWidget();
-			break;
-		}
+	switch (getStatus()) {
+	case SetPoint:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify point"),
+											tr("Cancel"));
+		break;
+	case SetCircle:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Select circle, arc or ellipse"),
+											tr("Back"));
+		break;
+	default:
+		RS_DIALOGFACTORY->updateMouseWidget();
+		break;
 	}
 }
 

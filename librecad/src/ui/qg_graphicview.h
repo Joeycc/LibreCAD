@@ -35,6 +35,8 @@
 
 class QGridLayout;
 class QLabel;
+class QMenu;
+
 class QG_ScrollBar;
 
 /**
@@ -52,68 +54,75 @@ class QG_GraphicView:   public RS_GraphicView,
 
 public:
     QG_GraphicView(QWidget* parent = 0, Qt::WindowFlags f = 0, RS_Document* doc = 0);
-    virtual ~QG_GraphicView();
+	~QG_GraphicView() override;
 
-	virtual int getWidth() const;
-	virtual int getHeight() const;
-	virtual void redraw(RS2::RedrawMethod method=RS2::RedrawAll);
-    virtual void adjustOffsetControls();
-    virtual void adjustZoomControls();
-    virtual void setBackground(const RS_Color& bg);
-    virtual void setMouseCursor(RS2::CursorType c);
-    virtual void updateGridStatusWidget(const QString& text);
+	int getWidth() const override;
+	int getHeight() const override;
+	void redraw(RS2::RedrawMethod method=RS2::RedrawAll) override;
+	void adjustOffsetControls() override;
+	void adjustZoomControls() override;
+	void setBackground(const RS_Color& bg) override;
+	void setMouseCursor(RS2::CursorType c) override;
+	void updateGridStatusWidget(const QString& text) override;
 
 	virtual	void getPixmapForView(std::unique_ptr<QPixmap>& pm);
 		
     // Methods from RS_LayerListListener Interface:
-    virtual void layerEdited(RS_Layer*) {
+	void layerEdited(RS_Layer*) override{
         redraw(RS2::RedrawDrawing); 
     }
-    virtual void layerRemoved(RS_Layer*) {
+	void layerRemoved(RS_Layer*) override{
         redraw(RS2::RedrawDrawing); 
     }
-    virtual void layerToggled(RS_Layer*) {
+	void layerToggled(RS_Layer*) override{
         redraw(RS2::RedrawDrawing); 
     }
-    virtual void layerActivated(RS_Layer *);
+	void layerActivated(RS_Layer *) override;
     /**
      * @brief setOffset
      * @param ox, offset X
      * @param oy, offset Y
      */
-    virtual void setOffset(int ox, int oy);
+	void setOffset(int ox, int oy) override;
     /**
      * @brief getMousePosition() mouse position in widget coordinates
      * @return the cursor position in widget coordinates
      * returns the widget center, if cursor is not on the widget
      */
-    virtual RS_Vector getMousePosition() const;
+	RS_Vector getMousePosition() const override;
 
     void setAntialiasing(bool state);
     void setCursorHiding(bool state);
     void addScrollbars();
     bool hasScrollbars();
 
+    void setCurrentQAction(QAction* q_action);
+
     QString device;
 
+    void destroyMenu(const QString& activator);
+    void setMenu(const QString& activator, QMenu* menu);
+
 protected:
-    virtual void mousePressEvent(QMouseEvent* e);
-    virtual void mouseDoubleClickEvent(QMouseEvent* e);
-    virtual void mouseReleaseEvent(QMouseEvent* e);
-    virtual void mouseMoveEvent(QMouseEvent* e);
-    virtual void tabletEvent(QTabletEvent* e);
-    virtual void leaveEvent(QEvent*);
-    virtual void enterEvent(QEvent*);
-    virtual void focusInEvent(QFocusEvent*);
-    virtual void focusOutEvent(QFocusEvent*);
-    virtual void wheelEvent(QWheelEvent* e);
-    virtual void keyPressEvent(QKeyEvent* e);
-    virtual void keyReleaseEvent(QKeyEvent* e);
+	void mousePressEvent(QMouseEvent* e) override;
+	void mouseDoubleClickEvent(QMouseEvent* e) override;
+	void mouseReleaseEvent(QMouseEvent* e) override;
+	void mouseMoveEvent(QMouseEvent* e) override;
+	void tabletEvent(QTabletEvent* e) override;
+	void leaveEvent(QEvent*) override;
+	void enterEvent(QEvent*) override;
+	void focusInEvent(QFocusEvent*) override;
+	void focusOutEvent(QFocusEvent*) override;
+	void wheelEvent(QWheelEvent* e) override;
+	void keyPressEvent(QKeyEvent* e) override;
+	void keyReleaseEvent(QKeyEvent* e) override;
 
-    virtual bool event(QEvent * e);
+	bool event(QEvent * e) override;
 
-    void paintEvent(QPaintEvent *);
-    virtual void resizeEvent(QResizeEvent* e);
+	void paintEvent(QPaintEvent *)override;
+	void resizeEvent(QResizeEvent* e) override;
+
+    QList<QAction*> recent_actions;
 
 private slots:
     void slotHScrolled(int value);
@@ -139,18 +148,21 @@ protected:
 		
 	// Used for buffering different paint layers
 	std::unique_ptr<QPixmap> PixmapLayer1;  // Used for grids and absolute 0
-	std::unique_ptr<QPixmap> PixmapLayer2;  // Used for teh actual CAD drawing
-	std::unique_ptr<QPixmap> PixmapLayer3;  // USed for crosshair and actionitems
+    std::unique_ptr<QPixmap> PixmapLayer2;  // Used for the actual CAD drawing
+    std::unique_ptr<QPixmap> PixmapLayer3;  // Used for crosshair and actionitems
 	
 	RS2::RedrawMethod redrawMethod;
 		
     //! Keep tracks of if we are currently doing a high-resolution scrolling
     bool isSmoothScrolling;
 
+    QMap<QString, QMenu*> menus;
+
 private:
     bool antialiasing{false};
     bool scrollbars{false};
     bool cursor_hiding{false};
+
 
 signals:
     void xbutton1_released();

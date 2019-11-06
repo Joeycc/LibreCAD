@@ -2,34 +2,64 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ja">
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation>フレーム</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation>フレーム</translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation>グループボックス</translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation>設定</translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished"></translation>
+        <translation>スプライン点</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">レイヤー:</translation>
+        <translation>レイヤー:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">図形</translation>
+        <translation>図形</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished"></translation>
+        <translation>スプライン点</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished"></translation>
+        <translation>制御点</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>スプライン上の点</translation>
     </message>
 </context>
 <context>
@@ -297,7 +327,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Draw polylines</source>
-        <translation>ポリライン作図</translation>
+        <translation type="obsolete">ポリライン作図</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
@@ -305,7 +335,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Add polyline&apos;s node</source>
-        <translation>ポリライン・ノードを追加</translation>
+        <translation type="obsolete">ポリライン・ノードを追加</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
@@ -313,7 +343,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Append polyline&apos;s node</source>
-        <translation>ポリラインノード結合</translation>
+        <translation type="obsolete">ポリラインノード結合</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
@@ -321,7 +351,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete polyline&apos;s node</source>
-        <translation>ポリライン・ノードを削除</translation>
+        <translation type="obsolete">ポリライン・ノードを削除</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
@@ -329,7 +359,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation>２ノード間を削除</translation>
+        <translation type="obsolete">２ノード間を削除</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
@@ -337,7 +367,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Trim polyline&apos;s segments</source>
-        <translation>ポリラインのセグメントをトリム</translation>
+        <translation type="obsolete">ポリラインのセグメントをトリム</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
@@ -345,7 +375,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Equidistant Polylines</source>
-        <translation>等間隔でポリラインを作成</translation>
+        <translation type="obsolete">等間隔でポリラインを作成</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
@@ -353,7 +383,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Polyline from Existing Segments</source>
-        <translation>既存セグメントからポリライン作成</translation>
+        <translation type="obsolete">既存セグメントからポリライン作成</translation>
     </message>
     <message>
         <source>&amp;MText</source>
@@ -438,7 +468,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation>移動と回転(&amp;v)</translation>
+        <translation type="obsolete">移動と回転(&amp;v)</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
@@ -454,7 +484,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation>２つの要素でトリム(&amp;T)</translation>
+        <translation type="obsolete">２つの要素でトリム(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
@@ -462,7 +492,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Offset</source>
-        <translation>平行線/同心円(&amp;O)</translation>
+        <translation type="obsolete">平行線/同心円(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -642,7 +672,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation>参照(&amp;P)</translation>
+        <translation type="obsolete">参照(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -687,7 +717,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation>寸法図形再生成</translation>
+        <translation type="obsolete">寸法図形再生成</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -765,17 +795,17 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Ctrl+Meta+F</source>
         <translatorcomment>キー操作は翻訳しない</translatorcomment>
-        <translation>Ctrl+Meta+F</translation>
+        <translation type="obsolete">Ctrl+Meta+F</translation>
     </message>
     <message>
         <source>F11</source>
         <translatorcomment>キー操作は翻訳しない</translatorcomment>
-        <translation>F11</translation>
+        <translation type="obsolete">F11</translation>
     </message>
     <message>
         <source>Ctrl+F11</source>
         <translatorcomment>キー操作は翻訳しない</translatorcomment>
-        <translation>Ctrl+F11</translation>
+        <translation type="obsolete">Ctrl+F11</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
@@ -806,32 +836,65 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation>指令枠に焦点を合わせる(&amp;C)</translation>
     </message>
     <message>
-        <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <source>Tool Sidebar</source>
+        <translation type="obsolete">ツール・サイドバー</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">左</translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">右</translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">上</translation>
+        <translation>上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>下</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished"></translation>
+        <translation>フローティング</translation>
+    </message>
+    <message>
+        <source>Widget Options</source>
+        <translation>ウィジットオプション</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>デバイスの選択</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>スタイルシートの再読み込み</translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation>移動・回転（&amp;v）</translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation>2点トリム（&amp;i）</translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation>オフセット（&amp;f）</translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation>メニュー新規作成</translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation>ツールバー新規作成</translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
+        <translation>Ctrl+D</translation>
     </message>
 </context>
 <context>
@@ -845,7 +908,26 @@ distance between points=%2 is larger than diameter=%3</source>
     <name>LC_CustomToolbar</name>
     <message>
         <source>Add or Remove Action</source>
-        <translation>追加/削除の操作</translation>
+        <translation type="obsolete">追加/削除の操作</translation>
+    </message>
+</context>
+<context>
+    <name>LC_DeviceOptions</name>
+    <message>
+        <source>Form</source>
+        <translation>選択する</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>デバイス</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">マウス</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -860,30 +942,257 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
 </context>
 <context>
+    <name>LC_WidgetFactory</name>
+    <message>
+        <source>Circle</source>
+        <translation type="obsolete">円</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="obsolete">曲線</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="obsolete">楕円</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="obsolete">ポリライン</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="obsolete">選択</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="obsolete">変更・修正</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="obsolete">図形情報</translation>
+    </message>
+    <message>
+        <source>Layer List</source>
+        <translation type="obsolete">レイヤーの一覧</translation>
+    </message>
+    <message>
+        <source>Block List</source>
+        <translation type="obsolete">ブロックの一覧</translation>
+    </message>
+    <message>
+        <source>Library Browser</source>
+        <translation type="obsolete">ライブラリの一覧</translation>
+    </message>
+    <message>
+        <source>Command line</source>
+        <translation type="obsolete">コマンドライン</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="obsolete">ファイル</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="obsolete">設定</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="obsolete">編集</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation type="obsolete">整列</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="obsolete">表示</translation>
+    </message>
+    <message>
+        <source>Misc</source>
+        <translation type="obsolete">その他</translation>
+    </message>
+    <message>
+        <source>Snap Selection</source>
+        <translation type="obsolete">スナップ選択</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="obsolete">ペン</translation>
+    </message>
+    <message>
+        <source>Tool Options</source>
+        <translation type="obsolete">ツールオプション</translation>
+    </message>
+    <message>
+        <source>DockWidgets</source>
+        <translation type="obsolete">ドック ウィジット</translation>
+    </message>
+    <message>
+        <source>Categories</source>
+        <translation type="obsolete">CADツール選択</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="obsolete">カスタム</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="obsolete">ファイル(&amp;F)</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="obsolete">インポート</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="obsolete">エクスポート</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation type="obsolete">編集(&amp;E)</translation>
+    </message>
+    <message>
+        <source>&amp;Order</source>
+        <translation type="obsolete">整列(&amp;O)</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="obsolete">表示(&amp;V)</translation>
+    </message>
+    <message>
+        <source>&amp;Draw</source>
+        <translation type="obsolete">線を引く(&amp;D)</translation>
+    </message>
+    <message>
+        <source>&amp;Line</source>
+        <translation type="obsolete">直線(&amp;L)</translation>
+    </message>
+    <message>
+        <source>&amp;Circle</source>
+        <translation type="obsolete">円(&amp;C)</translation>
+    </message>
+    <message>
+        <source>&amp;Curve</source>
+        <translation type="obsolete">曲線(&amp;C)</translation>
+    </message>
+    <message>
+        <source>&amp;Ellipse</source>
+        <translation type="obsolete">楕円(&amp;E)</translation>
+    </message>
+    <message>
+        <source>&amp;Polyline</source>
+        <translation type="obsolete">ポリライン(&amp;P)</translation>
+    </message>
+    <message>
+        <source>&amp;Misc</source>
+        <translation type="obsolete">その他(&amp;M)</translation>
+    </message>
+    <message>
+        <source>&amp;Select</source>
+        <translation type="obsolete">選択(&amp;S)</translation>
+    </message>
+    <message>
+        <source>&amp;Dimension</source>
+        <translation type="obsolete">寸法記入(&amp;D)</translation>
+    </message>
+    <message>
+        <source>&amp;Modify</source>
+        <translation type="obsolete">変更・修正(&amp;M)</translation>
+    </message>
+    <message>
+        <source>&amp;Snap</source>
+        <translation type="obsolete">スナップ(&amp;S)</translation>
+    </message>
+    <message>
+        <source>&amp;Info</source>
+        <translation type="obsolete">図形情報(&amp;I)</translation>
+    </message>
+    <message>
+        <source>&amp;Layer</source>
+        <translation type="obsolete">レイヤー(&amp;L)</translation>
+    </message>
+    <message>
+        <source>&amp;Block</source>
+        <translation type="obsolete">ブロック(&amp;B)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation type="obsolete">画面(&amp;W)</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="obsolete">ヘルプ(&amp;H)</translation>
+    </message>
+    <message>
+        <source>&amp;Manual</source>
+        <translation type="obsolete">マニュアル(&amp;M)</translation>
+    </message>
+    <message>
+        <source>Online (Wiki)</source>
+        <translation type="obsolete">オンライン (Wiki)</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="obsolete">Librecadの情報</translation>
+    </message>
+    <message>
+        <source>&amp;Dockwidgets</source>
+        <translation type="obsolete">ドック ウィジット(&amp;D)</translation>
+    </message>
+    <message>
+        <source>&amp;Toolbars</source>
+        <translation type="obsolete">ツールバー(&amp;T)</translation>
+    </message>
+</context>
+<context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィジットオプション</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンサイズ</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>縮尺</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>スタイル</translation>
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>スタイルシート</translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation>ステータスバー</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>高さ</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>フォントサイズ</translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation>Qt スタイルシートのパスを入力.</translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation>ピクセル単位での辺の長さ</translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
+        <translation>テーマアイコンを使用</translation>
     </message>
 </context>
 <context>
@@ -913,19 +1222,19 @@ distance between points=%2 is larger than diameter=%3</source>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">線分相対角度オプション</translation>
+        <translation>線分相対角度オプション</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">間隔:</translation>
+        <translation>間隔:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished">元のポリラインからの距離</translation>
+        <translation>元のポリラインからの距離</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished">複写:</translation>
+        <translation>複写:</translation>
     </message>
 </context>
 <context>
@@ -994,7 +1303,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>線を引く(&amp;D)</translation>
+        <translation type="obsolete">線を引く(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Line</source>
@@ -1014,7 +1323,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>寸法記入(&amp;D)</translation>
+        <translation type="obsolete">寸法記入(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
@@ -1022,7 +1331,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>スナップ(&amp;S)</translation>
+        <translation type="obsolete">スナップ(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Info</source>
@@ -1030,12 +1339,12 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>レイヤー(&amp;L)</translation>
+        <translation type="obsolete">レイヤー(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Block</source>
         <translatorcomment>AutoCADにあわせて「ブロック」と訳すことにした</translatorcomment>
-        <translation>ブロック(&amp;B)</translation>
+        <translation type="obsolete">ブロック(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Scripts</source>
@@ -1047,11 +1356,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>マニュアル(&amp;M)</translation>
+        <translation type="obsolete">マニュアル(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>画面(&amp;W)</translation>
+        <translation type="obsolete">画面(&amp;W)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1111,7 +1420,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>Loaded document: </source>
-        <translation>ドキュメントをロードじました:</translation>
+        <translation>ドキュメントをロードしました: </translation>
     </message>
     <message>
         <source>Opening aborted</source>
@@ -1188,19 +1497,19 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>None</source>
-        <translation>なし</translation>
+        <translation type="obsolete">なし</translation>
     </message>
     <message>
         <source>About...</source>
-        <translation>Librecadの情報...</translation>
+        <translation type="obsolete">Librecadの情報...</translation>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>モジュール: %1</translation>
+        <translation type="obsolete">モジュール: %1</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>ヘルプ</translation>
+        <translation type="obsolete">ヘルプ</translation>
     </message>
     <message>
         <source>&amp;Toolbars</source>
@@ -1212,15 +1521,15 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Program Icons Supplied by</source>
-        <translation>供給されたプログラム・アイコン</translation>
+        <translation type="obsolete">供給されたプログラム・アイコン</translation>
     </message>
     <message>
         <source>Splash and Logo supplied by</source>
-        <translation>供給された起動画面とロゴ</translation>
+        <translation type="obsolete">供給された起動画面とロゴ</translation>
     </message>
     <message>
         <source>Main Website : </source>
-        <translation>メインWEBサイト:</translation>
+        <translation type="obsolete">メインWEBサイト:</translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -1228,7 +1537,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>SCM Revision: %1</source>
-        <translation>SCM リビジョン: %1</translation>
+        <translation type="obsolete">SCM リビジョン: %1</translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
@@ -1244,7 +1553,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
-        <translation>ソースコードとWEBサイトを管理のため、LibreCADに寄付をお願いします.</translation>
+        <translation type="obsolete">ソースコードとWEBサイトを管理のため、LibreCADに寄付をお願いします.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
@@ -1304,7 +1613,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation>コンパイラ: Microsoft Visual C++&lt;br&gt;</translation>
+        <translation type="obsolete">コンパイラ: Microsoft Visual C++&lt;br&gt;</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
@@ -1312,7 +1621,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Help files not found</source>
-        <translation>ヘルプファイルが見つかりません</translation>
+        <translation type="obsolete">ヘルプファイルが見つかりません</translation>
     </message>
     <message>
         <source>Draft Mode</source>
@@ -1335,15 +1644,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>File &apos;%1&apos; does not exist. Opening aborted</source>
-        <translation>ファイル &apos;%1&apos; は存在しません．開くことは中止しました</translation>
+        <translation>ファイル &apos;%1&apos; は存在しません。ファイルを開くことを中止</translation>
     </message>
     <message>
         <source>Online (Wiki)</source>
-        <translation>オンライン (Wiki)</translation>
+        <translation type="obsolete">オンライン (Wiki)</translation>
     </message>
     <message>
         <source>The help files were not found.</source>
-        <translation>ヘルプファイルが見つかりません.</translation>
+        <translation type="obsolete">ヘルプファイルが見つかりません.</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -1351,7 +1660,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>設定</translation>
+        <translation type="obsolete">設定</translation>
     </message>
     <message>
         <source>&amp;Order</source>
@@ -1391,11 +1700,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Misc</source>
-        <translation>その他(&amp;M)</translation>
+        <translation type="obsolete">その他(&amp;M)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>その他</translation>
+        <translation type="obsolete">その他</translation>
     </message>
     <message>
         <source>Dimension</source>
@@ -1415,7 +1724,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation>カスタム</translation>
+        <translation type="obsolete">カスタム</translation>
     </message>
     <message>
         <source>DockWidgets</source>
@@ -1423,15 +1732,107 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Dockwidgets</source>
-        <translation>ドック ウィジット(&amp;D)</translation>
+        <translation type="obsolete">ドック ウィジット(&amp;D)</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">最近開いたファイル…</translation>
+        <translation>最近開いたファイル...</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished"></translation>
+        <translation>ドックエリア</translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation>グリッドステータス</translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation>ツールバー</translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation>ドック ウィジット</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>デバイスの選択</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>デバイス</translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation>オプション設定（&amp;O）</translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation>プラグイン（&amp;u）</translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation>寸法記入（&amp;n）</translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation>ドックウィジェット(&amp;g)</translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation>最近使用したファイル</translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation>コンパイラ: Microsoft Visual C++</translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation>起動中のバージョン: %1.%2.%3</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>コピー</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation>協力者</translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation>ライセンス</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>システム</translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation>ツールバー作成</translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation>メニュー作成</translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation>メニュー配置</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>ツール(&amp;T)</translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation>製図(&amp;D)</translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation>ヘルプへのリンク</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation>オンライン</translation>
     </message>
 </context>
 <context>
@@ -1786,7 +2187,7 @@ in a separate window</source>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">カスタム</translation>
+        <translation>カスタム</translation>
     </message>
 </context>
 <context>
@@ -1831,12 +2232,16 @@ in a separate window</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;座標やコマンドを入力&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;座標やコマンドを入力&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation>エスケープ</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -2187,7 +2592,7 @@ in a separate window</source>
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;ようこそLibreCADへ&lt;/b&gt;
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;ようこそLibreCADへ&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 新規図面の単位と言語を設定してください。&lt;br&gt;
@@ -2205,6 +2610,18 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message>
         <source>Command Language:</source>
         <translation>コマンド 言語:</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;LibreCAD にようこそ&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+あなたが作図で使用したいユニットと言語を設定してください&lt;br&gt;
+(ここでの設定は後で変更できます。)</translation>
     </message>
 </context>
 <context>
@@ -2309,7 +2726,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation>行間(&amp;s):</translation>
+        <translation type="obsolete">行間(&amp;s):</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -2895,6 +3312,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
         <source>Diameter (⌀)</source>
         <translation>直径 (⌀)</translation>
     </message>
+    <message>
+        <source>&amp;Line spacing:</source>
+        <translation>行間(&amp;L):</translation>
+    </message>
 </context>
 <context>
     <name>QG_DlgMirror</name>
@@ -3388,7 +3809,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>スクリプト:</translation>
+        <translation type="obsolete">スクリプト:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -3424,7 +3845,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>プレビューする図形群の数(&amp;r):</translation>
+        <translation type="obsolete">プレビューする図形群の数(&amp;r):</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -3452,11 +3873,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>フォント サイズ</translation>
+        <translation type="obsolete">フォント サイズ</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>ステータスバー:</translation>
+        <translation type="obsolete">ステータスバー:</translation>
     </message>
     <message>
         <source>A&amp;utomatically scale grid</source>
@@ -3484,7 +3905,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>最小グリッド間隔(px):</translation>
+        <translation type="obsolete">最小グリッド間隔(px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -3528,11 +3949,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Splash Window</source>
-        <translation>起動画面</translation>
+        <translation type="obsolete">起動画面</translation>
     </message>
     <message>
         <source>Display Splash</source>
-        <translation>起動時に表示する</translation>
+        <translation type="obsolete">起動時に表示する</translation>
     </message>
     <message>
         <source>Graphic Colors</source>
@@ -3540,80 +3961,80 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aquamarine</source>
-        <translation>藍緑色（アクアマリン）</translation>
+        <translation type="obsolete">藍緑色（アクアマリン）</translation>
     </message>
     <message>
         <source>Azure</source>
-        <translation>アズール（Azure）</translation>
+        <translation type="obsolete">アズール（Azure）</translation>
     </message>
     <message>
         <source>DeepSkyBlue</source>
-        <translation>ディープ・スカイブルー（DeepSkyBlue）</translation>
+        <translation type="obsolete">ディープ・スカイブルー（DeepSkyBlue）</translation>
     </message>
     <message>
         <source>DodgerBlue</source>
-        <translation>ドジャー・ブルー（DodgerBlue）</translation>
+        <translation type="obsolete">ドジャー・ブルー（DodgerBlue）</translation>
     </message>
     <message>
         <source>Gray</source>
-        <translation>灰色</translation>
+        <translation type="obsolete">灰色</translation>
     </message>
     <message>
         <source>HoneyDew</source>
-        <translation>ハニーデュー（HoneyDew）</translation>
+        <translation type="obsolete">ハニーデュー（HoneyDew）</translation>
     </message>
     <message>
         <source>Lavender</source>
-        <translation>ラベンダー（Lavender）</translation>
+        <translation type="obsolete">ラベンダー（Lavender）</translation>
     </message>
     <message>
         <source>LightGrey</source>
-        <translation>ライト・グレイ（LightGrey）</translation>
+        <translation type="obsolete">ライト・グレイ（LightGrey）</translation>
     </message>
     <message>
         <source>Navy</source>
-        <translation>ネイビー（navy）</translation>
+        <translation type="obsolete">ネイビー（navy）</translation>
     </message>
     <message>
         <source>PaleGreen</source>
-        <translation>パレグリーン（PaleGreen）</translation>
+        <translation type="obsolete">パレグリーン（PaleGreen）</translation>
     </message>
     <message>
         <source>Pink</source>
-        <translation>ピンク（Pink）</translation>
+        <translation type="obsolete">ピンク（Pink）</translation>
     </message>
     <message>
         <source>Salmon</source>
-        <translation>サーモンピンク（Salmon）</translation>
+        <translation type="obsolete">サーモンピンク（Salmon）</translation>
     </message>
     <message>
         <source>Silver</source>
-        <translation>灰色・50%</translation>
+        <translation type="obsolete">灰色・50%</translation>
     </message>
     <message>
         <source>Violet</source>
-        <translation>バイオレット（Violet）</translation>
+        <translation type="obsolete">バイオレット（Violet）</translation>
     </message>
     <message>
         <source>Wheat</source>
-        <translation>ウィート（Wheat）</translation>
+        <translation type="obsolete">ウィート（Wheat）</translation>
     </message>
     <message>
         <source>White</source>
-        <translation>白</translation>
+        <translation type="obsolete">白</translation>
     </message>
     <message>
         <source>GUI Colors</source>
-        <translation>GUI の色</translation>
+        <translation type="obsolete">GUI の色</translation>
     </message>
     <message>
         <source>Layer/ Block Selection:</source>
         <translatorcomment>AutoCADにあわせて「ブロック」と訳すことにした</translatorcomment>
-        <translation>レイヤー/ブロック の選択：</translation>
+        <translation type="obsolete">レイヤー/ブロック の選択：</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;可能な時には、アクティブ レイヤーは、その新しいレイヤーに、すべての選択された要素を修正する。複数の要素のレイヤーを変更するために：最初に必要な要素を選ぶ；レイヤーウィジットのレイヤーを作動させる.これは、すべての選ばれた要素を作る 新しいレイヤーに属するために修正される.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;可能な時には、アクティブ レイヤーは、その新しいレイヤーに、すべての選択された要素を修正する。複数の要素のレイヤーを変更するために：最初に必要な要素を選ぶ；レイヤーウィジットのレイヤーを作動させる.これは、すべての選ばれた要素を作る 新しいレイヤーに属するために修正される.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
@@ -3633,11 +4054,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Crosshair</source>
-        <translation>水平線と垂直線の交点</translation>
+        <translation type="obsolete">水平線と垂直線の交点</translation>
     </message>
     <message>
         <source>Spiderweb</source>
-        <translation>対角からの線の接点</translation>
+        <translation type="obsolete">対角からの線の接点</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -3649,7 +4070,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Custom Toolbar:</source>
-        <translation>カスタム ツールバー:</translation>
+        <translation type="obsolete">カスタム ツールバー:</translation>
     </message>
     <message>
         <source>Clear Settings</source>
@@ -3677,39 +4098,103 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation type="unfinished"></translation>
+        <translation>スクロールバー</translation>
     </message>
     <message>
         <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">十字線２</translation>
     </message>
     <message>
-        <source>Isometric</source>
-        <translation type="unfinished"></translation>
+        <source>Orthogonal</source>
+        <translation type="obsolete">垂線</translation>
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップ位置を線で示す</translation>
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップ位置をshapeで示す</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">円</translation>
+        <translation type="obsolete">円</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">点</translation>
+        <translation type="obsolete">点</translation>
+    </message>
+    <message>
+        <source>Isometric</source>
+        <translation type="obsolete">アイソメトリック</translation>
     </message>
     <message>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">四角</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップときにカーソルを非表示にする</translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation>スタート時の設定</translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation>画面にスクリーンをロードする</translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation>メイン画面を最大で開始する</translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation>ドックウィジットを表示する</translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation>ツールバーを表示する</translation>
+    </message>
+    <message>
+        <source>Keycode mode</source>
+        <translation type="obsolete">キーコード・モード</translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation>明るい藍色</translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation>設定を初期化</translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation>カスタムメニュー、ツールバーに含まれます.よろしいですか?</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Commands 2 characters in length are automatically accepted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;コマンドは2文字を自動的に受け入れます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;有効にすると、作業しているレイヤーの属性は、新しいレイヤーで選択したすべての属性を修正することになります。複数のレイヤーの属性を変更するには：最初に必要とする属性を選択します。レイヤーのウィジェット内のレイヤーを選択します。選択したすべての属性は新しいレイヤーに属するように修正させます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation>可変長ファイル：</translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation>最小のグリッド間隔 (p&amp;x):</translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation>表示要素数(&amp;u)：</translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
+        <translation>ネイティブOSのファイルを開くダイアログは使用しない</translation>
     </message>
 </context>
 <context>
@@ -4600,15 +5085,23 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>並列</translation>
+        <translation type="obsolete">並列</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>中点</translation>
+        <translation type="obsolete">中点</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>直径 (⌀)</translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation>並列(&amp;l)</translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation>中間点(&amp;M)</translation>
     </message>
 </context>
 <context>
@@ -4755,7 +5248,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Black</source>
-        <translation>黒</translation>
+        <translation type="obsolete">黒</translation>
     </message>
     <message>
         <source>Resolution:</source>
@@ -4792,6 +5285,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message>
         <source>set same size</source>
         <translation>同じ大きさに設定</translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
+        <translation>黒(&amp;l)</translation>
     </message>
 </context>
 <context>
@@ -5560,7 +6057,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Snap to equidistant points of entity</source>
-        <translation>図形の等距離の点へスナップ</translation>
+        <translation>2点間中点</translation>
     </message>
     <message>
         <source>Snap to center points</source>
@@ -5657,6 +6154,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Lock relative zero position</source>
         <translation>相対原点を固定</translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
+        <translation>独立スナップモード</translation>
     </message>
 </context>
 <context>
@@ -5915,14 +6416,17 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Windows Bitmap</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>BPM - Windows Bitmap</translation>
     </message>
     <message>
         <source>Joint Photographic Experts Group</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>JPEG - Joint Photographic Experts Group</translation>
     </message>
     <message>
         <source>Multiple-image Network Graphics</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>MNG - Multiple-image Network Graphics</translation>
     </message>
     <message>
@@ -5931,10 +6435,12 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Portable Grey Map</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>PGM - Portable Greymap</translation>
     </message>
     <message>
         <source>Portable Network Graphic</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>PNG - Portable Network Graphic</translation>
     </message>
     <message>
@@ -5943,14 +6449,17 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>X Bitmap Format</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>XBM - X Bitmap</translation>
     </message>
     <message>
         <source>X Pixel Map</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>XPM -X PixelMap</translation>
     </message>
     <message>
         <source>All Image Files (%1)</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>＜すべての形式 (%1)＞</translation>
     </message>
     <message>
@@ -6091,50 +6600,62 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Scalable Vector Graphics</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>SVG - Scalable Vector Graphics</translation>
     </message>
     <message>
         <source>SGI Black &amp; White</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>BW - SGI Black &amp; White</translation>
     </message>
     <message>
         <source>Encapsulated PostScript</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>EPS - Encapsulated PostScript</translation>
     </message>
     <message>
         <source>Encapsulated PostScript Format</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>EPSF - Encapsulated PostScript Format</translation>
     </message>
     <message>
         <source>Encapsulated PostScript Interchange</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>EPSI - Encapsulated PostScript Interchange</translation>
     </message>
     <message>
         <source>Windows Icon</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>ICO - Windows Icon</translation>
     </message>
     <message>
         <source>JPEG 2000</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>JP2 - JPEG 2000</translation>
     </message>
     <message>
         <source>ZSoft Paintbrush</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>PCX -ZSoft Paintbrush </translation>
     </message>
     <message>
         <source>PC Paint</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>PIC - PC Paint</translation>
     </message>
     <message>
         <source>SGI-Bilddatei</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>RGB - SGI-Bilddatei</translation>
     </message>
     <message>
         <source>Targa Image File</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>TIF - Targa Image File</translation>
     </message>
     <message>
         <source>Tagged Image File Format</source>
+        <translatorcomment>Libreoffice の表記にあわせた</translatorcomment>
         <translation>TIFF - Tagged Image File Format</translation>
     </message>
     <message>
@@ -7386,15 +7907,201 @@ Continue?</source>
     </message>
     <message>
         <source>bw</source>
-        <translation type="unfinished"></translation>
+        <translation>bw</translation>
     </message>
     <message>
         <source>blackwhite</source>
-        <translation type="unfinished"></translation>
+        <translation>blackwhite</translation>
     </message>
     <message>
         <source>color</source>
-        <translation type="unfinished"></translation>
+        <translation>color</translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translatorcomment>命令は訳さない</translatorcomment>
+        <translation>di</translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translatorcomment>命令は訳さない</translatorcomment>
+        <translation>t2</translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translatorcomment>命令は訳さない</translatorcomment>
+        <translation>mp</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation>ブロック</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation>円</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>曲線</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>編集</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>楕円</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation>寸法記入</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>図形情報</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation>レイヤー</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>直線</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation>変更・修正</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>その他</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation>ポリライン</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation>解像度</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation>選択</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation>スナップ</translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation>独立スナップ</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>表示</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation>ウィジット</translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation>新規作成</translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation>Wiki</translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation>ユーザーマニュアル</translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation>コマンド</translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation>スタイルシート</translation>
+    </message>
+    <message>
+        <source>Custom Widgets</source>
+        <translation type="obsolete">カスタム ウィジット</translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation>フォーラム</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>すべて</translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation>オブジェクトの削除を無効:</translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation>ペンウィザード</translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation>リリース情報</translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation>コマンドファイルをロード</translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation>オブジェクトを選択</translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation>選択に適用</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation>最初の距離を入力すること。</translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation>cal</translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation>計算モード: On</translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation>計算モード: Off</translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation>キーコード・モード</translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation>複数コマンドの貼り付け</translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation>ライセンス</translation>
     </message>
 </context>
 <context>
@@ -8690,7 +9397,7 @@ Continue?</source>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Area: %1</source>
-        <translation>面積: %1</translation>
+        <translation type="obsolete">面積: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -8715,6 +9422,10 @@ Continue?</source>
     <message>
         <source>Closing Point: %1/%2</source>
         <translation>閉じた点: %1/%2</translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
+        <translation>面積: %1 %2^2</translation>
     </message>
 </context>
 <context>
@@ -9345,11 +10056,11 @@ Continue?</source>
     </message>
     <message>
         <source>Deleteinging point is not on entity.</source>
-        <translation>削除位置が図形上にありません。</translation>
+        <translation type="obsolete">削除位置が図形上にありません。</translation>
     </message>
     <message>
         <source>Deletinging point is invalid.</source>
-        <translation>削除位置が無効です。</translation>
+        <translation type="obsolete">削除位置が無効です。</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -9419,7 +10130,7 @@ Continue?</source>
     </message>
     <message>
         <source>Polyline created</source>
-        <translation type="unfinished"></translation>
+        <translation>新規ポリライン</translation>
     </message>
 </context>
 <context>
@@ -9497,11 +10208,11 @@ Continue?</source>
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation type="unfinished"></translation>
+        <translation>モノクロ印刷</translation>
     </message>
     <message>
         <source>Printout in color</source>
-        <translation type="unfinished"></translation>
+        <translation>カラー印刷</translation>
     </message>
 </context>
 <context>
@@ -9710,648 +10421,709 @@ Continue?</source>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation>フレーム</translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation type="unfinished">円弧オプション</translation>
+        <translation>円弧オプション</translation>
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation type="unfinished">反時計回り</translation>
+        <translation>反時計回り</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation type="unfinished">時計回り</translation>
+        <translation>時計回り</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation type="unfinished">接線円弧オプション</translation>
+        <translation>接線円弧オプション</translation>
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation type="unfinished">接線の弧の半径</translation>
+        <translation>接線の弧の半径</translation>
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation type="unfinished">接する円の全体の角度</translation>
+        <translation>接する円の全体の角度</translation>
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="unfinished">半径</translation>
+        <translation>半径</translation>
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="unfinished">角度</translation>
+        <translation>角度</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation type="unfinished">Ｃ面取りオプション</translation>
+        <translation>Ｃ面取りオプション</translation>
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation type="unfinished">Ｃ面取りする両図形をチェック</translation>
+        <translation>Ｃ面取りする両図形をチェック</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation type="unfinished"></translation>
+        <translation>トリム</translation>
     </message>
     <message>
         <source>Length 1:</source>
-        <translation type="unfinished">長さ 1:</translation>
+        <translation>長さ 1:</translation>
     </message>
     <message>
         <source>Length 2:</source>
-        <translation type="unfinished">長さ 2:</translation>
+        <translation>長さ 2:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation type="unfinished">円オプション</translation>
+        <translation>円オプション</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">半径:</translation>
+        <translation>半径:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation type="unfinished">円の接線は２つのオプション</translation>
+        <translation>円の接線は２つのオプション</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;線に接した円の半径&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;線に接した円の半径&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">半径:</translation>
+        <translation>半径:</translation>
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation type="unfinished">接線の円の半径</translation>
+        <translation>接線の円の半径</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation type="unfinished">線分寸法オプション</translation>
+        <translation>線分寸法オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation type="unfinished">寸法オプション</translation>
+        <translation>寸法オプション</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation type="unfinished">ラベル:</translation>
+        <translation>ラベル:</translation>
     </message>
     <message utf8="true">
         <source>⌀</source>
-        <translation type="unfinished">⌀</translation>
+        <translation>⌀</translation>
     </message>
     <message utf8="true">
         <source>°</source>
-        <translation type="unfinished">°</translation>
+        <translation>°</translation>
     </message>
     <message utf8="true">
         <source>±</source>
-        <translation type="unfinished">±</translation>
+        <translation>±</translation>
     </message>
     <message utf8="true">
         <source>π</source>
-        <translation type="unfinished">π</translation>
+        <translation>π</translation>
     </message>
     <message utf8="true">
         <source>×</source>
-        <translation type="unfinished">×</translation>
+        <translation>×</translation>
     </message>
     <message utf8="true">
         <source>÷</source>
-        <translation type="unfinished">÷</translation>
+        <translation>÷</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation type="unfinished">挿入オプション</translation>
+        <translation>挿入オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">回転角度</translation>
+        <translation>回転角度</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">倍率:</translation>
+        <translation>倍率:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">倍率</translation>
+        <translation>倍率</translation>
     </message>
     <message>
         <source>DPI</source>
-        <translation type="unfinished">DPI</translation>
+        <translation>DPI</translation>
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation type="unfinished">画像のDPI</translation>
+        <translation>画像のDPI</translation>
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation type="unfinished">挿入オプション</translation>
+        <translation>挿入オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">回転角度</translation>
+        <translation>回転角度</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">倍率:</translation>
+        <translation>倍率:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">倍率</translation>
+        <translation>倍率</translation>
     </message>
     <message>
         <source>Array:</source>
-        <translation type="unfinished">配列:</translation>
+        <translation>配列:</translation>
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation type="unfinished">列数</translation>
+        <translation>列数</translation>
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation type="unfinished">行数</translation>
+        <translation>行数</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">間隔:</translation>
+        <translation>間隔:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation type="unfinished">列間隔</translation>
+        <translation>列間隔</translation>
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation type="unfinished">行間</translation>
+        <translation>行間</translation>
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation type="unfinished">ライブラリ挿入オプション</translation>
+        <translation>ライブラリ挿入オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">回転角度</translation>
+        <translation>回転角度</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">倍率:</translation>
+        <translation>倍率:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">倍率</translation>
+        <translation>倍率</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation type="unfinished">線分角度オプション</translation>
+        <translation>線分角度オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation type="unfinished">線分角度</translation>
+        <translation>線分角度</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">長さ:</translation>
+        <translation>長さ:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation type="unfinished">線分長さ</translation>
+        <translation>線分長さ</translation>
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation type="unfinished">点スナップ:</translation>
+        <translation>点スナップ:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">始点</translation>
+        <translation>始点</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">中点</translation>
+        <translation>中点</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">終点</translation>
+        <translation>終点</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation type="unfinished">２等分線オプション</translation>
+        <translation>２等分線オプション</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">長さ:</translation>
+        <translation>長さ:</translation>
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation type="unfinished">２等分線の周長</translation>
+        <translation>２等分線の周長</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>数値:</translation>
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation type="unfinished">作成する２等分線の数</translation>
+        <translation>作成する２等分線の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation type="unfinished">線分オプション</translation>
+        <translation>線分オプション</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation type="unfinished">引かれた線を閉じる</translation>
+        <translation>引かれた線を閉じる</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation type="unfinished">最後に書かれた線を取り消す</translation>
+        <translation>最後に書かれた線を取り消す</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">取り消し</translation>
+        <translation>取り消し</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation type="unfinished">取り消した線を再描画</translation>
+        <translation>取り消した線を再描画</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">やり直し</translation>
+        <translation>やり直し</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation type="unfinished">平行線分オプション</translation>
+        <translation>平行線分オプション</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">距離:</translation>
+        <translation>距離:</translation>
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation type="unfinished">基準図形への距離</translation>
+        <translation>基準図形への距離</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>数値:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation type="unfinished">作成する平行線分の数</translation>
+        <translation>作成する平行線分の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation type="unfinished">平行線分通過オプション</translation>
+        <translation>平行線分通過オプション</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>数値:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation type="unfinished">作成する平行線分の数</translation>
+        <translation>作成する平行線分の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation type="unfinished">多角形オプション</translation>
+        <translation>多角形オプション</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>数値:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation type="unfinished">辺の数</translation>
+        <translation>辺の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation type="unfinished">多角形オプション</translation>
+        <translation>多角形オプション</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>数値:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation type="unfinished">辺の数</translation>
+        <translation>辺の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">線分相対角度オプション</translation>
+        <translation>線分相対角度オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation type="unfinished">線分角度</translation>
+        <translation>線分角度</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">長さ:</translation>
+        <translation>長さ:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation type="unfinished">線分長さ</translation>
+        <translation>線分長さ</translation>
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation type="unfinished">テキストオプション</translation>
+        <translation>テキストオプション</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation type="unfinished">テキスト:</translation>
+        <translation>テキスト:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation type="unfinished">オフセットオプションの修正</translation>
+        <translation>オフセットオプションの修正</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">距離:</translation>
+        <translation>距離:</translation>
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation type="unfinished">元の要素からオフセットする</translation>
+        <translation>元の要素からオフセットする</translation>
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation type="unfinished">移動回転オプション</translation>
+        <translation>移動回転オプション</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
+    </message>
+</context>
+<context>
+    <name>Ui_PolylineEquidistantOptions</name>
+    <message>
+        <source>Line Relative Angle Options</source>
+        <translation type="obsolete">線分相対角度オプション</translation>
+    </message>
+    <message>
+        <source>Spacing:</source>
+        <translation type="obsolete">間隔:</translation>
+    </message>
+    <message>
+        <source>Distance from original polyline</source>
+        <translation type="obsolete">元のポリラインからの距離</translation>
+    </message>
+    <message>
+        <source>Copies:</source>
+        <translation type="obsolete">複写:</translation>
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation type="unfinished">ポリラインオプション</translation>
+        <translation>ポリラインオプション</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">取り消し</translation>
+        <translation>取り消し</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>直線</translation>
     </message>
     <message>
         <source>Tangential</source>
-        <translation type="unfinished">タンジェント</translation>
+        <translation>タンジェント</translation>
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation type="unfinished">タンジェント 半径</translation>
+        <translation>タンジェント 半径</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">角度</translation>
+        <translation>角度</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">半径:</translation>
+        <translation>半径:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation type="unfinished">反時計回り</translation>
+        <translation>反時計回り</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation type="unfinished">時計回り</translation>
+        <translation>時計回り</translation>
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation type="unfinished">印刷プレビューオプション</translation>
+        <translation>印刷プレビューオプション</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;印刷倍率は現在の値に固定する&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;印刷倍率は現在の値に固定する&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>fixed</source>
-        <translation type="unfinished">自動合わせ</translation>
+        <translation>自動合わせ</translation>
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation type="unfinished">白黒反転切り替え</translation>
+        <translation>白黒反転切り替え</translation>
     </message>
     <message>
         <source>Center to page</source>
-        <translation type="unfinished">ページの中心へ</translation>
+        <translation>ページの中心へ</translation>
     </message>
     <message>
         <source>Fit to page</source>
-        <translation type="unfinished">ページの大きさに合わせる</translation>
+        <translation>ページの大きさに合わせる</translation>
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation type="unfinished">丸み面取りオプション</translation>
+        <translation>丸み面取りオプション</translation>
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation type="unfinished">丸み面取りするコーナ線分をチェック</translation>
+        <translation>丸み面取りするコーナ線分をチェック</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation type="unfinished"></translation>
+        <translation>トリム</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">半径:</translation>
+        <translation>半径:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation type="unfinished">スナップ距離オプション</translation>
+        <translation>スナップ距離オプション</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">距離:</translation>
+        <translation>距離:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation type="unfinished">スナップ距離オプション</translation>
+        <translation>スナップ距離オプション</translation>
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation type="unfinished">中間点:</translation>
+        <translation>中間点:</translation>
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation type="unfinished">等距離分割点の数</translation>
+        <translation>等距離分割点の数</translation>
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation type="unfinished">スプラインオプション</translation>
+        <translation>スプラインオプション</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation type="unfinished"></translation>
+        <translation>度:</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">取り消し</translation>
+        <translation>取り消し</translation>
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation type="unfinished">テキストオプション</translation>
+        <translation>テキストオプション</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation type="unfinished">テキスト:</translation>
+        <translation>テキスト:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">角度:</translation>
+        <translation>角度:</translation>
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation type="unfinished">調節量オプション</translation>
+        <translation>調節量オプション</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation type="unfinished">距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
+        <translation>距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">長さ:</translation>
+        <translation>長さ:</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation type="unfinished">距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
+        <translation>距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation type="unfinished">入力された値を全体の長さとする、増加はしない</translation>
+        <translation>入力された値を全体の長さとする、増加はしない</translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation>フレーム</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation>&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation>&lt;</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation>新規作成</translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation>取り去る</translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation>割り当てる</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>更新する</translation>
     </message>
 </context>
 </TS>

@@ -2,6 +2,36 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pa">
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
@@ -295,15 +325,7 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished">ਬਹੁਭੁਜ(&amp;P)</translation>
     </message>
     <message>
-        <source>Draw polylines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Add node</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add polyline&apos;s node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -311,15 +333,7 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Append polyline&apos;s node</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Delete node</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete polyline&apos;s node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -328,14 +342,10 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation type="unfinished">ਦੋ ਨੋਡਾਂ ਵਿੱਚੋਂ ਹਟਾਓ</translation>
+        <translation type="obsolete">ਦੋ ਨੋਡਾਂ ਵਿੱਚੋਂ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trim polyline&apos;s segments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -343,15 +353,7 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Create Equidistant Polylines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create Polyline from Existing Segments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -436,7 +438,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation type="unfinished">ਭੇਜੋ ਅਤੇ ਘੁੰਮਾਓ(&amp;o)</translation>
+        <translation type="obsolete">ਭੇਜੋ ਅਤੇ ਘੁੰਮਾਓ(&amp;o)</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
@@ -452,15 +454,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation type="unfinished">ਦੋ ਛਾਟੋ(&amp;T)</translation>
+        <translation type="obsolete">ਦੋ ਛਾਟੋ(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
         <translation type="unfinished">Lengthen(&amp;L)</translation>
-    </message>
-    <message>
-        <source>&amp;Offset</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -620,7 +618,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation type="unfinished">ਮੇਰੀ ਪਸੰਦ(&amp;P)</translation>
+        <translation type="obsolete">ਮੇਰੀ ਪਸੰਦ(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -664,7 +662,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation type="unfinished">ਮਾਪ ਇਕਾਈ ਮੁੜ ਬਣਾਉ</translation>
+        <translation type="obsolete">ਮਾਪ ਇਕਾਈ ਮੁੜ ਬਣਾਉ</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -739,18 +737,6 @@ distance between points=%2 is larger than diameter=%3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+Meta+F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Grid</source>
         <translation type="unfinished">ਗਰਿੱਡ(&amp;G)</translation>
     </message>
@@ -804,6 +790,35 @@ distance between points=%2 is larger than diameter=%3</source>
         <source>Reload Style Sheet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
@@ -813,9 +828,21 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
 </context>
 <context>
-    <name>LC_CustomToolbar</name>
+    <name>LC_DeviceOptions</name>
     <message>
-        <source>Add or Remove Action</source>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">ਮਾਊਸ</translation>
+    </message>
+    <message>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -854,6 +881,30 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Style Sheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation type="unfinished">ਸਥਿਤੀ ਪੱਟੀ</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -976,11 +1027,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>ਡਰਾਇੰਗ(&amp;D)</translation>
+        <translation type="obsolete">ਡਰਾਇੰਗ(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>ਮਾਪ(&amp;D)</translation>
+        <translation type="obsolete">ਮਾਪ(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
@@ -988,7 +1039,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>ਸਨੈਪ(&amp;S)</translation>
+        <translation type="obsolete">ਸਨੈਪ(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Info</source>
@@ -996,11 +1047,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>ਪਰਤ(&amp;L)</translation>
+        <translation type="obsolete">ਪਰਤ(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>ਬਲਾਕ(&amp;B)</translation>
+        <translation type="obsolete">ਬਲਾਕ(&amp;B)</translation>
     </message>
     <message>
         <source>About</source>
@@ -1044,7 +1095,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">ਤਾਜ਼ਾ ਫਾਇਲ ਖੋਲੀ ਜਾ ਰਹੀ ਹੈ...</translation>
+        <translation>ਤਾਜ਼ਾ ਫਾਇਲ ਖੋਲੀ ਜਾ ਰਹੀ ਹੈ...</translation>
     </message>
     <message>
         <source>Loaded document: </source>
@@ -1064,7 +1115,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>About...</source>
-        <translation>ਇਸ ਬਾਰੇ...</translation>
+        <translation type="obsolete">ਇਸ ਬਾਰੇ...</translation>
     </message>
     <message>
         <source>File</source>
@@ -1180,7 +1231,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>ਦਸਤਾਵੇਜ਼(&amp;M)</translation>
+        <translation type="obsolete">ਦਸਤਾਵੇਜ਼(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;CAM</source>
@@ -1192,7 +1243,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>None</source>
-        <translation>ਕੋਈ ਨਹੀਂ</translation>
+        <translation type="obsolete">ਕੋਈ ਨਹੀਂ</translation>
     </message>
     <message>
         <source>Version: %1 %2</source>
@@ -1200,7 +1251,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>ਮੈਡੀਊਲ: %1</translation>
+        <translation type="obsolete">ਮੈਡੀਊਲ: %1</translation>
     </message>
     <message>
         <source>&amp;About %1</source>
@@ -1226,7 +1277,7 @@ You can save your work now.</source>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>ਝਰੋਖਾ(&amp;W)</translation>
+        <translation type="obsolete">ਝਰੋਖਾ(&amp;W)</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -1260,10 +1311,6 @@ Auto-save disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1276,24 +1323,8 @@ Auto-save disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Program Icons Supplied by</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Splash and Logo supplied by</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Main Website : </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Version: %1</source>
         <translation type="unfinished">ਵਰਜਨ: %1</translation>
-    </message>
-    <message>
-        <source>SCM Revision: %1</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
@@ -1305,10 +1336,6 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1356,15 +1383,7 @@ Auto-save disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Help files not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1394,15 +1413,7 @@ Please check its existence and permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The help files were not found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1442,14 +1453,6 @@ Please check its existence and permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Misc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dimension</source>
         <translation type="unfinished">ਮਾਪ</translation>
     </message>
@@ -1462,19 +1465,99 @@ Please check its existence and permissions.</source>
         <translation type="unfinished">ਜਾਣਕਾਰੀ</translation>
     </message>
     <message>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Online (Wiki)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Dockwidgets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Dock Areas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">ਨਕਲ</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2703,16 +2786,16 @@ in a separate window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Copy</source>
         <translation type="obsolete">ਨਕਲ(&amp;C)</translation>
     </message>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3192,7 +3275,7 @@ in a separate window</source>
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;QCad ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ&lt;/b&gt;(new line)
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;QCad ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ&lt;/b&gt;(new line)
 &lt;/font&gt;(new line)
 &lt;br&gt;(new line)
 ਕਿਰਪਾ ਕਰਕੇ ਨਵੀਂ ਡਰਾਇੰਗ ਲਈ ਵਰਤਣ ਲਈ ਇਕਾਈਆਂ ਅਤੇ ਆਪਣੀ ਪਸੰਦੀਦਾ ਭਾਸ਼ਾ ਦੀ ਚੋਣ ਕਰੋ।&lt;br&gt;(new line)
@@ -3217,6 +3300,14 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message>
         <source>Enter</source>
         <translation type="obsolete">Enter</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3349,7 +3440,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation type="unfinished">ਰੇਖਾ ਖਾਲੀ ਥਾਂ(&amp;s):</translation>
+        <translation type="obsolete">ਰੇਖਾ ਖਾਲੀ ਥਾਂ(&amp;s):</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -3937,6 +4028,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Line spacing:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4592,7 +4687,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>ਸਕ੍ਰਿਪਟ:</translation>
+        <translation type="obsolete">ਸਕ੍ਰਿਪਟ:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -4652,7 +4747,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>ਝਲਕ ਇਕਾਈਆਂ ਦੀ ਗਿਣਤੀ(&amp;r):</translation>
+        <translation type="obsolete">ਝਲਕ ਇਕਾਈਆਂ ਦੀ ਗਿਣਤੀ(&amp;r):</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -4700,11 +4795,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>ਫੋਂਟ ਰੰਗ</translation>
+        <translation type="obsolete">ਫੋਂਟ ਰੰਗ</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>ਸਥਿਤੀ ਪੱਟੀ:</translation>
+        <translation type="obsolete">ਸਥਿਤੀ ਪੱਟੀ:</translation>
     </message>
     <message>
         <source>5</source>
@@ -4804,7 +4899,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>ਘੱਟੋ-ਘੱਟ ਗਰਿੱਡ ਖਾਲੀ ਥਾਂ (px):</translation>
+        <translation type="obsolete">ਘੱਟੋ-ਘੱਟ ਗਰਿੱਡ ਖਾਲੀ ਥਾਂ (px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -4855,80 +4950,16 @@ You can changes these settings later in the Options Dialog of QCad.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Splash Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display Splash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Graphic Colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Aquamarine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Azure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DeepSkyBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DodgerBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Gray</source>
-        <translation type="unfinished">ਸਲੇਟੀ</translation>
-    </message>
-    <message>
-        <source>HoneyDew</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lavender</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>LightGrey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Navy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PaleGreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pink</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Salmon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Silver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Violet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wheat</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">ਸਲੇਟੀ</translation>
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished">ਚਿੱਟੀ</translation>
+        <translation type="obsolete">ਚਿੱਟੀ</translation>
     </message>
     <message>
         <source>Snap indicator:</source>
@@ -4936,30 +4967,6 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Crosshair</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spiderweb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GUI Colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Layer/ Block Selection:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Toolbar:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4991,14 +4998,6 @@ You can changes these settings later in the Options Dialog of QCad.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Isometric</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Snap indicator lines</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5008,15 +5007,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">ਚੱਕਰ</translation>
+        <translation type="obsolete">ਚੱਕਰ</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">ਬਿੰਦੂ</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
@@ -5024,6 +5019,58 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Start in tab mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6047,15 +6094,23 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aligned</source>
-        <translation type="unfinished">ਇਕਸਾਰ</translation>
+        <translation type="obsolete">ਇਕਸਾਰ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation type="obsolete">ਮੱਧ</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished">ਮੱਧ(&amp;M)</translation>
     </message>
 </context>
 <context>
@@ -6225,7 +6280,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Black</source>
-        <translation>ਕਾਲੀ</translation>
+        <translation type="obsolete">ਕਾਲੀ</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -6341,6 +6396,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>set same size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7154,6 +7213,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Lock relative zero position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9035,6 +9098,185 @@ parallel</translation>
     </message>
     <message>
         <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">ਚੱਕਰ</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">ਸੋਧ</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">ਅੰਡਾਕਾਰ</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">ਫਾਇਲ</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">ਮਾਪ</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">ਜਾਣਕਾਰੀ</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">ਰੇਖਾ</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">ਸੋਧੀ</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished">ਚੋਣ</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">ਚੁਣੋ</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">ਸਨੈਪ</translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">ਵੇਖੋ</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -11154,7 +11396,7 @@ parallel</translation>
     </message>
     <message>
         <source>Area: %1</source>
-        <translation>ਖੇਤਰ: %1</translation>
+        <translation type="obsolete">ਖੇਤਰ: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -11182,6 +11424,10 @@ parallel</translation>
     </message>
     <message>
         <source>Closing Point: %1/%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12244,15 +12490,7 @@ parallel</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Deletinging point is invalid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Deleting point is not on entity.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Deleteinging point is not on entity.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13912,6 +14150,13 @@ parallel</translation>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
@@ -14553,6 +14798,41 @@ parallel</translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

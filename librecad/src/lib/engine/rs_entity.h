@@ -60,8 +60,6 @@ class QString;
  */
 class RS_Entity : public RS_Undoable {
 public:
-
-	RS_Entity()=default;
 	RS_Entity(RS_EntityContainer* parent=nullptr);
 	virtual ~RS_Entity() = default;
 
@@ -207,13 +205,13 @@ public:
 
 	bool isLocked() const;
 
-	void undoStateChanged(bool undone);
+	void undoStateChanged(bool undone) override;
     virtual bool isUndone() const;
 
     /**
      * Can be implemented by child classes to update the entities
      * temporary subentities. update() is called if the entity's
-     * paramters or undo state changed.
+     * parameters or undo state changed.
      */
     virtual void update() {}
 
@@ -555,7 +553,7 @@ m0 x + m1 y + m2 =0
 	 */
 	virtual bool isArc() const;
 	/**
-	 * @brief isArcLine determine the entitiy is either Arc, Circle, or Line
+	 * @brief isArcLine determine the entity is either Arc, Circle, or Line
 	 * @return true if entity is Arc, Circle, or Line
 	 */
 	virtual bool isArcCircleLine() const;

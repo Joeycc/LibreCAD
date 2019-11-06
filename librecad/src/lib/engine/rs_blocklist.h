@@ -44,7 +44,6 @@ class RS_BlockListListener;
  */
 class RS_BlockList {
 public:
-	RS_BlockList()=default;
     RS_BlockList(bool owner=false);
 	virtual ~RS_BlockList() = default;
 
@@ -86,13 +85,13 @@ public:
     void removeListener(RS_BlockListListener* listener);
 
     /**
-     * Sets the layer lists modified status to 'm'.
+     * Sets the block list modified status to 'm'.
      */
 	void setModified(bool m);
 
     /**
-     * @retval true The layer list has been modified.
-     * @retval false The layer list has not been modified.
+     * @retval true The block list has been modified.
+     * @retval false The block list has not been modified.
      */
 	bool isModified() const;
 
@@ -107,7 +106,7 @@ private:
     QList<RS_BlockListListener*> blockListListeners;
     //! Currently active block
     RS_Block* activeBlock;
-    /** Flag set if the layer list was modified and not yet saved. */
+    /** Flag set if the block list was modified and not yet saved. */
     bool modified;
 };
 

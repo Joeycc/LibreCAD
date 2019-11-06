@@ -3,7 +3,7 @@
 **
 ** This file was created for the LibreCAD project (librecad.org), a 2D CAD program.
 **
-** Copyright (C) 2015 ravas (ravas@outlook.com)
+** Copyright (C) 2015 ravas (github.com/r-a-v-a-s)
 **
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
@@ -44,11 +44,8 @@ LC_CentralWidget::LC_CentralWidget(QWidget* parent)
     mdi_area->setFocusPolicy(Qt::ClickFocus);
     mdi_area->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mdi_area->setActivationOrder(QMdiArea::ActivationHistoryOrder);
-
-    #if QT_VERSION >= 0x040800
-        mdi_area->setTabsMovable(true);
-        mdi_area->setTabsClosable(true);
-    #endif
+    mdi_area->setTabsMovable(true);
+    mdi_area->setTabsClosable(true);
 
     setLayout(layout);
 }

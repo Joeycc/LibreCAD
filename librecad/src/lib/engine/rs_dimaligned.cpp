@@ -120,7 +120,7 @@ QString RS_DimAligned::getMeasuredLabel() {
         if (format == RS2::Decimal)
             ret = stripZerosLinear(ret, dimzin);
         //verify if units are decimal and comma separator
-        if (dimlunit==2){
+        if (format == RS2::Decimal || format == RS2::ArchitecturalMetric){
             if (getGraphicVariableInt("$DIMDSEP", 0) == 44)
                 ret.replace(QChar('.'), QChar(','));
         }
@@ -177,7 +177,7 @@ void RS_DimAligned::updateDim(bool autoText) {
 	double extLength = edata.extensionPoint2.distanceTo(data.definitionPoint);
 
     if (getFixedLengthOn()){
-        double dimfxl = getFixedLength();
+        double dimfxl = getFixedLength()*dimscale;
         if (extLength-dimexo > dimfxl)
             dimexo =  extLength - dimfxl;
     }
@@ -378,5 +378,3 @@ std::ostream& operator << (std::ostream& os, const RS_DimAligned& d) {
     os << " DimAligned: " << d.getData() << "\n" << d.getEData() << "\n";
     return os;
 }
-
-

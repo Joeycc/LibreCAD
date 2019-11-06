@@ -4,12 +4,12 @@
 <context>
     <name>AsciiFile</name>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="37"/>
-        <location filename="../asciifile/asciifile.cpp" line="43"/>
+        <location filename="../asciifile/asciifile.cpp" line="35"/>
+        <location filename="../asciifile/asciifile.cpp" line="41"/>
         <source>Read ascii points</source>
         <translatorcomment>Nota pels traductors: Si un cop enregistrats encara no podeu traduïr i només podeu penjar suggeriments, si us plau demaneu en el forum que us activin els permisos per traduir.
 http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
-        <translation>Llegeix els punts ASCII</translation>
+        <translation>Llegeix els punts en ASCII</translation>
     </message>
 </context>
 <context>
@@ -17,7 +17,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="40"/>
         <source>Import ESRI Shapefile</source>
-        <translation>Importa el fitxer d&apos;ombrejats ESRI</translation>
+        <translation>Importa un fitxer de ratllat ESRI</translation>
     </message>
 </context>
 <context>
@@ -31,7 +31,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../align/align.cpp" line="40"/>
         <source>first base point:</source>
-        <translation>Primer punt d&apos;origen:</translation>
+        <translation>primer punt d&apos;origen:</translation>
     </message>
     <message>
         <location filename="../align/align.cpp" line="42"/>
@@ -47,6 +47,19 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <location filename="../align/align.cpp" line="46"/>
         <source>second target point:</source>
         <translation>segon punt de destí:</translation>
+    </message>
+</context>
+<context>
+    <name>LC_Gear</name>
+    <message>
+        <location filename="../gear/gear.cpp" line="33"/>
+        <source>Gear creation plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="40"/>
+        <source>Gear plugin</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -78,188 +91,208 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="73"/>
+        <location filename="../list/list.cpp" line="77"/>
         <source>Layer</source>
         <translation>Capa</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="75"/>
+        <location filename="../list/list.cpp" line="79"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="76"/>
+        <location filename="../list/list.cpp" line="80"/>
         <source>Line type</source>
         <translation>Tipus de línia</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="77"/>
+        <location filename="../list/list.cpp" line="81"/>
         <source>Line thickness</source>
         <translation>Gruix de línia</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="78"/>
+        <location filename="../list/list.cpp" line="82"/>
         <source>ID</source>
-        <translation>Id</translation>
+        <translation>ID</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="84"/>
+        <location filename="../list/list.cpp" line="88"/>
         <source>POINT</source>
-        <translation>Punt</translation>
+        <translation>PUNT</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="85"/>
-        <location filename="../list/list.cpp" line="195"/>
+        <location filename="../list/list.cpp" line="89"/>
+        <location filename="../list/list.cpp" line="218"/>
         <source>in point</source>
         <translation>en el punt</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="90"/>
+        <location filename="../list/list.cpp" line="94"/>
         <source>LINE</source>
-        <translation>Línia</translation>
+        <translation>LÍNIA</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="95"/>
+        <location filename="../list/list.cpp" line="99"/>
         <source>from point</source>
         <translation>del punt</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="98"/>
+        <location filename="../list/list.cpp" line="102"/>
         <source>to point</source>
         <translation>al punt</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="103"/>
-        <location filename="../list/list.cpp" line="127"/>
+        <location filename="../list/list.cpp" line="107"/>
+        <location filename="../list/list.cpp" line="131"/>
         <source>length</source>
         <translation>longitud</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="108"/>
+        <location filename="../list/list.cpp" line="112"/>
         <source>Angle in XY plane</source>
         <translation>Angle en el plànol XY</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="109"/>
+        <location filename="../list/list.cpp" line="113"/>
         <source>Inc.</source>
         <translation>Inc.</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="114"/>
+        <location filename="../list/list.cpp" line="118"/>
         <source>ARC</source>
-        <translation>Arc</translation>
+        <translation>ARC</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="115"/>
-        <location filename="../list/list.cpp" line="131"/>
-        <location filename="../list/list.cpp" line="141"/>
+        <location filename="../list/list.cpp" line="119"/>
+        <location filename="../list/list.cpp" line="135"/>
+        <location filename="../list/list.cpp" line="145"/>
         <source>center point</source>
         <translation>centre</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="121"/>
-        <location filename="../list/list.cpp" line="135"/>
-        <location filename="../list/list.cpp" line="199"/>
+        <location filename="../list/list.cpp" line="125"/>
+        <location filename="../list/list.cpp" line="139"/>
+        <location filename="../list/list.cpp" line="222"/>
         <source>radius</source>
         <translation>radi</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="122"/>
+        <location filename="../list/list.cpp" line="126"/>
         <source>initial angle</source>
         <translation>angle inicial</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="123"/>
+        <location filename="../list/list.cpp" line="127"/>
         <source>final angle</source>
         <translation>angle final</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="130"/>
+        <location filename="../list/list.cpp" line="134"/>
         <source>CIRCLE</source>
-        <translation>Circumferència</translation>
+        <translation>CERCLE</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="136"/>
+        <location filename="../list/list.cpp" line="140"/>
         <source>circumference</source>
-        <translation>Cercle</translation>
+        <translation>circumferència</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="137"/>
+        <location filename="../list/list.cpp" line="141"/>
         <source>area</source>
         <translation>àrea</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="140"/>
+        <location filename="../list/list.cpp" line="144"/>
         <source>ELLIPSE</source>
-        <translation>El·lipse</translation>
+        <translation>EL·LIPSE</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="144"/>
+        <location filename="../list/list.cpp" line="148"/>
         <source>major axis</source>
         <translation>eix major</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="162"/>
+        <location filename="../list/list.cpp" line="166"/>
         <source>CONSTRUCTIONLINE</source>
-        <translation>Línia de construcció</translation>
+        <translation type="unfinished">Línia de construcció</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="165"/>
+        <location filename="../list/list.cpp" line="169"/>
         <source>OVERLAYBOX</source>
         <translation>Quadre sobreposat</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="168"/>
-        <source>SOLID</source>
-        <translation>Sòlid</translation>
-    </message>
-    <message>
         <location filename="../list/list.cpp" line="172"/>
+        <source>SOLID</source>
+        <translation>SÒLID</translation>
+    </message>
+    <message>
+        <location filename="../list/list.cpp" line="176"/>
         <source>MTEXT</source>
-        <translation>TextM</translation>
+        <translation>TEXTM</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="175"/>
+        <location filename="../list/list.cpp" line="179"/>
         <source>TEXT</source>
-        <translation>Text</translation>
+        <translation>TEXT</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="178"/>
+        <location filename="../list/list.cpp" line="182"/>
         <source>INSERT</source>
-        <translation>Insereix</translation>
+        <translation>INSEREIX</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="181"/>
+        <location filename="../list/list.cpp" line="185"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="182"/>
+        <location filename="../list/list.cpp" line="187"/>
         <source>Insertion point</source>
         <translation>Punt d&apos;inserció</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="187"/>
+        <location filename="../list/list.cpp" line="190"/>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list/list.cpp" line="193"/>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list/list.cpp" line="199"/>
+        <source>Columns/Rows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list/list.cpp" line="203"/>
+        <source>Column/Row Spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list/list.cpp" line="210"/>
         <source>POLYLINE</source>
-        <translation>Polilínia</translation>
+        <translation type="unfinished">Polilínia</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="188"/>
+        <location filename="../list/list.cpp" line="211"/>
         <source>Closed</source>
-        <translation>Tancat</translation>
+        <translation>Tancada</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="189"/>
+        <location filename="../list/list.cpp" line="212"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="189"/>
+        <location filename="../list/list.cpp" line="212"/>
         <source>Yes</source>
-        <translation>Si</translation>
+        <translation>Sí</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="190"/>
+        <location filename="../list/list.cpp" line="213"/>
         <source>Vertices</source>
         <translation>Vèrtex</translation>
     </message>
@@ -268,59 +301,59 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <translation type="obsolete">Curvatura</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="204"/>
+        <location filename="../list/list.cpp" line="227"/>
         <source>IMAGE</source>
-        <translation>Imatge</translation>
+        <translation>IMATGE</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="207"/>
+        <location filename="../list/list.cpp" line="230"/>
         <source>SPLINE</source>
-        <translation>Spline</translation>
+        <translation>SPLINE</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="210"/>
+        <location filename="../list/list.cpp" line="233"/>
         <source>SPLINEPOINTS</source>
-        <translation type="unfinished"></translation>
+        <translation>PUNTS SPLINE</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="213"/>
+        <location filename="../list/list.cpp" line="236"/>
         <source>HATCH</source>
-        <translation>Ombrejat</translation>
+        <translation>RATLLAT</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="216"/>
+        <location filename="../list/list.cpp" line="239"/>
         <source>DIMLEADER</source>
         <translation>Cota guia</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="219"/>
+        <location filename="../list/list.cpp" line="242"/>
         <source>DIMALIGNED</source>
         <translation>Cota alineada</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="222"/>
+        <location filename="../list/list.cpp" line="245"/>
         <source>DIMLINEAR</source>
         <translation>Cota lineal</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="225"/>
+        <location filename="../list/list.cpp" line="248"/>
         <source>DIMRADIAL</source>
         <translation>Cota radial</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="228"/>
+        <location filename="../list/list.cpp" line="251"/>
         <source>DIMDIAMETRIC</source>
         <translation>Cota diametral</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="231"/>
+        <location filename="../list/list.cpp" line="254"/>
         <source>DIMANGULAR</source>
         <translation>Cota angular</translation>
     </message>
     <message>
-        <location filename="../list/list.cpp" line="234"/>
+        <location filename="../list/list.cpp" line="257"/>
         <source>UNKNOWN</source>
-        <translation>Desconegut</translation>
+        <translation>DESCONEGUT</translation>
     </message>
 </context>
 <context>
@@ -329,17 +362,17 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <location filename="../sameprop/sameprop.cpp" line="21"/>
         <location filename="../sameprop/sameprop.cpp" line="28"/>
         <source>Same properties</source>
-        <translation>Iguala les propietats</translation>
+        <translation>Mateixes propietats</translation>
     </message>
     <message>
         <location filename="../sameprop/sameprop.cpp" line="41"/>
         <source>select original entity:</source>
-        <translation>Seleccioneu les entitats oginals:</translation>
+        <translation>seleccioneu l&apos;entitat original:</translation>
     </message>
     <message>
         <location filename="../sameprop/sameprop.cpp" line="43"/>
         <source>select entities to change</source>
-        <translation>Seleccioneu les entitats a canviar</translation>
+        <translation>seleccioneu les entitats a canviar</translation>
     </message>
 </context>
 <context>
@@ -354,190 +387,190 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
 <context>
     <name>PicFile</name>
     <message>
-        <location filename="../picfile/picfile.cpp" line="38"/>
+        <location filename="../picfile/picfile.cpp" line="36"/>
         <source>Read PIC file</source>
-        <translation type="unfinished"></translation>
+        <translation>Llegeix un fitxer PIC</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="44"/>
+        <location filename="../picfile/picfile.cpp" line="42"/>
         <source>import PIC file</source>
-        <translation type="unfinished"></translation>
+        <translation>importa un fitxer PIC</translation>
     </message>
 </context>
 <context>
     <name>dibPunto</name>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="235"/>
+        <location filename="../asciifile/asciifile.cpp" line="229"/>
         <source>Read ascii points</source>
-        <translation>Llegeix els punts ASCII</translation>
+        <translation>Llegeix els punts en ASCII</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="241"/>
+        <location filename="../asciifile/asciifile.cpp" line="235"/>
         <source>File...</source>
         <translation>Fitxer...</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="248"/>
+        <location filename="../asciifile/asciifile.cpp" line="242"/>
         <source>Format:</source>
         <translation>Format:</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="250"/>
+        <location filename="../asciifile/asciifile.cpp" line="244"/>
         <source>Space Separator</source>
-        <translation>Barra espaiadora</translation>
+        <translation>Separació amb espais</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="250"/>
+        <location filename="../asciifile/asciifile.cpp" line="244"/>
         <source>Tab Separator</source>
-        <translation>Tabulador</translation>
+        <translation>Separació amb tabuladors</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="250"/>
+        <location filename="../asciifile/asciifile.cpp" line="244"/>
         <source>Comma Separator</source>
-        <translation>Coma</translation>
+        <translation>Separació amb comes</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="250"/>
+        <location filename="../asciifile/asciifile.cpp" line="244"/>
         <source>Space in Columns</source>
         <translation>Espai en columnes</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="250"/>
+        <location filename="../asciifile/asciifile.cpp" line="244"/>
         <source>*.odb for Psion 2</source>
-        <translation>*.odb per Psion 2</translation>
+        <translation>*.odb per a Psion 2</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="252"/>
+        <location filename="../asciifile/asciifile.cpp" line="246"/>
         <source>Connect points</source>
-        <translation>Connecta els punts</translation>
+        <translation>Uneix els punts</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="260"/>
+        <location filename="../asciifile/asciifile.cpp" line="254"/>
         <source>2D Point</source>
         <translation>Punt 2D</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="260"/>
+        <location filename="../asciifile/asciifile.cpp" line="254"/>
         <source>Draw 2D Point</source>
-        <translation>Dibuixa un punt 2D</translation>
+        <translation>Traça punt 2D</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="261"/>
+        <location filename="../asciifile/asciifile.cpp" line="255"/>
         <source>3D Point</source>
         <translation>Punt 3D</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="261"/>
+        <location filename="../asciifile/asciifile.cpp" line="255"/>
         <source>Draw 3D Point</source>
-        <translation>Dibuix un punt 3D</translation>
+        <translation>Traça punt 3D</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="262"/>
+        <location filename="../asciifile/asciifile.cpp" line="256"/>
         <source>Point Number</source>
         <translation>Número del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="262"/>
+        <location filename="../asciifile/asciifile.cpp" line="256"/>
         <source>Draw point number</source>
-        <translation>Dibuixa el número del punt</translation>
+        <translation>Traça el número del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="263"/>
+        <location filename="../asciifile/asciifile.cpp" line="257"/>
         <source>Point Elevation</source>
-        <translation>Elevació del punt</translation>
+        <translation>Alçada del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="263"/>
+        <location filename="../asciifile/asciifile.cpp" line="257"/>
         <source>Draw point elevation</source>
-        <translation>Dibuixa l&apos;elevació del punt</translation>
+        <translation>Traça l&apos;alçada del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="264"/>
+        <location filename="../asciifile/asciifile.cpp" line="258"/>
         <source>Point Code</source>
         <translation>Codi del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="264"/>
+        <location filename="../asciifile/asciifile.cpp" line="258"/>
         <source>Draw point code</source>
-        <translation>Dibuixa el codi del punt</translation>
+        <translation>Traça el codi del punt</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="278"/>
+        <location filename="../asciifile/asciifile.cpp" line="272"/>
         <source>Accept</source>
-        <translation>D&apos;acord</translation>
+        <translation>Accepta</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="283"/>
+        <location filename="../asciifile/asciifile.cpp" line="277"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="313"/>
+        <location filename="../asciifile/asciifile.cpp" line="307"/>
         <source>Select file</source>
-        <translation>Selecciona el fitxer</translation>
+        <translation>Seleccioneu un fitxer</translation>
+    </message>
+    <message>
+        <location filename="../asciifile/asciifile.cpp" line="314"/>
+        <source>Point 2D layer is empty</source>
+        <translation>La capa de punts 2D està buida</translation>
+    </message>
+    <message>
+        <location filename="../asciifile/asciifile.cpp" line="317"/>
+        <source>Point 3D layer is empty</source>
+        <translation>La capa de punts 3D està buida</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="320"/>
-        <source>Point 2D layer is empty</source>
-        <translation>La capa punt 2D és buida</translation>
+        <source>Point elevation layer is empty</source>
+        <translation>La capa de l&apos;alçada dels punts està buida</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="323"/>
-        <source>Point 3D layer is empty</source>
-        <translation>La capa punt 3D és buida</translation>
+        <location filename="../asciifile/asciifile.cpp" line="321"/>
+        <source>Point elevation height is empty</source>
+        <translation>L&apos;alçada del punt és buida</translation>
+    </message>
+    <message>
+        <location filename="../asciifile/asciifile.cpp" line="322"/>
+        <source>Point elevation separation is empty</source>
+        <translation>La separació de l&apos;alçada del punt és buida</translation>
+    </message>
+    <message>
+        <location filename="../asciifile/asciifile.cpp" line="325"/>
+        <source>Point number layer is empty</source>
+        <translation>La capa del número de punt està buida</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="326"/>
-        <source>Point elevation layer is empty</source>
-        <translation>La capa elevació del punt és buida</translation>
+        <source>Point number height is empty</source>
+        <translation>L&apos;alçada del número del punt és buida</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="327"/>
-        <source>Point elevation height is empty</source>
-        <translation>L&apos;alçada de l&apos;elevació del punt és buida</translation>
+        <source>Point number separation is empty</source>
+        <translation>La separació del número del punt és buida</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="328"/>
-        <source>Point elevation separation is empty</source>
-        <translation>La separació de l&apos;elevació del punt és buida</translation>
+        <location filename="../asciifile/asciifile.cpp" line="330"/>
+        <source>Point code layer is empty</source>
+        <translation>La capa del codi del punt està buida</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="331"/>
-        <source>Point number layer is empty</source>
-        <translation>La capa del nombre del punt és buida</translation>
+        <source>Point code height is empty</source>
+        <translation>L&apos;alçada del codi del punt és buida</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="332"/>
-        <source>Point number height is empty</source>
-        <translation>L&apos;alçada del nombre del punt és buida</translation>
-    </message>
-    <message>
-        <location filename="../asciifile/asciifile.cpp" line="333"/>
-        <source>Point number separation is empty</source>
-        <translation>La separació del nombre del punt és buida</translation>
-    </message>
-    <message>
-        <location filename="../asciifile/asciifile.cpp" line="336"/>
-        <source>Point code layer is empty</source>
-        <translation>La capa del codi del punt és buida</translation>
-    </message>
-    <message>
-        <location filename="../asciifile/asciifile.cpp" line="337"/>
-        <source>Point code height is empty</source>
-        <translation>L&apos;alçada del nombre del punt és buida</translation>
-    </message>
-    <message>
-        <location filename="../asciifile/asciifile.cpp" line="338"/>
         <source>Point code separation is empty</source>
         <translation>La separació del codi del punt és buida</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="366"/>
+        <location filename="../asciifile/asciifile.cpp" line="360"/>
         <source>The file %1 not exist</source>
         <translation>El fitxer %1 no existeix</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="371"/>
+        <location filename="../asciifile/asciifile.cpp" line="365"/>
         <source>Can&apos;t open the file %1</source>
         <translation>No es pot obrir el fitxer %1</translation>
     </message>
@@ -562,7 +595,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="56"/>
         <source>Import ESRI Shapefile</source>
-        <translation>Importa el fitxer d&apos;ombrejats ESRI</translation>
+        <translation>Importa un fitxer ESRI</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="68"/>
@@ -584,7 +617,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <location filename="../importshp/importshp.cpp" line="103"/>
         <location filename="../importshp/importshp.cpp" line="116"/>
         <source>From data:</source>
-        <translation>Des de:</translation>
+        <translation>Des de les dades:</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="88"/>
@@ -620,7 +653,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="141"/>
         <source>Accept</source>
-        <translation>D&apos;acord</translation>
+        <translation>Accepta</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="142"/>
@@ -630,12 +663,12 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="167"/>
         <source>Select file</source>
-        <translation>Seleccioneu fitxer</translation>
+        <translation>Selecciona el fitxer</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="217"/>
         <source>Point+Measure</source>
-        <translation>Punt + Mesura</translation>
+        <translation>Punt i mesura</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="221"/>
@@ -650,7 +683,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="229"/>
         <source>Multi Point+Measure</source>
-        <translation>Punt múltiple+ Mesura</translation>
+        <translation>Punt múltiple i mesura</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="233"/>
@@ -665,7 +698,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="241"/>
         <source>Arc+Measure</source>
-        <translation>Arc + Mesura</translation>
+        <translation>Arc i mesura</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="245"/>
@@ -680,7 +713,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="253"/>
         <source>Polygon+Measure</source>
-        <translation>Plígon + Mesura</translation>
+        <translation>Polígon i mesura</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="257"/>
@@ -690,7 +723,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="261"/>
         <source>Multipatch</source>
-        <translation>Correcció múltiple</translation>
+        <translation>Multipatch</translation>
     </message>
     <message>
         <location filename="../importshp/importshp.cpp" line="281"/>
@@ -700,13 +733,71 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../importshp/importshp.cpp" line="286"/>
         <source>The file %1 not exist</source>
-        <translation>El fitxer %1 no existeix</translation>
+        <translation>No existeix el fitxer %1</translation>
+    </message>
+</context>
+<context>
+    <name>lc_Geardlg</name>
+    <message>
+        <location filename="../gear/gear.cpp" line="66"/>
+        <source>Draw a gear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="71"/>
+        <source>Number of teeth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="79"/>
+        <source>Circular pitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="87"/>
+        <source>Pressure angle (deg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="95"/>
+        <source>Addendum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="103"/>
+        <source>Dedendum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="111"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="114"/>
+        <source>Spur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="115"/>
+        <source>Ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="119"/>
+        <source>Accept</source>
+        <translation>Accepta</translation>
+    </message>
+    <message>
+        <location filename="../gear/gear.cpp" line="124"/>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
     <name>lc_Listdlg</name>
     <message>
-        <location filename="../list/list.cpp" line="251"/>
+        <location filename="../list/list.cpp" line="274"/>
         <source>List entities</source>
         <translation>Llista les entitats</translation>
     </message>
@@ -716,7 +807,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../sample/sample.cpp" line="54"/>
         <source>Draw line</source>
-        <translation>Dibuixa una línia</translation>
+        <translation>Traça una línia</translation>
     </message>
     <message>
         <location filename="../sample/sample.cpp" line="60"/>
@@ -741,7 +832,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../sample/sample.cpp" line="86"/>
         <source>Accept</source>
-        <translation>D&apos;acord</translation>
+        <translation>Accepta</translation>
     </message>
     <message>
         <location filename="../sample/sample.cpp" line="91"/>
@@ -777,65 +868,65 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
 <context>
     <name>picPunto</name>
     <message>
-        <location filename="../picfile/picfile.cpp" line="67"/>
+        <location filename="../picfile/picfile.cpp" line="65"/>
         <source>File...</source>
-        <translation type="unfinished">Fitxer...</translation>
+        <translation>Fitxer...</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="77"/>
+        <location filename="../picfile/picfile.cpp" line="75"/>
         <source>Scale:</source>
-        <translation type="unfinished"></translation>
+        <translation>Escala:</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="81"/>
+        <location filename="../picfile/picfile.cpp" line="79"/>
         <source>Accept</source>
-        <translation type="unfinished">D&apos;acord</translation>
+        <translation>Accepta</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="85"/>
+        <location filename="../picfile/picfile.cpp" line="83"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel·la</translation>
+        <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="113"/>
+        <location filename="../picfile/picfile.cpp" line="111"/>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecciona un fitxer</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="121"/>
+        <location filename="../picfile/picfile.cpp" line="119"/>
         <source>Scale Factor is empty or invalid</source>
-        <translation type="unfinished"></translation>
+        <translation>El factor d&apos;escala està buit o no és vàlid</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="134"/>
+        <location filename="../picfile/picfile.cpp" line="132"/>
         <source>The file %1 not exist</source>
-        <translation type="unfinished">El fitxer %1 no existeix</translation>
+        <translation>El fitxer %1 no existeix</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="139"/>
+        <location filename="../picfile/picfile.cpp" line="137"/>
         <source>Can&apos;t open the file %1</source>
-        <translation type="unfinished">No es pot obrir el fitxer %1</translation>
+        <translation>No es pot obrir el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="146"/>
+        <location filename="../picfile/picfile.cpp" line="144"/>
         <source>%1 objects imported</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 objectes importats</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="168"/>
+        <location filename="../picfile/picfile.cpp" line="166"/>
         <source>picPunto drawLine: first point is empty %1</source>
-        <translation type="unfinished"></translation>
+        <translation>picPunto drawLine: manca el primer punt %1</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="181"/>
+        <location filename="../picfile/picfile.cpp" line="179"/>
         <source>picPunto drawLine: next point is empty %1</source>
-        <translation type="unfinished"></translation>
+        <translation>picPunto drawLine: manca el següent punt %1</translation>
     </message>
     <message>
-        <location filename="../picfile/picfile.cpp" line="260"/>
-        <location filename="../picfile/picfile.cpp" line="269"/>
+        <location filename="../picfile/picfile.cpp" line="258"/>
+        <location filename="../picfile/picfile.cpp" line="267"/>
         <source>format error in %1</source>
-        <translation type="unfinished"></translation>
+        <translation>error de format en %1</translation>
     </message>
 </context>
 <context>
@@ -847,9 +938,8 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
         <translation>Connector d&apos;impressió</translation>
     </message>
     <message>
-        <location filename="../plotequation/plot.cpp" line="28"/>
         <source>Draw</source>
-        <translation>Dibuixa</translation>
+        <translation type="obsolete">Dibuixa</translation>
     </message>
 </context>
 <context>
@@ -857,7 +947,7 @@ http://forum.librecad.org/LibreCAD-dev-f4361976.html</translatorcomment>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="15"/>
         <source>Plot equation</source>
-        <translation>Equació d&apos;impressió</translation>
+        <translation>Imprimeix l&apos;equació</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="18"/>
@@ -866,10 +956,10 @@ If you don&apos;t want to use the parametric form, just leave out &quot;Equation
 You can use pi when you need the value of pi (i.e. (3*pi)).
 Use t or x in your equation as a variable/parameter.
 </source>
-        <translation>Aquest connector us permet imprimir equacions matemàtiques.
-Si voleu usar la forma paramètrica deixeu fora&quot;Equació 2&quot;
-Podeu usar pi si necessiteu el valor de pi (p.ex. (3*pi)).
-Useu t o x en la vostra equació com a variable/paràmetre.
+        <translation>Aquest connector us permet traçar equacions matemàtiques.
+Si no voleu utilitzar la forma paramètrica, ometeu l&apos;«Equació 2»
+Podeu utilitzar pi quan necessiteu el valor de pi (p. ex. (3*pi)).
+Utilitzeu t o x en la vostra equació com a variable o paràmetre.
 </translation>
     </message>
     <message>
@@ -885,22 +975,22 @@ Useu t o x en la vostra equació com a variable/paràmetre.
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="26"/>
         <source>start value:</source>
-        <translation>Valor inicial:</translation>
+        <translation>valor inicial:</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="27"/>
         <source>end value:</source>
-        <translation>Valor final:</translation>
+        <translation>valor final:</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="28"/>
         <source>step size:</source>
-        <translation>Mida del pas:</translation>
+        <translation>mida del pas:</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="32"/>
         <source>Draw</source>
-        <translation>Dibuixa</translation>
+        <translation>Traça</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="33"/>
@@ -911,25 +1001,25 @@ Useu t o x en la vostra equació com a variable/paràmetre.
         <location filename="../plotequation/plotdialog.cpp" line="59"/>
         <source>Line Segments</source>
         <comment>Plot Equation to generate RS_Line segments</comment>
-        <translation type="unfinished"></translation>
+        <translation>Segments de línia</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="60"/>
         <source>Polyline</source>
         <comment>Plot Equation to generate RS_Polyline</comment>
-        <translation type="unfinished"></translation>
+        <translation>Línia poligonal</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="61"/>
         <source>SplinePoints</source>
         <comment>Plot Equation to generate 2nd spline by LC_SplinePoints</comment>
-        <translation type="unfinished"></translation>
+        <translation>Punts spline</translation>
     </message>
 </context>
 <context>
     <name>pointBox</name>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="177"/>
+        <location filename="../asciifile/asciifile.cpp" line="175"/>
         <source>Layer:</source>
         <translation>Capa:</translation>
     </message>
@@ -937,17 +1027,17 @@ Useu t o x en la vostra equació com a variable/paràmetre.
 <context>
     <name>textBox</name>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="210"/>
+        <location filename="../asciifile/asciifile.cpp" line="207"/>
         <source>Style:</source>
         <translation>Estil:</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="211"/>
+        <location filename="../asciifile/asciifile.cpp" line="208"/>
         <source>Height:</source>
         <translation>Alçada:</translation>
     </message>
     <message>
-        <location filename="../asciifile/asciifile.cpp" line="212"/>
+        <location filename="../asciifile/asciifile.cpp" line="209"/>
         <source>Separation</source>
         <translation>Separació</translation>
     </message>

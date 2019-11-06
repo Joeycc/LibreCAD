@@ -17,9 +17,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QCheckBox>
-#if QT_VERSION >= 0x040400
 #include <QFormLayout>
-#endif
 #include <QPushButton>
 #include <QFileDialog>
 #include <QSettings>
@@ -205,18 +203,14 @@ textBox::textBox(const QString & title, const QString & label, QWidget * parent)
     sepedit = new QLineEdit();
     sepedit->setValidator(val);
 
-#if QT_VERSION >= 0x040400
     QFormLayout *flo = new QFormLayout;
     flo->addRow( tr("Style:"), combostyle);
     flo->addRow( tr("Height:"), heightedit);
     flo->addRow( tr("Separation"), sepedit);
-#endif
 //    posimage.fill(Qt::black);
     img = new imgLabel();
     QHBoxLayout *loimage = new QHBoxLayout;
-#if QT_VERSION >= 0x040400
     loimage->addLayout(flo);
-#endif
     loimage->addWidget(img);
 
     setInLayout(loimage);
@@ -346,7 +340,7 @@ void dibPunto::procesFile(Document_Interface *doc)
     QMessageBox::information(this, "Info", "dibpunto procesFile");
     currDoc = doc;
 
-//Warning, can change ading or reordering "formatedit"
+//Warning, can change adding or reordering "formatedit"
     QString::SplitBehavior skip = QString::KeepEmptyParts;
     switch (formatedit->currentIndex()) {
     case 0:
@@ -626,8 +620,10 @@ void dibPunto::procesfileNormal(QFile* file, QString sep, QString::SplitBehavior
         default:
         case 5:
             pd->code=data.at(4);
+            // fall-through
         case 4:
             pd->z = data.at(3);
+            // fall-through
         case 3:
             pd->number = data.at(i);
             pd->x = data.at(1);
@@ -716,7 +712,3 @@ void dibPunto::writeSettings()
     settings.setValue("positionnumber", ptnumber->getPosition());
     settings.setValue("positioncode", ptcode->getPosition());
  }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(asciifile, AsciiFile);
-#endif

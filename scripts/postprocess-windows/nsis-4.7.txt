@@ -22,7 +22,7 @@
   ;Get installation folder from registry if available
   InstallDirRegKey HKCU "Software\LibreCAD" ""
 
-  ;Request application pivileges for Windows Vista
+  ;Request application privileges for Windows Vista
   RequestExecutionLevel admin
   ;TargetMinimalOS 5.1
 
@@ -34,7 +34,7 @@
 ;--------------------------------
 ;Pages
 
-  !insertmacro MUI_PAGE_LICENSE "../../gpl-2.0.txt"
+  !insertmacro MUI_PAGE_LICENSE "../../licenses/gpl-2.0.txt"
   !insertmacro MUI_PAGE_DIRECTORY
   !insertmacro MUI_PAGE_INSTFILES
 
@@ -54,20 +54,20 @@ Function .onInit
   Push $R1
   Push $R2
 
-; get acount info into $R2
+; get account info into $R2
   userInfo::getAccountType
   pop $0
   StrCpy $R2 $0 5
 
 ${If} ${IsWin2000}
     strCmp $R2 "Admin" lbl_checkok
-    messageBox MB_OK "I am sorry, this installer needs Admin priviledges, Please login as an administrator and install the software."
+    messageBox MB_OK "I am sorry, this installer needs Admin privileges, Please login as an administrator and install the software."
     Quit
 ${EndIf}
 
 ${If} ${IsWinXP}
     strCmp $R2 "Admin" lbl_checkok
-    messageBox MB_OK "I am sorry, this installer needs Admin priviledges, Please login as an administrator and install the software."
+    messageBox MB_OK "I am sorry, this installer needs Admin privileges, Please login as an administrator and install the software."
     Quit
 ${EndIf}
 

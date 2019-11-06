@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
-**
+** Copyright (C) 2016 ravas (github.com/r-a-v-a-s)
 **
 ** This file may be distributed and/or modified under the terms of the
 ** GNU General Public License version 2 as published by the Free Software
@@ -27,7 +27,7 @@
 #include <iostream>
 #include <cmath>
 #include <QDir>
-#include <QDebug>
+//#include <QDebug>
 
 #include "rs_graphic.h"
 #include "rs_dialogfactory.h"
@@ -47,7 +47,14 @@
 RS_Graphic::RS_Graphic(RS_EntityContainer* parent)
         : RS_Document(parent),
         layerList(),
-blockList(true),paperScaleFixed(false)
+        blockList(true),
+        paperScaleFixed(false),
+        marginLeft(0.0),
+        marginTop(0.0),
+        marginRight(0.0),
+        marginBottom(0.0),
+        pagesNumH(1),
+        pagesNumV(1)
 {
 
     RS_SETTINGS->beginGroup("/Defaults");
@@ -198,7 +205,7 @@ void RS_Graphic::newDoc() {
  *
  * Returns:			bool:
  * 						false	: Operation failed.
- * 						true	: Operation successfull.
+ * 						true	: Operation successful.
  */
 
 bool RS_Graphic::BackupDrawingFile(const QString &filename)
@@ -245,7 +252,7 @@ bool RS_Graphic::BackupDrawingFile(const QString &filename)
                                                 qf_dfb->remove();
 
                                         qf_df->copy(*qs_backup_fn);	/*	Create backup file. */
-                                        ret	= true;						/*	Operation successfull. */
+                                        ret	= true;						/*	Operation successful. */
                                         delete qf_dfb;
                                 }
                                 /*	Can't create object.
@@ -281,7 +288,7 @@ bool RS_Graphic::BackupDrawingFile(const QString &filename)
  *
  *	Returns:			bool:
  *							false:	Operation failed.
- *							true:		Operation successfull.
+ *							true:		Operation successful.
  *
  * Notes:			- If this is not an AutoSave, backup the drawing file
  * 					  (if necessary).
@@ -296,7 +303,7 @@ bool RS_Graphic::save(bool isAutoSave)
 
     RS_DEBUG->print("RS_Graphic::save: Entering...");
 
-    /*	- Save drawing file only if it has been modifed.
+    /*	- Save drawing file only if it has been modified.
          *	- Notes: Potentially dangerous in case of an internal
          *	  coding error that make LibreCAD not aware of modification
          *	  when some kind of drawing modification is done.
@@ -415,7 +422,7 @@ bool RS_Graphic::save(bool isAutoSave)
  *
  *	Returns:			bool:
  *							false:	Operation failed.
- *							true:		Operation successfull.
+ *							true:		Operation successful.
  *
  * Notes:			Backup the drawing file (if necessary).
  */
@@ -667,6 +674,10 @@ RS2::LinearFormat RS_Graphic::getLinearFormat(int f){
     case 5:
         return RS2::Fractional;
         break;
+
+    case 6:
+        return RS2::ArchitecturalMetric;
+        break;
     }
 
     return RS2::Decimal;
@@ -788,6 +799,21 @@ void RS_Graphic::setPaperSize(const RS_Vector& s) {
 }
 
 
+/**
+ * @return Print Area size in graphic units.
+ */
+RS_Vector RS_Graphic::getPrintAreaSize(bool total) {
+    RS_Vector printArea = getPaperSize();
+    printArea.x -= RS_Units::convert(marginLeft+marginRight, RS2::Millimeter, getUnit());
+    printArea.y -= RS_Units::convert(marginTop+marginBottom, RS2::Millimeter, getUnit());
+    if (total) {
+        printArea.x *= pagesNumH;
+        printArea.y *= pagesNumV;
+    }
+    return printArea;
+}
+
+
 
 /**
  * @return Paper format.
@@ -852,8 +878,7 @@ void RS_Graphic::setPaperScale(double s) {
  * Centers drawing on page. Affects DXF variable $PINSBASE.
  */
 void RS_Graphic::centerToPage() {
-    RS_Vector size = getPaperSize();
-
+    RS_Vector size = getPrintAreaSize();
     double scale = getPaperScale();
 	auto s=getSize();
 	auto sMin=getMin();
@@ -868,6 +893,8 @@ void RS_Graphic::centerToPage() {
     }
 
     RS_Vector pinsbase = (size-s*scale)/2.0 - sMin*scale;
+    pinsbase.x += RS_Units::convert(marginLeft, RS2::Millimeter, getUnit());
+    pinsbase.y += RS_Units::convert(marginBottom, RS2::Millimeter, getUnit());
 
     setPaperInsertionBase(pinsbase);
 }
@@ -880,7 +907,7 @@ void RS_Graphic::centerToPage() {
 bool RS_Graphic::fitToPage() {
     bool ret(true);
     double border = RS_Units::convert(25.0, RS2::Millimeter, getUnit());
-    RS_Vector ps = getPaperSize();
+    RS_Vector ps = getPrintAreaSize();
     if(ps.x>border && ps.y>border) ps -= RS_Vector(border, border);
     RS_Vector s = getSize();
     /** avoid zero size, bug#3573158 */
@@ -894,11 +921,11 @@ bool RS_Graphic::fitToPage() {
     // tin-pot 2011-12-30: TODO: can s.x < 0.0 (==> fx < 0.0) happen?
 	if (fabs(s.x) > RS_TOLERANCE) {
         fx = ps.x / s.x;
-        ret=false;
+        // ret=false;
     }
 	if (fabs(s.y) > RS_TOLERANCE) {
         fy = ps.y / s.y;
-        ret=false;
+        // ret=false;
     }
 
     fxy = std::min(fx, fy);
@@ -909,12 +936,20 @@ bool RS_Graphic::fitToPage() {
                                       , getUnit()
                                       )
                     );
-        ret=fitToPage();
+        ret=false;
     }
     setPaperScale(fxy);
     centerToPage();
     return ret;
 }
+
+
+bool RS_Graphic::isBiggerThanPaper() {
+    RS_Vector ps = getPrintAreaSize();
+    RS_Vector s = getSize() * getPaperScale();
+    return !s.isInWindow(RS_Vector(0.0, 0.0), ps);
+}
+
 
 void RS_Graphic::addEntity(RS_Entity* entity)
 {
@@ -942,3 +977,73 @@ std::ostream& operator << (std::ostream& os, RS_Graphic& g) {
     return os;
 }
 
+/**
+ * Removes invalid objects.
+ * @return how many objects were removed
+ */
+int RS_Graphic::clean()
+{
+    // author: ravas
+
+    int how_many = 0;
+
+    foreach (RS_Entity* e, entities)
+    {
+        if    (e->getMin().x > e->getMax().x
+            || e->getMin().y > e->getMax().y
+            || e->getMin().x > RS_MAXDOUBLE
+            || e->getMax().x > RS_MAXDOUBLE
+            || e->getMin().x < RS_MINDOUBLE
+            || e->getMax().x < RS_MINDOUBLE
+            || e->getMin().y > RS_MAXDOUBLE
+            || e->getMax().y > RS_MAXDOUBLE
+            || e->getMin().y < RS_MINDOUBLE
+            || e->getMax().y < RS_MINDOUBLE)
+        {
+            removeEntity(e);
+            how_many += 1;
+        }
+    }
+    return how_many;
+}
+
+/**
+ * Paper margins in graphic units
+ */
+void RS_Graphic::setMarginsInUnits(double left, double top, double right, double bottom) {
+    setMargins(
+        RS_Units::convert(left, getUnit(), RS2::Millimeter),
+        RS_Units::convert(top, getUnit(), RS2::Millimeter),
+        RS_Units::convert(right, getUnit(), RS2::Millimeter),
+        RS_Units::convert(bottom, getUnit(), RS2::Millimeter));
+}
+double RS_Graphic::getMarginLeftInUnits() {
+    return RS_Units::convert(marginLeft, RS2::Millimeter, getUnit());
+}
+double RS_Graphic::getMarginTopInUnits() {
+    return RS_Units::convert(marginTop, RS2::Millimeter, getUnit());
+}
+double RS_Graphic::getMarginRightInUnits() {
+    return RS_Units::convert(marginRight, RS2::Millimeter, getUnit());
+}
+double RS_Graphic::getMarginBottomInUnits() {
+    return RS_Units::convert(marginBottom, RS2::Millimeter, getUnit());
+}
+
+void RS_Graphic::setPagesNum(int horiz, int vert) {
+    if (horiz > 0)
+        pagesNumH = horiz;
+    if (vert > 0)
+        pagesNumV = vert;
+}
+void RS_Graphic::setPagesNum(const QString &horizXvert) {
+    if (horizXvert.contains('x')) {
+        bool ok1 = false;
+        bool ok2 = false;
+        int i = horizXvert.indexOf('x');
+        int h = (int)RS_Math::eval(horizXvert.left(i), &ok1);
+        int v = (int)RS_Math::eval(horizXvert.mid(i+1), &ok2);
+        if (ok1 && ok2)
+            setPagesNum(h, v);
+    }
+}

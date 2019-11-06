@@ -60,6 +60,10 @@ public:
     RS_Layer* at(unsigned int i) {
         return layers.at(i);
     }
+    QList<RS_Layer*>::iterator begin();
+    QList<RS_Layer*>::iterator end();
+    QList<RS_Layer*>::const_iterator begin()const;
+    QList<RS_Layer*>::const_iterator end()const;
 
     void activate(const QString& name, bool notify = false);
     void activate(RS_Layer* layer, bool notify = false);
@@ -79,6 +83,7 @@ public:
     void togglePrint(RS_Layer* layer);
     void toggleConstruction(RS_Layer* layer);
     void freezeAll(bool freeze);
+    void lockAll(bool lock);
 
     //! sets the layerWidget pointer in RS_LayerListClass
     void setLayerWitget(QG_LayerWidget * lw) {
@@ -105,9 +110,7 @@ public:
     /**
      * Sets the layer lists modified status to 'm'.
      */
-    void setModified(bool m) {
-        modified = m;
-    }
+    void setModified(bool m);
 
     /**
      * @retval true The layer list has been modified.

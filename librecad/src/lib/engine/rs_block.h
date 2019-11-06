@@ -52,8 +52,8 @@ struct RS_BlockData {
 	 */
 	RS_Vector basePoint;
 
-	//! Frozen flag
-	bool frozen;
+	bool frozen {false};              //!< Frozen flag
+	bool visibleInBlockList {true};   //!< Visible in block list
 };
 
 
@@ -63,7 +63,7 @@ struct RS_BlockData {
  * container has a base point which defines the offset of the
  * block. Note that although technically possible, a block should
  * never be part of the entity tree of a graphic. Blocks are 
- * stored in a seperate list inside the graphic document (a block list).
+ * stored in a separate list inside the graphic document (a block list).
  * The graphic can contain RS_Insert entities that refer to such 
  * blocks.
  *
@@ -172,8 +172,28 @@ public:
 		data.frozen = freeze;
     }
 	
+    /**
+     * Sets the parent documents modified status to 'm'.
+     */
 	virtual void setModified(bool m);
 
+    /**
+     * Sets only this block modified status to 'm'
+     * without touching parent document.
+     */
+    void setModifiedFlag(bool m) { modified = m; }
+
+    /**
+     * Sets the visibility of the Block in block list
+     *
+     * @param v true: visible, false: invisible
+     */
+    void visibleInBlockList(bool v);
+
+    /**
+     * Returns the visibility of the Block in block list
+     */
+    bool isVisibleInBlockList() const;
 
 protected:
 	//! Block data

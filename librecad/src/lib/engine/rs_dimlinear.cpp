@@ -127,7 +127,7 @@ QString RS_DimLinear::getMeasuredLabel() {
             if (format == RS2::Decimal)
                 ret = stripZerosLinear(ret, dimzin);
             //verify if units are decimal and comma separator
-            if (dimlunit==2){
+            if (format == RS2::Decimal || format == RS2::ArchitecturalMetric){
                 if (getGraphicVariableInt("$DIMDSEP", 0) == 44)
                     ret.replace(QChar('.'), QChar(','));
             }
@@ -211,12 +211,12 @@ void RS_DimLinear::updateDim(bool autoText) {
             extAngle2 = edata.extensionPoint2.angleTo(dimP2);
     }
 
-	RS_Vector vDimexe1 = RS_Vector::polar(dimexe, extAngle1);
-	RS_Vector vDimexe2 = RS_Vector::polar(dimexe, extAngle2);
+    RS_Vector vDimexe1 = RS_Vector::polar(dimexe, extAngle1);
+    RS_Vector vDimexe2 = RS_Vector::polar(dimexe, extAngle2);
 
-	RS_Vector vDimexo1, vDimexo2;
-	if (getFixedLengthOn()){
-        double dimfxl = getFixedLength();
+    RS_Vector vDimexo1, vDimexo2;
+    if (getFixedLengthOn()){
+        double dimfxl = getFixedLength()*dimscale;
         double extLength = (edata.extensionPoint1-dimP1).magnitude();
         if (extLength-dimexo > dimfxl)
             vDimexo1.setPolar(extLength - dimfxl, extAngle1);
@@ -382,4 +382,3 @@ std::ostream& operator << (std::ostream& os, const RS_DimLinear& d) {
     os << " DimLinear: " << d.getData() << "\n" << d.getEData() << "\n";
     return os;
 }
-

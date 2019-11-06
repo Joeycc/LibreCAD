@@ -27,6 +27,7 @@
 #include<iostream>
 #include<cmath>
 #include <QObject>
+#include <QStringList>
 #include "rs_units.h"
 #include "rs_math.h"
 #include "rs_vector.h"
@@ -377,10 +378,8 @@ double RS_Units::convert(double val, RS2::Unit src, RS2::Unit dest) {
  */
 RS_Vector RS_Units::convert(const RS_Vector& val, RS2::Unit src, RS2::Unit dest) {
     return RS_Vector(convert(val.x, src, dest),
-                     convert(val.y, src, dest)
-#ifndef RS_VECTOR2D
-                     , convert(val.z, src, dest)
-#endif
+					 convert(val.y, src, dest),
+					 convert(val.z, src, dest)
                      );
 }
 
@@ -391,7 +390,7 @@ RS_Vector RS_Units::convert(const RS_Vector& val, RS2::Unit src, RS2::Unit dest)
  *
  * @param length The length in the current unit of the drawing.
  * @param format Format of the string.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatLinear(double length, RS2::Unit unit,
@@ -427,6 +426,10 @@ QString RS_Units::formatLinear(double length, RS2::Unit unit,
         ret = formatFractional(length, unit, prec, showUnit);
         break;
 
+    case RS2::ArchitecturalMetric:
+        ret = formatArchitecturalMetric(length, unit, prec, showUnit);
+        break;
+
     default:
         RS_DEBUG->print(RS_Debug::D_WARNING,
                         "RS_Units::formatLinear: Unknown format");
@@ -443,7 +446,7 @@ QString RS_Units::formatLinear(double length, RS2::Unit unit,
  * Formats the given length in scientific format (e.g. 2.5E7).
  *
  * @param length The length in the current unit of the drawing.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatScientific(double length, RS2::Unit unit,
@@ -461,7 +464,7 @@ QString RS_Units::formatScientific(double length, RS2::Unit unit,
  * Formats the given length in decimal (normal) format (e.g. 2.5).
  *
  * @param length The length in the current unit of the drawing.
- * @param prec Precisision of the value (e.g. 0.001)
+ * @param prec Precision of the value (e.g. 0.001)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatDecimal(double length, RS2::Unit unit,
@@ -479,7 +482,7 @@ QString RS_Units::formatDecimal(double length, RS2::Unit unit,
  * Formats the given length in engineering format (e.g. 5' 4.5").
  *
  * @param length The length in the current unit of the drawing.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatEngineering(double length, RS2::Unit /*unit*/,
@@ -516,7 +519,7 @@ QString RS_Units::formatEngineering(double length, RS2::Unit /*unit*/,
  * Formats the given length in architectural format (e.g. 5' 4 1/2").
  *
  * @param length The length in the current unit of the drawing.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatArchitectural(double length, RS2::Unit /*unit*/,
@@ -546,11 +549,55 @@ QString RS_Units::formatArchitectural(double length, RS2::Unit /*unit*/,
 
 
 /**
+ * Formats the given length in metric architectural format
+ * using DIN 406 (e.g. 1.12⁵).
+ *
+ * @param length The length in the current unit of the drawing.
+ * @param prec Precision of the value (e.g. 0.001)
+ & @param showUnit Append unit to the value.
+ */
+QString RS_Units::formatArchitecturalMetric(double length, RS2::Unit unit,
+                                            int prec, bool showUnit) {
+    QString ret;
+    bool neg = (length<0.0);
+    QString zero = "0";
+
+    if (neg)
+        length = length * -1.0;
+
+    ret = RS_Math::doubleToString(length, prec + 1);
+    int iLast = QString(ret.right(1)).toInt();
+
+    // round on 0.005 and use superscript 5
+    if ((iLast > 2) && (iLast < 8)) {
+        ret = ret.replace(ret.length() - 1, 1, "\u2075");
+    } else {
+        ret = RS_Math::doubleToString(length, prec);
+    }
+
+    // return values < 1.00m in cm (0.42 -> 42)
+    if (ret.startsWith(zero)) {
+        ret = ret.split(".")[1];
+        // eliminate leading zeros (0.07 -> 7)
+        if (ret.startsWith(zero)) {
+            ret = ret.remove(0, 1);
+        }
+    }
+    if (showUnit) {
+        ret = QString("%1 %2").arg(ret).arg(unitToSign(unit));
+    }
+    if (neg) {
+        ret = QString("-%1").arg(ret);
+    }
+    return ret;
+}
+
+/**
  * Formats the given length in fractional (barbarian) format (e.g. 5' 3 1/64").
  *
  * @param length The length in the current unit of the drawing.
  * @param unit Should be inches.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
 QString RS_Units::formatFractional(double length, RS2::Unit /*unit*/,
@@ -617,7 +664,7 @@ QString RS_Units::formatFractional(double length, RS2::Unit /*unit*/,
  *
  * @param angle The angle (always in rad).
  * @param format Format of the string.
- * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
+ * @param prec Precision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  *
  * @ret String with the formatted angle.
  */
@@ -628,6 +675,7 @@ QString RS_Units::formatAngle(double angle, RS2::AngleFormat format,
     double value;
 
     switch (format) {
+    case RS2::Surveyors:
     case RS2::DegreesDecimal:
     case RS2::DegreesMinutesSeconds:
         value = RS_Math::rad2deg(angle);
@@ -701,7 +749,36 @@ QString RS_Units::formatAngle(double angle, RS2::AngleFormat format,
             }
         }
         break;
-
+    case RS2::Surveyors: {
+        QString prefix,suffix;
+        int quadrant;
+        quadrant = ((int)floor(value)/90);
+        switch(quadrant){
+            case 0:
+                prefix="N";
+                suffix="E";
+                break;
+            case 1:
+                prefix="S";
+                suffix="E";
+                value=180. - value;
+                break;
+            case 2:
+                prefix="S";
+                suffix="W";
+                value=value - 180.;
+                break;
+            case 3:
+                prefix="N";
+                suffix="W";
+                value=360. - value;
+                break;
+            }
+            ret = prefix+formatAngle(RS_Math::deg2rad(value),RS2::DegreesMinutesSeconds,prec)+suffix;
+            ret.replace(QChar(0xB0),"d");
+            ret.replace(" ","");
+        }
+        break;
     default:
         break;
     }
@@ -1380,4 +1457,3 @@ void RS_Units::test() {
        assert(s=="1∞ 30' 0\"");
     */
 }
-

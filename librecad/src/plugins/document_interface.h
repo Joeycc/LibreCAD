@@ -98,16 +98,20 @@ namespace DPI {
         ENDZ=30,        /*!< double: end z coordinate always 0 */
         LWIDTH=38,      /*!< QString: line width */  //verify number
         RADIUS=39,      /*!< double: radius */
-        HEIGHT=40,      /*!< double: text heigt or ellipse ratio*/
+        HEIGHT=40,      /*!< double: text height or ellipse ratio*/
         XSCALE=41,      /*!< double: x insert scale */
         YSCALE=42,      /*!< double: y insert scale */
         ZSCALE=43,      /*!< double: z insert scale always 1? */
+        COLSPACE = 44,  ///< double: insert column spacing
+        ROWSPACE = 45,  ///< double: insert row spacing
         LTSCALE=48,     /*!< line type scale (not in LibreCAD) */
         STARTANGLE=50,  /*!< double: arc start angle or rotation angle for insert and text */
         ENDANGLE=51,    /*!< double: arc end angle */
         VISIBLE=60,     /*!< int: 1 visible, 0 invisible (reversed from dxf spec, but more logic*/
         COLOR=62,       /*!< int: -1 ByLayer, -2 ByBlock, other 24 bit RGB color: entity color */
         CLOSEPOLY=70,   /*!< int: closed polyline 0=open, 1=closed */
+        COLCOUNT = 70,  ///< int: insert number of columns
+        ROWCOUNT = 71,  ///< int: insert number of rows
         TXTALIGNH=72,   /*!< enum: horizontal alignment for text */
         TXTALIGNV=73,   /*!< enum: vertical alignment for text */
         REVERSED=291 /*!< bool: true if arc is reversed (clockwise) */
@@ -188,10 +192,10 @@ public:
     double bulge;
 };
 
-//! Wrapper for acces entities from plugins.
+//! Wrapper for access entities from plugins.
  /*!
- *  Wrapper class for create, acces and modify entities from plugins.
- *  TODO: terminate acces function -> getData()
+ *  Wrapper class for create, access and modify entities from plugins.
+ *  TODO: terminate access function -> getData()
  *        terminate implementation of modify function -> updateData()
  *        terminate implementation of create function (ctor called from document)
  *           can't create entities:
@@ -305,8 +309,8 @@ public:
     *  \param start insertion point coordinate
     *  \param height height of text
     *  \param angle rotation angle of text
-    *  \param ha horizontal alignement of text
-    *  \param va vertical alignement of text
+    *  \param ha horizontal alignment of text
+    *  \param va vertical alignment of text
     */
     virtual void addText(QString txt, QString sty, QPointF *start, double height,
                 double angle, DPI::HAlign ha,  DPI::VAlign va) = 0;
@@ -439,13 +443,13 @@ public:
     * \param point a pointer to QPointF to store the obtained point.
     * \param mesage an optional QString with prompt message.
     * \param base visual helper point, if present.
-    * \return true if succes.
+    * \return true if success.
     * \return false if fail, i.e. user cancel.
     */
     virtual bool getPoint(QPointF *point, const QString& mesage = "", QPointF *base = 0) = 0;
 
     //! Select a entity.
-    /*! Prompt message or a default message to the user asking for a sigle selection.
+    /*! Prompt message or a default message to the user asking for a single selection.
     * You can delete the Plug_Entity wen no more needed.
     * \param mesage an optional QString with prompt message.
     * \return a Plug_Entity handle the selected entity or NULL.
@@ -455,18 +459,18 @@ public:
     //! Gets a entities selection.
     /*! Prompt message or an default message to the user asking for a selection.
     * You can delete all, the Plug_Entity and the returned QList wen no more needed.
-    * \param sel a QList of poiters to Plug_Entity handled the selected entities.
+    * \param sel a QList of pointers to Plug_Entity handled the selected entities.
     * \param mesage an optional QString with prompt message.
-    * \return true if succes.
+    * \return true if success.
     * \return false if fail, i.e. user cancel.
     */
     virtual bool getSelect(QList<Plug_Entity *> *sel, const QString& mesage = "") = 0;
 
     //! Gets all entities in document.
     /*! You can delete all, the Plug_Entity and the returned QList wen no more needed.
-    * \param sel a QList of poiters to Plug_Entity handled the selected entities.
+    * \param sel a QList of pointers to Plug_Entity handled the selected entities.
     * \param visible default fo false, do not select entities in hidden layers.
-    * \return true if succes.
+    * \return true if success.
     * \return false if fail, i.e. user cancel.
     */
     virtual bool getAllEntities(QList<Plug_Entity *> *sel, bool visible = false) = 0;
@@ -485,7 +489,8 @@ public:
     * are the current drawing units & precision are used.
     * \param num Number to convert.
     * \param units Units format to use. current configured=0, Scientific=1,
-    * Decimal=2, Engineering=3, Architectural=4, Fractional=5.
+    * Decimal=2, Engineering=3, Architectural=4, Fractional=5,
+    * ArchitecturalMetric=6.
     * \param prec number of decimals added in the string.
     * \return a string with the converted number.
     */

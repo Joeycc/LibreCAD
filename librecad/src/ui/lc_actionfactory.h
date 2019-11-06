@@ -3,7 +3,7 @@
 **
 ** This file is part of the LibreCAD project (librecad.org), a 2D CAD program.
 **
-** Copyright (C) 2015 ravas (ravas@outlook.com)
+** Copyright (C) 2015 ravas (github.com/r-a-v-a-s)
 **
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@
 
 class QActionGroup;
 class QAction;
+class LC_ActionGroupManager;
 
 class LC_ActionFactory : public QObject
 {
@@ -37,10 +38,9 @@ class LC_ActionFactory : public QObject
 
 public:
     LC_ActionFactory(QObject* parent, QObject* a_handler);
-    void fillActionContainer(QMap<QString, QAction*>& a_map);
-
-    QActionGroup* tool_group;
-    QActionGroup* disable_group;
+    void fillActionContainer(QMap<QString, QAction*>& a_map, LC_ActionGroupManager* agm);
+    void commonActions(QMap<QString, QAction*>& a_map, LC_ActionGroupManager* agm);
+    bool using_theme;
 
 private:
     QObject* main_window;

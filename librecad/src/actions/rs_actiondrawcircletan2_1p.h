@@ -49,23 +49,23 @@ public:
 public:
     RS_ActionDrawCircleTan2_1P(RS_EntityContainer& container,
                                  RS_GraphicView& graphicView);
-	~RS_ActionDrawCircleTan2_1P();
+	~RS_ActionDrawCircleTan2_1P() override;
 
-    virtual void init(int status=0);
+	void init(int status=0) override;
 
-    virtual void trigger();
-    virtual bool getCenters();
-    virtual bool preparePreview();
+	void trigger() override;
+	bool getCenters();
+	bool preparePreview();
 
-    virtual void mouseMoveEvent(QMouseEvent* e);
-    virtual void mouseReleaseEvent(QMouseEvent* e);
+	void mouseMoveEvent(QMouseEvent* e) override;
+	void mouseReleaseEvent(QMouseEvent* e) override;
 
-	virtual void coordinateEvent(RS_CoordinateEvent* e);
-//        virtual void commandEvent(RS_CommandEvent* e);
-    virtual QStringList getAvailableCommands();
-    virtual void finish(bool updateTB=true);
-    virtual void updateMouseButtonHints();
-	virtual void updateMouseCursor();
+	void coordinateEvent(RS_CoordinateEvent* e) override;
+//        void commandEvent(RS_CommandEvent* e) override;
+	QStringList getAvailableCommands() override;
+	void finish(bool updateTB=true) override;
+	void updateMouseButtonHints() override;
+	void updateMouseCursor() override;
 
 
 protected:
@@ -73,6 +73,9 @@ protected:
 private:
 	struct Points;
 	std::unique_ptr<Points> pPoints;
+
+    //list of entity types supported by current action
+    const std::initializer_list<RS2::EntityType> enTypeList {RS2::EntityLine, RS2::EntityArc, RS2::EntityCircle};
 };
 
 #endif

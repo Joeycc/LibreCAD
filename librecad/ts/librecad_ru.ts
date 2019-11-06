@@ -32,34 +32,64 @@
     </message>
 </context>
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Рамка</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">…</translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation>Рамка</translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation>Установить</translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished"></translation>
+        <translation>Точки сплайна</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Слой:</translation>
+        <translation>Слой:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">Геометрия</translation>
+        <translation>Геометрия</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Замкнутый</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Точки сплайна</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Контрольные точки</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Точки сплайна</translation>
     </message>
 </context>
 <context>
@@ -234,11 +264,11 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Поли&amp;гон (Ц, У)</translation>
+        <translation>Многоу&amp;гольник (Ц, У)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation>Поли&amp;гон (У, У)</translation>
+        <translation>Многоу&amp;гольник (У, У)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
@@ -335,7 +365,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Draw polylines</source>
-        <translation>Создать ломаную</translation>
+        <translation type="obsolete">Создать ломаную</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
@@ -343,7 +373,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Add polyline&apos;s node</source>
-        <translation>Добавить вершину ломаной</translation>
+        <translation type="obsolete">Добавить вершину ломаной</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
@@ -351,7 +381,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Append polyline&apos;s node</source>
-        <translation>Присоединить вершину к ломаной</translation>
+        <translation type="obsolete">Присоединить вершину к ломаной</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
@@ -359,7 +389,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete polyline&apos;s node</source>
-        <translation>Удалить вершину ломаной</translation>
+        <translation type="obsolete">Удалить вершину ломаной</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
@@ -367,7 +397,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation>Удалить отрезок между вершинами</translation>
+        <translation type="obsolete">Удалить отрезок между вершинами</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
@@ -375,7 +405,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Trim polyline&apos;s segments</source>
-        <translation>Подогнать отрезки ломаной</translation>
+        <translation type="obsolete">Подогнать отрезки ломаной</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
@@ -383,7 +413,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Equidistant Polylines</source>
-        <translation>Создание равноудаленных ломаных</translation>
+        <translation type="obsolete">Создание равноудаленных ломаных</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
@@ -391,7 +421,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Create Polyline from Existing Segments</source>
-        <translation>Создание ломаной из существующих отрезков</translation>
+        <translation type="obsolete">Создание ломаной из существующих отрезков</translation>
     </message>
     <message>
         <source>&amp;MText</source>
@@ -411,7 +441,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation>Вы&amp;равненный</translation>
+        <translation>Вы&amp;ровненный</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
@@ -475,7 +505,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation>Сдвиг и п&amp;оворот</translation>
+        <translation type="obsolete">Сдвиг и п&amp;оворот</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
@@ -491,7 +521,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation>Подог&amp;нать два</translation>
+        <translation type="obsolete">Подог&amp;нать два</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
@@ -499,7 +529,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Offset</source>
-        <translation>См&amp;ещение</translation>
+        <translation type="obsolete">См&amp;ещение</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -543,7 +573,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation>&amp;Полигональная область</translation>
+        <translation>&amp;Многоугольная область</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
@@ -671,7 +701,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation>&amp;Настройки</translation>
+        <translation type="obsolete">&amp;Настройки</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -715,7 +745,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation>Перестроить элементы размеров</translation>
+        <translation type="obsolete">Перестроить элементы размеров</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -791,15 +821,15 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Ctrl+Meta+F</source>
-        <translation>Ctrl+Meta+F</translation>
+        <translation type="obsolete">Ctrl+Meta+F</translation>
     </message>
     <message>
         <source>F11</source>
-        <translation>F11</translation>
+        <translation type="obsolete">F11</translation>
     </message>
     <message>
         <source>Ctrl+F11</source>
-        <translation>Ctrl+F11</translation>
+        <translation type="obsolete">Ctrl+F11</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
@@ -829,30 +859,59 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры интерфейса</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Левые</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Правые</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">Верхнее</translation>
+        <translation>Верхние</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Нижние</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished"></translation>
+        <translation>Плавающие</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
+        <translation>Загрузить стили</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>Параметры устройства</translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation>Сдвиг и п&amp;оворот</translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation>Подог&amp;нать два</translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation>Сме&amp;щение</translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation>Создание меню</translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation>Создание панели</translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -867,7 +926,26 @@ distance between points=%2 is larger than diameter=%3</source>
     <name>LC_CustomToolbar</name>
     <message>
         <source>Add or Remove Action</source>
-        <translation>Добавить или удалить действие</translation>
+        <translation type="obsolete">Добавить или удалить действие</translation>
+    </message>
+</context>
+<context>
+    <name>LC_DeviceOptions</name>
+    <message>
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>Устройство</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">Мышь</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
@@ -885,26 +963,50 @@ distance between points=%2 is larger than diameter=%3</source>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры интерфейса</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер значка</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль</translation>
     </message>
     <message>
         <source>Style Sheet</source>
+        <translation>Файл стиля</translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation>Строка состояния</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Высота</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>Размер шрифта</translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation>Укажите расположение стиля Qt.</translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -935,19 +1037,19 @@ distance between points=%2 is larger than diameter=%3</source>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">Параметры линии под относительным углом</translation>
+        <translation>Параметры линии под относительным углом</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">Промежуток:</translation>
+        <translation>Промежуток:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished">Расстояние от базовой ломаной</translation>
+        <translation>Расстояние от базовой ломаной</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished">Копий:</translation>
+        <translation>Копий:</translation>
     </message>
 </context>
 <context>
@@ -1031,31 +1133,31 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>&amp;Черчение</translation>
+        <translation type="obsolete">&amp;Черчение</translation>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>&amp;Размер</translation>
+        <translation type="obsolete">&amp;Размер</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
-        <translation>Из&amp;менение</translation>
+        <translation>Из&amp;менить</translation>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>Пр&amp;ивязка</translation>
+        <translation type="obsolete">Пр&amp;ивязка</translation>
     </message>
     <message>
         <source>&amp;Info</source>
-        <translation>И&amp;нфо</translation>
+        <translation>И&amp;нформация</translation>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>&amp;Слой</translation>
+        <translation type="obsolete">&amp;Слой</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp;Блок</translation>
+        <translation type="obsolete">&amp;Блок</translation>
     </message>
     <message>
         <source>About</source>
@@ -1107,7 +1209,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">Открытие последнего файла...</translation>
+        <translation>Открытие последнего файла...</translation>
     </message>
     <message>
         <source>Loaded document: </source>
@@ -1127,7 +1229,7 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
     <message>
         <source>About...</source>
-        <translation>О программе...</translation>
+        <translation type="obsolete">О программе...</translation>
     </message>
     <message>
         <source>Version: </source>
@@ -1257,7 +1359,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>&amp;Руководство</translation>
+        <translation type="obsolete">&amp;Руководство</translation>
     </message>
     <message>
         <source>&amp;CAM</source>
@@ -1269,7 +1371,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>None</source>
-        <translation>Нет</translation>
+        <translation type="obsolete">Нет</translation>
     </message>
     <message>
         <source>Version: %1 %2</source>
@@ -1277,7 +1379,7 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>Модули: %1</translation>
+        <translation type="obsolete">Модули: %1</translation>
     </message>
     <message>
         <source>&amp;About %1</source>
@@ -1303,7 +1405,7 @@ You can save your work now.</source>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>&amp;Окно</translation>
+        <translation type="obsolete">&amp;Окно</translation>
     </message>
     <message>
         <source>Running script &apos;%1&apos;</source>
@@ -1345,7 +1447,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Help</source>
-        <translation>Справка</translation>
+        <translation type="obsolete">Справка</translation>
     </message>
     <message>
         <source>Bugger, I couldn&apos;t find the helpfiles on the filesystem.</source>
@@ -1365,15 +1467,15 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Program Icons Supplied by</source>
-        <translation>Дизайн значков</translation>
+        <translation type="obsolete">Дизайн значков</translation>
     </message>
     <message>
         <source>Splash and Logo supplied by</source>
-        <translation>Логотип и заставка</translation>
+        <translation type="obsolete">Логотип и заставка</translation>
     </message>
     <message>
         <source>Main Website : </source>
-        <translation>Официальный сайт: </translation>
+        <translation type="obsolete">Официальный сайт: </translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -1381,7 +1483,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>SCM Revision: %1</source>
-        <translation>Ревизия системы управления версиями: %1</translation>
+        <translation type="obsolete">Ревизия системы управления версиями: %1</translation>
     </message>
     <message>
         <source>Please donate to LibreCAD to help maintain the sourcecode and it&apos;s website.</source>
@@ -1405,7 +1507,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
-        <translation>Пожалуйста, рассмотрите возможность сделать пожертвование на поддержку исходного кода и сайта.</translation>
+        <translation type="obsolete">Пожалуйста, рассмотрите возможность сделать пожертвование на поддержку исходного кода и сайта.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
@@ -1461,7 +1563,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation>Компилятор: Microsoft Visual C++&lt;br&gt;</translation>
+        <translation type="obsolete">Компилятор: Microsoft Visual C++&lt;br&gt;</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
@@ -1469,7 +1571,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Help files not found</source>
-        <translation>Не найдены файлы справки</translation>
+        <translation type="obsolete">Не найдены файлы справки</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -1505,7 +1607,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>The help files were not found.</source>
-        <translation>Файлы справки не найдены.</translation>
+        <translation type="obsolete">Файлы справки не найдены.</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -1513,7 +1615,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Настройки</translation>
+        <translation type="obsolete">Настройки</translation>
     </message>
     <message>
         <source>&amp;Order</source>
@@ -1553,11 +1655,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Misc</source>
-        <translation>Проч&amp;ее</translation>
+        <translation type="obsolete">Проч&amp;ее</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation>Прочее</translation>
+        <translation type="obsolete">Прочее</translation>
     </message>
     <message>
         <source>Dimension</source>
@@ -1569,15 +1671,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Info</source>
-        <translation>Инфо</translation>
+        <translation>Информация</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Специальный</translation>
+        <translation type="obsolete">Специальный</translation>
     </message>
     <message>
         <source>Online (Wiki)</source>
-        <translation>Онлайн (Вики)</translation>
+        <translation type="obsolete">Онлайн (Вики)</translation>
     </message>
     <message>
         <source>DockWidgets</source>
@@ -1585,11 +1687,103 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Dockwidgets</source>
-        <translation>&amp;Доки</translation>
+        <translation type="obsolete">&amp;Доки</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished"></translation>
+        <translation>Стыкуемые области</translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation>Сетка</translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation>Панели</translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation>Стыкуемые интерфейсы</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>Параметры устройства</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>Устройство</translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation>Пара&amp;метры</translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation>&amp;Дополнения</translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation>&amp;Размер</translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation>&amp;Стыкуемый интерфейс</translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation>Недавние файлы</translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation>Компилятор: Microsoft Visual C++</translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation>Версия Boost: %1.%2.%3</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Копировать</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation>Участники</translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation>Лицензия</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Система</translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation>Создать панель</translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation>Создать меню</translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation>Назначить меню</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>Инс&amp;трументы</translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation>&amp;Чертежи</translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation>Ссылки справки</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation>Онлайн</translation>
     </message>
 </context>
 <context>
@@ -4226,7 +4420,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Light Gray</source>
-        <translation>Светлосерый</translation>
+        <translation>Светло-серый</translation>
     </message>
     <message>
         <source>Others..</source>
@@ -4266,7 +4460,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">Специальный</translation>
+        <translation>Специальный</translation>
     </message>
 </context>
 <context>
@@ -4315,7 +4509,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите координаты или команду&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите координаты или команду&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -4329,6 +4523,10 @@ p, li { white-space: pre-wrap; }
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation>отмена</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">…</translation>
     </message>
 </context>
 <context>
@@ -4776,7 +4974,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Size (px):</source>
-        <translation>Размер (пиксел):</translation>
+        <translation>Размер (пикселей):</translation>
     </message>
     <message>
         <source>path:</source>
@@ -4823,7 +5021,7 @@ p, li { white-space: pre-wrap; }
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Добро пожаловать в QCad&lt;/b&gt;
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Добро пожаловать в QCad&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Пожалуйста, выберите единицы измерения для новых чертежей и предпочитаемый язык&lt;br&gt;
@@ -4848,6 +5046,18 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message>
         <source>Enter</source>
         <translation type="obsolete">Ввод</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Добро пожаловать в LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Выберите желаемые единицы измерения для новых чертежей и предпочитаемый язык.&lt;br&gt;
+(Позже вы сможете изменить эти настройки.)</translation>
     </message>
 </context>
 <context>
@@ -4914,7 +5124,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scale Y:</source>
-        <translation>Мастштаб по Y:</translation>
+        <translation>Масштаб по Y:</translation>
     </message>
 </context>
 <context>
@@ -4980,7 +5190,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation>Ме&amp;жстрочный интервал:</translation>
+        <translation type="obsolete">Ме&amp;жстрочный интервал:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -5156,7 +5366,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation type="unfinished">[02B0-02FF] Буквы модификаторы протяжённые</translation>
+        <translation>[02B0-02FF] Некомбинируемые протяжённые символы-модификаторы</translation>
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
@@ -5569,6 +5779,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>⌀ (диаметр)</translation>
+    </message>
+    <message>
+        <source>&amp;Line spacing:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5992,7 +6206,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Top crosshair with isometric grid</source>
-        <translation>Вернее перекрестье на изометрической сетке</translation>
+        <translation>Верхнее перекрестье на изометрической сетке</translation>
     </message>
     <message>
         <source>Top</source>
@@ -6204,7 +6418,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Выравненный</translation>
+        <translation>Выровненный</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -6247,7 +6461,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>Скрипты:</translation>
+        <translation type="obsolete">Скрипты:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -6311,7 +6525,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>Количество объ&amp;ектов при предпросмотре:</translation>
+        <translation type="obsolete">Количество объ&amp;ектов при предпросмотре:</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -6359,11 +6573,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>White</source>
-        <translation>Белый</translation>
+        <translation type="obsolete">Белый</translation>
     </message>
     <message>
         <source>Gray</source>
-        <translation>Серый</translation>
+        <translation type="obsolete">Серый</translation>
     </message>
     <message>
         <source>Darkgray</source>
@@ -6375,11 +6589,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>Размер шрифта</translation>
+        <translation type="obsolete">Размер шрифта</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>Строка состояния:</translation>
+        <translation type="obsolete">Строка состояния:</translation>
     </message>
     <message>
         <source>5</source>
@@ -6471,7 +6685,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>Минимальный шаг сетки (px):</translation>
+        <translation type="obsolete">Минимальный шаг сетки (px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -6551,11 +6765,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Splash Window</source>
-        <translation>Оконная заставка</translation>
+        <translation type="obsolete">Оконная заставка</translation>
     </message>
     <message>
         <source>Display Splash</source>
-        <translation>Отображать заставку</translation>
+        <translation type="obsolete">Отображать заставку</translation>
     </message>
     <message>
         <source>Graphic Colors</source>
@@ -6563,59 +6777,55 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aquamarine</source>
-        <translation>Аквамарин</translation>
+        <translation type="obsolete">Аквамарин</translation>
     </message>
     <message>
         <source>Azure</source>
-        <translation>Лазурь</translation>
+        <translation type="obsolete">Лазурь</translation>
     </message>
     <message>
         <source>DeepSkyBlue</source>
-        <translation>Глубокая небесная синева</translation>
-    </message>
-    <message>
-        <source>DodgerBlue</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Глубокая небесная синева</translation>
     </message>
     <message>
         <source>HoneyDew</source>
-        <translation>Желто-оранжевый</translation>
+        <translation type="obsolete">Желто-оранжевый</translation>
     </message>
     <message>
         <source>Lavender</source>
-        <translation>Сиреневый</translation>
+        <translation type="obsolete">Сиреневый</translation>
     </message>
     <message>
         <source>LightGrey</source>
-        <translation>Светло-серый</translation>
+        <translation type="obsolete">Светло-серый</translation>
     </message>
     <message>
         <source>Navy</source>
-        <translation>Тёмно-синий</translation>
+        <translation type="obsolete">Тёмно-синий</translation>
     </message>
     <message>
         <source>PaleGreen</source>
-        <translation>Бледно-зеленый</translation>
+        <translation type="obsolete">Бледно-зеленый</translation>
     </message>
     <message>
         <source>Pink</source>
-        <translation>Розовый</translation>
+        <translation type="obsolete">Розовый</translation>
     </message>
     <message>
         <source>Salmon</source>
-        <translation>Оранжево-розовый</translation>
+        <translation type="obsolete">Оранжево-розовый</translation>
     </message>
     <message>
         <source>Silver</source>
-        <translation>Серебряный</translation>
+        <translation type="obsolete">Серебряный</translation>
     </message>
     <message>
         <source>Violet</source>
-        <translation>Фиолетовый</translation>
+        <translation type="obsolete">Фиолетовый</translation>
     </message>
     <message>
         <source>Wheat</source>
-        <translation>Пшеничный</translation>
+        <translation type="obsolete">Пшеничный</translation>
     </message>
     <message>
         <source>Snap indicator:</source>
@@ -6631,19 +6841,19 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Crosshair</source>
-        <translation>Перекрестье</translation>
+        <translation type="obsolete">Перекрестье</translation>
     </message>
     <message>
         <source>Spiderweb</source>
-        <translation>Паутина</translation>
+        <translation type="obsolete">Паутина</translation>
     </message>
     <message>
         <source>GUI Colors</source>
-        <translation>Цвета интерфейса</translation>
+        <translation type="obsolete">Цвета интерфейса</translation>
     </message>
     <message>
         <source>Layer/ Block Selection:</source>
-        <translation>Выбор слоя или блока:</translation>
+        <translation type="obsolete">Выбор слоя или блока:</translation>
     </message>
     <message>
         <source>Icons</source>
@@ -6655,11 +6865,11 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Custom Toolbar:</source>
-        <translation>Индивидуальная панель:</translation>
+        <translation type="obsolete">Индивидуальная панель:</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;При изменении слоя все выбранные элементы будут перенесены на этот слой. Для изменения слоя нескольких элементов: выберите элементы и укажите слой в списке слоёв. Все выбранные элементы будут перенесены на указанный слой.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;При изменении слоя все выбранные элементы будут перенесены на этот слой. Для изменения слоя нескольких элементов: выберите элементы и укажите слой в списке слоёв. Все выбранные элементы будут перенесены на указанный слой.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
@@ -6687,42 +6897,90 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Isometric</source>
-        <translation type="unfinished"></translation>
+        <translation>Полосы прокрутки</translation>
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Линии указателя привязки</translation>
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Форма указателя привязки</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Окружность</translation>
+        <translation type="obsolete">Окружность</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">Точка</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Точка</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать указатель при привязке</translation>
     </message>
     <message>
         <source>Start in tab mode</source>
+        <translation>Начинать в режиме вкладок</translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation>Запуск</translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation>Отображать экран загрузки</translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation>Максимально раскрыть окно</translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation>Включить стыкуемые интерфейсы</translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation>Включить панели</translation>
+    </message>
+    <message>
+        <source>Keycode mode</source>
+        <translation type="obsolete">Режим кодов клавиш</translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation>Сбросить настройки</translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation>Включая пользовательские меню и панели?</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Commands 2 characters in length are automatically accepted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выполнять команды из двух символов.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7051,7 +7309,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Degree:</source>
-        <translation>Угол:</translation>
+        <translation>Степень:</translation>
     </message>
     <message>
         <source>Closed</source>
@@ -7194,7 +7452,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>Хэш-символ (#)</translation>
+        <translation>Хеш-символ (#)</translation>
     </message>
     <message>
         <source>Dollar ($)</source>
@@ -7750,15 +8008,23 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Выровнять</translation>
+        <translation type="obsolete">Выровнять</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Середина</translation>
+        <translation type="obsolete">Середина</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>⌀ (диаметр)</translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished">&amp;Середина</translation>
     </message>
 </context>
 <context>
@@ -7948,7 +8214,7 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     </message>
     <message>
         <source>Black</source>
-        <translation>Черный</translation>
+        <translation type="obsolete">Черный</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -8065,6 +8331,10 @@ You can changes these settings later in the Options Dialog of QCad.</source>
     <message>
         <source>set same size</source>
         <translation>установить одинаковый размер</translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
+        <translation>&amp;Чёрный</translation>
     </message>
 </context>
 <context>
@@ -8200,11 +8470,11 @@ The contents of a Construction Layer should not appear in printout.</source>
     </message>
     <message>
         <source>&amp;Defreeze all Layers</source>
-        <translation>&amp;Разморозить все слои</translation>
+        <translation>По&amp;казать все слои</translation>
     </message>
     <message>
         <source>&amp;Freeze all Layers</source>
-        <translation>З&amp;аморозить все слои</translation>
+        <translation>&amp;Скрыть все слои</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
@@ -8742,7 +9012,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>wrong action type</source>
-        <translation type="unfinished"></translation>
+        <translation>неверный тип действия</translation>
     </message>
 </context>
 <context>
@@ -8971,7 +9241,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Restrict Orthogonal</source>
-        <translation>Ограничить ортагонально</translation>
+        <translation>Ограничить ортогонально</translation>
     </message>
     <message>
         <source>Restrict Nothing</source>
@@ -8984,6 +9254,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Lock relative zero position</source>
         <translation>Заблокировать положение относительного нуля</translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
+        <translation>Режим единственной привязки</translation>
     </message>
 </context>
 <context>
@@ -9577,7 +9851,7 @@ Do you want to replace it?</source>
     <message>
         <source>experimental, save your work first.
 Continue?</source>
-        <translation>экспериментально, сперва сохраните совою работу.
+        <translation>Экспериментально, сперва сохраните свою работу.
 Продолжить?</translation>
     </message>
     <message>
@@ -9590,7 +9864,7 @@ Continue?</source>
     </message>
     <message>
         <source>: duplicated command: %1 is already taken by %2</source>
-        <translation>: повтор команды: %1 уже занято %2</translation>
+        <translation>: повтор команды: «%1» уже занято «%2»</translation>
     </message>
     <message>
         <source>point</source>
@@ -9655,7 +9929,8 @@ Continue?</source>
     <message>
         <source>stp</source>
         <comment>spline through points</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>счт -- сплайн через точку</translatorcomment>
+        <translation>счт</translation>
     </message>
     <message>
         <source>offset</source>
@@ -9680,32 +9955,36 @@ Continue?</source>
     <message>
         <source>ptp</source>
         <comment>parallel through point</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>пчт -- параллельно через точку</translatorcomment>
+        <translation>пчт</translation>
     </message>
     <message>
         <source>pp</source>
         <comment>parallel through point</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>пт -- параллельно через точку</translatorcomment>
+        <translation>пт</translation>
     </message>
     <message>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation type="unfinished"></translation>
+        <translation>бисекция</translation>
     </message>
     <message>
         <source>bi</source>
         <comment>angle bisector</comment>
-        <translation type="unfinished"></translation>
+        <translation>би</translation>
     </message>
     <message>
         <source>tangentpc</source>
         <comment>tangent point and circle</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>касателто -- касательная точка окружность</translatorcomment>
+        <translation>касателто</translation>
     </message>
     <message>
         <source>tanpc</source>
         <comment>tangent point and circle</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>касто -- касательная точка окружность</translatorcomment>
+        <translation>касто</translation>
     </message>
     <message>
         <source>perp</source>
@@ -9760,12 +10039,12 @@ Continue?</source>
     <message>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation type="unfinished"></translation>
+        <translation>многоуг2в</translation>
     </message>
     <message>
         <source>poly2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation type="unfinished"></translation>
+        <translation>мног2</translation>
     </message>
     <message>
         <source>arc</source>
@@ -9810,12 +10089,13 @@ Continue?</source>
     <message>
         <source>circlecr</source>
         <comment>circle with center and radius</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>окрцр -- окружность центр радиус</translatorcomment>
+        <translation>окрцр</translation>
     </message>
     <message>
         <source>cc</source>
         <comment>circle with center and radius</comment>
-        <translation type="unfinished"></translation>
+        <translation>ор</translation>
     </message>
     <message>
         <source>tan3</source>
@@ -9825,22 +10105,24 @@ Continue?</source>
     <message>
         <source>ct3</source>
         <comment>circle tangent to 3</comment>
-        <translation type="unfinished"></translation>
+        <translation>ок3</translation>
     </message>
     <message>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation type="unfinished"></translation>
+        <translation>эллипсвписанный</translation>
     </message>
     <message>
         <source>ei</source>
         <comment>inscribed ellipse</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>эв -- эллипс вписанный</translatorcomment>
+        <translation>эв</translation>
     </message>
     <message>
         <source>ie</source>
         <comment>inscribed ellipse</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>вэ -- вписанный эллипс</translatorcomment>
+        <translation>вэ</translation>
     </message>
     <message>
         <source>hatch</source>
@@ -9925,7 +10207,7 @@ Continue?</source>
     <message>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation type="unfinished"></translation>
+        <translation>увеличитьпредыдущий</translation>
     </message>
     <message>
         <source>zv</source>
@@ -10005,7 +10287,8 @@ Continue?</source>
     <message>
         <source>dr</source>
         <comment>dimension - linear</comment>
-        <translation type="unfinished">рл</translation>
+        <translatorcomment>рл -- размер линейный</translatorcomment>
+        <translation>рл</translation>
     </message>
     <message>
         <source>dimangular</source>
@@ -10125,12 +10408,13 @@ Continue?</source>
     <message>
         <source>fillet</source>
         <comment>modify - fillet</comment>
-        <translation type="unfinished"></translation>
+        <translation>скругление</translation>
     </message>
     <message>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ск -- скруглить</translatorcomment>
+        <translation>ск</translation>
     </message>
     <message>
         <source>divide</source>
@@ -10210,7 +10494,7 @@ Continue?</source>
     <message>
         <source>lengthen</source>
         <comment>modify - lengthen</comment>
-        <translation type="unfinished"></translation>
+        <translation>удлинить</translation>
     </message>
     <message>
         <source>le</source>
@@ -10220,7 +10504,7 @@ Continue?</source>
     <message>
         <source>stretch</source>
         <comment>modify - stretch</comment>
-        <translation type="unfinished"></translation>
+        <translation>вытянуть</translation>
     </message>
     <message>
         <source>ss</source>
@@ -10355,12 +10639,13 @@ Continue?</source>
     <message>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation type="unfinished"></translation>
+        <translation>выбратьвсе</translation>
     </message>
     <message>
         <source>sa</source>
         <comment>Select all entities</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>вв -- выбрать все</translatorcomment>
+        <translation>вв</translation>
     </message>
     <message>
         <source>deselectall</source>
@@ -10410,7 +10695,8 @@ Continue?</source>
     <message>
         <source>dpp</source>
         <comment>distance point to point</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ртт -- расстояние точка точка</translatorcomment>
+        <translation>ртт</translation>
     </message>
     <message>
         <source>angle</source>
@@ -10454,7 +10740,7 @@ Continue?</source>
     </message>
     <message>
         <source>columnspacing</source>
-        <translation type="unfinished">столбинтервал</translation>
+        <translation>столбинтервал</translation>
     </message>
     <message>
         <source>factor</source>
@@ -10525,7 +10811,8 @@ Continue?</source>
     <message>
         <source>cl</source>
         <comment>chord length</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>дх -- длинна хорды</translatorcomment>
+        <translation>дх</translation>
     </message>
     <message>
         <source>c</source>
@@ -10649,7 +10936,7 @@ Continue?</source>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation type="unfinished">обр</translation>
+        <translation>обр</translation>
     </message>
     <message>
         <source>row</source>
@@ -10721,7 +11008,7 @@ Continue?</source>
     </message>
     <message>
         <source>RS_Commands:: command not found: %1</source>
-        <translation type="unfinished">RS_Commands:: команда не найдена: %1</translation>
+        <translation>RS_Commands:: команда не найдена: %1</translation>
     </message>
     <message>
         <source>Command not found: %1</source>
@@ -10760,15 +11047,195 @@ Continue?</source>
     </message>
     <message>
         <source>bw</source>
-        <translation type="unfinished"></translation>
+        <translation>чб</translation>
     </message>
     <message>
         <source>blackwhite</source>
-        <translation type="unfinished"></translation>
+        <translation>чернобелый</translation>
     </message>
     <message>
         <source>color</source>
+        <translation>цветной</translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation>п2</translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translatorcomment>ис -- изменить свойства</translatorcomment>
+        <translation>ис</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation>Блок</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation>Окружность</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>Кривая</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Правка</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Эллипс</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation>Файл</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation>Размер</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation>Слой</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation>Изменить</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Прочее</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation>Полилиния</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation>Ограничение</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation>Выбрать</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation>Привязка</translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation>Дополнительная привязка</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Всё</translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished">выч</translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished">Лицензия</translation>
     </message>
 </context>
 <context>
@@ -11840,11 +12307,11 @@ Continue?</source>
     </message>
     <message>
         <source>specify a point on ellipse, or total distance to foci</source>
-        <translation type="unfinished"></translation>
+        <translation>укажите точку на эллипсе или общее расстояние между фокусами</translation>
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation type="unfinished"></translation>
+        <translation>Общее расстояние %1 меньше чем расстояние между фокусами</translation>
     </message>
 </context>
 <context>
@@ -13014,7 +13481,7 @@ Continue?</source>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Area: %1</source>
-        <translation>Площадь: %1</translation>
+        <translation type="obsolete">Площадь: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -13026,7 +13493,7 @@ Continue?</source>
     </message>
     <message>
         <source>Specify first point of polygon</source>
-        <translation>Укажите первую точку полигона</translation>
+        <translation>Укажите первую точку многоугольника</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -13034,7 +13501,7 @@ Continue?</source>
     </message>
     <message>
         <source>Specify next point of polygon</source>
-        <translation>Укажите следующую точку полигона</translation>
+        <translation>Укажите следующую точку многоугольника</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
@@ -13043,6 +13510,10 @@ Continue?</source>
     <message>
         <source>Closing Point: %1/%2</source>
         <translation>Завершающая точка: %1; %2</translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
+        <translation>Площадь: %1 %2²</translation>
     </message>
 </context>
 <context>
@@ -14243,7 +14714,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deletinging point is invalid.</source>
-        <translation>Некорректная удаляемая точка.</translation>
+        <translation type="obsolete">Некорректная удаляемая точка.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
@@ -14251,7 +14722,7 @@ Continue?</source>
     </message>
     <message>
         <source>Deleteinging point is not on entity.</source>
-        <translation>Удаляемая точка не принадлежит объекту.</translation>
+        <translation type="obsolete">Удаляемая точка не принадлежит объекту.</translation>
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
@@ -14329,7 +14800,7 @@ Continue?</source>
     </message>
     <message>
         <source>Polyline created</source>
-        <translation type="unfinished"></translation>
+        <translation>Полилиния создана</translation>
     </message>
 </context>
 <context>
@@ -14427,11 +14898,11 @@ Continue?</source>
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать в чёрно-белом</translation>
     </message>
     <message>
         <source>Printout in color</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать в цвете</translation>
     </message>
 </context>
 <context>
@@ -15627,169 +16098,176 @@ Continue?</source>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Рамка</translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation type="unfinished">Параметры дуги</translation>
+        <translation>Параметры дуги</translation>
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation type="unfinished">Против часовой стрелке</translation>
+        <translation>Против часовой стрелке</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation type="unfinished">По часовой стрелке</translation>
+        <translation>По часовой стрелке</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation type="unfinished">Параметры касательной дуги</translation>
+        <translation>Параметры касательной дуги</translation>
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation type="unfinished">Радиус касательной дуги</translation>
+        <translation>Радиус касательной дуги</translation>
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation type="unfinished">Общий стягивающий угол касательной дуги</translation>
+        <translation>Общий стягивающий угол касательной дуги</translation>
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="unfinished">Радиус</translation>
+        <translation>Радиус</translation>
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="unfinished">Угол</translation>
+        <translation>Угол</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation type="unfinished">Параметры фаски</translation>
+        <translation>Параметры фаски</translation>
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation type="unfinished">Установите, чтобы подогнать два базовых объекта</translation>
+        <translation>Установите, чтобы подогнать два объекта к фаске</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation type="unfinished"></translation>
+        <translation>Подогнать</translation>
     </message>
     <message>
         <source>Length 1:</source>
-        <translation type="unfinished">Длина 1:</translation>
+        <translation>Длина 1:</translation>
     </message>
     <message>
         <source>Length 2:</source>
-        <translation type="unfinished">Длина 2:</translation>
+        <translation>Длина 2:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation type="unfinished">Параметры окружности</translation>
+        <translation>Параметры окружности</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">Радиус:</translation>
+        <translation>Радиус:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation type="unfinished">Параметры окружности касательной к двум объектам</translation>
+        <translation>Параметры окружности касательной к двум объектам</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Радиус новой касательной окружности&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Радиус новой касательной окружности&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">Радиус:</translation>
+        <translation>Радиус:</translation>
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation type="unfinished">Радиус касательной окружности</translation>
+        <translation>Радиус касательной окружности</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation type="unfinished">Параметры линейного размера</translation>
+        <translation>Параметры линейного размера</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation type="unfinished">Параметры размера</translation>
+        <translation>Параметры размера</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation type="unfinished">Метка:</translation>
+        <translation>Метка:</translation>
     </message>
     <message utf8="true">
         <source>⌀</source>
-        <translation type="unfinished">⌀</translation>
+        <translation>⌀</translation>
     </message>
     <message utf8="true">
         <source>°</source>
-        <translation type="unfinished">°</translation>
+        <translation>°</translation>
     </message>
     <message utf8="true">
         <source>±</source>
-        <translation type="unfinished">±</translation>
+        <translation>±</translation>
     </message>
     <message utf8="true">
         <source>π</source>
-        <translation type="unfinished">π</translation>
+        <translation>π</translation>
     </message>
     <message utf8="true">
         <source>×</source>
-        <translation type="unfinished">×</translation>
+        <translation>×</translation>
     </message>
     <message utf8="true">
         <source>÷</source>
-        <translation type="unfinished">÷</translation>
+        <translation>÷</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">…</translation>
+        <translation>…</translation>
     </message>
 </context>
 <context>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation type="unfinished">Параметры вставки</translation>
+        <translation>Параметры вставки</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">Угол поворота</translation>
+        <translation>Угол поворота</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">Коэффициент:</translation>
+        <translation>Коэффициент:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">Коэффициент масштабирования</translation>
+        <translation>Коэффициент масштабирования</translation>
     </message>
     <message>
         <source>DPI</source>
@@ -15797,478 +16275,513 @@ Continue?</source>
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation type="unfinished">DPI изображения</translation>
+        <translation>DPI изображения</translation>
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation type="unfinished">Параметры вставки</translation>
+        <translation>Параметры вставки</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">Угол поворота</translation>
+        <translation>Угол поворота</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">Коэффициент:</translation>
+        <translation>Коэффициент:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">Коэффициент масштабирования</translation>
+        <translation>Коэффициент масштабирования</translation>
     </message>
     <message>
         <source>Array:</source>
-        <translation type="unfinished">Массив:</translation>
+        <translation>Массив:</translation>
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation type="unfinished">Число столбцов</translation>
+        <translation>Число столбцов</translation>
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation type="unfinished">Число рядов</translation>
+        <translation>Число рядов</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">Промежуток:</translation>
+        <translation>Промежуток:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation type="unfinished">Расстояние между столбцами</translation>
+        <translation>Расстояние между столбцами</translation>
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation type="unfinished">Расстояние между рядами</translation>
+        <translation>Расстояние между рядами</translation>
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation type="unfinished">Параметры вставки библиотечного элемента</translation>
+        <translation>Параметры вставки библиотечного элемента</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation type="unfinished">Угол поворота</translation>
+        <translation>Угол поворота</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation type="unfinished">Коэффициент:</translation>
+        <translation>Коэффициент:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation type="unfinished">Коэффициент масштабирования</translation>
+        <translation>Коэффициент масштабирования</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation type="unfinished">Параметры линии под заданным углом</translation>
+        <translation>Параметры линии под заданным углом</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation type="unfinished">Угол линии</translation>
+        <translation>Угол линии</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Длина:</translation>
+        <translation>Длина:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation type="unfinished">Длина линии</translation>
+        <translation>Длина линии</translation>
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation type="unfinished">Привязка:</translation>
+        <translation>Точка привязки:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Начало</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Середина</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Конец</translation>
+        <translation>Конец</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation type="unfinished">Параметры бисектриссы</translation>
+        <translation>Параметры биссектрисы</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Длина:</translation>
+        <translation>Длина:</translation>
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation type="unfinished">Длина биссектрисы</translation>
+        <translation>Длина биссектрисы</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation type="unfinished">Количество создаваемых биссектрис</translation>
+        <translation>Количество создаваемых биссектрис</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation type="unfinished">Параметры линии</translation>
+        <translation>Параметры линии</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation type="unfinished">Создать замкнутый контур из существующих линий</translation>
+        <translation>Создать замкнутый контур из существующих линий</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation type="unfinished">Отменить последнюю начерченную линию</translation>
+        <translation>Отменить последнюю начерченную линию</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation type="unfinished">Повторить последнюю начерченную линию</translation>
+        <translation>Повторить последнюю начерченную линию</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">Повторить</translation>
+        <translation>Повторить</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation type="unfinished">Параметры параллельной линии</translation>
+        <translation>Параметры параллельной линии</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">Расстояние:</translation>
+        <translation>Расстояние:</translation>
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation type="unfinished">Расстояние до исходного объекта</translation>
+        <translation>Расстояние до исходного объекта</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation type="unfinished">Количество создаваемых параллельных линий</translation>
+        <translation>Количество создаваемых параллельных линий</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation type="unfinished">Параметры параллельной линии через точку</translation>
+        <translation>Параметры параллельной линии через точку</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation type="unfinished">Количество создаваемых параллельных линий</translation>
+        <translation>Количество создаваемых параллельных линий</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation type="unfinished">Параметры многоугольника</translation>
+        <translation>Параметры многоугольника</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation type="unfinished">Количество сторон</translation>
+        <translation>Количество углов</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation type="unfinished">Параметры многоугольника</translation>
+        <translation>Параметры многоугольника</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation type="unfinished">Количество сторон</translation>
+        <translation>Количество углов</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">Параметры линии под относительным углом</translation>
+        <translation>Параметры линии под относительным углом</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation type="unfinished">Угол линии</translation>
+        <translation>Угол линии</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Длина:</translation>
+        <translation>Длина:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation type="unfinished">Длина линии</translation>
+        <translation>Длина линии</translation>
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation type="unfinished">Параметры текста</translation>
+        <translation>Параметры текста</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation type="unfinished">Текст:</translation>
+        <translation>Текст:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation type="unfinished">Изменить параметры смещения</translation>
+        <translation>Изменить параметры смещения</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">Расстояние:</translation>
+        <translation>Расстояние:</translation>
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation type="unfinished">Смещение от исходного объекта</translation>
+        <translation>Смещение от исходного объекта</translation>
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation type="unfinished">Параметры сдвига и поворота</translation>
+        <translation>Параметры сдвига и поворота</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation type="unfinished">Параметры ломаной</translation>
+        <translation>Параметры ломаной</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Линия</translation>
+        <translation>Линия</translation>
     </message>
     <message>
         <source>Tangential</source>
-        <translation type="unfinished">Касательно</translation>
+        <translation>Касательно</translation>
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation type="unfinished">Радиус касательной</translation>
+        <translation>Радиус касательной</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">Угол</translation>
+        <translation>Угол</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">Радиус:</translation>
+        <translation>Радиус:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation type="unfinished">Против часовой стрелки</translation>
+        <translation>Против часовой стрелки</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation type="unfinished">По часовой стрелке</translation>
+        <translation>По часовой стрелке</translation>
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation type="unfinished">Параметры предварительного просмотра</translation>
+        <translation>Параметры предварительного просмотра</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Зафиксировать масштаб печати на текущем значении&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Зафиксировать масштаб печати на текущем значении&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>fixed</source>
-        <translation type="unfinished">Зафиксировать</translation>
+        <translation>Зафиксировать</translation>
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation type="unfinished">Переключить чёрно-белый режим</translation>
+        <translation>Переключить чёрно-белый режим</translation>
     </message>
     <message>
         <source>Center to page</source>
-        <translation type="unfinished">По центру страницы</translation>
+        <translation>По центру страницы</translation>
     </message>
     <message>
         <source>Fit to page</source>
-        <translation type="unfinished">Вписать в страницу</translation>
+        <translation>Вписать в страницу</translation>
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation type="unfinished">Параметры скругления</translation>
+        <translation>Параметры скругления</translation>
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation type="unfinished">Включите, чтобы подогнать две линии при скруглении</translation>
+        <translation>Включите, чтобы подогнать две линии при скруглении</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation type="unfinished"></translation>
+        <translation>Подогнать</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">Радиус:</translation>
+        <translation>Радиус:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation type="unfinished">Параметры расстояния привязки</translation>
+        <translation>Параметры расстояния привязки</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">Расстояние:</translation>
+        <translation>Расстояние:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation type="unfinished">Параметры расстояния привязки</translation>
+        <translation>Параметры расстояния привязки</translation>
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation type="unfinished">Средних точек:</translation>
+        <translation>Средних точек:</translation>
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation type="unfinished">Число точек разделяющих кривую на равные отрезки</translation>
+        <translation>Число точек разделяющих кривую на равные отрезки</translation>
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation type="unfinished">Параметры сплайна</translation>
+        <translation>Параметры сплайна</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation type="unfinished"></translation>
+        <translation>Степень:</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрытый</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation type="unfinished">Параметры текста</translation>
+        <translation>Параметры текста</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation type="unfinished">Текст:</translation>
+        <translation>Текст:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угол:</translation>
+        <translation>Угол:</translation>
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation type="unfinished">Параметры подгона на величину</translation>
+        <translation>Параметры подгона на величину</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation type="unfinished">Расстояние. Отрицательные значения для обрезки, положительные для удлинения.</translation>
+        <translation>Расстояние. Отрицательные значения для обрезки, положительные для удлинения.</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Длина:</translation>
+        <translation>Длина:</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation type="unfinished">Расстояние. Отрицательные значения для обрезки, положительные для удлинения. Отрицательный знак не учитывается, когда установлена окончательная длина отрезка.</translation>
+        <translation>Расстояние. Отрицательные значения для обрезки, положительные для удлинения. Отрицательный знак не учитывается, когда установлена окончательная длина отрезка.</translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation type="unfinished">Используется введенная длина как окончательная длина отрезка после обрезки, вместо размера увеличения.</translation>
+        <translation>Используется введенная длина как окончательная длина отрезка после обрезки, вместо размера увеличения.</translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation>Рамка</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation>⇒</translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation>⇐</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation>Создать</translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation>Назначить</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Обновить</translation>
     </message>
 </context>
 </TS>

@@ -30,6 +30,8 @@
 #include <QMdiSubWindow>
 #include <QList>
 #include "rs.h"
+#include "rs_layerlistlistener.h"
+#include "rs_blocklistlistener.h"
 
 class QG_GraphicView;
 class RS_Document;
@@ -44,7 +46,10 @@ class QCloseEvent;
  *
  * @author Andrew Mustun
  */
-class QC_MDIWindow: public QMdiSubWindow {
+class QC_MDIWindow: public QMdiSubWindow,
+                    public RS_LayerListListener,
+                    public RS_BlockListListener
+{
     Q_OBJECT
 
 public:
@@ -61,9 +66,9 @@ public slots:
     bool slotFileOpen(const QString& fileName, RS2::FormatType type);
     bool slotFileSave(bool &cancelled, bool isAutoSave=false);
     bool slotFileSaveAs(bool &cancelled);
-    bool slotFileClose(bool force);
     void slotFilePrint();
     void slotZoomAuto();
+	void slotWindowClosing();
 
 public:
     /** @return Pointer to graphic view */
@@ -80,7 +85,19 @@ public:
 
     void addChildWindow(QC_MDIWindow* w);
     void removeChildWindow(QC_MDIWindow* w);
+	QList<QC_MDIWindow*>& getChildWindows();
+
     QC_MDIWindow* getPrintPreview();
+
+    // Methods from RS_LayerListListener Interface:
+    void layerListModified(bool) override {
+        setWindowModified(document->isModified());
+    }
+
+    // Methods from RS_BlockListListener Interface:
+    void blockListModified(bool) override {
+        setWindowModified(document->isModified());
+    }
 
     /**
      * Sets the parent window that will be notified if this 
@@ -91,11 +108,7 @@ public:
      */
 	int getId() const;
 
-	bool closeMDI(bool force, bool ask=true);
-
-	void setForceClosing(bool on);
-
-    friend std::ostream& operator << (std::ostream& os, QC_MDIWindow& w);
+	friend std::ostream& operator << (std::ostream& os, QC_MDIWindow& w);
 
     bool has_children();
 
@@ -129,11 +142,6 @@ private:
      */
     QC_MDIWindow* parentWindow{nullptr};
     QMdiArea* cadMdiArea;
-
-	/**
-	 * If flag is set, the user will not be asked about closing this file.
-	 */
-    bool forceClosing{false};
 };
 
 

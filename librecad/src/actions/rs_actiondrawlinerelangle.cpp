@@ -116,7 +116,7 @@ void RS_ActionDrawLineRelAngle::mouseMoveEvent(QMouseEvent* e) {
 
     switch (getStatus()) {
     case SetEntity:
-        entity = catchEntity(e, RS2::ResolveAll);
+		entity = catchEntity(e, enTypeList, RS2::ResolveAll);
         break;
 
     case SetPos: {
@@ -167,11 +167,8 @@ void RS_ActionDrawLineRelAngle::mouseReleaseEvent(QMouseEvent* e) {
     if (e->button()==Qt::LeftButton) {
         switch (getStatus()) {
         case SetEntity: {
-                RS_Entity* en = catchEntity(e, RS2::ResolveAll);
-                if (en &&
-                        (en->rtti()==RS2::EntityLine ||
-                         en->rtti()==RS2::EntityArc ||
-                         en->rtti()==RS2::EntityCircle)) {
+				RS_Entity* en = catchEntity(e, enTypeList, RS2::ResolveAll);
+				if (en) {
                     entity = en;
 
                     entity->setHighlighted(true);
@@ -224,11 +221,9 @@ void RS_ActionDrawLineRelAngle::coordinateEvent(RS_CoordinateEvent* e) {
 void RS_ActionDrawLineRelAngle::commandEvent(RS_CommandEvent* e) {
     QString c = e->getCommand().toLower();
 
-    if (checkCommand("help", c)) {
-        if (RS_DIALOGFACTORY) {
-            RS_DIALOGFACTORY->commandMessage(msgAvailableCommands()
-                                             + getAvailableCommands().join(", "));
-        }
+	if (checkCommand("help", c)) {
+		RS_DIALOGFACTORY->commandMessage(msgAvailableCommands()
+										 + getAvailableCommands().join(", "));
         return;
     }
 
@@ -250,14 +245,9 @@ void RS_ActionDrawLineRelAngle::commandEvent(RS_CommandEvent* e) {
             if (ok) {
                 e->accept();
                 angle = RS_Math::deg2rad(a);
-            } else {
-                if (RS_DIALOGFACTORY) {
+			} else
                     RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
-                }
-            }
-            if (RS_DIALOGFACTORY) {
-                RS_DIALOGFACTORY->requestOptions(this, true, true);
-            }
+			RS_DIALOGFACTORY->requestOptions(this, true, true);
             setStatus(SetPos);
         }
         break;
@@ -267,14 +257,9 @@ void RS_ActionDrawLineRelAngle::commandEvent(RS_CommandEvent* e) {
             double l = RS_Math::eval(c, &ok);
             if (ok) {
                 length = l;
-            } else {
-                if (RS_DIALOGFACTORY) {
-                    RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
-                }
-            }
-            if (RS_DIALOGFACTORY) {
-                RS_DIALOGFACTORY->requestOptions(this, true, true);
-            }
+			} else
+				RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
+			RS_DIALOGFACTORY->requestOptions(this, true, true);
             setStatus(SetPos);
         }
         break;
@@ -306,21 +291,19 @@ QStringList RS_ActionDrawLineRelAngle::getAvailableCommands() {
 
 
 void RS_ActionDrawLineRelAngle::updateMouseButtonHints() {
-    if (RS_DIALOGFACTORY) {
-        switch (getStatus()) {
-        case SetEntity:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Select base entity"),
-                                                tr("Cancel"));
-            break;
-        case SetPos:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Specify position"),
-                                                tr("Back"));
-            break;
-        default:
-			RS_DIALOGFACTORY->updateMouseWidget();
-            break;
-        }
-    }
+	switch (getStatus()) {
+	case SetEntity:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Select base entity"),
+											tr("Cancel"));
+		break;
+	case SetPos:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify position"),
+											tr("Back"));
+		break;
+	default:
+		RS_DIALOGFACTORY->updateMouseWidget();
+		break;
+	}
 }
 
 
@@ -328,9 +311,7 @@ void RS_ActionDrawLineRelAngle::updateMouseButtonHints() {
 void RS_ActionDrawLineRelAngle::showOptions() {
     RS_ActionInterface::showOptions();
 
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->requestOptions(this, true);
-    }
+	RS_DIALOGFACTORY->requestOptions(this, true);
 }
 
 
@@ -338,9 +319,7 @@ void RS_ActionDrawLineRelAngle::showOptions() {
 void RS_ActionDrawLineRelAngle::hideOptions() {
     RS_ActionInterface::hideOptions();
 
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->requestOptions(this, false);
-    }
+	RS_DIALOGFACTORY->requestOptions(this, false);
 }
 
 

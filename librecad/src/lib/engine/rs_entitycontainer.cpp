@@ -45,10 +45,6 @@
 #include "rs_information.h"
 #include "rs_graphicview.h"
 
-#if QT_VERSION < 0x040400
-#include "emu_qt44.h"
-#endif
-
 bool RS_EntityContainer::autoUpdateBorders = true;
 
 /**
@@ -61,8 +57,8 @@ RS_EntityContainer::RS_EntityContainer(RS_EntityContainer* parent,
     : RS_Entity(parent) {
 
     autoDelete=owner;
-    RS_DEBUG->print("RS_EntityContainer::RS_EntityContainer: "
-                    "owner: %d", (int)owner);
+//    RS_DEBUG->print("RS_EntityContainer::RS_EntityContainer: "
+//                    "owner: %d", (int)owner);
 	subContainer = nullptr;
     //autoUpdateBorders = true;
     entIdx = -1;
@@ -85,7 +81,11 @@ RS_EntityContainer::RS_EntityContainer(const RS_EntityContainer& ec)
  * Destructor.
  */
 RS_EntityContainer::~RS_EntityContainer() {
-    clear();
+    if (autoDelete) {
+        while (!entities.isEmpty())
+            delete entities.takeFirst();
+    } else
+        entities.clear();
 }
 
 
@@ -148,19 +148,6 @@ void RS_EntityContainer::reparent(RS_EntityContainer* parent) {
         e->reparent(parent);
     }
 }
-
-
-
-/**
- * Called when the undo state changed. Forwards the event to all sub-entities.
- *
- * @param undone true: entity has become invisible.
- *               false: entity has become visible.
- */
-//void RS_EntityContainer::undoStateChanged(bool undone) {
-
-//    RS_Entity::undoStateChanged(undone);
-//}
 
 
 
@@ -441,11 +428,7 @@ bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
     //    and sets 'entIdx' in next() or last() if 'entity' is the last item in the list.
 	//    in LibreCAD is never called with nullptr
     bool ret;
-#if QT_VERSION < 0x040400
-    ret = emu_qt44_removeOne(entities, entity);
-#else
     ret = entities.removeOne(entity);
-#endif
 
     if (autoDelete && ret) {
         delete entity;
@@ -596,7 +579,15 @@ void RS_EntityContainer::calculateBorders() {
     //RS_Entity::calculateBorders();
 }
 
-
+//namespace {
+//bool isBoundingBoxValid(RS_Entity* e) {
+//	if (!(e->getMin() && e->getMax())) return false;
+//	if (!(e->getMin().x <= e->getMax().x)) return false;
+//	if (!(e->getMin().y <= e->getMax().y)) return false;
+//	if ((e->getMin() - e->getMax()).magnitude() > RS_MAXDOUBLE) return false;
+//	return true;
+//}
+//}
 
 /**
  * Recalculates the borders of this entity container including
@@ -605,8 +596,8 @@ void RS_EntityContainer::calculateBorders() {
 void RS_EntityContainer::forcedCalculateBorders() {
     //RS_DEBUG->print("RS_EntityContainer::calculateBorders");
 
-	resetBorders();
-	for (RS_Entity* e: entities){
+    resetBorders();
+    for (RS_Entity* e: entities){
 
         //RS_Layer* layer = e->getLayer();
 
@@ -637,8 +628,6 @@ void RS_EntityContainer::forcedCalculateBorders() {
     //printf("borders: %lf/%lf  %lf/%lf\n", minV.x, minV.y, maxV.x, maxV.y);
     //RS_Entity::calculateBorders();
 }
-
-
 
 /**
  * Updates all Dimension entities in this container and / or
@@ -675,18 +664,25 @@ void RS_EntityContainer::updateDimensions(bool autoText) {
  */
 void RS_EntityContainer::updateInserts() {
 
-    RS_DEBUG->print("RS_EntityContainer::updateInserts()");
+    RS_DEBUG->print("RS_EntityContainer::updateInserts() ID/type: %d/%d", getId(), rtti());
 
-	for (RS_Entity* e: entities){
+    for (RS_Entity* e: entities){
         //// Only update our own inserts and not inserts of inserts
         if (e->rtti()==RS2::EntityInsert  /*&& e->getParent()==this*/) {
             ((RS_Insert*)e)->update();
-        } else if (e->isContainer() && e->rtti()!=RS2::EntityHatch) {
-            ((RS_EntityContainer*)e)->updateInserts();
+            RS_DEBUG->print("RS_EntityContainer::updateInserts: updated ID/type: %d/%d", e->getId(), e->rtti());
+        } else if (e->isContainer()) {
+            if (e->rtti()==RS2::EntityHatch) {
+                RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_EntityContainer::updateInserts: skip hatch ID/type: %d/%d", e->getId(), e->rtti());
+            } else {
+                RS_DEBUG->print("RS_EntityContainer::updateInserts: update container ID/type: %d/%d", e->getId(), e->rtti());
+                ((RS_EntityContainer*)e)->updateInserts();
+            }
+        } else {
+            RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_EntityContainer::updateInserts: skip entity ID/type: %d/%d", e->getId(), e->rtti());
         }
     }
-
-    RS_DEBUG->print("RS_EntityContainer::updateInserts() OK");
+    RS_DEBUG->print("RS_EntityContainer::updateInserts() ID/type: %d/%d OK", getId(), rtti());
 }
 
 
@@ -779,7 +775,7 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -799,7 +795,7 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -818,7 +814,7 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer()) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -924,7 +920,7 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -953,7 +949,7 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText ) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -981,7 +977,7 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer()) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->firstEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = nextEntity(level);
@@ -1027,7 +1023,7 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->lastEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = prevEntity(level);
@@ -1054,7 +1050,7 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->lastEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = prevEntity(level);
@@ -1081,7 +1077,7 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
 		if (e && e->isContainer()) {
             subContainer = (RS_EntityContainer*)e;
             e = ((RS_EntityContainer*)e)->lastEntity(level);
-            // emtpy container:
+            // empty container:
 			if (!e) {
 				subContainer = nullptr;
                 e = prevEntity(level);
@@ -1131,7 +1127,7 @@ int RS_EntityContainer::findEntity(RS_Entity const* const entity) {
 
 /**
  * @return The point which is closest to 'coord'
- * (one of the vertexes)
+ * (one of the vertices)
  */
 RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
                                                  double* dist  )const {
@@ -1144,7 +1140,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
 	for (RS_Entity* en: entities){
 
 		if (en->isVisible()
-				&& !en->getParent()->ignoredOnModification()
+                && !en->getParent()->ignoredOnModification()
 				){//no end point for Insert, text, Dim
             point = en->getNearestEndpoint(coord, &curDist);
             if (point.valid && curDist<minDist) {
@@ -1164,7 +1160,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
 
 /**
  * @return The point which is closest to 'coord'
- * (one of the vertexes)
+ * (one of the vertices)
  */
 RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
                                                  double* dist,  RS_Entity** pEntity)const {
@@ -1181,7 +1177,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
 
     unsigned i0=0;
 	for(auto en: entities){
-		if (!en->getParent()->ignoredOnModification() ){//no end point for Insert, text, Dim
+        if (!en->getParent()->ignoredOnModification() ){//no end point for Insert, text, Dim
 //            std::cout<<"find nearest for entity "<<i0<<std::endl;
             point = en->getNearestEndpoint(coord, &curDist);
             if (point.valid && curDist<minDist) {
@@ -1215,7 +1211,7 @@ RS_Vector RS_EntityContainer::getNearestPointOnEntity(const RS_Vector& coord,
 	RS_Entity* en = getNearestEntity(coord, dist, RS2::ResolveNone);
 
 	if (en && en->isVisible()
-			&& !en->getParent()->ignoredOnModification()
+			&& !en->getParent()->ignoredSnap()
 			){
 		point = en->getNearestPointOnEntity(coord, onEntity, dist, entity);
 	}
@@ -1235,7 +1231,7 @@ RS_Vector RS_EntityContainer::getNearestCenter(const RS_Vector& coord,
 	for(auto en: entities){
 
         if (en->isVisible()
-				&& !en->getParent()->ignoredOnModification()
+				&& !en->getParent()->ignoredSnap()
 				){//no center point for spline, text, Dim
             point = en->getNearestCenter(coord, &curDist);
             if (point.valid && curDist<minDist) {
@@ -1265,7 +1261,7 @@ RS_Vector RS_EntityContainer::getNearestMiddle(const RS_Vector& coord,
 	for(auto en: entities){
 
         if (en->isVisible()
-				&& !en->getParent()->ignoredOnModification()
+				&& !en->getParent()->ignoredSnap()
 				){//no midle point for spline, text, Dim
             point = en->getNearestMiddle(coord, &curDist, middlePoints);
             if (point.valid && curDist<minDist) {
@@ -1322,7 +1318,7 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
              en = nextEntity(RS2::ResolveAllButTextImage)) {
             if (
                     !en->isVisible()
-					|| en->getParent()->ignoredOnModification()
+					|| en->getParent()->ignoredSnap()
                     ){
                 continue;
             }
@@ -1523,10 +1519,12 @@ bool RS_EntityContainer::optimizeContours() {
         case RS2::EntityEllipse:
 			if(static_cast<RS_Ellipse*>(e1)->isEllipticArc())
                 continue;
+            // fall-through
         case RS2::EntityCircle:
             //directly detect circles, bug#3443277
             tmp.addEntity(e1->clone());
             enList<<e1;
+            // fall-through
         default:
             continue;
         }
@@ -1561,11 +1559,11 @@ bool RS_EntityContainer::optimizeContours() {
     /** connect entities **/
     const QString errMsg=QObject::tr("Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)");
 
-    while(count()>0){
+    while(count()>0) {
         double dist(0.);
         RS_Vector&& vpTmp=getNearestEndpoint(vpEnd,&dist,&next);
         if(dist>1e-8) {
-            if(vpEnd.squaredTo(vpStart)<1e-8){
+            if(vpEnd.squaredTo(vpStart) < 1e-8) {
                 RS_Entity* e2=entityAt(0);
                 tmp.addEntity(e2->clone());
                 vpStart=e2->getStartpoint();
@@ -1573,10 +1571,22 @@ bool RS_EntityContainer::optimizeContours() {
                 removeEntity(e2);
                 continue;
             }
-            QG_DIALOGFACTORY->commandMessage(errMsg.arg(dist).arg(vpTmp.x).arg(vpTmp.y).arg(vpEnd.x).arg(vpEnd.y));
-            closed=false;
+            else {
+                QG_DIALOGFACTORY->commandMessage(
+                            errMsg.arg(dist).arg(vpTmp.x).arg(vpTmp.y).arg(vpEnd.x).arg(vpEnd.y)
+                            );
+                RS_DEBUG->print(RS_Debug::D_ERROR, "RS_EntityContainer::optimizeContours: hatch failed due to a gap");
+                closed=false;
+                break;
+            }
         }
-		if(next && closed){ 			//workaround if next is nullptr
+        if(!next) { 	    //workaround if next is nullptr
+//      	    std::cout<<"RS_EntityContainer::optimizeContours: next is nullptr" <<std::endl;
+            RS_DEBUG->print("RS_EntityContainer::optimizeContours: next is nullptr");
+//			closed=false;	//workaround if next is nullptr
+            break;			//workaround if next is nullptr
+        } 					//workaround if next is nullptr
+        if(closed) {
             next->setProcessed(true);
             RS_Entity* eTmp = next->clone();
             if(vpEnd.squaredTo(eTmp->getStartpoint())>vpEnd.squaredTo(eTmp->getEndpoint()))
@@ -1584,19 +1594,15 @@ bool RS_EntityContainer::optimizeContours() {
             vpEnd=eTmp->getEndpoint();
             tmp.addEntity(eTmp);
         	removeEntity(next);
-		} else { 			//workaround if next is nullptr
-//      	    std::cout<<"RS_EntityContainer::optimizeContours: next is nullptr" <<std::endl;
-
-			closed=false;	//workaround if next is nullptr
-			break;			//workaround if next is nullptr
-		} 					//workaround if next is nullptr
+        }
     }
 //    DEBUG_HEADER
-    if(vpEnd.valid && vpEnd.squaredTo(vpStart)>1e-8) {
-        if(closed) QG_DIALOGFACTORY->commandMessage(errMsg.arg(vpEnd.distanceTo(vpStart))
-                                         .arg(vpStart.x).arg(vpStart.y).arg(vpEnd.x).arg(vpEnd.y));
-        closed=false;
-    }
+//    if(vpEnd.valid && vpEnd.squaredTo(vpStart) > 1e-8) {
+//		QG_DIALOGFACTORY->commandMessage(errMsg.arg(vpEnd.distanceTo(vpStart))
+//											 .arg(vpStart.x).arg(vpStart.y).arg(vpEnd.x).arg(vpEnd.y));
+//        RS_DEBUG->print("RS_EntityContainer::optimizeContours: hatch failed due to a gap");
+//        closed=false;
+//    }
 //    std::cout<<"RS_EntityContainer::optimizeContours: 5"<<std::endl;
 
 
@@ -1607,7 +1613,12 @@ bool RS_EntityContainer::optimizeContours() {
     }
 //    std::cout<<"RS_EntityContainer::optimizeContours: 6"<<std::endl;
 
-    RS_DEBUG->print("RS_EntityContainer::optimizeContours: OK");
+    if(closed) {
+        RS_DEBUG->print("RS_EntityContainer::optimizeContours: OK");
+    }
+    else {
+        RS_DEBUG->print("RS_EntityContainer::optimizeContours: bad");
+    }
 //    std::cout<<"RS_EntityContainer::optimizeContours: end: count()="<<count()<<std::endl;
 //    std::cout<<"RS_EntityContainer::optimizeContours: closed="<<closed<<std::endl;
     return closed;
@@ -1755,9 +1766,8 @@ void RS_EntityContainer::draw(RS_Painter* painter, RS_GraphicView* view,
         return;
     }
 
-
-	for(auto e: entities){
-
+    foreach (auto e, entities)
+    {
         view->drawEntity(painter, e);
     }
 }
@@ -1800,10 +1810,6 @@ double RS_EntityContainer::areaLineIntegral() const
 
 bool RS_EntityContainer::ignoredOnModification() const
 {
-	// disable snapping on hatch, #652
-	if (getParent() && getParent()->rtti() == RS2::EntityHatch)
-		return true;
-
     switch(rtti()){
     // commented out Insert to allow snapping on block, bug#523
     // case RS2::EntityInsert:         /**Insert*/
@@ -1816,10 +1822,20 @@ bool RS_EntityContainer::ignoredOnModification() const
     case RS2::EntityDimDiametric: /**< Diametric Dimension */
     case RS2::EntityDimAngular:   /**< Angular Dimension */
     case RS2::EntityDimLeader:    /**< Leader Dimension */
+    case RS2::EntityHatch:
         return true;
     default:
         return false;
     }
+}
+
+bool RS_EntityContainer::ignoredSnap() const
+{
+	// issue #652 , disable snap for hatch
+	// TODO, should snapping on hatch be a feature enabled by settings?
+	if (getParent() && getParent()->rtti() == RS2::EntityHatch)
+			return true;
+	return ignoredOnModification();
 }
 
 QList<RS_Entity *>::const_iterator RS_EntityContainer::begin() const
@@ -1916,3 +1932,7 @@ RS_Entity* RS_EntityContainer::last() const
 	return entities.last();
 }
 
+const QList<RS_Entity*>& RS_EntityContainer::getEntityList()
+{
+    return entities;
+}

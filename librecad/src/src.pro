@@ -2,12 +2,7 @@
 # (c) Ries van Twisk (librecad@rvt.dds.nl)
 TEMPLATE = app
 
-DEFINES += QC_APPKEY="\"/LibreCAD\""
-DEFINES += QC_APPNAME="\"LibreCAD\""
-DEFINES += QC_COMPANYNAME="\"LibreCAD\""
-DEFINES += QC_COMPANYKEY="\"LibreCAD\""
-DEFINES += QC_VERSION="\"master\""
-DEFINES += QC_DELAYED_SPLASH_SCREEN=1
+DISABLE_POSTSCRIPT = false
 
 #uncomment to enable a Debugging menu entry for basic unit testing
 #DEFINES += LC_DEBUGGING
@@ -15,7 +10,8 @@ DEFINES += QC_DELAYED_SPLASH_SCREEN=1
 DEFINES += DWGSUPPORT
 DEFINES -= JWW_WRITE_SUPPORT
 
-SCMREVISION="2.1.0"
+LC_VERSION="2.2.0-alpha"
+VERSION=$${LC_VERSION}
 
 # Store intermedia stuff somewhere else
 GENERATED_DIR = ../../generated/librecad
@@ -24,23 +20,16 @@ include(../../common.pri)
 include(./boost.pri)
 include(./muparser.pri)
 
-#uncomment to use 2D rs_vector instead of 3D
-#DEFINES += RS_VECTOR2D=1
-
 CONFIG += qt \
-     warn_on \
-     link_prl \
-     verbose
+    warn_on \
+    link_prl \
+    verbose \
+    depend_includepath
 
-greaterThan( QT_MAJOR_VERSION, 4 ) {
-    # in Qt5 help is deprecated in CONFIG
-    QT += widgets printsupport help
-    CONFIG += c++11
-    *-g++ {
-        QMAKE_CXXFLAGS += -fext-numeric-literals
-    }
-} else {
-    CONFIG += help
+QT += widgets printsupport
+CONFIG += c++11
+*-g++ {
+    QMAKE_CXXFLAGS += -fext-numeric-literals
 }
 
 GEN_LIB_DIR = ../../generated/lib
@@ -51,48 +40,51 @@ DESTDIR = $${INSTALLDIR}
 
 # Make translations at the end of the process
 unix {
-    SCMREVISION=$$system([ "$(which git)x" != "x" -a -d ../../.git ] && echo "$(git describe --tags)" || echo "$${SCMREVISION}")
+    LC_VERSION=$$system([ "$(which git)x" != "x" -a -d ../../.git ] && echo "$(git describe --tags)" || echo "$${LC_VERSION}")
 
-    DEFINES += QC_SCMREVISION=\"$$SCMREVISION\"
     macx {
         TARGET = LibreCAD
+        VERSION=$$system(echo "$${LC_VERSION}" | sed -e 's/\-.*//g')
+        QMAKE_INFO_PLIST = Info.plist.app
         DEFINES += QC_APPDIR="\"LibreCAD\""
-        DEFINES += QINITIMAGES_LIBRECAD="qInitImages_LibreCAD"
-        RC_FILE = ../res/main/librecad.icns
-        QMAKE_POST_LINK = cd $$_PRO_FILE_PWD_/../.. && scripts/postprocess-osx.sh
-        QT += printsupport
+        ICON = ../res/main/librecad.icns
+        contains(DISABLE_POSTSCRIPT, false) {
+            QMAKE_POST_LINK = /bin/sh $$_PRO_FILE_PWD_/../../scripts/postprocess-osx.sh $$OUT_PWD/$${DESTDIR}/$${TARGET}.app/ $$[QT_INSTALL_BINS];
+            QMAKE_POST_LINK += /usr/libexec/PlistBuddy -c \"Set :CFBundleGetInfoString string $${TARGET} $${LC_VERSION}\" $$OUT_PWD/$${DESTDIR}/$${TARGET}.app/Contents/Info.plist;
+        }
     }
     else {
         TARGET = librecad
         DEFINES += QC_APPDIR="\"librecad\""
-        DEFINES += QINITIMAGES_LIBRECAD="qInitImages_librecad"
         RC_FILE = ../res/main/librecad.icns
-        QMAKE_POST_LINK = cd $$_PRO_FILE_PWD_/../.. && scripts/postprocess-unix.sh
+        contains(DISABLE_POSTSCRIPT, false) {
+            QMAKE_POST_LINK = cd $$_PRO_FILE_PWD_/../.. && scripts/postprocess-unix.sh
+        }
     }
 }
 win32 {
     TARGET = LibreCAD
     DEFINES += QC_APPDIR="\"LibreCAD\""
-    DEFINES += QINITIMAGES_LIBRECAD="qInitImages_LibreCAD"
 
     # add MSYSGIT_DIR = PathToGitBinFolder (without quotes) in custom.pro file, for commit hash in about dialog
     !isEmpty( MSYSGIT_DIR ) {
-        SCMREVISION = $$system( \"$$MSYSGIT_DIR/git.exe\" describe --tags || echo "$${SCMREVISION}")
-        !isEmpty( SCMREVISION ) {
-            DEFINES += QC_SCMREVISION=\"$$SCMREVISION\"
-        }
+        LC_VERSION = $$system( \"$$MSYSGIT_DIR/git.exe\" describe --tags || echo "$${LC_VERSION}")
     }
 
     RC_FILE = ../res/main/librecad.rc
-    QMAKE_POST_LINK = "$$_PRO_FILE_PWD_/../../scripts/postprocess-win.bat" $$SCMREVISION
+    contains(DISABLE_POSTSCRIPT, false) {
+        QMAKE_POST_LINK = "$$_PRO_FILE_PWD_/../../scripts/postprocess-win.bat" $$LC_VERSION
+    }
 }
+
+DEFINES += LC_VERSION=\"$$LC_VERSION\"
 
 # Additional libraries to load
 LIBS += -L../../generated/lib  \
     -ldxfrw \
     -ljwwlib
 
-DEPENDPATH += \
+INCLUDEPATH += \
     ../../libraries/libdxfrw/src \
     ../../libraries/jwwlib/src \
     cmd \
@@ -107,19 +99,23 @@ DEPENDPATH += \
     lib/information \
     lib/math \
     lib/modification \
-    lib/scripting \
+    lib/printing \
     actions \
     main \
-	test \
-	plugins \
-	ui \
+    main/console_dxf2pdf \
+    test \
+    plugins \
+    ui \
     ui/forms \
-	../res
+    ui/generic \
+    ../res
 
 RESOURCES += ../res/extui/extui.qrc
-
-#depends check, bug#3411161
-INCLUDEPATH += $$DEPENDPATH
+RESOURCES += ../res/actions/actions.qrc
+RESOURCES += ../res/icons/icons.qrc
+RESOURCES += ../res/ui/ui.qrc
+RESOURCES += ../res/main/main.qrc
+RESOURCES += ../../licenses/licenses.qrc
 
 # ################################################################################
 # Library
@@ -213,18 +209,17 @@ HEADERS += \
     lib/modification/rs_selection.h \
     lib/math/rs_math.h \
     lib/math/lc_quadratic.h \
-    lib/scripting/rs_python.h \
-    lib/scripting/rs_simplepython.h \
-    lib/scripting/rs_python_wrappers.h \
-    lib/scripting/rs_script.h \
-    lib/scripting/rs_scriptlist.h \
     actions/lc_actiondrawcircle2pr.h \
     test/lc_simpletests.h \
     lib/generators/lc_makercamsvg.h \
     lib/generators/lc_xmlwriterinterface.h \
     lib/generators/lc_xmlwriterqxmlstreamwriter.h \
     actions/lc_actionfileexportmakercam.h \
-    lib/engine/lc_rect.h
+    lib/engine/lc_rect.h \
+    lib/engine/lc_undosection.h \
+    lib/printing/lc_printing.h \
+    actions/lc_actiondrawlinepolygon3.h \
+    main/lc_application.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -300,11 +295,6 @@ SOURCES += \
     lib/math/lc_quadratic.cpp \
     lib/modification/rs_modification.cpp \
     lib/modification/rs_selection.cpp \
-    lib/scripting/rs_python.cpp \
-    lib/scripting/rs_simplepython.cpp \
-    lib/scripting/rs_python_wrappers.cpp \
-    lib/scripting/rs_script.cpp \
-    lib/scripting/rs_scriptlist.cpp \
     lib/engine/rs_color.cpp \
     lib/engine/rs_pen.cpp \
     actions/lc_actiondrawcircle2pr.cpp \
@@ -316,7 +306,11 @@ SOURCES += \
     lib/engine/rs_undocycle.cpp \
     lib/engine/rs_flags.cpp \
     lib/engine/lc_rect.cpp \
-    lib/engine/rs.cpp
+    lib/engine/lc_undosection.cpp \
+    lib/engine/rs.cpp \
+    lib/printing/lc_printing.cpp \
+    actions/lc_actiondrawlinepolygon3.cpp \
+    main/lc_application.cpp
 
 # ################################################################################
 # Command
@@ -399,6 +393,7 @@ HEADERS += actions/rs_actionblocksadd.h \
     actions/rs_actionlayersadd.h \
     actions/rs_actionlayersedit.h \
     actions/rs_actionlayersfreezeall.h \
+    actions/rs_actionlayerslockall.h \
     actions/rs_actionlayersremove.h \
     actions/rs_actionlayerstogglelock.h \
     actions/rs_actionlayerstoggleview.h \
@@ -428,7 +423,6 @@ HEADERS += actions/rs_actionblocksadd.h \
     actions/rs_actionmodifyexplodetext.h \
     actions/rs_actionoptionsdrawing.h \
     actions/rs_actionorder.h \
-    actions/rs_actionparisdebugcreatecontainer.h \
     actions/rs_actionpolylineadd.h \
     actions/rs_actionpolylineappend.h \
     actions/rs_actionpolylinedel.h \
@@ -534,6 +528,7 @@ SOURCES += actions/rs_actionblocksadd.cpp \
     actions/rs_actionlayersadd.cpp \
     actions/rs_actionlayersedit.cpp \
     actions/rs_actionlayersfreezeall.cpp \
+    actions/rs_actionlayerslockall.cpp \
     actions/rs_actionlayersremove.cpp \
     actions/rs_actionlayerstogglelock.cpp \
     actions/rs_actionlayerstoggleview.cpp \
@@ -563,7 +558,6 @@ SOURCES += actions/rs_actionblocksadd.cpp \
     actions/rs_actionmodifyexplodetext.cpp \
     actions/rs_actionoptionsdrawing.cpp \
     actions/rs_actionorder.cpp \
-    actions/rs_actionparisdebugcreatecontainer.cpp \
     actions/rs_actionpolylineadd.cpp \
     actions/rs_actionpolylineappend.cpp \
     actions/rs_actionpolylinedel.cpp \
@@ -595,8 +589,7 @@ SOURCES += actions/rs_actionblocksadd.cpp \
     actions/rs_actionzoomscroll.cpp \
     actions/rs_actionzoomwindow.cpp
 
-RESOURCES += ../res/actions/actions.qrc
-RESOURCES += ../res/tools/tools.qrc
+
 
 # ################################################################################
 # UI
@@ -689,13 +682,21 @@ HEADERS += ui/lc_actionfactory.h \
     ui/lc_widgetfactory.h \
     ui/twostackedlabels.h \
     ui/qg_commandhistory.h \
-    ui/lc_customtoolbar.h \
     ui/lc_dockwidget.h \
     ui/forms/lc_dlgsplinepoints.h \
     ui/forms/lc_widgetoptionsdialog.h \
     ui/forms/qg_snaptoolbar.h \
     ui/forms/qg_activelayername.h \
-    ui/lc_deviceoptions.h
+    ui/lc_deviceoptions.h \
+    ui/generic/comboboxoption.h \
+    ui/generic/actionlist.h \
+    ui/generic/widgetcreator.h \
+    ui/lc_actiongroupmanager.h \
+    ui/generic/linklist.h \
+    ui/generic/colorcombobox.h \
+    ui/generic/colorwizard.h \
+    ui/lc_penwizard.h \
+    ui/generic/textfileviewer.h
 
 SOURCES += ui/lc_actionfactory.cpp \
     ui/qg_actionhandler.cpp \
@@ -784,13 +785,21 @@ SOURCES += ui/lc_actionfactory.cpp \
     ui/lc_widgetfactory.cpp \
     ui/twostackedlabels.cpp \
     ui/qg_commandhistory.cpp \
-    ui/lc_customtoolbar.cpp \
     ui/lc_dockwidget.cpp \
     ui/forms/lc_dlgsplinepoints.cpp \
     ui/forms/lc_widgetoptionsdialog.cpp \
     ui/forms/qg_snaptoolbar.cpp \
     ui/forms/qg_activelayername.cpp \
-    ui/lc_deviceoptions.cpp
+    ui/lc_deviceoptions.cpp \
+    ui/generic/comboboxoption.cpp \
+    ui/generic/actionlist.cpp \
+    ui/generic/widgetcreator.cpp \
+    ui/lc_actiongroupmanager.cpp \
+    ui/generic/linklist.cpp \
+    ui/generic/colorcombobox.cpp \
+    ui/generic/colorwizard.cpp \
+    ui/lc_penwizard.cpp \
+    ui/generic/textfileviewer.cpp
 
 FORMS = ui/forms/qg_commandwidget.ui \
     ui/forms/qg_arcoptions.ui \
@@ -861,9 +870,11 @@ FORMS = ui/forms/qg_commandwidget.ui \
     ui/forms/qg_activelayername.ui \
     ui/forms/lc_dlgsplinepoints.ui \
     ui/forms/lc_widgetoptionsdialog.ui \
-    ui/lc_deviceoptions.ui
-
-RESOURCES += ../res/ui/ui.qrc
+    ui/lc_deviceoptions.ui \
+    ui/generic/comboboxoption.ui \
+    ui/generic/widgetcreator.ui \
+    ui/generic/colorwizard.ui \
+    ui/generic/textfileviewer.ui
 
 # ################################################################################
 # Main
@@ -871,7 +882,6 @@ HEADERS += \
     main/qc_applicationwindow.h \
     main/qc_dialogfactory.h \
     main/qc_mdiwindow.h \
-    main/helpbrowser.h \
     main/doc_plugin_interface.h \
     plugins/document_interface.h \
     plugins/qc_plugininterface.h \
@@ -879,19 +889,22 @@ HEADERS += \
     plugins/intern/qc_actiongetselect.h \
     plugins/intern/qc_actiongetent.h \
     main/main.h \
-    main/mainwindowx.h
+    main/mainwindowx.h \
+    main/console_dxf2pdf/console_dxf2pdf.h \
+    main/console_dxf2pdf/pdf_print_loop.h
 
 SOURCES += \
     main/qc_applicationwindow.cpp \
     main/qc_dialogfactory.cpp \
     main/qc_mdiwindow.cpp \
-    main/helpbrowser.cpp \
     main/doc_plugin_interface.cpp \
     plugins/intern/qc_actiongetpoint.cpp \
     plugins/intern/qc_actiongetselect.cpp \
     plugins/intern/qc_actiongetent.cpp \
     main/main.cpp \
-    main/mainwindowx.cpp
+    main/mainwindowx.cpp \
+    main/console_dxf2pdf/console_dxf2pdf.cpp \
+    main/console_dxf2pdf/pdf_print_loop.cpp
 
 # If C99 emulation is needed, add the respective source files.
 contains(DEFINES, EMU_C99) {
@@ -900,45 +913,12 @@ contains(DEFINES, EMU_C99) {
     HEADERS += main/emu_c99.h
 }
 
-# If Qt 4.3 or Qt 4.4 is used, add the respective workaround
-# source files and defines.
-
-contains(QT_MAJOR_VERSION, 4)   {
-
-    contains(QT_MINOR_VERSION, 0)|contains(QT_MINOR_VERSION, 1)|contains(QT_MINOR_VERSION, 2) {
-        error("Qt version $$[QT_VERSION] is too old, should be version 4.3 or newer.")
-    }
-
-    contains(QT_MINOR_VERSION, 3) {
-        !build_pass:verbose:message(Emulating Qt version 4.4 and 4.5.)
-        SOURCES += main/emu_qt44.cpp main/emu_qt45.cpp
-        HEADERS += main/emu_qt44.h   main/emu_qt45.h
-
-        !build_pass:verbose:message(Using QAssistantClient.)
-        CONFIG += assistant
-    }
-
-    contains(QT_MINOR_VERSION, 4) {
-        !build_pass:verbose:message(Emulating Qt version 4.5.)
-        SOURCES += main/emu_qt45.cpp
-        HEADERS += main/emu_qt45.h
-    }
-
-    contains(QT_MINOR_VERSION, 5)|contains(QT_MINOR_VERSION, 6)|contains(QT_MINOR_VERSION, 7) {
-        !build_pass:verbose:message(Using Qt version $$[QT_VERSION].)
-    }
-
-# QT_MAJOR_VERSION = 4
-}
-
-RESOURCES += ../res/main/main.qrc
 
 # ################################################################################
 # Translations
 TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_ca.ts \
     ../ts/librecad_cs.ts \
-    ../ts/librecad_et.ts \
     ../ts/librecad_en.ts \
     ../ts/librecad_en_au.ts \
     ../ts/librecad_da.ts \
@@ -964,6 +944,8 @@ TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_es_us.ts \
     ../ts/librecad_es_uy.ts \
     ../ts/librecad_es_ve.ts \
+    ../ts/librecad_et.ts \
+    ../ts/librecad_eu.ts \
     ../ts/librecad_fi.ts \
     ../ts/librecad_fr.ts \
     ../ts/librecad_gl.ts \
@@ -974,6 +956,7 @@ TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_ja.ts \
     ../ts/librecad_ko.ts \
     ../ts/librecad_lv.ts \
+    ../ts/librecad_mk.ts \
     ../ts/librecad_nl.ts \
     ../ts/librecad_no.ts \
     ../ts/librecad_pa.ts \

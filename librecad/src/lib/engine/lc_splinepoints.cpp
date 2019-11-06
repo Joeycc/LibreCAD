@@ -408,7 +408,7 @@ double GetDistToQuadSquared(const RS_Vector& coord, const RS_Vector& x1,
 	else return -1.0;
 
 	bool bResSet = false;
-	double dDist, dNewDist;
+	double dDist = 0., dNewDist;
 	double dRes;
 	for(const double& dSolValue: dSol)
 	{
@@ -705,25 +705,27 @@ RS_VectorSolutions LC_SplinePoints::getRefPoints() const
 }
 
 /** @return Start point of the entity */
-RS_Vector LC_SplinePoints::getStartPoint() const
+RS_Vector LC_SplinePoints::getStartpoint() const
 {
 	if(data.closed) return RS_Vector(false);
 
-	size_t iCount = data.splinePoints.size();
+	std::vector<RS_Vector> const &pts = getPoints();
+    size_t iCount = pts.size();
 	if(iCount < 1) return RS_Vector(false);
 
-    return data.splinePoints.at(0);
+    return pts.at(0);
 }
 
 /** @return End point of the entity */
-RS_Vector LC_SplinePoints::getEndPoint() const
+RS_Vector LC_SplinePoints::getEndpoint() const
 {
 	if(data.closed) return RS_Vector(false);
 
-	size_t iCount = data.splinePoints.size();
+	std::vector<RS_Vector> const &pts = getPoints();
+	size_t iCount = pts.size();
 	if(iCount < 1) return RS_Vector(false);
 
-    return data.splinePoints.at(iCount - 1);
+    return pts.at(iCount - 1);
 }
 
 RS_Vector LC_SplinePoints::getNearestEndpoint(const RS_Vector& coord,
@@ -733,8 +735,8 @@ RS_Vector LC_SplinePoints::getNearestEndpoint(const RS_Vector& coord,
 	RS_Vector ret(false);
 	if(!data.closed) // no endpoint for closed spline
 	{
-		RS_Vector vp1(getStartPoint());
-		RS_Vector vp2(getEndPoint());
+		RS_Vector vp1(getStartpoint());
+		RS_Vector vp2(getEndpoint());
 		double d1 = (coord-vp1).squared();
 		double d2 = (coord-vp2).squared();
 		if(d1 < d2)
@@ -820,7 +822,7 @@ int LC_SplinePoints::GetNearestQuad(const RS_Vector& coord,
 
 	RS_Vector vStart(false), vControl(false), vEnd(false), vRes(false);
 
-	double dDist, dNewDist;
+	double dDist = 0., dNewDist = 0.;
 	double dRes, dNewRes;
 	int iRes = -1;
 
@@ -1034,7 +1036,7 @@ RS_Vector LC_SplinePoints::getNearestMiddle(const RS_Vector& coord,
 	}
 
 	int i;
-	double dCurDist, dt;
+	double dCurDist, dt{0.};
 	double dMinDist = RS_MAXDOUBLE;
 	double dDist = getLength()/(1.0 + middlePoints);
 
@@ -1063,7 +1065,7 @@ RS_Vector LC_SplinePoints::getNearestMiddle(const RS_Vector& coord,
 		return vRes;
 	}
 
-	int iNext;
+	int iNext{0};
     vRes = GetSplinePointAtDist(dDist, 1, 0.0, &iNext, &dt);
 	if(vRes.valid) dMinDist = (vRes - coord).magnitude();
     i = 2;
@@ -3403,9 +3405,8 @@ RS_VectorSolutions getQuadraticLineIntersect(std::vector<double> dQuadCoefs,
 	{
         if(d > -RS_TOLERANCE && d < 1.0 + RS_TOLERANCE)
 		{
-            if(d < 0.0) d = 0.0;
-            if(d > 1.0) d = 1.0;
-			ret.push_back(vx1*(1.0 - d) + vx2*d);
+            d = qBound(0.0, d, 1.0);
+            ret.push_back(vx1*(1.0 - d) + vx2*d);
 		}
 	}
 
@@ -3477,15 +3478,17 @@ void addQuadraticQuadIntersect(RS_VectorSolutions *pVS, std::vector<double> dQua
 		dSol.push_back(-a0/a1);
 	}
 
-    for(double& d: dSol)
-	{
-        if(d > -RS_TOLERANCE && d < 1.0 + RS_TOLERANCE)
-		{
-            if(d < 0.0) d = 0.0;
-            if(d > 1.0) d = 1.0;
-			pVS->push_back(GetQuadAtPoint(vx1, vc1, vx2, d));
-		}
-	}
+    for (double& d: dSol) {
+        if (d > -RS_TOLERANCE && d < 1.0 + RS_TOLERANCE) {
+            if (d < 0.0) {
+                d = 0.0;
+            }
+            if (d > 1.0) {
+                d = 1.0;
+            }
+            pVS->push_back(GetQuadAtPoint(vx1, vc1, vx2, d));
+        }
+    }
 }
 
 RS_VectorSolutions LC_SplinePoints::getQuadraticIntersect(RS_Entity const* e1)

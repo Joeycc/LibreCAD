@@ -720,7 +720,7 @@ void RS_Circle::rotate(const RS_Vector& center, const RS_Vector& angleVector) {
 
 void RS_Circle::scale(const RS_Vector& center, const RS_Vector& factor) {
 	data.center.scale(center, factor);
-    //radius allways is positive
+    //radius always is positive
 	data.radius *= fabs(factor.x);
     scaleBorders(center,factor);
 //    calculateBorders();
@@ -765,12 +765,15 @@ bool RS_Circle::isVisibleInWindow(RS_GraphicView* view) const
     return (vpMin-getCenter()).squared() > getRadius()*getRadius();
 }
 
-/** draw circle as a 2 pi arc */
-void RS_Circle::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset) {
-    RS_Arc arc(getParent(), RS_ArcData(getCenter(),getRadius(),0.,2.*M_PI, false));
-    arc.setSelected(isSelected());
-    arc.setPen(getPen());
-    arc.draw(painter,view,patternOffset);
+
+void RS_Circle::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/) {
+//    // draw circle as a 2 pi arc
+//    RS_Arc arc(getParent(), RS_ArcData(getCenter(),getRadius(),0.,2.*M_PI, false));
+//    arc.setSelected(isSelected());
+//    arc.setPen(getPen());
+//    arc.draw(painter,view,patternOffset);
+
+    painter->drawCircle(view->toGui(getCenter()), view->toGuiDX(getRadius()));
 }
 
 

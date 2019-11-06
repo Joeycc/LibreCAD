@@ -29,6 +29,8 @@
 
 #include "rs_actioninterface.h"
 
+class RS_Layer;
+
 
 /**
  * This action class can handle user events to edit layers.
@@ -39,11 +41,14 @@ class RS_ActionLayersToggleLock : public RS_ActionInterface {
 	Q_OBJECT
 public:
     RS_ActionLayersToggleLock(RS_EntityContainer& container,
-                              RS_GraphicView& graphicView);
-    ~RS_ActionLayersToggleLock() = default;
+                              RS_GraphicView& graphicView,
+                              RS_Layer* layer);
 
-    virtual void init(int status);
-    virtual void trigger();
+	void init(int status) override;
+	void trigger() override;
+
+protected:
+    RS_Layer* a_layer;
 
 };
 

@@ -36,11 +36,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "rs_preview.h"
 #include "rs_debug.h"
 
-namespace{
-//list of entity types supported by current action
-auto enTypeList={RS2::EntityLine, RS2::EntityArc, RS2::EntityCircle};
-}
-
 struct RS_ActionDrawCircleTan1_2P::Points {
 	std::vector<RS_Vector> points;
 	RS_CircleData cData;
@@ -354,10 +349,8 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
     QString c = e->getCommand().toLower();
 
     if (checkCommand("help", c)) {
-        if (RS_DIALOGFACTORY) {
             RS_DIALOGFACTORY->commandMessage(msgAvailableCommands()
                                              + getAvailableCommands().join(", "));
-        }
         return;
     }
 
@@ -372,11 +365,8 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
                 } else {
                     setStatus(SetAngle1);
                 }
-            } else {
-                if (RS_DIALOGFACTORY) {
-                    RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
-                }
-            }
+			} else
+					RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
         }
         break;
 
@@ -386,11 +376,8 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
 			if (ok) {
                 angle1 = RS_Math::deg2rad(a);
                 setStatus(SetAngle2);
-            } else {
-                if (RS_DIALOGFACTORY) {
-                    RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
-                }
-            }
+			} else
+					RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
         }
         break;
 
@@ -400,11 +387,8 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
 			if (ok) {
                 angle2 = RS_Math::deg2rad(a);
                 trigger();
-            } else {
-                if (RS_DIALOGFACTORY) {
+			} else
                     RS_DIALOGFACTORY->commandMessage(tr("Not a valid expression"));
-                }
-            }
         }
         break;
 
@@ -417,22 +401,18 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
 
 //void RS_ActionDrawCircleTan1_2P::showOptions() {
 //    RS_DEBUG->print("RS_ActionDrawCircleTan1_2P::showOptions");
-//    if(RS_DIALOGFACTORY){
 //        RS_ActionInterface::showOptions();
 
 //        RS_DIALOGFACTORY->requestOptions(this, true);
-//    }
 //    RS_DEBUG->print("RS_ActionDrawCircleTan1_2P::showOptions: OK");
 //}
 
 
 
 //void RS_ActionDrawCircleTan1_2P::hideOptions() {
-//    if(RS_DIALOGFACTORY){
 //        RS_ActionInterface::hideOptions();
 
 //        RS_DIALOGFACTORY->requestOptions(this, false);
-//    }
 //}
 
 
@@ -444,31 +424,29 @@ QStringList RS_ActionDrawCircleTan1_2P::getAvailableCommands() {
 
 
 void RS_ActionDrawCircleTan1_2P::updateMouseButtonHints() {
-    if (RS_DIALOGFACTORY) {
-        switch (getStatus()) {
-        case SetCircle1:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Specify a line/arc/circle"),
-                                                tr("Cancel"));
-            break;
+	switch (getStatus()) {
+	case SetCircle1:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify a line/arc/circle"),
+											tr("Cancel"));
+		break;
 
-        case SetPoint1:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the first point on the tangent circle"),
-                                                tr("Back"));
-            break;
+	case SetPoint1:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the first point on the tangent circle"),
+											tr("Back"));
+		break;
 
-        case SetPoint2:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the second point on the tangent circle"),
-                                                tr("Back"));
-            break;
-        case SetCenter:
-            RS_DIALOGFACTORY->updateMouseWidget(tr("Select the center of the tangent circle"),
-                                                tr("Back"));
-            break;
-        default:
-            RS_DIALOGFACTORY->updateMouseWidget();
-            break;
-        }
-    }
+	case SetPoint2:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the second point on the tangent circle"),
+											tr("Back"));
+		break;
+	case SetCenter:
+		RS_DIALOGFACTORY->updateMouseWidget(tr("Select the center of the tangent circle"),
+											tr("Back"));
+		break;
+	default:
+		RS_DIALOGFACTORY->updateMouseWidget();
+		break;
+	}
 }
 
 

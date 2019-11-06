@@ -2,9 +2,11 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2018 A. Stebich (librecad@mail.lordofbikes.de)
+** Copyright (C) 2018 Simon Wells <simonrwells@gmail.com>
+** Copyright (C) 2015-2016 ravas (github.com/r-a-v-a-s)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
-**
 **
 ** This file may be distributed and/or modified under the terms of the
 ** GNU General Public License version 2 as published by the Free Software
@@ -29,54 +31,60 @@
 #include <QDebug>
 #include <QApplication>
 #include <QSplashScreen>
+#include <QSettings>
+#include <QMessageBox>
+#include <QFileInfo>
 
 #include "rs_fontlist.h"
 #include "rs_patternlist.h"
-#include "rs_scriptlist.h"
 #include "rs_settings.h"
 #include "rs_system.h"
-#include "rs_fileio.h"
 #include "qg_dlginitial.h"
 
+#include "lc_application.h"
 #include "qc_applicationwindow.h"
 #include "rs_debug.h"
 
-#ifndef QC_SPLASH_TXTCOL
-    #define QC_SPLASH_TXTCOL Qt::black
-#endif
+#include "console_dxf2pdf.h"
 
-// for image mime resources from png files
-extern void QINITIMAGES_LIBRECAD();
 
 /**
  * Main. Creates Application window.
  */
 int main(int argc, char** argv)
 {
+    QT_REQUIRE_VERSION(argc, argv, "5.2.1");
+
+    // Check first two arguments in order to decide if we want to run librecad
+    // as console dxf2pdf tool. On Linux we can create a link to librecad
+    // executable and  name it dxf2pdf. So, we can run either:
+    //
+    //     librecad dxf2pdf [options] ...
+    //
+    // or just:
+    //
+    //     dxf2pdf [options] ...
+    //
+    for (int i = 0; i < qMin(argc, 2); i++) {
+        QString arg(argv[i]);
+        if (i == 0) {
+            arg = QFileInfo(QFile::decodeName(argv[i])).baseName();
+        }
+        if (arg.compare("dxf2pdf") == 0) {
+            return console_dxf2pdf(argc, argv);
+        }
+    }
+
     RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 
-    QApplication app(argc, argv);
+    LC_Application app(argc, argv);
     QCoreApplication::setOrganizationName("LibreCAD");
-    QCoreApplication::setApplicationName("/LibreCAD");
-    QCoreApplication::setApplicationVersion("master");
+    QCoreApplication::setApplicationName("LibreCAD");
+    QCoreApplication::setApplicationVersion(XSTR(LC_VERSION));
 
-    QSplashScreen* splash = new QSplashScreen;
+    QSettings settings;
 
-    RS_SETTINGS->beginGroup("Appearance");
-    bool show_splash = RS_SETTINGS->readNumEntry("/ShowSplash", 1);
-    RS_SETTINGS->endGroup();
-
-    if (show_splash)
-    {
-        QPixmap pixmap(":/main/splash_librecad.png");
-        splash->setPixmap(pixmap);
-        splash->setAttribute(Qt::WA_DeleteOnClose);
-        splash->show();
-        splash->showMessage(QObject::tr("Loading.."),
-                            Qt::AlignRight|Qt::AlignBottom, QC_SPLASH_TXTCOL);
-        app.processEvents();
-        RS_DEBUG->print("main: splashscreen: OK");
-    }
+    bool first_load = settings.value("Startup/FirstLoad", 1).toBool();
 
     const QString lpDebugSwitch0("-d"),lpDebugSwitch1("--debug") ;
     const QString help0("-h"), help1("--help");
@@ -93,11 +101,17 @@ int main(int argc, char** argv)
         if (allowOptions && (help0.compare(argstr, Qt::CaseInsensitive)==0 ||
                              help1.compare(argstr, Qt::CaseInsensitive)==0 ))
         {
-            qDebug()<<"librecad::usage: <options> <dxf file>";
-            qDebug()<<"-h, --help\tdisplay this message";
+            qDebug()<<"Usage: librecad [command] <options> <dxf file>";
             qDebug()<<"";
-            qDebug()<<" --help\tdisplay this message";
-            qDebug()<<"-d, --debug <level>";
+            qDebug()<<"Commands:";
+            qDebug()<<"";
+            qDebug()<<"  dxf2pdf\tRun librecad as console dxf2pdf tool. Use -h for help.";
+            qDebug()<<"";
+            qDebug()<<"Options:";
+            qDebug()<<"";
+            qDebug()<<"  -h, --help\tdisplay this message";
+            qDebug()<<"  -d, --debug <level>";
+            qDebug()<<"";
             RS_DEBUG->print( RS_Debug::D_NOTHING, "possible debug levels:");
             RS_DEBUG->print( RS_Debug::D_NOTHING, "    %d Nothing", RS_Debug::D_NOTHING);
             RS_DEBUG->print( RS_Debug::D_NOTHING, "    %d Critical", RS_Debug::D_CRITICAL);
@@ -154,37 +168,30 @@ int main(int argc, char** argv)
 
             case '0' + RS_Debug::D_NOTHING :
                 RS_DEBUG->setLevel( RS_Debug::D_NOTHING);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_CRITICAL :
                 RS_DEBUG->setLevel( RS_Debug::D_CRITICAL);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_ERROR :
                 RS_DEBUG->setLevel( RS_Debug::D_ERROR);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_WARNING :
                 RS_DEBUG->setLevel( RS_Debug::D_WARNING);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_NOTICE :
                 RS_DEBUG->setLevel( RS_Debug::D_NOTICE);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_INFORMATIONAL :
                 RS_DEBUG->setLevel( RS_Debug::D_INFORMATIONAL);
-                ++i;
                 break;
 
             case '0' + RS_Debug::D_DEBUGGING :
                 RS_DEBUG->setLevel( RS_Debug::D_DEBUGGING);
-                ++i;
                 break;
 
             default :
@@ -197,26 +204,16 @@ int main(int argc, char** argv)
 
     QFileInfo prgInfo( QFile::decodeName(argv[0]) );
     QString prgDir(prgInfo.absolutePath());
-    RS_SETTINGS->init(XSTR(QC_COMPANYKEY), XSTR(QC_APPKEY));
-    RS_SYSTEM->init(XSTR(QC_APPNAME), XSTR(QC_VERSION), XSTR(QC_APPDIR), prgDir);
+    RS_SETTINGS->init(app.organizationName(), app.applicationName());
+    RS_SYSTEM->init(app.applicationName(), app.applicationVersion(), XSTR(QC_APPDIR), prgDir);
 
     // parse command line arguments that might not need a launched program:
     QStringList fileList = handleArgs(argc, argv, argClean);
 
-    QString lang;
-    QString langCmd;
-    QString unit;
-
-    RS_SETTINGS->beginGroup("/Defaults");
-    #ifndef QC_PREDEFINED_UNIT
-        unit = RS_SETTINGS->readEntry("/Unit", "Invalid");
-    #else
-        unit = RS_SETTINGS->readEntry("/Unit", QC_PREDEFINED_UNIT);
-    #endif
-    RS_SETTINGS->endGroup();
+    QString unit = settings.value("Defaults/Unit", "Invalid").toString();
 
     // show initial config dialog:
-    if (unit=="Invalid")
+    if (first_load)
     {
         RS_DEBUG->print("main: show initial config dialog..");
         QG_DlgInitial di(nullptr);
@@ -231,6 +228,22 @@ int main(int argc, char** argv)
         RS_DEBUG->print("main: show initial config dialog: OK");
     }
 
+    auto splash = new QSplashScreen;
+
+    bool show_splash = settings.value("Startup/ShowSplash", 1).toBool();
+
+    if (show_splash)
+    {
+        QPixmap pixmap(":/main/splash_librecad.png");
+        splash->setPixmap(pixmap);
+        splash->setAttribute(Qt::WA_DeleteOnClose);
+        splash->show();
+        splash->showMessage(QObject::tr("Loading.."),
+                            Qt::AlignRight|Qt::AlignBottom, Qt::black);
+        app.processEvents();
+        RS_DEBUG->print("main: splashscreen: OK");
+    }
+
     RS_DEBUG->print("main: init fontlist..");
     RS_FONTLIST->init();
     RS_DEBUG->print("main: init fontlist: OK");
@@ -239,57 +252,53 @@ int main(int argc, char** argv)
     RS_PATTERNLIST->init();
     RS_DEBUG->print("main: init patternlist: OK");
 
-    RS_DEBUG->print("main: init scriptlist..");
-    RS_SCRIPTLIST->init();
-    RS_DEBUG->print("main: init scriptlist: OK");
-
     RS_DEBUG->print("main: loading translation..");
-    RS_SETTINGS->beginGroup("/Appearance");
-    #ifdef QC_PREDEFINED_LOCALE
-        lang = RS_SETTINGS->readEntry("/Language", "");
-        if (lang.isEmpty())
-        {
-            lang=QC_PREDEFINED_LOCALE;
-            RS_SETTINGS->writeEntry("/Language", lang);
-        }
-        langCmd = RS_SETTINGS->readEntry("/LanguageCmd", "");
-        if (langCmd.isEmpty())
-        {
-            langCmd=QC_PREDEFINED_LOCALE;
-            RS_SETTINGS->writeEntry("/LanguageCmd", langCmd);
-        }
-    #else
-        lang = RS_SETTINGS->readEntry("/Language", "en");
-        langCmd = RS_SETTINGS->readEntry("/LanguageCmd", "en");
-    #endif
-    RS_SETTINGS->endGroup();
+
+    settings.beginGroup("Appearance");
+    QString lang = settings.value("Language", "en").toString();
+    QString langCmd = settings.value("LanguageCmd", "en").toString();
+    settings.endGroup();
 
     RS_SYSTEM->loadTranslation(lang, langCmd);
     RS_DEBUG->print("main: loading translation: OK");
 
     RS_DEBUG->print("main: creating main window..");
     QC_ApplicationWindow appWin;
+#ifdef Q_OS_MAC
+    app.installEventFilter(&appWin);
+#endif
     RS_DEBUG->print("main: setting caption");
-    appWin.setWindowTitle(XSTR(QC_APPNAME));
+    appWin.setWindowTitle(app.applicationName());
 
     RS_DEBUG->print("main: show main window");
 
-    RS_SETTINGS->beginGroup("/Geometry");
-    int windowWidth = RS_SETTINGS->readNumEntry("/WindowWidth", 0);
-    int windowHeight = RS_SETTINGS->readNumEntry("/WindowHeight", 0);
-    int windowX = RS_SETTINGS->readNumEntry("/WindowX", 30);
-    int windowY = RS_SETTINGS->readNumEntry("/WindowY", 30);
-    RS_SETTINGS->endGroup();
+    settings.beginGroup("Geometry");
+    int windowWidth = settings.value("WindowWidth", 1024).toInt();
+    int windowHeight = settings.value("WindowHeight", 1024).toInt();
+    int windowX = settings.value("WindowX", 32).toInt();
+    int windowY = settings.value("WindowY", 32).toInt();
+    settings.endGroup();
 
-    if (windowWidth != 0)
+    settings.beginGroup("Defaults");
+    if( !settings.contains("UseQtFileOpenDialog")) {
+#ifdef Q_OS_LINUX
+        // on Linux don't use native file dialog
+        // because of case insensitive filters (issue #791)
+        settings.setValue("UseQtFileOpenDialog", QVariant(1));
+#else
+        settings.setValue("UseQtFileOpenDialog", QVariant(0));
+#endif
+    }
+    settings.endGroup();
+
+    if (!first_load)
         appWin.resize(windowWidth, windowHeight);
 
     appWin.move(windowX, windowY);
 
-    RS_SETTINGS->beginGroup("Defaults");
-    bool maximize = RS_SETTINGS->readNumEntry("/Maximize", 0);
-    RS_SETTINGS->endGroup();
-    if (maximize || windowWidth == 0)
+    bool maximize = settings.value("Startup/Maximize", 0).toBool();
+
+    if (maximize || first_load)
         appWin.showMaximized();
     else
         appWin.show();
@@ -303,16 +312,20 @@ int main(int argc, char** argv)
         RS_DEBUG->print("main: updating splash");
         splash->raise();
         splash->showMessage(QObject::tr("Loading..."),
-                Qt::AlignRight|Qt::AlignBottom, QC_SPLASH_TXTCOL);
+                Qt::AlignRight|Qt::AlignBottom, Qt::black);
         RS_DEBUG->print("main: processing events");
         qApp->processEvents();
         RS_DEBUG->print("main: updating splash: OK");
     }
 
-    // Set LC_NUMERIC so that entering numeric values uses . as the decimal seperator
+    // Set LC_NUMERIC so that entering numeric values uses . as the decimal separator
     setlocale(LC_NUMERIC, "C");
 
     RS_DEBUG->print("main: loading files..");
+#ifdef Q_OS_MAC
+    // get the file list from LC_Application
+    fileList << app.fileList();
+#endif
     bool files_loaded = false;
     for (QStringList::Iterator it = fileList.begin(); it != fileList.end(); ++it )
     {
@@ -320,15 +333,13 @@ int main(int argc, char** argv)
         {
             splash->showMessage(QObject::tr("Loading File %1..")
                     .arg(QDir::toNativeSeparators(*it)),
-            Qt::AlignRight|Qt::AlignBottom, QC_SPLASH_TXTCOL);
+            Qt::AlignRight|Qt::AlignBottom, Qt::black);
             qApp->processEvents();
         }
-        appWin.slotFileOpen(*it, RS2::FormatUnknown);
+        appWin.slotFileOpen(*it);
         files_loaded = true;
     }
     RS_DEBUG->print("main: loading files: OK");
-
-    RS_DEBUG->print("main: app.exec()");
 
     if (!files_loaded)
     {
@@ -339,6 +350,11 @@ int main(int argc, char** argv)
         splash->finish(&appWin);
     else
         delete splash;
+
+    if (first_load)
+        settings.setValue("Startup/FirstLoad", 0);
+
+    RS_DEBUG->print("main: entering Qt event loop");
 
     int return_code = app.exec();
 

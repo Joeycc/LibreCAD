@@ -24,8 +24,13 @@
 **
 **********************************************************************/
 #include "qg_commandwidget.h"
-#include <QKeyEvent>
+
 #include <algorithm>
+
+#include <QAction>
+#include <QKeyEvent>
+#include <QFileDialog>
+#include <QSettings>
 
 #include "qg_actionhandler.h"
 #include "rs_commands.h"
@@ -38,10 +43,42 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CommandWidget::QG_CommandWidget(QWidget* parent, const char* name, Qt::WindowFlags fl)
-    : QWidget(parent, fl), actionHandler(nullptr)
+    : QWidget(parent, fl)
+    , actionHandler(nullptr)
 {
     setObjectName(name);
     setupUi(this);
+    connect(leCommand, SIGNAL(command(QString)), this, SLOT(handleCommand(QString)));
+    connect(leCommand, SIGNAL(escape()), this, SLOT(escape()));
+    connect(leCommand, SIGNAL(focusOut()), this, SLOT(setNormalMode()));
+    connect(leCommand, SIGNAL(focusIn()), this, SLOT(setCommandMode()));
+    connect(leCommand, SIGNAL(tabPressed()), this, SLOT(tabPressed()));
+    connect(leCommand, SIGNAL(clearCommandsHistory()), teHistory, SLOT(clear()));
+    connect(leCommand, SIGNAL(message(QString)), this, SLOT(appendHistory(QString)));
+    connect(leCommand, &QG_CommandEdit::keycode, this, &QG_CommandWidget::handleKeycode);
+
+    auto a1 = new QAction(QObject::tr("Keycode mode"), this);
+    a1->setObjectName("keycode_action");
+    a1->setCheckable(true);
+    connect(a1, &QAction::toggled, this, &QG_CommandWidget::setKeycodeMode);
+    options_button->addAction(a1);
+
+    QSettings settings;
+    if (settings.value("Widgets/KeycodeMode", false).toBool())
+    {
+        leCommand->keycode_mode = true;
+        a1->setChecked(true);
+    }
+
+    auto a2 = new QAction(QObject::tr("Load command file"), this);
+    connect(a2, &QAction::triggered, this, &QG_CommandWidget::chooseCommandFile);
+    options_button->addAction(a2);
+
+    auto a3 = new QAction(QObject::tr("Paste multiple commands"), this);
+    connect(a3, &QAction::triggered, leCommand, &QG_CommandEdit::modifiedPaste);
+    options_button->addAction(a3);
+
+    options_button->setStyleSheet("QToolButton::menu-indicator { image: none; }");
 }
 
 /*
@@ -49,7 +86,9 @@ QG_CommandWidget::QG_CommandWidget(QWidget* parent, const char* name, Qt::Window
  */
 QG_CommandWidget::~QG_CommandWidget()
 {
-    // no need to delete child widgets, Qt does it all for us
+    QSettings settings;
+    auto action = findChild<QAction*>("keycode_action");
+    settings.setValue("Widgets/KeycodeMode", action->isChecked());
 }
 
 /*
@@ -63,40 +102,49 @@ void QG_CommandWidget::languageChange()
 
 bool QG_CommandWidget::eventFilter(QObject */*obj*/, QEvent *event)
 {
-	if (event->type() == QEvent::KeyPress) {
-		QKeyEvent* e=static_cast<QKeyEvent*>(event);
-		//		qDebug()<<QString::number(e->key(), 16);
-		switch(e->key()){
-		case Qt::Key_Return:
-		case Qt::Key_Enter:
-			if(!leCommand->text().size())
-				return false;
-			else
-				break;
-		case Qt::Key_Escape:
-			//			DEBUG_HEADER
-			//			qDebug()<<"Not filtered";
-			return false;
-		default:
-			break;
-		}
-		//detect Ctl- Alt- modifier, but not Shift
-		//This should avoid filtering shortcuts, such as Ctl-C
-		if(e->modifiers() & (Qt::KeyboardModifierMask ^ Qt::ShiftModifier)) return false;
-		event->accept();
-		QKeyEvent * newEvent = new QKeyEvent(*static_cast<QKeyEvent*>(event));
-		QApplication::postEvent(leCommand, newEvent);
-		this->setFocus();
-		//			DEBUG_HEADER
-		//			qDebug()<<"Filtered";
-		return true;
-	}
-	return false;
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent* e=static_cast<QKeyEvent*>(event);
+
+        int key {e->key()};
+        switch(key) {
+            case Qt::Key_Return:
+            case Qt::Key_Enter:
+                if(!leCommand->text().size())
+                    return false;
+                else
+                    break;
+            case Qt::Key_Escape:
+                return false;
+            default:
+                break;
+        }
+
+        //detect Ctl- Alt- modifier, but not Shift
+        //This should avoid filtering shortcuts, such as Ctl-C
+        Qt::KeyboardModifiers  modifiers {e->modifiers()};
+        if ( !(Qt::GroupSwitchModifier == modifiers && Qt::Key_At == key) // let '@' key pass for relative coords
+          && modifiers != Qt::KeypadModifier
+          && modifiers & (Qt::KeyboardModifierMask ^ Qt::ShiftModifier)) {
+            return false;
+        }
+
+        event->accept();
+        this->setFocus();
+        QKeyEvent * newEvent = new QKeyEvent(*static_cast<QKeyEvent*>(event));
+        QApplication::postEvent(leCommand, newEvent);
+
+        return true;
+    }
+
+    return false;
 }
 
-void QG_CommandWidget::setFocus() {
-    //setCommandMode();
-	QFocusEvent* newEvent=new QFocusEvent(QEvent::FocusIn);
+void QG_CommandWidget::setFocus()
+{
+    if (!isActiveWindow())
+        activateWindow();
+
+    auto newEvent = new QFocusEvent(QEvent::FocusIn);
 	QApplication::postEvent(leCommand, newEvent);
     leCommand->setFocus();
 }
@@ -114,13 +162,11 @@ void QG_CommandWidget::appendHistory(const QString& msg) {
     teHistory->append(msg);
 }
 
-void QG_CommandWidget::trigger() {
-    QString cmd = leCommand->text();
+void QG_CommandWidget::handleCommand(QString cmd)
+{
     cmd = cmd.simplified();
     bool isAction=false;
-    if (cmd=="") {
-        cmd="\n";
-    } else {
+    if (!cmd.isEmpty()) {
         appendHistory(cmd);
     }
 
@@ -128,7 +174,7 @@ void QG_CommandWidget::trigger() {
         isAction=actionHandler->command(cmd);
     }
 
-    if (!isAction && cmd!="\n" && !(cmd.contains(',') || cmd.at(0)=='@')) {
+    if (!isAction && !(cmd.contains(',') || cmd.at(0)=='@')) {
        appendHistory(tr("Unknown command: %1").arg(cmd));
     }
 
@@ -230,3 +276,24 @@ QString QG_CommandWidget::getRootCommand( const QStringList & cmdList, const QSt
 
 }
 
+void QG_CommandWidget::chooseCommandFile()
+{
+    QString path = QFileDialog::getOpenFileName(this);
+    if (!path.isEmpty())
+    {
+        leCommand->readCommandFile(path);
+    }
+}
+
+void QG_CommandWidget::handleKeycode(QString code)
+{
+    if (actionHandler->keycode(code))
+    {
+        leCommand->clear();
+    }
+}
+
+void QG_CommandWidget::setKeycodeMode(bool state)
+{
+    leCommand->keycode_mode = state;
+}

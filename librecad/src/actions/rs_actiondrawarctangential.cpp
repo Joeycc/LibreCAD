@@ -44,7 +44,7 @@ RS_ActionDrawArcTangential::RS_ActionDrawArcTangential(RS_EntityContainer& conta
     :RS_PreviewActionInterface("Draw arcs tangential",
 							   container, graphicView)
 	, point(new RS_Vector{})
-	, data(new RS_ArcData())
+	, data(new RS_ArcData{})
 {
 	actionType=RS2::ActionDrawArcTangential;
     reset();
@@ -55,7 +55,7 @@ RS_ActionDrawArcTangential::RS_ActionDrawArcTangential(RS_EntityContainer& conta
 RS_ActionDrawArcTangential::~RS_ActionDrawArcTangential() = default;
 
 void RS_ActionDrawArcTangential::reset() {
-    baseEntity = NULL;
+	baseEntity = nullptr;
     isStartPoint = false;
 	*point = {};
 }
@@ -117,23 +117,20 @@ void RS_ActionDrawArcTangential::preparePreview() {
             direction = RS_Math::correctAngle(baseEntity->getDirection2()+M_PI);
         }
 
-        RS_Arc arc(NULL, RS_ArcData());
+		RS_Arc arc(nullptr, RS_ArcData());
         bool suc;
         if (byRadius) {
 			suc = arc.createFrom2PDirectionRadius(startPoint, *point, direction, data->radius);
         } else {
 			suc = arc.createFrom2PDirectionAngle(startPoint, *point, direction, angleLength);
         }
-        if (suc) {
+		if (suc) {
 			data.reset(new RS_ArcData(arc.getData()));
-            if(RS_DIALOGFACTORY != NULL) {
-                if(byRadius){
-                    RS_DIALOGFACTORY->updateArcTangentialOptions(arc.getAngleLength()*180./M_PI,true);
-                }else{
-                    RS_DIALOGFACTORY->updateArcTangentialOptions(arc.getRadius(),false);
-                }
-            }
-        }
+			if (byRadius)
+				RS_DIALOGFACTORY->updateArcTangentialOptions(arc.getAngleLength()*180./M_PI,true);
+			else
+				RS_DIALOGFACTORY->updateArcTangentialOptions(arc.getRadius(),false);
+		}
     }
 }
 
@@ -172,12 +169,8 @@ void RS_ActionDrawArcTangential::mouseReleaseEvent(QMouseEvent* e) {
                     }
                     setStatus(SetEndAngle);
                     updateMouseButtonHints();
-                } else {
-                    // TODO: warning
-                }
-            }
-            else {
-            }
+				}
+			}
         }
             break;
 
@@ -197,7 +190,7 @@ void RS_ActionDrawArcTangential::mouseReleaseEvent(QMouseEvent* e) {
 
 
 void RS_ActionDrawArcTangential::coordinateEvent(RS_CoordinateEvent* e) {
-    if (e==NULL) {
+	if (e==nullptr) {
         return;
     }
     RS_Vector mouse = e->getCoordinate();
@@ -239,9 +232,7 @@ QStringList RS_ActionDrawArcTangential::getAvailableCommands() {
 void RS_ActionDrawArcTangential::showOptions() {
     RS_ActionInterface::showOptions();
 
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->requestOptions(this, true);
-    }
+	RS_DIALOGFACTORY->requestOptions(this, true);
     updateMouseButtonHints();
 }
 
@@ -250,9 +241,7 @@ void RS_ActionDrawArcTangential::showOptions() {
 void RS_ActionDrawArcTangential::hideOptions() {
     RS_ActionInterface::hideOptions();
 
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->requestOptions(this, false);
-    }
+	RS_DIALOGFACTORY->requestOptions(this, false);
 }
 
 
@@ -282,7 +271,7 @@ void RS_ActionDrawArcTangential::updateMouseButtonHints() {
 
 
 void RS_ActionDrawArcTangential::updateMouseCursor() {
-    graphicView->setMouseCursor(RS2::CadCursor);
+    graphicView->setMouseCursor(RS2::SelectCursor);
 }
 
 

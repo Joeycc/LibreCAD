@@ -77,6 +77,7 @@
 #include "rs_actiondrawlineparallelthrough.h"
 #include "rs_actiondrawlinepolygon.h"
 #include "rs_actiondrawlinepolygon2.h"
+#include "lc_actiondrawlinepolygon3.h"
 #include "rs_actiondrawlinerectangle.h"
 #include "rs_actiondrawlinerelangle.h"
 #include "rs_actiondrawlineorthtan.h"
@@ -103,6 +104,7 @@
 #include "rs_actionlayersadd.h"
 #include "rs_actionlayersedit.h"
 #include "rs_actionlayersfreezeall.h"
+#include "rs_actionlayerslockall.h"
 #include "rs_actionlayersremove.h"
 #include "rs_actionlayerstogglelock.h"
 #include "rs_actionlayerstoggleview.h"
@@ -164,6 +166,8 @@
 
 #include "qg_snaptoolbar.h"
 #include "rs_debug.h"
+#include "rs_layer.h"
+#include "rs_settings.h"
 
 /**
  * Constructor
@@ -215,6 +219,9 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
     RS_ActionInterface* a = NULL;
 //    view->killAllActions();
 
+    RS_DEBUG->print("QC_ActionHandler::setCurrentAction: "
+            "view = %p, document = %p", view, document);
+
     // only global options are allowed without a document:
     if (view==NULL || document==NULL) {
         RS_DEBUG->print(RS_Debug::D_WARNING,
@@ -222,6 +229,8 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
                 "document is NULL");
         return NULL;
     }
+
+    auto a_layer = document->getLayerList()->getActive();
 
     switch (id) {
         //case RS2::ActionFileNew:
@@ -272,6 +281,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionEditCutNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionEditCutNoSelect:
         a = new RS_ActionEditCopy(false, *document, *view);
         break;
@@ -280,6 +290,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionEditCopyNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionEditCopyNoSelect:
         a = new RS_ActionEditCopy(true, *document, *view);
         break;
@@ -304,6 +315,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionOrderNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionOrderNoSelect:
         a = new RS_ActionOrder(*document, *view, orderType);
         break;
@@ -462,6 +474,9 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
     case RS2::ActionDrawLinePolygonCenCor:
         a = new RS_ActionDrawLinePolygonCenCor(*document, *view);
         break;
+    case RS2::ActionDrawLinePolygonCenTan:                      //20161223 added by txmy
+        a = new LC_ActionDrawLinePolygonCenTan(*document, *view);
+        break;
     case RS2::ActionDrawLinePolygonCorCor:
         a = new RS_ActionDrawLinePolygonCorCor(*document, *view);
         break;
@@ -550,6 +565,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
             a = new RS_ActionSelect(this, *document, *view, RS2::ActionDrawHatchNoSelect);
             break;
         }
+        // fall-through
 	case RS2::ActionDrawHatchNoSelect:
 		a = new RS_ActionDrawHatch(*document, *view);
         break;   
@@ -591,6 +607,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyAttributesNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyAttributesNoSelect:
         a = new RS_ActionModifyAttributes(*document, *view);
         break;
@@ -611,6 +628,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyMoveNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyMoveNoSelect:
         a = new RS_ActionModifyMove(*document, *view);
         break;
@@ -619,6 +637,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyRevertDirectionNoSelect);
 			break;
 		}
+		// fall-through
 	case RS2::ActionModifyRevertDirectionNoSelect:
 		a = new RS_ActionModifyRevertDirection(*document, *view);
 		break;
@@ -627,6 +646,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyRotateNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyRotateNoSelect:
         a = new RS_ActionModifyRotate(*document, *view);
         break;
@@ -635,6 +655,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyScaleNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyScaleNoSelect:
 		a = new RS_ActionModifyScale(*document, *view);
 		break;
@@ -643,6 +664,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyMirrorNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyMirrorNoSelect:
         a = new RS_ActionModifyMirror(*document, *view);
         break;
@@ -651,6 +673,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyMoveRotateNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyMoveRotateNoSelect:
         a = new RS_ActionModifyMoveRotate(*document, *view);
         break;
@@ -659,6 +682,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyRotate2NoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyRotate2NoSelect:
         a = new RS_ActionModifyRotate2(*document, *view);
 		break;
@@ -696,6 +720,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			break;
 		}
 	}
+    // fall-through
     case RS2::ActionModifyOffsetNoSelect:
         a = new RS_ActionModifyOffset(*document, *view);
 		break;
@@ -704,6 +729,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionModifyExplodeTextNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionModifyExplodeTextNoSelect:
         a = new RS_ActionModifyExplodeText(*document, *view);
         break;
@@ -796,6 +822,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionInfoTotalLengthNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionInfoTotalLengthNoSelect:
         a = new RS_ActionInfoTotalLength(*document, *view);
         break;
@@ -811,6 +838,12 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
     case RS2::ActionLayersFreezeAll:
         a = new RS_ActionLayersFreezeAll(true, *document, *view);
         break;
+    case RS2::ActionLayersUnlockAll:
+        a = new RS_ActionLayersLockAll(false, *document, *view);
+        break;
+    case RS2::ActionLayersLockAll:
+        a = new RS_ActionLayersLockAll(true, *document, *view);
+        break;
     case RS2::ActionLayersAdd:
         a = new RS_ActionLayersAdd(*document, *view);
         break;
@@ -821,16 +854,16 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
         a = new RS_ActionLayersEdit(*document, *view);
         break;
     case RS2::ActionLayersToggleView:
-        a = new RS_ActionLayersToggleView(*document, *view);
+        a = new RS_ActionLayersToggleView(*document, *view, a_layer);
         break;
     case RS2::ActionLayersToggleLock:
-        a = new RS_ActionLayersToggleLock(*document, *view);
+        a = new RS_ActionLayersToggleLock(*document, *view, a_layer);
         break;
     case RS2::ActionLayersTogglePrint:
-        a = new RS_ActionLayersTogglePrint(*document, *view);
+        a = new RS_ActionLayersTogglePrint(*document, *view, a_layer);
         break;
     case RS2::ActionLayersToggleConstruction:
-        a = new LC_ActionLayersToggleConstruction(*document, *view);
+        a = new LC_ActionLayersToggleConstruction(*document, *view, a_layer);
         break;
         // Block actions:
         //
@@ -866,6 +899,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionBlocksCreateNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionBlocksCreateNoSelect:
         a = new RS_ActionBlocksCreate(*document, *view);
         break;
@@ -874,6 +908,7 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
 			a = new RS_ActionSelect(this, *document, *view, RS2::ActionBlocksExplodeNoSelect);
 			break;
 		}
+        // fall-through
     case RS2::ActionBlocksExplodeNoSelect:
         a = new RS_ActionBlocksExplode(*document, *view);
         break;
@@ -1074,31 +1109,33 @@ bool QG_ActionHandler::commandLineActions(RS2::ActionType type){
  *         false: the command is not known and was probably intended for a
  *            running action.
  */
-bool QG_ActionHandler::command(const QString& cmd) {
+bool QG_ActionHandler::command(const QString& cmd)
+{
+    if (!view) return false;
+
+    if (cmd.isEmpty())
+    {
+		if (RS_SETTINGS->readNumEntry("/Keyboard/ToggleFreeSnapOnSpace", true))
+			slotSnapFree();
+        return true;
+    }
+
     RS_DEBUG->print("QG_ActionHandler::command: %s", cmd.toLatin1().data());
     QString c = cmd.toLower();
 
-    if (c=="\n" || c==tr("escape", "escape, go back from action steps")) {
-		if (view) {
-            if(c=="\n" ){
-                view->enter();
-                RS_DEBUG->print("QG_ActionHandler::command: enter");
-            }else{
-                view->back();
-                RS_DEBUG->print("QG_ActionHandler::command: back");
-            }
-        }
+    if (c==tr("escape", "escape, go back from action steps"))
+    {
+        view->back();
+        RS_DEBUG->print("QG_ActionHandler::command: back");
         return true;
     }
 
     // pass command on to running action:
     RS_CommandEvent e(cmd);
 
-	if (view) {
-        RS_DEBUG->print("QG_ActionHandler::command: trigger command event in "
-                        " graphic view");
-        view->commandEvent(&e);
-    }
+    RS_DEBUG->print("QG_ActionHandler::command: trigger command event in "
+                    " graphic view");
+    view->commandEvent(&e);
 
     // if the current action can't deal with the command,
     //   it might be intended to launch a new command
@@ -1375,6 +1412,10 @@ void QG_ActionHandler::slotPolylineSegment() {
 
 void QG_ActionHandler::slotDrawLinePolygon() {
     setCurrentAction(RS2::ActionDrawLinePolygonCenCor);
+}
+
+void QG_ActionHandler::slotDrawLinePolygon3() {           //20161223 added by txmy
+    setCurrentAction(RS2::ActionDrawLinePolygonCenTan);
 }
 
 void QG_ActionHandler::slotDrawLinePolygon2() {
@@ -1775,6 +1816,14 @@ void QG_ActionHandler::slotLayersFreezeAll() {
     setCurrentAction(RS2::ActionLayersFreezeAll);
 }
 
+void QG_ActionHandler::slotLayersUnlockAll() {
+    setCurrentAction(RS2::ActionLayersUnlockAll);
+}
+
+void QG_ActionHandler::slotLayersLockAll() {
+    setCurrentAction(RS2::ActionLayersLockAll);
+}
+
 void QG_ActionHandler::slotLayersAdd() {
     setCurrentAction(RS2::ActionLayersAdd);
 }
@@ -1865,6 +1914,27 @@ void QG_ActionHandler::set_document(RS_Document* doc)
 void QG_ActionHandler::set_snap_toolbar(QG_SnapToolBar* snap_tb)
 {
     snap_toolbar = snap_tb;
+}
+
+void QG_ActionHandler::toggleVisibility(RS_Layer* layer)
+{
+    auto a = new RS_ActionLayersToggleView(*document, *view, layer);
+    view->setCurrentAction(a);
+}
+void QG_ActionHandler::toggleLock(RS_Layer* layer)
+{
+    auto a = new RS_ActionLayersToggleLock(*document, *view, layer);
+    view->setCurrentAction(a);
+}
+void QG_ActionHandler::togglePrint(RS_Layer* layer)
+{
+    auto a = new RS_ActionLayersTogglePrint(*document, *view, layer);
+    view->setCurrentAction(a);
+}
+void QG_ActionHandler::toggleConstruction(RS_Layer* layer)
+{
+    auto a = new LC_ActionLayersToggleConstruction(*document, *view, layer);
+    view->setCurrentAction(a);
 }
 
 // EOF

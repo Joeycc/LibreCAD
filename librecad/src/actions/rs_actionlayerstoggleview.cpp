@@ -22,33 +22,36 @@
 **
 ** This copyright notice MUST APPEAR in all copies of the script!  
 **
-**********************************************************************/
+** *************************************************************************
+** ChangeLog
+** *************************************************************************
+** This file was changed in 2016 by ravas. See ChangeLogs/r-a-v-a-s.txt
+****************************************************************************/
 
 #include "rs_actionlayerstoggleview.h"
 
 #include <QAction>
 #include "rs_graphic.h"
 #include "rs_debug.h"
-
+#include "rs_layer.h"
 
 
 RS_ActionLayersToggleView::RS_ActionLayersToggleView(
-    RS_EntityContainer& container,
-    RS_GraphicView& graphicView)
-        :RS_ActionInterface("Toggle Layer Visibility",
-                    container, graphicView) {}
-
+                                RS_EntityContainer& container,
+                                RS_GraphicView& graphicView,
+                                RS_Layer* layer)
+    : RS_ActionInterface("Toggle Layer Visibility", container, graphicView)
+    , a_layer(layer) {}
 
 void RS_ActionLayersToggleView::trigger() {
     RS_DEBUG->print("toggle layer");
     if (graphic) {
-        RS_Layer* layer = graphic->getActiveLayer();
-        graphic->toggleLayer(layer);
+        graphic->toggleLayer(a_layer);
+        graphic->updateInserts();
+        container->calculateBorders();
     }
     finish(false);
 }
-
-
 
 void RS_ActionLayersToggleView::init(int status) {
     RS_ActionInterface::init(status);

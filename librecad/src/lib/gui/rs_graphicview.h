@@ -30,6 +30,7 @@
 
 #include "rs_entitycontainer.h"
 #include "rs_snapper.h"
+#include "lc_rect.h"
 
 #include <QDateTime>
 #include <QMap>
@@ -49,7 +50,7 @@ struct RS_LineTypePattern;
 
 /**
  * This class is a common GUI interface for the graphic viewer
- * widget which has to be implementet by real GUI classes such
+ * widget which has to be implemented by real GUI classes such
  * as the Qt graphical view.
  *
  * Note that this is just an interface used as a slot to
@@ -64,8 +65,6 @@ public:
 	virtual ~RS_GraphicView();
 
     void cleanUp();
-
-    void set_action(QAction* q_action);
 
 	/**
 	 * @return Pointer to the graphic entity if the entity container
@@ -351,7 +350,7 @@ public:
 	void setPrinting(bool p);
 
 	/**
-		 * @retval true This is a a graphic view for printing.
+		 * @retval true This is a graphic view for printing.
 		 * @retval false setSnapOtherwise.
 		 */
 	bool isPrinting() const;
@@ -367,10 +366,17 @@ public:
 
 	virtual RS_EntityContainer* getOverlayContainer(RS2::OverlayGraphics position);
 
+    const LC_Rect& getViewRect() {
+        return view_rect;
+    }
+
+    bool isPanning() const;
+    void setPanning(bool state);
+
 protected:
 
     RS_EntityContainer* container{nullptr}; // Holds a pointer to all the enties
-	std::unique_ptr<RS_EventHandler> eventHandler;
+    RS_EventHandler* eventHandler;
 
 	/** background color (any color) */
 	RS_Color background;
@@ -411,7 +417,7 @@ protected:
 		 */
 	bool deleteMode=false;
 
-    QList<QAction*> recent_actions;
+    LC_Rect view_rect;
 
 private:
 
@@ -444,6 +450,8 @@ private:
 	QMap<int, RS_EntityContainer *> overlayEntities;
 	/** if true, graphicView is under cleanup */
 	bool m_bIsCleanUp=false;
+
+    bool panning;
 
 signals:
     void relative_zero_changed(const RS_Vector&);

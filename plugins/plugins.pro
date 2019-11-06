@@ -9,22 +9,21 @@ TARGET = plugins
 
 QT += gui
 
-include(../librecad/src/muparser.pri)
-
 SUBDIRS     = \
         asciifile \
         align \
+        divide \
         list \
         sameprop \
         importshp \
         sample \
         picfile \
-        plotequation
+        plotequation \
+        gear
 
 TRANSLATIONS = ./ts/plugins_ar.ts \
     ./ts/plugins_ca.ts \
     ./ts/plugins_cs.ts \
-    ./ts/plugins_et.ts \
     ./ts/plugins_en.ts \
     ./ts/plugins_en_au.ts \
     ./ts/plugins_da.ts \
@@ -50,6 +49,8 @@ TRANSLATIONS = ./ts/plugins_ar.ts \
     ./ts/plugins_es_us.ts \
     ./ts/plugins_es_uy.ts \
     ./ts/plugins_es_ve.ts \
+    ./ts/plugins_et.ts \
+    ./ts/plugins_eu.ts \
     ./ts/plugins_fi.ts \
     ./ts/plugins_fr.ts \
     ./ts/plugins_gl.ts \
@@ -60,6 +61,7 @@ TRANSLATIONS = ./ts/plugins_ar.ts \
     ./ts/plugins_ja.ts \
     ./ts/plugins_ko.ts \
     ./ts/plugins_lv.ts \
+    ./ts/plugins_mk.ts \
     ./ts/plugins_nl.ts \
     ./ts/plugins_no.ts \
     ./ts/plugins_pa.ts \
@@ -77,20 +79,4 @@ TRANSLATIONS = ./ts/plugins_ar.ts \
     ./ts/plugins_uk.ts \
     ./ts/plugins_zh_cn.ts \
     ./ts/plugins_zh_tw.ts
-
-
-# install
-INSTALLDIR = ../unix/resources/plugins
-win32 {
-    INSTALLDIR = ../windows/resources/plugins
-}
-unix {
-    macx { 
-    INSTALLDIR = ../LibreCAD.app/Contents/Resources/plugins
-    }
-    else { 
-    INSTALLDIR = ../unix/resources/plugins
-    }
-}
-
 

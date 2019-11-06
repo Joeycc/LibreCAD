@@ -2,6 +2,8 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2018 webmite <ianm.main@gmail.com>
+** Copyright (C) 2018 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
 **
@@ -32,6 +34,7 @@
 #include <QString>
 #include <QFileDialog>
 #include <QToolBar>
+#include <QRegularExpression>
 
 #include "rs_patternlist.h"
 #include "rs_settings.h"
@@ -114,10 +117,6 @@
 #include "rs_vector.h"
 #include "rs_debug.h"
 
-#if QT_VERSION < 0x040400
-#include "emu_qt44.h"
-#endif
-
 //QG_DialogFactory* QG_DialogFactory::uniqueInstance = nullptr;
 
 /**
@@ -179,21 +178,36 @@ void QG_DialogFactory::requestWarningDialog(const QString& warning) {
  * @return a pointer to the newly created layer that
  * should be added.
  */
-RS_Layer* QG_DialogFactory::requestNewLayerDialog(RS_LayerList* layerList) {
+RS_Layer* QG_DialogFactory::requestNewLayerDialog(RS_LayerList* layerList)
+{
+    RS_Layer* layer {nullptr};
 
-	RS_Layer* layer = nullptr;
-
-    QString layer_name = "", newLayerName = "";
-
-	if (layerList) {
-        layer_name = QString(layerList->getActive()->getName());
-        if (layer_name.isEmpty() || !layer_name.compare("0", Qt::CaseInsensitive) ) {
-            layer_name = "noname";
+    QString layer_name;
+    QString newLayerName;
+    if (nullptr != layerList) {
+        layer_name = layerList->getActive()->getName();
+        if (layer_name.isEmpty() || !layer_name.compare("0") ) {
+            layer_name = QObject::tr( "noname", "default layer name");
         }
-        newLayerName = QString(layer_name);
-		int i = 2;
-		while(layerList->find(newLayerName)) {
-            newLayerName = QString("%1%2").arg(layer_name).arg(i++);
+        newLayerName = layer_name;
+
+        QString sBaseLayerName( layer_name);
+        QString sNumLayerName;
+        int nlen {1};
+        int i {0};
+        QRegularExpression re("^(.*\\D+|)(\\d*)$");
+        QRegularExpressionMatch match( re.match(layer_name));
+        if (match.hasMatch()) {
+            sBaseLayerName = match.captured(1);
+            if( 1 < match.lastCapturedIndex()) {
+                sNumLayerName = match.captured(2);
+                nlen = sNumLayerName.length();
+                i = sNumLayerName.toInt();
+            }
+        }
+
+        while (layerList->find( newLayerName)) {
+            newLayerName = QString("%1%2").arg( sBaseLayerName).arg( ++i, nlen, 10, QChar('0'));
         }
     }
 
@@ -208,8 +222,9 @@ RS_Layer* QG_DialogFactory::requestNewLayerDialog(RS_LayerList* layerList) {
         dlg.updateLayer();
     } else {
         delete layer;
-		layer = nullptr;
+        layer = nullptr;
     }
+
     return layer;
 }
 
@@ -476,14 +491,10 @@ QString QG_DialogFactory::requestImageOpenDialog()
     fileDlg.setFileMode(QFileDialog::ExistingFile);
     fileDlg.setWindowTitle(QObject::tr("Open Image"));
     fileDlg.setDirectory(defDir);
-#if QT_VERSION >= 0x040400
     fileDlg.setNameFilters(filters);
     if (defFilter.isEmpty())
         defFilter = strAllImageFiles;
     fileDlg.selectNameFilter(defFilter);
-#else
-    emu_qt44_QFileDialog_setNameFilters(fileDlg, filters);
-#endif
 
     if (QDialog::Accepted == fileDlg.exec()) {
         QStringList strSelectedFiles = fileDlg.selectedFiles();
@@ -493,11 +504,7 @@ QString QG_DialogFactory::requestImageOpenDialog()
         // store new default settings:
         RS_SETTINGS->beginGroup("/Paths");
         RS_SETTINGS->writeEntry("/OpenImage", QFileInfo(strFileName).absolutePath());
-#if QT_VERSION < 0x040400
-        RS_SETTINGS->writeEntry("/ImageFilter", emu_qt44_QFileDialog_selectedNameFilter(fileDlg));
-#else
         RS_SETTINGS->writeEntry("/ImageFilter", fileDlg.selectedNameFilter());
-#endif
         RS_SETTINGS->endGroup();
     }
 
@@ -950,23 +957,25 @@ void QG_DialogFactory::requestArcOptions(RS_ActionInterface* action,
  * Shows a widget for tangential arc options.
  */
 void QG_DialogFactory::requestArcTangentialOptions(RS_ActionInterface* action,
-        bool on, bool update) {
+		bool on, bool /*update*/) {
 
 
 	if (optionWidget) {
 		static QG_ArcTangentialOptions* toolWidget = nullptr;
-		if (toolWidget) {
+		if (toolWidget && !on) {
             delete toolWidget;
 			toolWidget = nullptr;
         }
 		if (on) {
-			toolWidget = new QG_ArcTangentialOptions(optionWidget);
-            optionWidget->addWidget(toolWidget);
-            toolWidget->setAction(action, update);
-            //toolWidget->setData(&data);
-                        toolWidget->show();
+			bool useUpdate = toolWidget;
+			if (!toolWidget) {
+				toolWidget = new QG_ArcTangentialOptions(optionWidget);
+				optionWidget->addWidget(toolWidget);
+			}
+			toolWidget->setAction(action, useUpdate);
+			toolWidget->show();
         }
-            arcTangentialOptions=toolWidget;
+		arcTangentialOptions=toolWidget;
     }
 }
 

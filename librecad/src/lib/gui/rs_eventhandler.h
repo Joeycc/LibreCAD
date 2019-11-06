@@ -37,8 +37,9 @@ class QAction;
 class QMouseEvent;
 class QKeyEvent;
 class RS_CommandEvent;
-class RS_SnapMode;
 class RS_Vector;
+
+struct RS_SnapMode;
 
 /**
  * The event handler owns and manages all actions that are currently
@@ -91,15 +92,8 @@ public:
     bool inSelectionMode();
 
 private:
-    /**
-     * @brief cliCalEvent, process cli "cal" calculator command
-     * @param cmd, cli line to check for "cal" command
-     * @return true, if cli starts with "cal"
-     */
-    bool cliCalculator(const QString& cmd) const;
 
 	QAction* q_action{nullptr};
-	bool right_click_quits{false};
 	RS_ActionInterface* defaultAction{nullptr};
 	QList<RS_ActionInterface*> currentActions;
 	bool coordinateInputEnabled{true};

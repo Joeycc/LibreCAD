@@ -216,8 +216,11 @@ bool RS_Entity::isProcessed() const {
  * @param undone true: entity has become invisible.
  *               false: entity has become visible.
  */
-void RS_Entity::undoStateChanged(bool /*undone*/) {
-        setSelected(false);
+void RS_Entity::undoStateChanged(bool undone)
+{
+    Q_UNUSED( undone);
+
+    setSelected(false);
     update();
 }
 
@@ -340,7 +343,7 @@ double RS_Entity::getDistanceToPoint(const RS_Vector& coord,
  * Is this entity visible?
  *
  * @return true Only if the entity and the layer it is on are visible.
- * The Layer might also be nullptr. In that case the layer visiblity
+ * The Layer might also be nullptr. In that case the layer visibility
 * is ignored.
  */
 bool RS_Entity::isVisible() const{
@@ -368,7 +371,7 @@ bool RS_Entity::isVisible() const{
     //if (rtti()==RS2::EntityInsert) {
     //	return true;
     //}
-    // blocks are visible in editting window, issue#253
+    // blocks are visible in editing window, issue#253
     if( isDocument() && (rtti()==RS2::EntityBlock || rtti()==RS2::EntityInsert)) {
         return true;
     }
@@ -899,46 +902,46 @@ void RS_Entity::stretch(const RS_Vector& firstCorner,
  */
 double RS_Entity::getStyleFactor(RS_GraphicView* view) {
     double styleFactor = 1.0;
+	if (!view) return styleFactor;
 
-    if (view) {
-        if (view->isPrinting()==false && view->isDraftMode()) {
-            styleFactor = 1.0/view->getFactor().x;
-        } else {
-            //styleFactor = getStyleFactor();
-            // the factor caused by the unit:
-            RS2::Unit unit = RS2::None;
-            RS_Graphic* g = getGraphic();
-            if (g) {
-                unit = g->getUnit();
-                //double scale = g->getPaperScale();
-                styleFactor = RS_Units::convert(1.0, RS2::Millimeter, unit);
-                // / scale;
-            }
 
-            // the factor caused by the line width:
-            if (((int)getPen(true).getWidth())>0) {
-                styleFactor *= ((double)getPen(true).getWidth()/100.0);
-            } else if (((int)getPen(true).getWidth())==0) {
-                styleFactor *= 0.01;
-            }
-        }
+	if (view->isPrinting()==false && view->isDraftMode()) {
+		styleFactor = 1.0/view->getFactor().x;
+	} else {
+		//styleFactor = getStyleFactor();
+		// the factor caused by the unit:
+		RS2::Unit unit = RS2::None;
+		RS_Graphic* g = getGraphic();
+		if (g) {
+			unit = g->getUnit();
+			//double scale = g->getPaperScale();
+			styleFactor = RS_Units::convert(1.0, RS2::Millimeter, unit);
+			// / scale;
+		}
 
-        if (view->isPrinting() || view->isPrintPreview() || view->isDraftMode()==false) {
-            RS_Graphic* graphic = getGraphic();
-            if (graphic && graphic->getPaperScale()>1.0e-6) {
-                styleFactor /= graphic->getPaperScale();
-            }
-        }
-    }
+		// the factor caused by the line width:
+		if (((int)getPen(true).getWidth())>0) {
+			styleFactor *= ((double)getPen(true).getWidth()/100.0);
+		} else if (((int)getPen(true).getWidth())==0) {
+			styleFactor *= 0.01;
+		}
+	}
 
-        //RS_DEBUG->print("stylefactor: %f", styleFactor);
-        //RS_DEBUG->print("viewfactor: %f", view->getFactor().x);
+	if (view->isPrinting() || view->isPrintPreview() || view->isDraftMode()==false) {
+		RS_Graphic* graphic = getGraphic();
+		if (graphic && graphic->getPaperScale()>1.0e-6) {
+			styleFactor /= graphic->getPaperScale();
+		}
+	}
 
-        if (styleFactor*view->getFactor().x<0.2) {
-                styleFactor = -1.0;
-        }
+	//RS_DEBUG->print("stylefactor: %f", styleFactor);
+	//RS_DEBUG->print("viewfactor: %f", view->getFactor().x);
 
-    return styleFactor;
+	if (styleFactor*view->getFactor().x<0.2) {
+		styleFactor = -1.0;
+	}
+
+	return styleFactor;
 }
 
 

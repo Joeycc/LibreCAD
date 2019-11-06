@@ -122,6 +122,8 @@ public:
     virtual void add3dFace(const DRW_3Dface& data);
     virtual void addComment(const char*);
 
+    virtual void addPlotSettings(const DRW_PlotSettings* data);
+
     // Export:
     virtual bool fileExport(RS_Graphic& g, const QString& file, RS2::FormatType type);
 
@@ -134,6 +136,7 @@ public:
     virtual void writeBlockRecords();
     virtual void writeBlocks();
     virtual void writeDimstyles();
+    virtual void writeObjects();
     virtual void writeAppId();
 
     void writePoint(RS_Point* p);
@@ -210,14 +213,14 @@ private:
     QString versionStr;
     int version;
     /** Library File version. */
-    QString libVersionStr;
-    int libVersion;
-    int libRelease;
+#define LIBDXFRW_VERSION(version,release,patch) (((version) << 16) | ((release) << 8) | (patch))
+    bool isLibDxfRw {false};
+    uint libDxfRwVersion;
     /** dimension style. */
     QString dimStyle;
     /** text style. */
     QString textStyle;
-    /** Temporary list to handle unnamed blocks fot write R12 dxf. */
+    /** Temporary list to handle unnamed blocks to write R12 dxf. */
     QHash <RS_Entity*, QString> noNameBlock;
     QHash <QString, QString> fontList;
     bool oldMText;
@@ -226,7 +229,7 @@ private:
     bool exactColor;
     /** hash of block containers and handleBlock numbers to read dwg files */
     QHash<int, RS_EntityContainer*> blockHash;
-    /** Pointer to entity container to store posible horphan entites like paper space */
+    /** Pointer to entity container to store possible orphan entities like paper space */
     RS_EntityContainer* dummyContainer;
 };
 

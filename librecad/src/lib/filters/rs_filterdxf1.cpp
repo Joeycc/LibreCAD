@@ -195,7 +195,7 @@ bool RS_FilterDXF1::readFromBuffer() {
                     }
                 }
 
-                // Dimenison Units:
+                // Dimension Units:
                 //
                 else if( dxfLine=="$DIMALT" ) {
 					dxfCode=getBufLine();
@@ -587,7 +587,7 @@ bool RS_FilterDXF1::readFromBuffer() {
                     if (currentLayer) {
                         currentLayer->setPen(pen);
                     }
-                    //graphic->setStyle("CONTINOUS");
+                    //graphic->setStyle("CONTINUOUS");
                     //graphic->setWidth(0);
                     //graphic->setColor(0, false);
                 }
@@ -1636,7 +1636,7 @@ void RS_FilterDXF1::dos2unix() {
 
 
 // Get next line in the buffer:
-//   and overread ALL seperators
+//   and overread ALL separators
 //
 // return:  -Null-string: end of buffer
 //          -String which is the next line in buffer
@@ -1676,7 +1676,7 @@ QString RS_FilterDXF1::getBufLine() {
 
 
 // Get next line in the buffer:
-//   and overread ALL seperators
+//   and overread ALL separators
 //
 // return:  -Null-string: end of buffer
 //          -String which is the next line in buffer

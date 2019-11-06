@@ -29,6 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "rs_actioninterface.h"
 
+class RS_Layer;
 
 /**
  * whether a layer is a construction layer or not
@@ -41,11 +42,14 @@ class LC_ActionLayersToggleConstruction : public RS_ActionInterface {
     Q_OBJECT
 public:
     LC_ActionLayersToggleConstruction(RS_EntityContainer& container,
-                                      RS_GraphicView& graphicView);
-    ~LC_ActionLayersToggleConstruction() {}
+                                      RS_GraphicView& graphicView,
+                                      RS_Layer* layer);
 
-    virtual void init(int status=0);
-    virtual void trigger();
+	void init(int status=0) override;
+	void trigger() override;
+
+protected:
+    RS_Layer* a_layer;
 
 };
 

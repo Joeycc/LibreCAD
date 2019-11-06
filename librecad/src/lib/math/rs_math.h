@@ -43,6 +43,7 @@ public:
 	static int round(double v);
     static double pow(double x, double y);
     static RS_Vector pow(RS_Vector x, double y);
+    static bool equal(const double d1, const double d2);
 
     static double rad2deg(double a);
     static double deg2rad(double a);
@@ -52,15 +53,17 @@ public:
     static bool isAngleBetween(double a,
                                double a1, double a2,
                                bool reversed = false);
-	//! \brief correct angle to be within [0, 2 Pi)
+    //! \brief correct angle to be within [0, +PI*2.0)
     static double correctAngle(double a);
-	//! \brief correct angle to be undirectional [0, Pi)
+    //! \brief correct angle to be within [-PI, +PI)
+    static double correctAngle2(double a);
+    //! \brief correct angle to be unsigned [0, +PI)
 	static double correctAngleU(double a);
 
 	//! \brief angular difference
 	static double getAngleDifference(double a1, double a2, bool reversed = false);
 	/**
-	 * @brief getAngleDifferenceU abs of minimum angular differenct, unsigned version of angular difference
+	 * @brief getAngleDifferenceU abs of minimum angular difference, unsigned version of angular difference
 	 * @param a1,a2 angles
 	 * @return the minimum of angular difference a1-a2 and a2-a1
 	 */
@@ -144,6 +147,6 @@ public:
     static QString doubleToString(double value, int prec);
 
     static void test();
-    };
+};
 
 #endif

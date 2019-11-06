@@ -127,7 +127,7 @@ bool RS_Arc::createFrom3P(const RS_Vector& p1, const RS_Vector& p2,
  * and radius.
  *
  * @retval true Successfully created arc
- * @retval false Cannot creats arc (radius to small or endpoint to far away)
+ * @retval false Cannot create arc (radius to small or endpoint to far away)
  */
 bool RS_Arc::createFrom2PDirectionRadius(const RS_Vector& startPoint,
         const RS_Vector& endPoint,
@@ -162,24 +162,37 @@ bool RS_Arc::createFrom2PDirectionRadius(const RS_Vector& startPoint,
  * and angle length.
  *
  * @retval true Successfully created arc
- * @retval false Cannot creats arc (radius to small or endpoint to far away)
+ * @retval false Cannot create arc (radius to small or endpoint to far away)
  */
 bool RS_Arc::createFrom2PDirectionAngle(const RS_Vector& startPoint,
                                         const RS_Vector& endPoint,
-                                        double direction1, double angleLength) {
-    if( fabs(remainder( angleLength, M_PI))<RS_TOLERANCE_ANGLE ) return false;
-    data.radius=0.5*startPoint.distanceTo(endPoint)/sin(0.5*angleLength);
+										double direction1, double angleLength) {
+	if (angleLength <= RS_TOLERANCE_ANGLE || angleLength > 2. * M_PI - RS_TOLERANCE_ANGLE) return false;
+	RS_Line l0 {nullptr, startPoint, startPoint - RS_Vector{direction1}};
+	double const halfA = 0.5 * angleLength;
+	l0.rotate(startPoint, halfA);
 
-	RS_Vector ortho = RS_Vector::polar(data.radius, direction1 + M_PI_2);
-    RS_Vector center1 = startPoint + ortho;
-    RS_Vector center2 = startPoint - ortho;
+	double d0;
+	RS_Vector vEnd0 = l0.getNearestPointOnEntity(endPoint, false, &d0);
+	RS_Line l1 = l0;
+	l1.rotate(startPoint, -angleLength);
+	double d1;
+	RS_Vector vEnd1 = l1.getNearestPointOnEntity(endPoint, false, &d1);
+	if (d1 < d0) {
+		vEnd0 = vEnd1;
+		l0 = l1;
+	}
 
-    if (center1.distanceTo(endPoint) < center2.distanceTo(endPoint)) {
-        data.center = center1;
-    } else {
-        data.center = center2;
-    }
+	l0.rotate((startPoint + vEnd0) * 0.5, M_PI_2);
 
+	l1 = RS_Line{nullptr, startPoint, startPoint + RS_Vector{direction1 + M_PI_2}};
+
+	auto const sol = RS_Information::getIntersection(&l0, &l1, false);
+	if (sol.size()==0) return false;
+
+	data.center = sol.at(0);
+
+	data.radius = data.center.distanceTo(startPoint);
     data.angle1 = data.center.angleTo(startPoint);
     data.reversed = false;
 
@@ -542,8 +555,10 @@ RS_Vector RS_Arc::getNearestOrthTan(const RS_Vector& coord,
                                 vp=sol[1];
                                 break;
                         }
+                        // fall-through
                 default:
                         vp=sol[0];
+                        break;
         }
         return getCenter()+vp;
 }
@@ -937,7 +952,7 @@ void RS_Arc::drawVisible(RS_Painter* painter, RS_GraphicView* view,
                   double& patternOffset) {
 
 	if (!( painter && view)) return;
-    //visible in grahic view
+    //visible in graphic view
     if(isVisibleInWindow(view)==false) return;
 
     RS_Vector cp=view->toGui(getCenter());
@@ -995,39 +1010,33 @@ void RS_Arc::drawVisible(RS_Painter* painter, RS_GraphicView* view,
 
 
     // create scaled pattern:
-	std::vector<double> da(0);
+	if(pat->num<=0) { //invalid pattern
+		RS_DEBUG->print(RS_Debug::D_WARNING, "RS_Arc::draw(): invalid line pattern\n");
+		painter->drawArc(cp,
+						 ra,
+						 getAngle1(), getAngle2(),
+						 isReversed());
+		return;
+	}
+	std::vector<double> da(pat->num);
     double patternSegmentLength(pat->totalLength);
-    double ira=1./ra;
-	size_t i(0);          // index counter
-    if(pat->num>0) {
-        double dpmm=static_cast<RS_PainterQt*>(painter)->getDpmm();
-        da.resize(pat->num);
-        while(i<pat->num){
-            //        da[j] = pat->pattern[i++] * styleFactor;
-            //fixme, stylefactor needed
-            da[i] =dpmm*(isReversed()? -fabs(pat->pattern[i]):fabs(pat->pattern[i]));
-            if( fabs(da[i]) < 1. ) da[i] = (da[i]>=0.)?1.:-1.;
-            da[i] *= ira;
-            i++;
-        }
-    }else {
-        //invalid pattern
-
-        RS_DEBUG->print(RS_Debug::D_WARNING, "RS_Arc::draw(): invalid line pattern\n");
-        painter->drawArc(cp,
-                         ra,
-                         getAngle1(), getAngle2(),
-                         isReversed());
-        return;
-    }
+	double ira=1./ra;
+	double dpmm=static_cast<RS_PainterQt*>(painter)->getDpmm();
+	for (size_t i=0; i<pat->num; i++){
+		//        da[j] = pat->pattern[i++] * styleFactor;
+		//fixme, stylefactor needed
+		da[i] =dpmm*(isReversed() ? -fabs(pat->pattern[i]):fabs(pat->pattern[i]));
+		if ( fabs(da[i]) < 1.) da[i] = copysign(1., da[i]);
+		da[i] *= ira;
+	}
 
     //    bool done = false;
     double total=remainder(patternOffset-0.5*patternSegmentLength,patternSegmentLength)-0.5*patternSegmentLength;
 
-    double a1(RS_Math::correctAngle(getAngle1()));
-    double a2(RS_Math::correctAngle(getAngle2()));
+	double a1{RS_Math::correctAngle(getAngle1())};
+	double a2{RS_Math::correctAngle(getAngle2())};
 
-    if(isReversed()) {//always draw from a1 to a2, so, patternOffset is is automatic
+    if(isReversed()) {//always draw from a1 to a2, so, patternOffset is automatic
         if(a1<a2+RS_TOLERANCE_ANGLE) a2 -= 2.*M_PI;
         total = a1 - total*ira; //in angle
     }else{
@@ -1036,24 +1045,18 @@ void RS_Arc::drawVisible(RS_Painter* painter, RS_GraphicView* view,
     }
     double limit(fabs(a1-a2));
     double t2;
-    double a11,a21;
 
-    for(int j=0; fabs(total-a1)<limit ;j=(j+1)%i) {
-        t2=total+da[j];
+	for(int j=0; fabs(total-a1) < limit; j=(j+1)%pat->num) {
+		t2=total+da[j];
 
-        if(pat->pattern[j]>0.0) {
+		if(pat->pattern[j] > 0.0 && fabs(t2-a2) < limit) {
+			double a11=(fabs(total-a2) < limit)?total:a1;
+			double a21=(fabs(t2-a1) < limit)?t2:a2;
+			painter->drawArc(cp, ra, a11, a21, isReversed());
+		}
 
-            if (fabs(t2-a2)<limit) {
-                a11=(fabs(total-a2)<limit)?total:a1;
-                a21=(fabs(t2-a1)<limit)?t2:a2;
-                painter->drawArc(cp, ra,
-                                 a11,
-                                 a21,
-                                 isReversed());
-            }
-        }
-        total=t2;
-    }
+		total=t2;
+	}
 }
 
 

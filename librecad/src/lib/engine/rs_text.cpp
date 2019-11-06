@@ -33,6 +33,8 @@
 #include "rs_insert.h"
 #include "rs_math.h"
 #include "rs_debug.h"
+#include "rs_graphicview.h"
+#include "rs_painter.h"
 
 RS_TextData::RS_TextData(const RS_Vector& _insertionPoint,
 						 const RS_Vector& _secondPoint,
@@ -274,7 +276,7 @@ void RS_Text::update() {
     RS_Vector space = RS_Vector(font->getWordSpacing(), 0.0);
 
     // First every text line is created with
-    //   alignement: top left
+    //   alignment: top left
     //   angle: 0
     //   height: 9.0
     // Rotation, scaling and centering is done later
@@ -531,5 +533,27 @@ void RS_Text::stretch(const RS_Vector& firstCorner, const RS_Vector& secondCorne
 std::ostream& operator << (std::ostream& os, const RS_Text& p) {
     os << " Text: " << p.getData() << "\n";
     return os;
+}
+
+
+void RS_Text::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/)
+{
+    if (!(painter && view)) {
+        return;
+    }
+
+    if (!view->isPrintPreview() && !view->isPrinting())
+    {
+        if (view->isPanning() || view->toGuiDY(getHeight()) < 4)
+        {
+            painter->drawRect(view->toGui(getMin()), view->toGui(getMax()));
+            return;
+        }
+    }
+
+    foreach (auto e, entities)
+    {
+        view->drawEntity(painter, e);
+    }
 }
 

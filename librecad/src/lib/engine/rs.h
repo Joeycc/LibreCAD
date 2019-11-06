@@ -150,8 +150,9 @@ public:
         EntitySpline,       /**< Spline */
         EntitySplinePoints,       /**< SplinePoints */
         EntityOverlayBox,    /**< OverlayBox */
-        EntityPreview    /**< Preview Container */
-		,EntityPattern
+        EntityPreview,    /**< Preview Container */
+        EntityPattern,
+        EntityOverlayLine
     };
 
 
@@ -174,7 +175,7 @@ public:
         ActionFilePrintPDF,
         ActionFilePrintPreview,
         ActionFileExportMakerCam,
-		ActionFileQuit,
+        ActionFileQuit,
 
         ActionEditKillAllActions,
         ActionEditUndo,
@@ -265,6 +266,7 @@ public:
         ActionDrawLineParallel,
         ActionDrawLineParallelThrough,
         ActionDrawLinePolygonCenCor,
+        ActionDrawLinePolygonCenTan,//add by txmy
         ActionDrawLinePolygonCorCor,
         ActionDrawLineRectangle,
         ActionDrawLineRelAngle,
@@ -355,6 +357,8 @@ public:
 
         ActionLayersDefreezeAll,
         ActionLayersFreezeAll,
+        ActionLayersUnlockAll,
+        ActionLayersLockAll,
         ActionLayersAdd,
         ActionLayersRemove,
         ActionLayersEdit,
@@ -386,21 +390,17 @@ public:
         ActionOptionsGeneral,
         ActionOptionsDrawing,
 
-                ActionToolRegenerateDimensions,
+        ActionToolRegenerateDimensions,
 
-                ActionScriptOpenIDE,
-                ActionScriptRun,
-
-#ifndef RS_NO_COMPLEX_ENTITIES
-                ActionPARISDebugCreateContainer,
-#endif
+        ActionScriptOpenIDE,
+        ActionScriptRun,
 
         /** Needed to loop through all actions */
         ActionLast
     };
 
     /**
-    * Entity ending. Used for returning which end of an entity is ment.
+    * Entity ending. Used for returning which end of an entity is meant.
      */
     enum Ending {
         EndingStart,    /**< Start point. */
@@ -480,7 +480,9 @@ public:
         /** Architectural (e.g. 7'-9 1/8")*/
         Architectural,
         /** Fractional (e.g. 7 9 1/8) */
-        Fractional
+        Fractional,
+        /** Metric Architectural using DIN 406 (e.g. 1.12⁵)*/
+        ArchitecturalMetric
     };
 
     /**
@@ -539,6 +541,18 @@ public:
     enum Direction {
         Up, Left, Right, Down
     };
+
+	enum SubWindowMode {
+		CurrentMode = -1, Maximized, Cascade, Tile, TileVertical, TileHorizontal
+	};
+
+	enum TabShape {
+		AnyShape = -1, Rounded, Triangular
+	};
+
+	enum TabPosition {
+		AnyPosition = -1, North, South, West, East
+	};
 
     /**
      * Vertical alignments.
@@ -904,7 +918,7 @@ public:
         };
 
         /**
-         * Items that can be put on a overlay, teh items are rendered in this order. Best is to leave snapper as last so
+         * Items that can be put on a overlay, the items are rendered in this order. Best is to leave snapper as last so
          * it always shows up
          */
         enum OverlayGraphics {

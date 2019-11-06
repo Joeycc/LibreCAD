@@ -35,6 +35,7 @@
 #include "rs_coordinateevent.h"
 #include "rs_math.h"
 #include "rs_preview.h"
+#include "rs_settings.h"
 
 struct RS_ActionPrintPreview::Points {
 	RS_Vector v1;
@@ -55,6 +56,10 @@ RS_ActionPrintPreview::RS_ActionPrintPreview(RS_EntityContainer& container,
 {
     showOptions();
 	actionType=RS2::ActionFilePrintPreview;
+    RS_SETTINGS->beginGroup("/PrintPreview");
+    bool fixed = (RS_SETTINGS->readNumEntry("/PrintScaleFixed", 0) != 0);
+    RS_SETTINGS->endGroup();
+    setPaperScaleFixed(fixed);
 }
 
 RS_ActionPrintPreview::~RS_ActionPrintPreview()=default;
@@ -68,6 +73,12 @@ void RS_ActionPrintPreview::mouseMoveEvent(QMouseEvent* e) {
     switch (getStatus()) {
     case Moving:
 		pPoints->v2 = graphicView->toGraph(e->x(), e->y());
+		// if Shift is pressed the paper moves only horizontally
+		if (e->modifiers() & Qt::ShiftModifier)
+			pPoints->v2.y = pPoints->v1.y;
+		// if Ctrl is pressed the paper moves only vertically
+		if (e->modifiers() & Qt::ControlModifier)
+			pPoints->v2.x = pPoints->v1.x;
         if (graphic) {
             RS_Vector pinsbase = graphic->getPaperInsertionBase();
 
@@ -206,14 +217,12 @@ void RS_ActionPrintPreview::resume() {
 
 //printout warning in command widget
 void RS_ActionPrintPreview::printWarning(const QString& s) {
-	if(RS_DIALOGFACTORY){
-        RS_DIALOGFACTORY->commandMessage(s);
-    }
+	RS_DIALOGFACTORY->commandMessage(s);
 }
 
 void RS_ActionPrintPreview::showOptions() {
     RS_ActionInterface::showOptions();
-	if(RS_DIALOGFACTORY && ! isFinished() ) {
+	if (!isFinished()) {
         RS_DIALOGFACTORY->requestOptions(this, true,hasOptions);
         hasOptions=true;
     }
@@ -256,7 +265,7 @@ void RS_ActionPrintPreview::fit() {
                          " Paper is too small for fitting to page\n"
                          "Please set paper size by Menu: Edit->Current Drawing Preferences->Paper");
         //        double f0=graphic->getPaperScale();
-        if( graphic->fitToPage()==false && RS_DIALOGFACTORY){
+		if ( graphic->fitToPage()==false) {
             RS_DIALOGFACTORY->commandMessage(
                         tr("RS_ActionPrintPreview::fit(): Invalid paper size")
                         );
@@ -325,6 +334,27 @@ void RS_ActionPrintPreview::setPaperScaleFixed(bool fixed)
 bool RS_ActionPrintPreview::getPaperScaleFixed()
 {
     return graphic->getPaperScaleFixed();
+}
+
+/** calculate number of pages needed to contain a drawing */
+void RS_ActionPrintPreview::calcPagesNum() {
+    if (graphic) {
+        RS_Vector printArea = graphic->getPrintAreaSize(false);
+        RS_Vector graphicSize = graphic->getSize() * graphic->getPaperScale();
+        int pX = ceil(graphicSize.x / printArea.x);
+        int pY = ceil(graphicSize.y / printArea.y);
+
+        if ( pX > 99 || pY > 99) {
+            RS_DIALOGFACTORY->commandMessage(tr("RS_ActionPrintPreview::calcPagesNum(): "
+                                                "Limit of pages has been exceeded."));
+            return;
+        }
+
+        graphic->setPagesNum(pX, pY);
+        graphic->centerToPage();
+        graphicView->zoomPage();
+        graphicView->redraw();
+    }
 }
 
 // EOF

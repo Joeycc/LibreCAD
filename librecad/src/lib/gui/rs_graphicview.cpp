@@ -27,10 +27,13 @@
 
 #include<climits>
 #include<cmath>
+
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QAction>
 #include <QMouseEvent>
+#include <QtAlgorithms>
+
 #include "rs_graphicview.h"
 
 #include "rs_line.h"
@@ -62,7 +65,8 @@ RS_GraphicView::RS_GraphicView(QWidget* parent, Qt::WindowFlags f)
 	,grid{new RS_Grid{this}}
 	,drawingMode(RS2::ModeFull)
 	,savedViews(16)
-	,previousViewTime(QDateTime::currentDateTime())
+    ,previousViewTime(QDateTime::currentDateTime())
+    ,panning(false)
 {
     RS_SETTINGS->beginGroup("Colors");
     setBackground(QColor(RS_SETTINGS->readEntry("/background", Colors::background)));
@@ -78,10 +82,7 @@ RS_GraphicView::RS_GraphicView(QWidget* parent, Qt::WindowFlags f)
 
 RS_GraphicView::~RS_GraphicView()
 {
-    foreach (RS_EntityContainer* x, overlayEntities)
-    {
-        delete x;
-    }
+    qDeleteAll(overlayEntities);
 }
 
 /**
@@ -447,25 +448,26 @@ void RS_GraphicView::zoomOutY(double f) {
  * @param keepAspectRatio true: keep aspect ratio 1:1
  *                        false: factors in x and y are stretched to the max
  */
+#include <iostream>
 void RS_GraphicView::zoomAuto(bool axis, bool keepAspectRatio) {
 
 	RS_DEBUG->print("RS_GraphicView::zoomAuto");
 
 
 	if (container) {
-		container->calculateBorders();
+        container->calculateBorders();
 
 		double sx, sy;
 		if (axis) {
-			sx = std::max(container->getMax().x, 0.0)
-					- std::min(container->getMin().x, 0.0);
-			sy = std::max(container->getMax().y, 0.0)
-					- std::min(container->getMin().y, 0.0);
+			auto const dV = container->getMax() - container->getMin();
+			sx = std::max(dV.x, 0.);
+			sy = std::max(dV.y, 0.);
 		} else {
 			sx = container->getSize().x;
 			sy = container->getSize().y;
 		}
-		//    std::cout<<" RS_GraphicView::zoomAuto("<<axis<<","<<keepAspectRatio<<")"<<std::endl;
+//		    std::cout<<" RS_GraphicView::zoomAuto("<<sx<<","<<sy<<")"<<std::endl;
+//			std::cout<<" RS_GraphicView::zoomAuto("<<axis<<","<<keepAspectRatio<<")"<<std::endl;
 
 		double fx=1., fy=1.;
 		unsigned short fFlags=0;
@@ -814,7 +816,7 @@ void RS_GraphicView::zoomPage() {
 		return;
 	}
 
-	RS_Vector s = graphic->getPaperSize()/graphic->getPaperScale();
+	RS_Vector s = graphic->getPrintAreaSize()/graphic->getPaperScale();
 
 	double fx, fy;
 
@@ -1061,7 +1063,7 @@ void RS_GraphicView::setPenForEntity(RS_Painter *painter,RS_Entity *e)
 
 
 /**
- * Draws an entity. Might be recusively called e.g. for polylines.
+ * Draws an entity. Might be recursively called e.g. for polylines.
  * If the class wide painter is nullptr a new painter will be created
  * and destroyed afterwards.
  *
@@ -1072,19 +1074,19 @@ void RS_GraphicView::setPenForEntity(RS_Painter *painter,RS_Entity *e)
 void RS_GraphicView::drawEntity(RS_Entity* /*e*/, double& /*patternOffset*/) {
 	RS_DEBUG->print("RS_GraphicView::drawEntity(RS_Entity*,patternOffset) not supported anymore");
 	// RVT_PORT this needs to be optimized
-	// ONe way to do is to send a RS2::RedrawSelected, then teh draw routine will onyl draw all selected entities
+	// One way to do is to send a RS2::RedrawSelected, then the draw routine will only draw all selected entities
 	// Dis-advantage is that we still need to iterate over all entities, but
 	// this might be very fast
-	// For now we just redraw the drawing untill we are going to optmize drawing
+	// For now we just redraw the drawing until we are going to optimize drawing
 	redraw(RS2::RedrawDrawing);
 }
 void RS_GraphicView::drawEntity(RS_Entity* /*e*/ /*patternOffset*/) {
 	RS_DEBUG->print("RS_GraphicView::drawEntity(RS_Entity*,patternOffset) not supported anymore");
 	// RVT_PORT this needs to be optimized
-	// ONe way to do is to send a RS2::RedrawSelected, then teh draw routine will onyl draw all selected entities
+	// One way to do is to send a RS2::RedrawSelected, then the draw routine will only draw all selected entities
 	// Dis-advantage is that we still need to iterate over all entities, but
 	// this might be very fast
-	// For now we just redraw the drawing untill we are going to optmize drawing
+	// For now we just redraw the drawing until we are going to optimize drawing
 	redraw(RS2::RedrawDrawing);
 }
 void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e) {
@@ -1093,7 +1095,7 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e) {
 }
 void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patternOffset) {
 
-	// update is diabled:
+	// update is disabled:
     // given entity is nullptr:
 	if (!e) {
 		return;
@@ -1107,17 +1109,17 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patte
 		// do not draw construction layer on print preview or print
 		if( ! e->isPrint()
 				||  e->isConstruction())
-			return;
+        return;
 	}
 
-	// test if the entity is in the viewport
-	/* temporary disabled so rs_overlaylien can be drawn
-	if (!e->isContainer() && !isPrinting() &&
-            (painter==nullptr || !painter->isPreviewMode()) &&
-			(toGuiX(e->getMax().x)<0 || toGuiX(e->getMin().x)>getWidth() ||
-			 toGuiY(e->getMin().y)<0 || toGuiY(e->getMax().y)>getHeight())) {
-		return;
-	} */
+    // test if the entity is in the viewport
+    if (!isPrinting() &&
+        e->rtti() != RS2::EntityGraphic &&
+        e->rtti() != RS2::EntityLine &&
+       (toGuiX(e->getMax().x)<0 || toGuiX(e->getMin().x)>getWidth() ||
+        toGuiY(e->getMin().y)<0 || toGuiY(e->getMax().y)>getHeight())) {
+        return;
+    }
 
 	// set pen (color):
 	setPenForEntity(painter, e );
@@ -1127,12 +1129,7 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patte
         switch(e->rtti()){
         case RS2::EntityMText:
         case RS2::EntityText:
-            if (toGuiDX(((RS_MText*)e)->getHeight())<4 || e->countDeep()>100) {
-                // large or tiny texts as rectangles:
-                painter->drawRect(toGui(e->getMin()), toGui(e->getMax()));
-            } else {
-                drawEntityPlain(painter, e, patternOffset);
-            }
+            painter->drawRect(toGui(e->getMin()), toGui(e->getMax()));
             break;
         case RS2::EntityImage:
             // all images as rectangles:
@@ -1204,15 +1201,14 @@ void RS_GraphicView::drawEntityPlain(RS_Painter *painter, RS_Entity* e) {
 	}
 	double patternOffset(0.);
 	e->draw(painter, this, patternOffset);
-
 }
 /**
  * Deletes an entity with the background color.
- * Might be recusively called e.g. for polylines.
+ * Might be recursively called e.g. for polylines.
  */
 void RS_GraphicView::deleteEntity(RS_Entity* e) {
 
-	// RVT_PORT When we delete a single entoty, we can do this but we need to remove this then also from containerEntities
+	// RVT_PORT When we delete a single entity, we can do this but we need to remove this then also from containerEntities
 	RS_DEBUG->print("RS_GraphicView::deleteEntity will for now redraw the whole screen instead of just deleting the entity");
 	setDeleteMode(true);
 	drawEntity(e);
@@ -1327,9 +1323,9 @@ const RS_LineTypePattern* RS_GraphicView::getPattern(RS2::LineType t) {
 
 /**
  * This virtual method can be overwritten to draw the absolute
- * zero. It's called from within drawIt(). The default implemetation
- * draws a simple red cross on the zero of thge sheet
- * THis function can ONLY be called from within a paintEvent because it will
+ * zero. It's called from within drawIt(). The default implementation
+ * draws a simple red cross on the zero of the sheet
+ * This function can ONLY be called from within a paintEvent because it will
  * use the painter
  *
  * @see drawIt()
@@ -1356,9 +1352,9 @@ void RS_GraphicView::drawAbsoluteZero(RS_Painter *painter) {
 
 /**
  * This virtual method can be overwritten to draw the relative
- * zero point. It's called from within drawIt(). The default implemetation
+ * zero point. It's called from within drawIt(). The default implementation
  * draws a simple red round zero point. This is the point that was last created by the user, end of a line for example
- * THis function can ONLY be called from within a paintEvent because it will
+ * This function can ONLY be called from within a paintEvent because it will
  * use the painter
  *
  * @see drawIt()
@@ -1413,34 +1409,66 @@ void RS_GraphicView::drawPaper(RS_Painter *painter) {
 	painter->setPen(QColor(Qt::gray));
 
 	RS_Vector pinsbase = graphic->getPaperInsertionBase();
-	RS_Vector size = graphic->getPaperSize();
+	RS_Vector printAreaSize = graphic->getPrintAreaSize();
 	double scale = graphic->getPaperScale();
 
 	RS_Vector v1 = toGui((RS_Vector(0,0)-pinsbase)/scale);
-	RS_Vector v2 = toGui((size-pinsbase)/scale);
+	RS_Vector v2 = toGui((printAreaSize-pinsbase)/scale);
+
+	int marginLeft = (int)(graphic->getMarginLeftInUnits() * factor.x / scale);
+	int marginTop = (int)(graphic->getMarginTopInUnits() * factor.y / scale);
+	int marginRight = (int)(graphic->getMarginRightInUnits() * factor.x / scale);
+	int marginBottom = (int)(graphic->getMarginBottomInUnits() * factor.y / scale);
+
+	int printAreaW = (int)(v2.x-v1.x);
+	int printAreaH = (int)(v2.y-v1.y);
+
+	int paperX1 = (int)v1.x;
+	int paperY1 = (int)v1.y;
+	// Don't show margins between neighbor pages.
+	int paperW = printAreaW + marginLeft + marginRight;
+	int paperH = printAreaH - marginTop - marginBottom;
+
+	int numX = graphic->getPagesNumHoriz();
+	int numY = graphic->getPagesNumVert();
 
 	// gray background:
 	painter->fillRect(0,0, getWidth(), getHeight(),
 					  RS_Color(200,200,200));
 
-	// shadow
-	painter->fillRect(
-				(int)(v1.x)+6, (int)(v1.y)+6,
-				(int)((v2.x-v1.x)), (int)((v2.y-v1.y)),
-				RS_Color(64,64,64));
+	// shadow:
+	painter->fillRect(paperX1+6, paperY1+6, paperW, paperH,
+					  RS_Color(64,64,64));
 
 	// border:
-	painter->fillRect(
-				(int)(v1.x), (int)(v1.y),
-				(int)((v2.x-v1.x)), (int)((v2.y-v1.y)),
-				RS_Color(64,64,64));
+	painter->fillRect(paperX1, paperY1, paperW, paperH,
+					  RS_Color(64,64,64));
 
-	// paper
-	painter->fillRect(
-				(int)(v1.x)+1, (int)(v1.y)-1,
-				(int)((v2.x-v1.x))-2, (int)((v2.y-v1.y))+2,
-				RS_Color(255,255,255));
+	// paper:
+	painter->fillRect(paperX1+1, paperY1-1, paperW-2, paperH+2,
+					  RS_Color(180,180,180));
 
+	// print area:
+	painter->fillRect(paperX1+1+marginLeft, paperY1-1-marginBottom,
+					  printAreaW-2, printAreaH+2,
+					  RS_Color(255,255,255));
+
+	// don't paint boundaries if zoom is to small
+	if (qMin(fabs(printAreaW/numX), fabs(printAreaH/numY)) > 2) {
+		// boundaries between pages:
+		for (int pX = 1; pX < numX; pX++) {
+			double offset = ((double)printAreaW*pX)/numX;
+			painter->fillRect(paperX1+marginLeft+offset, paperY1,
+							  1, paperH,
+							  RS_Color(64,64,64));
+		}
+		for (int pY = 1; pY < numY; pY++) {
+			double offset = ((double)printAreaH*pY)/numY;
+			painter->fillRect(paperX1, paperY1-marginBottom+offset,
+							  paperW, 1,
+							  RS_Color(64,64,64));
+		}
+	}
 }
 
 
@@ -1553,14 +1581,18 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
 
 }
 
-void RS_GraphicView::drawOverlay(RS_Painter *painter) {
-	QList<int> const& keys=overlayEntities.keys();
-	for (int i = 0; i < keys.size(); ++i) {
-		if (overlayEntities[i]) {
-			setPenForEntity(painter, overlayEntities[i] );
-			drawEntityPlain(painter, overlayEntities[i]);
-		}
-	}
+void RS_GraphicView::drawOverlay(RS_Painter *painter)
+{
+    double patternOffset(0.);
+
+    foreach (auto ec, overlayEntities)
+    {
+        foreach (auto e, ec->getEntityList())
+        {
+            setPenForEntity(painter, e);
+            e->draw(painter, this, patternOffset);
+        }
+    }
 }
 
 RS2::SnapRestriction RS_GraphicView::getSnapRestriction() const
@@ -1734,7 +1766,7 @@ RS_Grid* RS_GraphicView::getGrid() const{
 }
 
 RS_EventHandler* RS_GraphicView::getEventHandler() const{
-	return eventHandler.get();
+    return eventHandler;
 }
 
 void RS_GraphicView::setBackground(const RS_Color& bg) {
@@ -1847,13 +1879,10 @@ bool RS_GraphicView::isCleanUp(void) const
 	return m_bIsCleanUp;
 }
 
-void RS_GraphicView::set_action(QAction* q_action)
-{
-    eventHandler->setQAction(q_action);
+bool RS_GraphicView::isPanning() const {
+    return panning;
+}
 
-    if (recent_actions.contains(q_action))
-    {
-        recent_actions.removeOne(q_action);
-    }
-    recent_actions.prepend(q_action);
+void RS_GraphicView::setPanning(bool state) {
+    panning = state;
 }

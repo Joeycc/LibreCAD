@@ -31,6 +31,7 @@
 #include "rs_actioninterface.h"
 
 class QG_SnapToolBar;
+class RS_Layer;
 
 /**
  * This class can trigger actions (from menus, buttons, ...).
@@ -132,6 +133,7 @@ public slots:
 	void slotDrawLineRelAngle();
 	void slotDrawLinePolygon();
 	void slotDrawLinePolygon2();
+    void slotDrawLinePolygon3();//added by txmy
 	void slotDrawCircle();
 	void slotDrawCircleCR();
 	void slotDrawCircle2P();
@@ -230,6 +232,8 @@ public slots:
 
 	void slotLayersDefreezeAll();
 	void slotLayersFreezeAll();
+	void slotLayersUnlockAll();
+	void slotLayersLockAll();
 	void slotLayersAdd();
 	void slotLayersRemove();
 	void slotLayersEdit();
@@ -251,6 +255,10 @@ public slots:
 	void slotBlocksExplode();
 	void slotOptionsDrawing();
 
+    void toggleVisibility(RS_Layer* layer);
+    void toggleLock(RS_Layer* layer);
+    void togglePrint(RS_Layer* layer);
+    void toggleConstruction(RS_Layer* layer);
 private:
 
 	// Type of draw order selected command

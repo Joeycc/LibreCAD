@@ -53,10 +53,19 @@ public:
         NAME,
         LAST
     };
+    enum IconSize {
+        ICONWIDTH = 24,
+        ICONHEIGHT = 24,
+    };
 	QG_LayerModel(QObject * parent = nullptr);
 	~QG_LayerModel() = default;
-    Qt::ItemFlags flags ( const QModelIndex & /*index*/ ) const {
-            return Qt::ItemIsSelectable|Qt::ItemIsEnabled;}
+    Qt::ItemFlags flags (const QModelIndex & index) const
+    {
+        if (index.column() == 5)
+            return Qt::ItemIsSelectable|Qt::ItemIsEnabled;
+        else
+            return Qt::ItemIsEnabled;
+    }
     int columnCount(const QModelIndex &/*parent*/) const {return LAST;}
     int rowCount ( const QModelIndex & parent = QModelIndex() ) const;
     QVariant data ( const QModelIndex & index, int role = Qt::DisplayRole ) const;
@@ -73,7 +82,9 @@ private:
     QIcon layerDefreeze;
     QIcon layerFreeze;
     QIcon layerPrint;
+    QIcon layerNoPrint;
     QIcon layerConstruction;
+    QIcon layerNoConstruction;
 };
 
 
@@ -97,10 +108,7 @@ public:
     virtual void layerActivated(RS_Layer* layer) {
         activateLayer(layer);
     }
-    virtual void layerAdded(RS_Layer* layer) {
-        update();
-        activateLayer(layer);
-    }
+    virtual void layerAdded(RS_Layer* layer);
     virtual void layerEdited(RS_Layer*) {
         update();
     }
@@ -136,6 +144,7 @@ signals:
 public slots:
     void slotActivated(QModelIndex layerIdx);
     void slotUpdateLayerList();
+    void activateLayer(int row);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *e);

@@ -47,16 +47,13 @@
 #include "rs_ellipse.h"
 #include "rs_polyline.h"
 #include "lc_splinepoints.h"
+#include "lc_undosection.h"
 #include "intern/qc_actiongetpoint.h"
 #include "intern/qc_actiongetselect.h"
 #include "intern/qc_actiongetent.h"
 #include "rs_math.h"
 #include "rs_debug.h"
 // #include <QDebug>
-
-#if QT_VERSION < 0x040500
-#include "emu_qt45.h"
-#endif
 
 convLTW::convLTW(){
 //    QHash<int, QString> lType;
@@ -767,27 +764,18 @@ doc(d)
 ,docGr(doc->getGraphic())
 ,gView(gv)
 ,main_window(parent)
-,haveUndo(false){
-}
-
-Doc_plugin_interface::~Doc_plugin_interface(){
-    if (haveUndo) {
-        doc->endUndoCycle();
-    }
+{
 }
 
 bool Doc_plugin_interface::addToUndo(RS_Entity* current, RS_Entity* modified){
     if (doc) {
         doc->addEntity(modified);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
+        LC_UndoSection undo(doc);
         if (current->isSelected())
             current->setSelected(false);
         current->changeUndoState();
-        doc->addUndoable(current);
-        doc->addUndoable(modified);
+        undo.addUndoable(current);
+        undo.addUndoable(modified);
         return true;
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addToUndo: currentContainer is nullptr");
@@ -796,6 +784,7 @@ bool Doc_plugin_interface::addToUndo(RS_Entity* current, RS_Entity* modified){
 
 void Doc_plugin_interface::updateView(){
     doc->setSelected(false);
+    gView->getContainer()->calculateBorders();
     gView->redraw();
 }
 
@@ -805,11 +794,8 @@ void Doc_plugin_interface::addPoint(QPointF *start){
     if (doc) {
         RS_Point* entity = new RS_Point(doc, RS_PointData(v1));
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addPoint: currentContainer is nullptr");
 }
@@ -821,11 +807,8 @@ void Doc_plugin_interface::addLine(QPointF *start, QPointF *end){
     if (doc) {
 		RS_Line* entity = new RS_Line{doc, v1, v2};
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addLine: currentContainer is nullptr");
 }
@@ -845,11 +828,8 @@ void Doc_plugin_interface::addMText(QString txt, QString sty, QPointF *start,
         RS_MText* entity = new RS_MText(doc, d);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addMtext: currentContainer is nullptr");
 }
@@ -868,11 +848,8 @@ void Doc_plugin_interface::addText(QString txt, QString sty, QPointF *start,
         RS_Text* entity = new RS_Text(doc, d);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addText: currentContainer is nullptr");
 }
@@ -884,11 +861,8 @@ void Doc_plugin_interface::addCircle(QPointF *start, qreal radius){
         RS_Circle* entity = new RS_Circle(doc, d);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addCircle: currentContainer is nullptr");
 }
@@ -902,11 +876,8 @@ void Doc_plugin_interface::addArc(QPointF *start, qreal radius, qreal a1, qreal 
                  false);
         RS_Arc* entity = new RS_Arc(doc, d);
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addArc: currentContainer is nullptr");
 }
@@ -920,11 +891,8 @@ void Doc_plugin_interface::addEllipse(QPointF *start, QPointF *end, qreal ratio,
         RS_Ellipse* entity = new RS_Ellipse(doc, ed);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addEllipse: currentContainer is nullptr");
 }
@@ -934,11 +902,7 @@ void Doc_plugin_interface::addLines(std::vector<QPointF> const& points, bool clo
     if (doc) {
         RS_LineData data;
 
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-
+        LC_UndoSection undo(doc);
         data.endpoint=RS_Vector(points.front().x(), points.front().y());
 
         for(size_t i=1; i<points.size(); ++i){
@@ -946,14 +910,14 @@ void Doc_plugin_interface::addLines(std::vector<QPointF> const& points, bool clo
             data.endpoint=RS_Vector(points[i].x(), points[i].y());
             RS_Line* line=new RS_Line(doc, data);
             doc->addEntity(line);
-            doc->addUndoable(line);
+            undo.addUndoable(line);
         }
         if(closed){
             data.startpoint=data.endpoint;
             data.endpoint=RS_Vector(points.front().x(), points.front().y());
             RS_Line* line=new RS_Line(doc, data);
             doc->addEntity(line);
-            doc->addUndoable(line);
+            undo.addUndoable(line);
         }
     } else
 		RS_DEBUG->print("%s: currentContainer is nullptr", __func__);
@@ -972,11 +936,8 @@ void Doc_plugin_interface::addPolyline(std::vector<Plug_VertexData> const& point
         }
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("%s: currentContainer is nullptr", __func__);
 }
@@ -992,11 +953,8 @@ void Doc_plugin_interface::addSplinePoints(std::vector<QPointF> const& points, b
         LC_SplinePoints* entity = new LC_SplinePoints(doc, data);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("%s: currentContainer is nullptr", __func__);
 }
@@ -1021,11 +979,8 @@ void Doc_plugin_interface::addImage(int handle, QPointF *start, QPointF *uvr, QP
                          fade));
 
         doc->addEntity(image);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(image);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(image);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addImage: currentContainer is nullptr");
 }
@@ -1039,11 +994,8 @@ void Doc_plugin_interface::addInsert(QString name, QPointF ins, QPointF scale, q
         RS_Insert* entity = new RS_Insert(doc, id);
 
         doc->addEntity(entity);
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
-        doc->addUndoable(entity);
+        LC_UndoSection undo(doc);
+        undo.addUndoable(entity);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addInsert: currentContainer is nullptr");
 }
@@ -1099,11 +1051,8 @@ void Doc_plugin_interface::addEntity(Plug_Entity *handle){
         RS_Entity *ent = (reinterpret_cast<Plugin_Entity*>(handle))->getEnt();
 		if (ent) {
             doc->addEntity(ent);
-            if (!haveUndo) {
-                doc->startUndoCycle();
-                haveUndo = true;
-            }
-            doc->addUndoable(ent);
+            LC_UndoSection undo(doc);
+            undo.addUndoable(ent);
         }
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addEntity: currentContainer is nullptr");
@@ -1123,13 +1072,10 @@ Plug_Entity *Doc_plugin_interface::newEntity( enum DPI::ETYPE type){
 void Doc_plugin_interface::removeEntity(Plug_Entity *ent){
     RS_Entity *e = (reinterpret_cast<Plugin_Entity*>(ent))->getEnt();
     if (doc && e) {
-        if (!haveUndo) {
-            doc->startUndoCycle();
-            haveUndo = true;
-        }
+        LC_UndoSection undo(doc);
         e->setSelected(false);
         e->changeUndoState();
-        doc->addUndoable(e);
+        undo.addUndoable(e);
 
         gView->redraw(RS2::RedrawDrawing);
     }
@@ -1137,14 +1083,11 @@ void Doc_plugin_interface::removeEntity(Plug_Entity *ent){
 
 void Doc_plugin_interface::updateEntity(RS_Entity *org, RS_Entity *newe){
     if (doc) {
-            if (!haveUndo) {
-                doc->startUndoCycle();
-                haveUndo = true;
-            }
-            doc->addEntity(newe);
-            doc->addUndoable(newe);
-            doc->addUndoable(org);
-            org->setUndoState(true);
+        LC_UndoSection undo(doc);
+        doc->addEntity(newe);
+        undo.addUndoable(newe);
+        undo.addUndoable(org);
+        org->setUndoState(true);
     } else
 		RS_DEBUG->print("Doc_plugin_interface::addEntity: currentContainer is nullptr");
 }
@@ -1249,10 +1192,12 @@ bool Doc_plugin_interface::getPoint(QPointF *point, const QString& mesage,
             if (!gView->getEventHandler()->hasAction())
                 break;
         }
-        if (a->isCompleted() ){
-        a->getPoint(point);
-        status = true;}
-//RLZ: delete QC_ActionGetPoint. Investigate how to kill only this action
+        if (a->isCompleted() && !a->wasCanceled())
+        {
+            a->getPoint(point);
+            status = true;
+        }
+        //RLZ: delete QC_ActionGetPoint. Investigate how to kill only this action
         gView->killAllActions();
     }
     return status;
@@ -1272,10 +1217,9 @@ Plug_Entity *Doc_plugin_interface::getEnt(const QString& mesage){
             if (!gView->getEventHandler()->hasAction())
                 break;
         }
-        // qDebug() << "getEnt: passed event loop";
     }
     Plug_Entity *e = reinterpret_cast<Plug_Entity*>(a->getSelected(this));
-    // qDebug() << e;
+    a->finish();
     gView->killAllActions();
     return e;
 }
@@ -1362,11 +1306,7 @@ bool Doc_plugin_interface::getInt(int *num, const QString& mesage, const QString
     else
         tit = title;
 
-#if QT_VERSION < 0x040500
-    int data = emu_qt45_QInputDialog_getInt(main_window, tit, msg, 0, -2147483647, 2147483647, 1, &ok);
-#else
     int data = QInputDialog::getInt(main_window, tit, msg, 0, -2147483647, 2147483647, 1, &ok);
-#endif
 
     if (ok)
         *num = data;
@@ -1432,6 +1372,9 @@ QString Doc_plugin_interface::realToStr(const qreal num, const int units, const 
     case 5:
         lf = RS2::Fractional;
         break;
+    case 6:
+        lf = RS2::ArchitecturalMetric;
+        break;
     default:
         lf = RS2::Decimal;
     }
@@ -1439,4 +1382,3 @@ QString Doc_plugin_interface::realToStr(const qreal num, const int units, const 
     QString msg = RS_Units::formatLinear(num,RS2::None,lf,pr);
     return msg;
 }
-

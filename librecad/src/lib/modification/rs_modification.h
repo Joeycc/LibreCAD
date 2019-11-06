@@ -29,6 +29,8 @@
 
 #include "rs_vector.h"
 #include "rs_pen.h"
+#include <QHash>
+
 class RS_AtomicEntity;
 class RS_Entity;
 class RS_EntityContainer;
@@ -179,6 +181,7 @@ public:
         bool changeColor;
         bool changeLineType;
         bool changeWidth;
+        bool applyBlockDeep;
 };
 
 
@@ -228,13 +231,17 @@ public:
 	void remove();
 	void revertDirection();
 	bool changeAttributes(RS_AttributesData& data);
+    bool changeAttributes(RS_AttributesData& data, RS_EntityContainer* container);
 
         void copy(const RS_Vector& ref, const bool cut);
 private:
         void copyEntity(RS_Entity* e, const RS_Vector& ref, const bool cut);
-public:
         void copyLayers(RS_Entity* e);
         void copyBlocks(RS_Entity* e);
+        bool pasteLayers(RS_Graphic* source);
+        bool pasteContainer(RS_Entity* entity, RS_EntityContainer* container, QHash<QString, QString>blocksDict, RS_Vector insertionPoint);
+        bool pasteEntity(RS_Entity* entity, RS_EntityContainer* container);
+public:
         void paste(const RS_PasteData& data, RS_Graphic* source=NULL);
 
     bool move(RS_MoveData& data);
@@ -265,7 +272,7 @@ public:
                RS_AtomicEntity* entity2,
                            RS_RoundData& data);
 
-        bool explode();
+        bool explode(const bool remove = true);
 		bool explodeTextIntoLetters();
         bool moveRef(RS_MoveRefData& data);
 

@@ -393,7 +393,8 @@ RS_Commands::RS_Commands() {
         {
             {{"divide", QObject::tr("divide", "modify - divide (cut)")},
              {"cut", QObject::tr("cut", "modify - divide (cut)")}},
-            {{"div", QObject::tr("div", "modify - divide (cut)")}},
+            {{"div", QObject::tr("div", "modify - divide (cut)")},
+            {"di", QObject::tr("di", "modify - divide (cut)")}},
             RS2::ActionModifyCut
         },
         //mirror
@@ -429,7 +430,8 @@ RS_Commands::RS_Commands() {
         //trim2
         {
             {{"trim2", QObject::tr("trim2", "modify - multi trim (extend)")}},
-            {{"tm2", QObject::tr("tm2", "modify - multi trim (extend)")}},
+            {{"tm2", QObject::tr("tm2", "modify - multi trim (extend)")},
+             {"t2", QObject::tr("t2", "modify - multi trim (extend)")}},
             RS2::ActionModifyTrim2
         },
         //lengthen
@@ -535,7 +537,8 @@ RS_Commands::RS_Commands() {
         //Modify Properties
         {
             {{"properties", QObject::tr("properties", "modify properties")}},
-            {{"prop", QObject::tr("prop", "modify properties")}},
+            {{"prop", QObject::tr("prop", "modify properties")},
+             {"mp", QObject::tr("mp", "modify properties")}},
             RS2::ActionModifyEntity
         },
         //Distance Point to Point
@@ -587,8 +590,8 @@ RS_Commands::RS_Commands() {
         {"columnspacing",QObject::tr("columnspacing")},
         {"factor",QObject::tr("factor")},
         {"length",QObject::tr("length")},
-        {"length1",QObject::tr("length1", "bevel/fillet lenght1")},
-        {"length2",QObject::tr("length2", "bevel/fillet lenght2")},
+        {"length1",QObject::tr("length1", "bevel/fillet length1")},
+        {"length2",QObject::tr("length2", "bevel/fillet length2")},
         {"number",QObject::tr("number")},
         {"radius",QObject::tr("radius")},
         {"rows",QObject::tr("rows")},
@@ -694,7 +697,7 @@ void RS_Commands::updateAlias(){
     if (aliasName.isEmpty())
         return;
     aliasName += "/librecad.alias";
-//    qDebug()<<"alisa file:\t"<<aliasName;
+//    qDebug()<<"alias file:\t"<<aliasName;
     QFile f(aliasName);
     QString line;
     std::map<QString, QString> aliasList;
@@ -743,7 +746,7 @@ void RS_Commands::updateAlias(){
 
     }
     //update alias file with non present commands
-//RLZ: to be writen
+//RLZ: to be written
 
     //add alias to shortCommands
     for(auto const& p: aliasList){
@@ -805,13 +808,11 @@ RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) {
 		// find full command to confirm to user:
 		for(auto const& p: mainCommands){
 			if(p.second==ret){
-				if (RS_DIALOGFACTORY) {
-					RS_DEBUG->print("RS_Commands::cmdToAction: commandMessage");
-					RS_DIALOGFACTORY->commandMessage(QObject::tr("Command: %1 (%2)").arg(full).arg(p.first));
-					//                                        RS_DialogFactory::instance()->commandMessage( QObject::tr("Command: %1").arg(full));
-					RS_DEBUG->print("RS_Commands::cmdToAction: "
-									"commandMessage: ok");
-				}
+				RS_DEBUG->print("RS_Commands::cmdToAction: commandMessage");
+				RS_DIALOGFACTORY->commandMessage(QObject::tr("Command: %1 (%2)").arg(full).arg(p.first));
+				//                                        RS_DialogFactory::instance()->commandMessage( QObject::tr("Command: %1").arg(full));
+				RS_DEBUG->print("RS_Commands::cmdToAction: "
+								"commandMessage: ok");
 				return ret;
 			}
 		}
@@ -850,16 +851,12 @@ RS2::ActionType RS_Commands::keycodeToAction(const QString& code) {
         //not found, searching for main commands
         it = mainCommands.find(c);
         if( it == mainCommands.end() ){
-            if (RS_DIALOGFACTORY) {
-                RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(c));
-            }
+//			RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(c));
             return RS2::ActionNone;
         }
     }
     //found
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->commandMessage(QObject::tr("Accepted keycode: %1").arg(c));
-    }
+	RS_DIALOGFACTORY->commandMessage(QObject::tr("Accepted keycode: %1").arg(c));
     //fixme, need to handle multiple hits
     return it->second;
 }
@@ -873,9 +870,7 @@ QString RS_Commands::command(const QString& cmd) {
     if(it != instance()->cmdTranslation.end()){
         return instance()->cmdTranslation[cmd];
     }
-    if (RS_DIALOGFACTORY) {
-        RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(cmd));
-    }
+	RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(cmd));
     RS_DEBUG->print(RS_Debug::D_WARNING,
                 "RS_Commands::command: command '%s' unknown", cmd.toLatin1().data());
     return "";

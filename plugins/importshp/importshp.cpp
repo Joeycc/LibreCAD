@@ -351,6 +351,7 @@ void dibSHP::procesFile(Document_Interface *doc)
             case SHPT_POLYGONM:
             case SHPT_POLYGONZ:
                 readPolylineC(dh, i);
+                // fall-through
             case SHPT_MULTIPATCH:
                 readMultiPolyline(dh, i);
             default:
@@ -452,7 +453,3 @@ void dibSHP::writeSettings()
     settings.setValue("size", size());
     settings.setValue("lastfile", fileedit->text());
  }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(importshp, ImportShp);
-#endif

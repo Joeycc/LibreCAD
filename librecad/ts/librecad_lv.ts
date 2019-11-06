@@ -2,34 +2,83 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="lv">
 <context>
+    <name>ColorWizard</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Kadrs</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
+    <name>ComboBoxOption</name>
+    <message>
+        <source>Frame</source>
+        <translation>Kadrs</translation>
+    </message>
+    <message>
+        <source>GroupBox</source>
+        <translation>Grupas kaste</translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation>Iestatīt</translation>
+    </message>
+</context>
+<context>
+    <name>CustomWidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation type="obsolete">Kadrs</translation>
+    </message>
+    <message>
+        <source>-&gt;</source>
+        <translation type="obsolete">-&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;-</source>
+        <translation type="obsolete">&lt;-</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="obsolete">Saglabāt</translation>
+    </message>
+</context>
+<context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished"></translation>
+        <translation>Splaina punkti</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Slānis:</translation>
+        <translation>Slānis:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">Ģeometrija</translation>
+        <translation>Ģeometrija</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Aizvērts</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Splaina punkti</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Vadības punkti</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Punkti uz splaina</translation>
     </message>
 </context>
 <context>
@@ -108,440 +157,440 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation type="unfinished">&amp;Loga mērogs</translation>
+        <translation>&amp;Loga mērogs</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation type="unfinished">Mēroga &amp;panoramēšana</translation>
+        <translation>Mēroga &amp;panoramēšana</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation type="unfinished">Izvēlēties objektu</translation>
+        <translation>Izvēlēties objektu</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation type="unfinished">Izvēlēties logu</translation>
+        <translation>Izvēlēties logu</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation type="unfinished">Neizvēlēties logu</translation>
+        <translation>Neizvēlēties logu</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation type="unfinished">[Ne-]izvēlēties &amp;kontūru</translation>
+        <translation>(Ne-)izvēlēties &amp;kontūru</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation type="unfinished">Izvēlēties objektus, kas krustojas</translation>
+        <translation>Izvēlēties objektus, kas krustojas</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation type="unfinished">Neizvēlēties objektus, kas krustojas</translation>
+        <translation>Neizvēlēties objektus, kas krustojas</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation type="unfinished">[Ne-]izvēlēties slāni</translation>
+        <translation>(Ne-)izvēlēties slāni</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation type="unfinished">&amp;Punkti</translation>
+        <translation>&amp;Punkti</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation type="unfinished">&amp;2 punkti</translation>
+        <translation>&amp;2 punkti</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation type="unfinished">&amp;Leņķis</translation>
+        <translation>&amp;Leņķis</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Horizontāli</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">Vertikāli</translation>
+        <translation>Vertikāli</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation type="unfinished">&amp;Brīvi zīmēta līnija</translation>
+        <translation>&amp;Brīvi zīmēta līnija</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation type="unfinished">&amp;Paralēli</translation>
+        <translation>&amp;Paralēli</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation type="unfinished">Paralēli caur punktu</translation>
+        <translation>Paralēli caur punktu</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished">Taisnstūris</translation>
+        <translation>Taisnstūris</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation type="unfinished">Bisektrise</translation>
+        <translation>Bisektrise</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation type="unfinished">Pieskare (p,c)</translation>
+        <translation>Pieskare (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation type="unfinished">Pieskare (c,c)</translation>
+        <translation>Pieskare (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation type="unfinished">&amp;Perpendikulārs tangenss</translation>
+        <translation>&amp;Perpendikulāra pieskare</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished">Perpendikulārs</translation>
+        <translation>Perpendikulārs</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished">Relatīvais leņķis</translation>
+        <translation>Relatīvais leņķis</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation type="unfinished">Daudzstūr&amp;is (cen, stūr)</translation>
+        <translation>Daudzstūr&amp;is (Cen, Stūr)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation type="unfinished">Daudzstūris (stū&amp;r, stūr)</translation>
+        <translation>Daudzstūris (Stū&amp;r, Stūr)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation type="unfinished">Centrs, &amp;punkts</translation>
+        <translation>Centrs, &amp;punkts</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation type="unfinished">Centrs, &amp;rādiuss</translation>
+        <translation>Centrs, &amp;rādiuss</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation type="unfinished">2 punkti</translation>
+        <translation>2 punkti</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation type="unfinished">2 punkti, rādiuss</translation>
+        <translation>2 punkti, rādiuss</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation type="unfinished">3 punkti</translation>
+        <translation>3 punkti</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation type="unfinished">&amp;Koncentriski</translation>
+        <translation>&amp;Koncentriski</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation type="unfinished">&amp;Ievilkts riņķis</translation>
+        <translation>&amp;Ievilkts riņķis</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation type="unfinished">Pieskaras 2 apļiem, rādiuss</translation>
+        <translation>Pieskaras 2 apļiem, rādiuss</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation type="unfinished">Pieskaras 2 apļiem, 1 punkts</translation>
+        <translation>Pieskaras 2 apļiem, 1 punkts</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation type="unfinished">Pieskaras &amp;3 apļiem</translation>
+        <translation>Pieskaras &amp;3 apļiem</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation type="unfinished">Pieskare, 2 p&amp;unkti</translation>
+        <translation>Pieskare, 2 p&amp;unkti</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation type="unfinished">&amp;Centrs, punkts, leņķi</translation>
+        <translation>&amp;Centrs, punkts, leņķi</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation type="unfinished">&amp;3 punkti</translation>
+        <translation>&amp;3 punkti</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation type="unfinished">Loka &amp;pieskare</translation>
+        <translation>Loka &amp;pieskare</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation type="unfinished">&amp;Elipse (ass)</translation>
+        <translation>&amp;Elipse (ass)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation type="unfinished">Elipses loks (&amp;ass)</translation>
+        <translation>Elipses loks (&amp;ass)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation type="unfinished">Elipses &amp;fokusa punkti</translation>
+        <translation>Elipses &amp;fokusa punkti</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation type="unfinished">Elipse &amp;4 punkti</translation>
+        <translation>Elipse &amp;4 punkti</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation type="unfinished">Elipses centrs un &amp;3 punkti</translation>
+        <translation>Elipses centrs un &amp;3 punkti</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation type="unfinished">&amp;Ievilkta elipse</translation>
+        <translation>&amp;Ievilkta elipse</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation type="unfinished">&amp;Splains</translation>
+        <translation>&amp;Splains</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation type="unfinished">&amp;Splains cauri punktiem</translation>
+        <translation>&amp;Splains cauri punktiem</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished">&amp;Lauzta līnija</translation>
+        <translation>&amp;Lauzta līnija</translation>
     </message>
     <message>
         <source>Draw polylines</source>
-        <translation type="unfinished">Zīmēt lauztas līnijas</translation>
+        <translation type="obsolete">Zīmēt lauztas līnijas</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation type="unfinished">&amp;Pievienot mezglu</translation>
+        <translation>&amp;Pievienot mezglu</translation>
     </message>
     <message>
         <source>Add polyline&apos;s node</source>
-        <translation type="unfinished">Pievienot lauztas līnijas mezglu</translation>
+        <translation type="obsolete">Pievienot lauztas līnijas mezglu</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation type="unfinished">&amp;Pielikt mezglu</translation>
+        <translation>&amp;Pielikt mezglu</translation>
     </message>
     <message>
         <source>Append polyline&apos;s node</source>
-        <translation type="unfinished">Pielikt lauztas līnijas mezglu</translation>
+        <translation type="obsolete">Pielikt lauztas līnijas mezglu</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation type="unfinished">&amp;Dzēst mezglu</translation>
+        <translation>&amp;Dzēst mezglu</translation>
     </message>
     <message>
         <source>Delete polyline&apos;s node</source>
-        <translation type="unfinished">Dzēst lauztas līnijas mezglu</translation>
+        <translation type="obsolete">Dzēst lauztas līnijas mezglu</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation type="unfinished">Dzēst starp diviem mez&amp;gliem</translation>
+        <translation>Dzēst starp diviem mez&amp;gliem</translation>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation type="unfinished">Dzēst starp diviem mezgliem</translation>
+        <translation type="obsolete">Dzēst starp diviem mezgliem</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished">Īsinā&amp;t segmentus</translation>
+        <translation>Īsinā&amp;t segmentus</translation>
     </message>
     <message>
         <source>Trim polyline&apos;s segments</source>
-        <translation type="unfinished">Īsināt lauztas līnijas segmentus</translation>
+        <translation type="obsolete">Īsināt lauztas līnijas segmentus</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation type="unfinished">Izv&amp;eidot vienāda garuma lauztas līnijas</translation>
+        <translation>Izv&amp;eidot vienāda garuma lauztas līnijas</translation>
     </message>
     <message>
         <source>Create Equidistant Polylines</source>
-        <translation type="unfinished">Izveidot vienāda garuma lauztas līnijas</translation>
+        <translation type="obsolete">Izveidot vienāda garuma lauztas līnijas</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished">Izveidot lauztu līniju no esošiem &amp;segmentiem</translation>
+        <translation>Izveidot lauztu līniju no esošiem &amp;segmentiem</translation>
     </message>
     <message>
         <source>Create Polyline from Existing Segments</source>
-        <translation type="unfinished">Izveidot lauztu līniju no esošiem segmentiem</translation>
+        <translation type="obsolete">Izveidot lauztu līniju no esošiem segmentiem</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation type="unfinished">&amp;VTeksts</translation>
+        <translation>&amp;Daudzrindu teksts</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation type="unfinished">&amp;Teksts</translation>
+        <translation>&amp;Teksts</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation type="unfinished">&amp;Svītrojums</translation>
+        <translation>&amp;Svītrojums</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation type="unfinished">&amp;Ievietot attēlu</translation>
+        <translation>&amp;Ievietot attēlu</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation type="unfinished">&amp;Līdzināts</translation>
+        <translation>&amp;Līdzināts</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation type="unfinished">&amp;Lineārs</translation>
+        <translation>&amp;Lineārs</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation type="unfinished">&amp;Vertikāls</translation>
+        <translation>&amp;Vertikāls</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation type="unfinished">&amp;Radiāls</translation>
+        <translation>&amp;Radiāls</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation type="unfinished">&amp;Diametrāls</translation>
+        <translation>&amp;Diametrāls</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation type="unfinished">&amp;Leņķa</translation>
+        <translation>&amp;Leņķa</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation type="unfinished">Norādes &amp;līnija</translation>
+        <translation>Norādes &amp;līnija</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation type="unfinished">&amp;Atribūti</translation>
+        <translation>&amp;Atribūti</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished">&amp;Dzēst</translation>
+        <translation>&amp;Dzēst</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation type="unfinished">Dzēst ar brīvu roku zīmēto</translation>
+        <translation>Dzēst ar brīvu roku zīmēto</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation type="unfinished">&amp;Pārvietot / kopēt</translation>
+        <translation>&amp;Pārvietot / kopēt</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation type="unfinished">Apgriezt &amp;virznienu</translation>
+        <translation>Apgriezt &amp;virzienu</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished">Ctrl+R</translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation type="unfinished">Pag&amp;riezt</translation>
+        <translation>Pag&amp;riezt</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation type="unfinished">&amp;Mainīt izmēru</translation>
+        <translation>&amp;Mainīt izmēru</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation type="unfinished">&amp;Spoguļot</translation>
+        <translation>&amp;Spoguļot</translation>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation type="unfinished">Pārviet&amp;ot un pagriezt</translation>
+        <translation type="obsolete">Pārviet&amp;ot un pagriezt</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation type="unfinished">Pagriezt di&amp;vus</translation>
+        <translation>Pagriezt di&amp;vus</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation type="unfinished">Ī&amp;pašības</translation>
+        <translation>Ī&amp;pašības</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation type="unfinished">Īsinā&amp;t</translation>
+        <translation>Īsinā&amp;t</translation>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation type="unfinished">Īsinā&amp;t divus</translation>
+        <translation type="obsolete">Īsinā&amp;t divus</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation type="unfinished">&amp;Pagarināt</translation>
+        <translation>&amp;Pagarināt</translation>
     </message>
     <message>
         <source>&amp;Offset</source>
-        <translation type="unfinished">&amp;Nobīdīt</translation>
+        <translation type="obsolete">&amp;Nobīdīt</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation type="unfinished">&amp;Dalīt</translation>
+        <translation>&amp;Dalīt</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation type="unfinished">Iz&amp;stiept</translation>
+        <translation>Iz&amp;stiept</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation type="unfinished">&amp;Slīps</translation>
+        <translation>&amp;Slīps</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation type="unfinished">&amp;Lente</translation>
+        <translation>&amp;Lente</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation type="unfinished">&amp;Eksplodēt tekstu burtos</translation>
+        <translation>&amp;Eksplodēt tekstu burtos</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation type="unfinished">Punkts kontūrā</translation>
+        <translation>Punkts kontūrā</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation type="unfinished">&amp;Attālums no punkta uz punktu</translation>
+        <translation>&amp;Attālums no punkta uz punktu</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation type="unfinished">&amp;Attālums no objekta līdz punktam</translation>
+        <translation>&amp;Attālums no objekta līdz punktam</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation type="unfinished">&amp;Leņķis starp divām līnijām</translation>
+        <translation>&amp;Leņķis starp divām līnijām</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation type="unfinished">Izvēlē&amp;to objektu kopīgais garums</translation>
+        <translation>Izvēlē&amp;to objektu kopīgais garums</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation type="unfinished">Daudzstūra &amp;laukums</translation>
+        <translation>Daudzstūra l&amp;aukums</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation type="unfinished">Izvēlēšanā&amp;s rādītājs</translation>
+        <translation>Izvēlēšanā&amp;s rādītājs</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished">&amp;Atsaukt</translation>
+        <translation>&amp;Atsaukt</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished">&amp;Atatsaukt</translation>
+        <translation>&amp;Atatsaukt</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished">Izgriez&amp;t</translation>
+        <translation>Izgriez&amp;t</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished">&amp;Kopēt</translation>
+        <translation>&amp;Kopēt</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished">&amp;Ielīmēt</translation>
+        <translation>&amp;Ielīmēt</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation type="unfinished">pārvietot uz apakšu</translation>
+        <translation>pārvietot uz apakšu</translation>
     </message>
     <message>
         <source>set to bottom</source>
@@ -549,7 +598,7 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation type="unfinished">pazemināt pēc objekta</translation>
+        <translation>pazemināt pēc objekta</translation>
     </message>
     <message>
         <source>lower over entity</source>
@@ -557,11 +606,11 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation type="unfinished">pacelt virs objekta</translation>
+        <translation>pacelt virs objekta</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation type="unfinished">pārvietot uz virspusi</translation>
+        <translation>pārvietot uz virspusi</translation>
     </message>
     <message>
         <source>set to top</source>
@@ -569,87 +618,87 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>&amp;Show all</source>
-        <translation type="unfinished">&amp;Rādīt visu</translation>
+        <translation>&amp;Rādīt visu</translation>
     </message>
     <message>
         <source>&amp;Hide all</source>
-        <translation type="unfinished">&amp;Slēpt visu</translation>
+        <translation>&amp;Slēpt visu</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">&amp;Pievienot slāni</translation>
+        <translation>&amp;Pievienot slāni</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">&amp;Izņemt slāni</translation>
+        <translation>&amp;Izņemt slāni</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation type="unfinished">R&amp;ediģēt slāni</translation>
+        <translation>R&amp;ediģēt slāni</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished">Pārslēgt slāņa fi&amp;ksēšanu</translation>
+        <translation>Pārslēgt slāņa fi&amp;ksēšanu</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation type="unfinished">Pārslēg&amp;t slāņa redzamību</translation>
+        <translation>Pārslēg&amp;t slāņa redzamību</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation type="unfinished">&amp;Pārslēgt slāņa drukāšanu</translation>
+        <translation>&amp;Pārslēgt slāņa drukāšanu</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished">Pārslēgt &amp;konstruēšanas slāni</translation>
+        <translation>Pārslēgt &amp;konstruēšanas slāni</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation type="unfinished">&amp;Pievienot bloku</translation>
+        <translation>&amp;Pievienot bloku</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation type="unfinished">&amp;Izņemt bloku</translation>
+        <translation>&amp;Izņemt bloku</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation type="unfinished">Pā&amp;rsaukt bloku</translation>
+        <translation>Pā&amp;rsaukt bloku</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation type="unfinished">R&amp;ediģēt bloku</translation>
+        <translation>R&amp;ediģēt bloku</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation type="unfinished">&amp;Saglabāt bloku</translation>
+        <translation>&amp;Saglabāt bloku</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation type="unfinished">&amp;Ievietot bloku</translation>
+        <translation>&amp;Ievietot bloku</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation type="unfinished">Pārslēgt bloka &amp;redzamību</translation>
+        <translation>Pārslēgt bloka &amp;redzamību</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation type="unfinished">&amp;Izveidot bloku</translation>
+        <translation>&amp;Izveidot bloku</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation type="unfinished">Eks&amp;plodēt</translation>
+        <translation>Eks&amp;plodēt</translation>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation type="unfinished">&amp;Iestatījumi</translation>
+        <translation type="obsolete">&amp;Iestatījumi</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation type="unfinished">&amp;Lietotnes iestatījumi</translation>
+        <translation>&amp;Lietotnes iestatījumi</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation type="unfinished">Pašreizējā &amp;zīmējuma iestatījumi</translation>
+        <translation>Pašreizējā &amp;zīmējuma iestatījumi</translation>
     </message>
     <message>
         <source>Open IDE</source>
@@ -661,168 +710,201 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation type="unfinished">&amp;Dzēst izvēlēto</translation>
+        <translation>&amp;Dzēst izvēlēto</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished">&amp;Izvēlēties visu</translation>
+        <translation>&amp;Izvēlēties visu</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation type="unfinished">Neizvēlēties &amp;nevienu</translation>
+        <translation>Neizvēlēties &amp;nevienu</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
-        <translation type="unfinished">Ctrl+K</translation>
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation type="unfinished">Invertēt izvēli</translation>
+        <translation>Invertēt izvēli</translation>
     </message>
     <message>
         <source>Export as &amp;MakerCAM SVG...</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksportēt kā &amp;MakerCAM SVG...</translation>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation type="unfinished">Pārģenerēt dimensiju objektus</translation>
+        <translation type="obsolete">Pārģenerēt dimensiju objektus</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished">Tuv&amp;ināt</translation>
+        <translation>Tuv&amp;ināt</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished">Tā&amp;lināt</translation>
+        <translation>Tā&amp;lināt</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation type="unfinished">&amp;Automātisks mērogs</translation>
+        <translation>&amp;Automātisks mērogs</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation type="unfinished">Iepriekšējais &amp;skats</translation>
+        <translation>Iepriekšējais &amp;skats</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation type="unfinished">Pā&amp;rzīmēt</translation>
+        <translation>Pā&amp;rzīmēt</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished">Jau&amp;ns</translation>
+        <translation>Jau&amp;ns</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation type="unfinished">Jauns no &amp;veidnes</translation>
+        <translation>Jauns no &amp;veidnes</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished">&amp;Atvērt...</translation>
+        <translation>&amp;Atvērt...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">&amp;Saglabāt</translation>
+        <translation>&amp;Saglabāt</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished">S&amp;aglabāt kā...</translation>
+        <translation>S&amp;aglabāt kā...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eksportēt kā attēlu</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Aizvērt</translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished">&amp;Drukāt...</translation>
+        <translation>&amp;Drukāt...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished">Eksportēt kā PDF</translation>
+        <translation>Eksportēt kā PDF</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="unfinished">&amp;Drukas priekšskatījums</translation>
+        <translation>&amp;Drukas priekšskatījums</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">I&amp;ziet</translation>
+        <translation>I&amp;ziet</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation type="unfinished">&amp;Bloks</translation>
+        <translation>&amp;Bloks</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pilnekrāns</translation>
     </message>
     <message>
         <source>Ctrl+Meta+F</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Ctrl+Meta+F</translation>
     </message>
     <message>
         <source>F11</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">F11</translation>
     </message>
     <message>
         <source>Ctrl+F11</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Ctrl+F11</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation type="unfinished">&amp;Režģis</translation>
+        <translation>&amp;Režģis</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
         <comment>Toggle Grid</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation type="unfinished">&amp;Melnraksts</translation>
+        <translation>&amp;Melnraksts</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation type="unfinished">&amp;Statusjosla</translation>
+        <translation>&amp;Statusjosla</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
         <comment>Hide Statusbar</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation type="unfinished">Fokusēties uz &amp;komandrindu</translation>
+        <translation>Fokusēties uz &amp;komandrindu</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Sīkrīka opcijas</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Pa kreisi</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Pa labi</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">Augšējais</translation>
+        <translation>Augšā</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Apakšā</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished"></translation>
+        <translation>Peldošs</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
+        <translation>Pārlādēt stilu loksni</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>Ierīces opcijas</translation>
+    </message>
+    <message>
+        <source>Mo&amp;ve and Rotate</source>
+        <translation>Pār&amp;vietot un pagriezt</translation>
+    </message>
+    <message>
+        <source>Tr&amp;im Two</source>
+        <translation>Īs&amp;ināt divus</translation>
+    </message>
+    <message>
+        <source>O&amp;ffset</source>
+        <translation>No&amp;bīdīt</translation>
+    </message>
+    <message>
+        <source>Create Double-click Menu</source>
+        <translation type="obsolete">Izveidot dubultklikšķa izvēlni</translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -837,7 +919,38 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     <name>LC_CustomToolbar</name>
     <message>
         <source>Add or Remove Action</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Pievienot vai izņemt darbību</translation>
+    </message>
+</context>
+<context>
+    <name>LC_DeviceOptions</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>Ierīce</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="obsolete">Pele</translation>
+    </message>
+    <message>
+        <source>Tablet</source>
+        <translation type="obsolete">Planšete</translation>
+    </message>
+    <message>
+        <source>Trackpad</source>
+        <translation type="obsolete">Skārienpaliktnis</translation>
+    </message>
+    <message>
+        <source>Touchscreen</source>
+        <translation type="obsolete">Skārienekrāns</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saglabāt</translation>
     </message>
 </context>
 <context>
@@ -855,26 +968,50 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Sīkrīka opcijas</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Rīkjosla</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonu izmērs</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Vispārīgi</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stils</translation>
     </message>
     <message>
         <source>Style Sheet</source>
+        <translation>Stilu loksne</translation>
+    </message>
+    <message>
+        <source>Statusbar</source>
+        <translation>Statusjosla</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Augstums</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>Fontu izmērs</translation>
+    </message>
+    <message>
+        <source>Input the path of a Qt style sheet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>side length in pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use themed icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -882,42 +1019,42 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation type="unfinished"></translation>
+        <translation>izvlēties:</translation>
     </message>
     <message>
         <source>remove left</source>
-        <translation type="unfinished"></translation>
+        <translation>izņemt kreiso</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation type="unfinished"></translation>
+        <translation>izņemt labo</translation>
     </message>
     <message>
         <source>remove 0&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>izņemt 0&apos;</translation>
     </message>
     <message>
         <source>remove 0&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>izņemt 0&apos;&apos;</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">Līnijas relatīvā leņķa opcijas</translation>
+        <translation>Līnijas relatīvā leņķa opcijas</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">Atstatums:</translation>
+        <translation>Atstatums:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished">Attālums no sākotnējās lauztās līnijas</translation>
+        <translation>Attālums no sākotnējās lauztās līnijas</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished">Kopijas:</translation>
+        <translation>Kopijas:</translation>
     </message>
 </context>
 <context>
@@ -993,11 +1130,11 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>&amp;Draw</source>
-        <translation>&amp;Zīmēt</translation>
+        <translation type="obsolete">&amp;Zīmēt</translation>
     </message>
     <message>
         <source>&amp;Dimension</source>
-        <translation>Dimensi&amp;ja</translation>
+        <translation type="obsolete">Dimensi&amp;ja</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
@@ -1005,7 +1142,7 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>&amp;Snap</source>
-        <translation>&amp;Piesaistīt</translation>
+        <translation type="obsolete">&amp;Piesaistīt</translation>
     </message>
     <message>
         <source>&amp;Info</source>
@@ -1013,11 +1150,11 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>&amp;Layer</source>
-        <translation>S&amp;lānis</translation>
+        <translation type="obsolete">S&amp;lānis</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp;Bloks</translation>
+        <translation type="obsolete">&amp;Bloks</translation>
     </message>
     <message>
         <source>About</source>
@@ -1057,7 +1194,7 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished">Atver nesenu datni...</translation>
+        <translation>Atver nesenu datni...</translation>
     </message>
     <message>
         <source>Loaded document: </source>
@@ -1077,7 +1214,7 @@ attālums starp punktiem=%2 ir lielāks nekā diametrs=%3</translation>
     </message>
     <message>
         <source>About...</source>
-        <translation>Par...</translation>
+        <translation type="obsolete">Par...</translation>
     </message>
     <message>
         <source>Layer List</source>
@@ -1161,19 +1298,19 @@ Pārbaudiet tiesības.</translation>
     </message>
     <message>
         <source>&amp;Manual</source>
-        <translation>&amp;Rokasgrāmata</translation>
+        <translation type="obsolete">&amp;Rokasgrāmata</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nekas</translation>
+        <translation type="obsolete">Nekas</translation>
     </message>
     <message>
         <source>Modules: %1</source>
-        <translation>Moduļi: %1</translation>
+        <translation type="obsolete">Moduļi: %1</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>&amp;Logs</translation>
+        <translation type="obsolete">&amp;Logs</translation>
     </message>
     <message>
         <source>Running script &apos;%1&apos;</source>
@@ -1211,7 +1348,7 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Palīdzība</translation>
+        <translation type="obsolete">Palīdzība</translation>
     </message>
     <message>
         <source>Bugger, I couldn&apos;t find the helpfiles on the filesystem.</source>
@@ -1231,15 +1368,15 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>Program Icons Supplied by</source>
-        <translation>Programmas ikonas nodrošina</translation>
+        <translation type="obsolete">Programmas ikonas nodrošina</translation>
     </message>
     <message>
         <source>Splash and Logo supplied by</source>
-        <translation>Uzplaiksnījuma ekrānu un logo nodrošina</translation>
+        <translation type="obsolete">Uzplaiksnījuma ekrānu un logo nodrošina</translation>
     </message>
     <message>
         <source>Main Website : </source>
-        <translation>Galvenā tīmekļa vietne : </translation>
+        <translation type="obsolete">Galvenā tīmekļa vietne : </translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -1247,7 +1384,7 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>SCM Revision: %1</source>
-        <translation>SCM rediģējums: %1</translation>
+        <translation type="obsolete">SCM rediģējums: %1</translation>
     </message>
     <message>
         <source>&amp;%1 %2</source>
@@ -1267,7 +1404,7 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>Please consider donating to LibreCAD to help maintain the source code and website.</source>
-        <translation>Lūdzu, apsveriet ziedošanu LibreCAD projektam, lai palīdzētu uzturēt pirmkodu un tīmekļa vietni.</translation>
+        <translation type="obsolete">Lūdzu, apsveriet ziedošanu LibreCAD projektam, lai palīdzētu uzturēt pirmkodu un tīmekļa vietni.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
@@ -1339,7 +1476,7 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++&lt;br&gt;</source>
-        <translation>Kompilators: Microsoft Visual C++&lt;br&gt;</translation>
+        <translation type="obsolete">Kompilators: Microsoft Visual C++&lt;br&gt;</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
@@ -1347,7 +1484,7 @@ Automātiskā saglabāšana ir deaktivēta.</translation>
     </message>
     <message>
         <source>Help files not found</source>
-        <translation>Palīdzības datnes nav atrastas</translation>
+        <translation type="obsolete">Palīdzības datnes nav atrastas</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -1382,91 +1519,175 @@ Lūdzu, pārbaudiet, vai tā eksistē un vai ir pareizas atļaujas.</translation
         <translation>Datne “%1” neeksistē. Atvēršana ir pārtraukta</translation>
     </message>
     <message>
-        <source>The help files were not found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Categories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Kategorijas</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Secība</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished"></translation>
+        <translation>Secība</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Izvēlēties</translation>
+        <translation>Izvēlēties</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Līnija</translation>
+        <translation>Līnija</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Riņķis</translation>
+        <translation>Riņķis</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Līkne</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished"></translation>
+        <translation>Līkne</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished">Elipse</translation>
+        <translation>Elipse</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">Lauzta līnija</translation>
-    </message>
-    <message>
-        <source>&amp;Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Lauzta līnija</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Dažādi</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation type="unfinished">Dimensija</translation>
+        <translation>Dimensija</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished">Modificēt</translation>
+        <translation>Modificēt</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished">Informācija</translation>
+        <translation>Informācija</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished">Zīmulis</translation>
+        <translation>Zīmulis</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Pielāgots</translation>
     </message>
     <message>
         <source>Online (Wiki)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Dockwidgets</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Tiešsaistes (viki)</translation>
     </message>
     <message>
         <source>Dock Areas</source>
+        <translation>Doka laukumi</translation>
+    </message>
+    <message>
+        <source>Grid Status</source>
+        <translation>Režģa satuss</translation>
+    </message>
+    <message>
+        <source>Toolbars</source>
+        <translation>Rīkjoslas</translation>
+    </message>
+    <message>
+        <source>Dockwidgets</source>
+        <translation>Doka sīkrīki</translation>
+    </message>
+    <message>
+        <source>Device Options</source>
+        <translation>Ierīces opcijas</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation>Ierīce</translation>
+    </message>
+    <message>
+        <source>&amp;Options</source>
+        <translation>&amp;Opcijas</translation>
+    </message>
+    <message>
+        <source>Double-click Menu Creator</source>
+        <translation type="obsolete">Dubultklikšķa izvēlnes veidotājs</translation>
+    </message>
+    <message>
+        <source>Pl&amp;ugins</source>
+        <translation>Spra&amp;udņi</translation>
+    </message>
+    <message>
+        <source>Dime&amp;nsion</source>
+        <translation>Dime&amp;nsijas</translation>
+    </message>
+    <message>
+        <source>Sna&amp;p</source>
+        <translation type="obsolete">&amp;Pievilkt</translation>
+    </message>
+    <message>
+        <source>Dock Wid&amp;gets</source>
+        <translation>Do&amp;ka sīkrīki</translation>
+    </message>
+    <message>
+        <source>Recent Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopēt</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toolbar Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Assigner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Drawings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2513,7 +2734,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Pielāgots</translation>
     </message>
 </context>
 <context>
@@ -2527,15 +2748,15 @@ p, li { white-space: pre-wrap; }
     <name>QG_CommandHistory</name>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished">&amp;Kopēt</translation>
+        <translation>&amp;Kopēt</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished">&amp;Izvēlēties visu</translation>
+        <translation>&amp;Izvēlēties visu</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Attīrīt</translation>
+        <translation>Attīrīt</translation>
     </message>
 </context>
 <context>
@@ -2562,7 +2783,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;type in coordinates or commands&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ierakstiet koordinātas vai komandas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ierakstiet koordinātas vai komandas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -2576,6 +2797,10 @@ p, li { white-space: pre-wrap; }
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation>atsolis</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
     </message>
 </context>
 <context>
@@ -2942,7 +3167,7 @@ p, li { white-space: pre-wrap; }
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 You can changes these settings later in the Options Dialog of QCad.</source>
-        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Laipni lūdzam QCad&lt;/b&gt;
+        <translation type="obsolete">&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Laipni lūdzam QCad&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā arī vēlamo valodu.&lt;br&gt;
@@ -2959,6 +3184,18 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     <message>
         <source>Command Language:</source>
         <translation>Komandu valoda:</translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Laipni lūdzam LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Lūdzu, izvēlieties, kādas mērvienības vēlaties izmantot jauniem rasējumiem un vēlamo valodu.&lt;br&gt;
+(Šos iestatījumus varēsiet vēlāk mainīt.)</translation>
     </message>
 </context>
 <context>
@@ -3063,7 +3300,7 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Line &amp;spacing:</source>
-        <translation>Rind&amp;starpa:</translation>
+        <translation type="obsolete">Rind&amp;starpa:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
@@ -3653,6 +3890,10 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
         <source>Diameter (⌀)</source>
         <translation>Diametrs (⌀)</translation>
     </message>
+    <message>
+        <source>&amp;Line spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QG_DlgMirror</name>
@@ -4123,115 +4364,115 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Text style:</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksta stils:</translation>
     </message>
     <message>
         <source>&apos;.&apos; (Period)</source>
-        <translation type="unfinished"></translation>
+        <translation>“.” (punkts)</translation>
     </message>
     <message>
         <source>&apos;,&apos; (Comma)</source>
-        <translation type="unfinished"></translation>
+        <translation>“,” (komats)</translation>
     </message>
     <message>
         <source>Decimal separator:</source>
-        <translation type="unfinished"></translation>
+        <translation>Decimālā atdalītājzīme:</translation>
     </message>
     <message>
         <source>Linear units:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lineārās mērvienības:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">Krāsa:</translation>
+        <translation>Krāsa:</translation>
     </message>
     <message>
         <source>Length Factor:</source>
-        <translation type="unfinished"></translation>
+        <translation>Garuma koeficients:</translation>
     </message>
     <message>
         <source>Angular units:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leņķu mērvienības:</translation>
     </message>
     <message>
         <source>Linear zeros:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lineārās nulles:</translation>
     </message>
     <message>
         <source>Format units</source>
-        <translation type="unfinished"></translation>
+        <translation>Formatēt mērvienības</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Attālumu atstarpe ap tekstu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Text size &amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksta izmērs un novietojums</translation>
     </message>
     <message>
         <source>Length to enlarge over dimension line</source>
-        <translation type="unfinished"></translation>
+        <translation>Garums, ko palielināt virs dimensijas līnijas</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimensiju biltas izmērs. &lt;a name=&quot;result_box&quot;/&gt;Nav efekta, ja biezuma izmērs &lt;a name=&quot;result_box&quot;/&gt;ir mazāks par 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Platums:</translation>
+        <translation>Platums:</translation>
     </message>
     <message>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensiju līnijas, bultas un ķekši</translation>
     </message>
     <message>
         <source>Angular zeros:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leņķu nulles:</translation>
     </message>
     <message>
         <source>Angular precision:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leņķu precizitāte:</translation>
     </message>
     <message>
         <source>Enlarge:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palielināt:</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nobītīt:</translation>
     </message>
     <message>
         <source>Linear precision:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lineārā precizitāte:</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Teksta līdzinājums &lt;a name=&quot;result_box&quot;/&gt;attiecībā pret dimensiju līniju.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Aligned</source>
-        <translation type="unfinished">Līdzināts</translation>
+        <translation>Līdzināts</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nobīde no sākotnējā punkta.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Text alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksta līdzinājums:</translation>
     </message>
     <message>
         <source>Extension lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagarinājuma līnijas</translation>
     </message>
     <message>
         <source>Fixed length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fiksēts garums:</translation>
     </message>
     <message>
         <source>fixed extension line legth</source>
-        <translation type="unfinished"></translation>
+        <translation>fiksēts pagarinājuma līnijas garums</translation>
     </message>
 </context>
 <context>
@@ -4254,7 +4495,7 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Scripts:</source>
-        <translation>Skripti:</translation>
+        <translation type="obsolete">Skripti:</translation>
     </message>
     <message>
         <source>Part Libraries:</source>
@@ -4310,7 +4551,7 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Number of p&amp;review entities:</source>
-        <translation>P&amp;riekšskatīšanas objektu skaits:</translation>
+        <translation type="obsolete">P&amp;riekšskatīšanas objektu skaits:</translation>
     </message>
     <message>
         <source>&amp;Paths</source>
@@ -4346,11 +4587,11 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Fontsize</source>
-        <translation>Fontu izmērs</translation>
+        <translation type="obsolete">Fontu izmērs</translation>
     </message>
     <message>
         <source>Statusbar:</source>
-        <translation>Statusjosla:</translation>
+        <translation type="obsolete">Statusjosla:</translation>
     </message>
     <message>
         <source>5</source>
@@ -4438,7 +4679,7 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Minimal Grid Spacing (px):</source>
-        <translation>Minimālā atstarpe režģī (px):</translation>
+        <translation type="obsolete">Minimālā atstarpe režģī (px):</translation>
     </message>
     <message>
         <source>Program Defaults</source>
@@ -4518,174 +4759,218 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Splash Window</source>
-        <translation>Uzplaiksnījuma logs</translation>
+        <translation type="obsolete">Uzplaiksnījuma logs</translation>
     </message>
     <message>
         <source>Display Splash</source>
-        <translation>Attēlot uzplaiksnījumu</translation>
+        <translation type="obsolete">Attēlot uzplaiksnījumu</translation>
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafikas krāsas</translation>
     </message>
     <message>
         <source>Aquamarine</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Akvamarīns</translation>
     </message>
     <message>
         <source>Azure</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Debeszils</translation>
     </message>
     <message>
         <source>DeepSkyBlue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DodgerBlue</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Tumši debeszils</translation>
     </message>
     <message>
         <source>Gray</source>
-        <translation type="unfinished">Pelēks</translation>
-    </message>
-    <message>
-        <source>HoneyDew</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lavender</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Pelēks</translation>
     </message>
     <message>
         <source>LightGrey</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Gaiši pelēks</translation>
     </message>
     <message>
         <source>Navy</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Tumši zils</translation>
     </message>
     <message>
         <source>PaleGreen</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Blāvi zaļš</translation>
     </message>
     <message>
         <source>Pink</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Salmon</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Rozā</translation>
     </message>
     <message>
         <source>Silver</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Sudraba</translation>
     </message>
     <message>
         <source>Violet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wheat</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Violets</translation>
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished">Balts</translation>
+        <translation type="obsolete">Balts</translation>
     </message>
     <message>
         <source>Snap indicator:</source>
-        <translation type="unfinished"></translation>
+        <translation>Piesaistes indikators:</translation>
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation type="unfinished"></translation>
+        <translation>Kropļojumnovērse</translation>
     </message>
     <message>
         <source>Crosshair</source>
-        <translation type="unfinished">Krustiņš</translation>
+        <translation type="obsolete">Krustiņš</translation>
     </message>
     <message>
         <source>Spiderweb</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Zirnekļa tīkls</translation>
     </message>
     <message>
         <source>GUI Colors</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Saskarnes krāsas</translation>
     </message>
     <message>
         <source>Layer/ Block Selection:</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Slāņa / bloka izvēle:</translation>
     </message>
     <message>
         <source>Custom Toolbar:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activation a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities are modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Pielāgota rīkjosla:</translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
-        <translation type="unfinished"></translation>
+        <translation>Mainīt slāni izvēlētajam objektam, pie slāņa aktivēšanas</translation>
     </message>
     <message>
         <source>Clear Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Attīrīt iestatījumus</translation>
     </message>
     <message>
         <source>restores program geometry/layout to original state</source>
-        <translation type="unfinished"></translation>
+        <translation>atjauno programmas ģeometriju/izklājumu uz sākotnējo izkārtojumu</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Izkārtojums</translation>
     </message>
     <message>
         <source>restores the program to its original state</source>
-        <translation type="unfinished"></translation>
+        <translation>atjaunot programmu uz tās sākotnējo stāvokli</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Viss</translation>
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation type="unfinished"></translation>
+        <translation>Ritjoslas</translation>
     </message>
     <message>
         <source>Crosshair2</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Krustiņš2</translation>
     </message>
     <message>
         <source>Isometric</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Izometrisks</translation>
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Piesaistīt indikatora līnijas</translation>
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Piesaistīt indikatora formu</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Riņķis</translation>
+        <translation type="obsolete">Riņķis</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished">Punkts</translation>
+        <translation type="obsolete">Punkts</translation>
     </message>
     <message>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Kvadrāts</translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Slēpt kursoru, kad pievelk</translation>
     </message>
     <message>
         <source>Start in tab mode</source>
+        <translation>Sākt ciļņu režīmā</translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation>Startēšana</translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation>Rādīt ielādēšanas ekrānu</translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation>Sākt ar maksimizētu galveno logu</translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation>Ieslēgt CAD doka sīkrīkus</translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation>Ieslēgt CAD rīkjoslas</translation>
+    </message>
+    <message>
+        <source>Keycode mode</source>
+        <translation type="obsolete">Taustiņu kodu režīms</translation>
+    </message>
+    <message>
+        <source>#736F6E</source>
+        <translation type="obsolete">#736F6E</translation>
+    </message>
+    <message>
+        <source>#F0F8FF</source>
+        <translation type="obsolete">#F0F8FF</translation>
+    </message>
+    <message>
+        <source>#FFC200</source>
+        <translation type="obsolete">#FFC200</translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation>#1E90FF</translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5594,15 +5879,23 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Līdzināts</translation>
+        <translation type="obsolete">Līdzināts</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Vidū</translation>
+        <translation type="obsolete">Vidū</translation>
     </message>
     <message utf8="true">
         <source>Diameter (⌀)</source>
         <translation>Diametrs (⌀)</translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5756,7 +6049,7 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     </message>
     <message>
         <source>Black</source>
-        <translation>Melns</translation>
+        <translation type="obsolete">Melns</translation>
     </message>
     <message>
         <source>Resolution:</source>
@@ -5857,6 +6150,10 @@ Lūdzu, izvēlieties mērvienības, kuras izmantot jauniem zīmējumiem, kā ar�
     <message>
         <source>set same size</source>
         <translation>iestatīt to pašu izmēru</translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6510,7 +6807,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>wrong action type</source>
-        <translation type="unfinished"></translation>
+        <translation>nepareizs darbības tips</translation>
     </message>
 </context>
 <context>
@@ -6748,6 +7045,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Lock relative zero position</source>
         <translation>Fiksēt relatīvās nulles pozīciju</translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6994,7 +7295,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiks izņemts slānis “%1” un visi uz tā esošie objekti.Šo darbību NEVAR atsaukt.</translation>
     </message>
 </context>
 <context>
@@ -8507,6 +8808,185 @@ Turpināt?</translation>
     </message>
     <message>
         <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Bloks</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Riņķis</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">Līkne</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Rediģēt</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipse</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Datne</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Dimensija</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Informācija</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Līnija</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">Modificēt</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished">Opcijas</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Lauzta līnija</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Izvēlēties</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Pievilkt</translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Skats</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Viss</translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Command File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keycode Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Multiple Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -10140,7 +10620,7 @@ Turpināt?</translation>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Area: %1</source>
-        <translation>Laukums: %1</translation>
+        <translation type="obsolete">Laukums: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -10169,6 +10649,10 @@ Turpināt?</translation>
     <message>
         <source>Closing Point: %1/%2</source>
         <translation>Aizverošais punkts: %1/%2</translation>
+    </message>
+    <message>
+        <source>Area: %1 %2^2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11061,7 +11545,7 @@ Turpināt?</translation>
     </message>
     <message>
         <source>Deletinging point is invalid.</source>
-        <translation>Dzēšanas punkts nav derīgs.</translation>
+        <translation type="obsolete">Dzēšanas punkts nav derīgs.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
@@ -11069,7 +11553,7 @@ Turpināt?</translation>
     </message>
     <message>
         <source>Deleteinging point is not on entity.</source>
-        <translation>Dzēšanas punkts nav objekts.</translation>
+        <translation type="obsolete">Dzēšanas punkts nav objekts.</translation>
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
@@ -12391,6 +12875,13 @@ Turpināt?</translation>
     </message>
 </context>
 <context>
+    <name>TextFileViewer</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Kadrs</translation>
+    </message>
+</context>
+<context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
@@ -13033,6 +13524,41 @@ Turpināt?</translation>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
         <translation type="unfinished">Ievades garums tiek izmantots kā kopējais garums pēc īsināšanas, nevis garuma pieaugums</translation>
+    </message>
+</context>
+<context>
+    <name>WidgetCreator</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Kadrs</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destroy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

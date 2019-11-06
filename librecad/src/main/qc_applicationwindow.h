@@ -24,6 +24,8 @@
 **
 **********************************************************************/
 
+// Changes: https://github.com/LibreCAD/LibreCAD/commits/master/librecad/src/main/qc_applicationwindow.h
+
 #ifndef QC_APPLICATIONWINDOW_H
 #define QC_APPLICATIONWINDOW_H
 
@@ -48,7 +50,6 @@ class QG_MouseWidget;
 class QG_SelectionWidget;
 class QG_RecentFiles;
 class QG_PenToolBar;
-class QHelpEngine;
 class QC_PluginInterface;
 class QG_ActiveLayerName;
 class LC_SimpleTests;
@@ -57,6 +58,8 @@ class QG_ActionHandler;
 class RS_GraphicView;
 class RS_Document;
 class TwoStackedLabels;
+class LC_ActionGroupManager;
+class LC_PenWizard;
 
 struct DockAreas
 {
@@ -86,12 +89,15 @@ public:
     bool queryExit(bool force);
 
     /** Catch hotkey for giving focus to command line. */
-    virtual void keyPressEvent(QKeyEvent* e);
+    virtual void keyPressEvent(QKeyEvent* e) override;
     void setRedoEnable(bool enable);
     void setUndoEnable(bool enable);
     bool loadStyleSheet(QString path);
 
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
     QMap<QString, QAction*> a_map;
+    LC_ActionGroupManager* ag_manager;
 
 public slots:
     void relayAction(QAction* q_action);
@@ -110,6 +116,15 @@ public slots:
     void slotTile();
     void slotTileHorizontal();
     void slotTileVertical();
+	void slotSetMaximized();
+
+	void slotTabShapeRounded();
+	void slotTabShapeTriangular();
+	void slotTabPositionNorth();
+	void slotTabPositionSouth();
+	void slotTabPositionEast();
+	void slotTabPositionWest();
+
     void slotToggleTab();
     void slotZoomAuto();
 
@@ -130,11 +145,14 @@ public slots:
      * opens the given file.
      */
     void slotFileOpen(const QString& fileName, RS2::FormatType type);
+    void slotFileOpen(const QString& fileName); // Assume Unknown type
     void slotFileOpenRecent(QAction* action);
     /** saves a document */
     void slotFileSave();
     /** saves a document under a different filename*/
     void slotFileSaveAs();
+	/** saves all open documents; return false == operation cancelled **/
+	bool slotFileSaveAll();
     /** auto-save document */
     void slotFileAutoSave();
     /** exports the document as bitmap */
@@ -143,6 +161,8 @@ public slots:
                 QSize size, QSize borders, bool black, bool bw=true);
     /** closing the current file */
     void slotFileClosing(QC_MDIWindow*);
+	/** close all files; return false == operation cancelled */
+	bool slotFileCloseAll();
     /** prints the current file */
     void slotFilePrint(bool printPDF=false);
     void slotFilePrintPDF();
@@ -163,8 +183,7 @@ public slots:
     void slotImportBlock();
 
     /** shows an about dlg*/
-    void slotHelpAbout();
-    void slotHelpManual();
+    void showAboutWindow();
 
     /**
      * @brief slotUpdateActiveLayer
@@ -173,7 +192,7 @@ public slots:
     void slotUpdateActiveLayer();
 	void execPlug();
 
-    void gotoWiki();
+    void invokeLinkList();
 
     void toggleFullscreen(bool checked);
 
@@ -189,6 +208,21 @@ public slots:
     void updateGridStatus(const QString&);
 
     void showDeviceOptions();
+
+    void updateDevice(QString);
+
+    void invokeMenuCreator();
+    void invokeToolbarCreator();
+    void createToolbar(const QString& toolbar_name);
+    void destroyToolbar(const QString& toolbar_name);
+    void destroyMenu(const QString& activator);
+    void unassignMenu(const QString& activator, const QString& menu_name);
+    void assignMenu(const QString& activator, const QString& menu_name);
+    void invokeMenuAssigner(const QString& menu_name);
+    void updateMenu(const QString& menu_name);
+
+    void invokeLicenseWindow();
+
 
 signals:
     void gridChanged(bool on);
@@ -259,19 +293,28 @@ public:
     }
 
 protected:
-    void closeEvent(QCloseEvent*);
+    void closeEvent(QCloseEvent*) override;
     //! \{ accept drop files to open
-    virtual void dropEvent(QDropEvent* e);
-    virtual void dragEnterEvent(QDragEnterEvent * event);
+    virtual void dropEvent(QDropEvent* e) override;
+    virtual void dragEnterEvent(QDragEnterEvent * event) override;
+    void changeEvent(QEvent* event) override;
     //! \}
 
 private:
 
-    QMenu* createPopupMenu();
+    QMenu* createPopupMenu() override;
 
     QString format_filename_caption(const QString &qstring_in);
     /** Helper function for Menu file -> New & New.... */
 	bool slotFileNewHelper(QString fileName, QC_MDIWindow* w = nullptr);
+	// more helpers
+	void doArrangeWindows(RS2::SubWindowMode mode, bool actuallyDont = false);
+	void setTabLayout(RS2::TabShape s, RS2::TabPosition p);
+	bool doSave(QC_MDIWindow* w, bool forceSaveAs = false);
+	void doClose(QC_MDIWindow* w, bool activateNext = true);
+	void doActivate(QMdiSubWindow* w);
+	int showCloseDialog(QC_MDIWindow* w, bool showSaveAll = false);
+	void enableFileActions(QC_MDIWindow* w);
 
     /**
      * @brief updateWindowTitle, for draft mode, add "Draft Mode" to window title
@@ -296,6 +339,8 @@ private:
     /** MdiArea for MDI */
     QMdiArea* mdiAreaCAD{nullptr};
     QMdiSubWindow* activedMdiSubWindow;
+    QMdiSubWindow* current_subwindow;
+
 
     /** Dialog factory */
     QC_DialogFactory* dialogFactory;
@@ -316,8 +361,7 @@ private:
     /** Command line */
     QG_CommandWidget* commandWidget;
 
-    QHelpEngine* helpEngine{nullptr};
-    QDockWidget* helpWindow{nullptr};
+    LC_PenWizard* pen_wiz;
 
     // --- Statusbar ---
     /** Coordinate widget */
@@ -349,7 +393,6 @@ private:
     QAction* scriptOpenIDE;
     QAction* scriptRun;
     QAction* helpAboutApp;
-    QAction* helpManual;
 
     // --- Flags ---
     bool previousZoomEnable{false};
@@ -367,6 +410,7 @@ private:
 
     // --- Strings ---
     QString style_sheet_path;
+
 };
 
 

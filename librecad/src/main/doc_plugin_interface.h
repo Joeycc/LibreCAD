@@ -75,7 +75,6 @@ class Doc_plugin_interface : public Document_Interface
 {
 public:
     Doc_plugin_interface(RS_Document *d, RS_GraphicView* gv, QWidget* parent);
-    ~Doc_plugin_interface();
     void updateView();
     void addPoint(QPointF *start);
     void addLine(QPointF *start, QPointF *end);
@@ -125,14 +124,13 @@ public:
     bool getString(QString *txt, const QString& mesage, const QString& title);
     QString realToStr(const qreal num, const int units = 0, const int prec = 0);
 
-    /*metod to handle undo in Plugin_Entity*/
+    //method to handle undo in Plugin_Entity 
     bool addToUndo(RS_Entity* current, RS_Entity* modified);
 private:
     RS_Document *doc;
     RS_Graphic *docGr;
     RS_GraphicView *gView;
     QWidget* main_window;
-    bool haveUndo;
 };
 
 /*void addArc(QPointF *start);			->Without start

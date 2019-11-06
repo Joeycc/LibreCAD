@@ -479,7 +479,7 @@ void RS_FilterJWW::addMTextChunk(const char* text) {
 }
 
 /*
- * get teh encoding of the DXF files,
+ * get the encoding of the DXF files,
  * Acad versions >= 2007 are UTF-8, others in ANSI_1252
  */
 QString RS_FilterJWW::getDXFEncoding() {
@@ -654,11 +654,7 @@ void RS_FilterJWW::addText(const DL_TextData& data) {
         addMText(DL_MTextData(
                                  refPoint.x,
                                  refPoint.y,
-#ifdef  RS_VECTOR2D
-                                 0.,
-#else
                                  refPoint.z,
-#endif
                                  data.height, width,
                                  attachmentPoint,
                                  drawingDirection,
@@ -687,7 +683,7 @@ RS_DimensionData RS_FilterJWW::convDimensionData(
 
         // middlepoint of text can be 0/0 which is considered to be invalid (!):
         //  0/0 because older QCad versions save the middle of the text as 0/0
-        //  althought they didn't suport saving of the middle of the text.
+        //  although they didn't support saving of the middle of the text.
         if (fabs(data.mpx)<1.0e-6 && fabs(data.mpy)<1.0e-6) {
                 midP = RS_Vector(false);
         }
@@ -1133,11 +1129,7 @@ void RS_FilterJWW::setVariableVector(const char* key,
         // update document's variable list:
         if (currentContainer->rtti()==RS2::EntityGraphic) {
                 ((RS_Graphic*)currentContainer)->addVariable(QString(key),
-#ifdef  RS_VECTOR2D
-                                RS_Vector(v1, v2), code);
-#else
                                 RS_Vector(v1, v2, v3), code);
-#endif
         }
 }
 
@@ -1468,11 +1460,7 @@ void RS_FilterJWW::writeVariables(DL_WriterA& dw) {
                                                    it.value().getVector().y);
                                 if (isVariableTwoDimensional(it.key()/*valueKey()*/)==false) {
                                         dw.dxfReal(it.value().getCode()+20,
-#ifdef  RS_VECTOR2D
-                                                           0.);
-#else
                                                            it.value().getVector().z);
-#endif
                                 }
                                 break;
                         }
@@ -1564,11 +1552,7 @@ void RS_FilterJWW::writeBlock(DL_WriterA& dw, RS_Block* blk) {
                                    DL_BlockData((const char*)blk->getName().toLocal8Bit().data(), 0,
                                                                 blk->getBasePoint().x,
                                                                 blk->getBasePoint().y,
-#ifdef  RS_VECTOR2D
-                                                                0.));
-#else
                                                                 blk->getBasePoint().z));
-#endif
         for (RS_Entity* e=blk->firstEntity(RS2::ResolveNone);
                         e;
                         e=blk->nextEntity(RS2::ResolveNone)) {
@@ -3075,14 +3059,7 @@ QString RS_FilterJWW::toDxfString(const QString& string) {
                         if (c>127) {
                                 QString hex;
                                 hex = QString("%1").arg(c, 4, 16);
-#if QT_VERSION>=0x030000
-
                                 hex = hex.replace(' ', '0');
-#else
-
-                                hex = QStringCompat::replace(hex, ' ', '0');
-#endif
-
                                 res+=QString("\\U+%1").arg(hex);
                         } else {
                                 res+=string.at(i);
@@ -3142,7 +3119,7 @@ QString RS_FilterJWW::toNativeString(const char* data, const QString& encoding) 
 
     // ASCII code:
     cap = "";
-    uCode = 0;
+//    uCode = 0;
     ok = false;
     do {
         QRegExp regexp("%%[0-9]{3,3}");

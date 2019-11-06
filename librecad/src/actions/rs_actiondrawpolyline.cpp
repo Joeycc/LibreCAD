@@ -230,6 +230,7 @@ double RS_ActionDrawPolyline::solveBulge(RS_Vector mouse) {
 //        else
 //            b=0;
 //        break;
+        // fall-through
      case TanRad:
 		if (pPoints->polyline){
 			lastentity = static_cast<RS_AtomicEntity*>(pPoints->polyline->lastEntity());
@@ -482,16 +483,16 @@ void RS_ActionDrawPolyline::updateMouseCursor() {
 
 void RS_ActionDrawPolyline::close() {
 	if (pPoints->history.size()>2 && pPoints->start.valid) {
-        //data.endpoint = start;
-        //trigger();
-				if (pPoints->polyline) {
-                        if (Mode==TanRad)
-                                Mode=Line;
-						RS_CoordinateEvent e(pPoints->polyline->getStartpoint());
-                        coordinateEvent(&e);
-                }
-		pPoints->polyline->setClosed(true);
-                trigger();
+		//data.endpoint = start;
+		//trigger();
+		if (pPoints->polyline) {
+			if (Mode==TanRad)
+				Mode=Line;
+			RS_CoordinateEvent e(pPoints->polyline->getStartpoint());
+			coordinateEvent(&e);
+			pPoints->polyline->setClosed(true);
+		}
+		trigger();
         setStatus(SetStartpoint);
 		graphicView->moveRelativeZero(pPoints->start);
     } else {
